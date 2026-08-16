@@ -40,6 +40,8 @@ const flag = (name, fallback) => {
 const QUICK = args.includes("--quick");
 /** Re-rank and re-enrich from the last search cache instead of hitting search again. */
 const FROM_CACHE = args.includes("--from-cache");
+/** Recompute scores and setup steps from the stored signals, offline. */
+const REBUILD_STEPS = args.includes("--rebuild-steps");
 const LIMIT = Number(flag("limit", 400));
 const MIN_STARS = Number(flag("min-stars", 150));
 const FRESH_MIN_STARS = Number(flag("fresh-min-stars", 40));
@@ -192,9 +194,9 @@ function detectSignals(entries) {
 const STEP_RECIPES = [
   {
     when: (s) => s.includes("docker"),
-    zh: "用 Docker 一键起环境，无需本机装依赖",
-    en: "Spin up the environment with Docker, no local deps required",
-    cmd: "docker compose up -d   # 或 / or: docker build -t app . && docker run --rm -it app",
+    zh: "用 Docker 一键起环境，无需本机装依赖。仓库里没有 compose 文件时，改用 docker build -t app . 再 docker run --rm -it app",
+    en: "Spin up the environment with Docker, no local deps required. If the repo has no compose file, use docker build -t app . followed by docker run --rm -it app",
+    cmd: "docker compose up -d",
   },
   {
     when: (s) => s.includes("conda"),
@@ -204,9 +206,9 @@ const STEP_RECIPES = [
   },
   {
     when: (s) => s.includes("python") && !s.includes("conda"),
-    zh: "创建虚拟环境并安装 Python 依赖",
-    en: "Create a virtualenv and install the Python dependencies",
-    cmd: "python -m venv .venv && source .venv/bin/activate\npip install -r requirements.txt   # 或 / or: pip install -e .",
+    zh: "创建虚拟环境并安装 Python 依赖。只有 pyproject.toml / setup.py 而没有 requirements.txt 时，改用 pip install -e .",
+    en: "Create a virtualenv and install the Python dependencies. If there is a pyproject.toml or setup.py but no requirements.txt, use pip install -e . instead",
+    cmd: "python -m venv .venv && source .venv/bin/activate\npip install -r requirements.txt",
   },
   {
     when: (s) => s.includes("node"),
@@ -264,8 +266,8 @@ const STEP_RECIPES = [
   },
   {
     when: (s) => s.includes("hardware"),
-    zh: "硬件文件：用 KiCad / CAD 软件打开，或直接把 STL 送去 3D 打印",
-    en: "Hardware files: open in KiCad / CAD, or send the STL straight to a 3D printer",
+    zh: "仓库含硬件设计文件：用 KiCad / CAD 软件打开原理图与 PCB，STL 可直接送去 3D 打印",
+    en: "The repo ships hardware design files: open the schematics and PCB in KiCad / CAD, and send any STL straight to a 3D printer",
     cmd: null,
   },
 ];
@@ -491,7 +493,28 @@ function selectBalanced(projects, categoryIds, limit) {
   return [...picked, ...rest].slice(0, limit).sort((a, b) => rank(b) - rank(a));
 }
 
+/** Recomputes everything derived from already-stored signals. */
+function rescore(projects) {
+  for (const p of projects) {
+    const { score, reasons } = buildabilityScore(p);
+    p.buildability = score;
+    p.buildabilityReasons = reasons;
+    p.steps = buildSteps(p);
+  }
+  return projects;
+}
+
 async function main() {
+  const projectsPath = resolve(ROOT, "data/projects.json");
+
+  if (REBUILD_STEPS) {
+    const existing = JSON.parse(await readFile(projectsPath, "utf8"));
+    rescore(existing);
+    await writeFile(projectsPath, JSON.stringify(existing, null, 0));
+    console.log(`Recomputed scores and steps for ${existing.length} projects (no API calls)`);
+    return;
+  }
+
   const taxonomy = JSON.parse(
     await readFile(resolve(ROOT, "data/taxonomy.json"), "utf8")
   );
@@ -536,22 +559,14 @@ async function main() {
     }
   }
 
-  for (const p of projects) {
-    const { score, reasons } = buildabilityScore(p);
-    p.buildability = score;
-    p.buildabilityReasons = reasons;
-    p.steps = buildSteps(p);
-  }
+  rescore(projects);
 
   const counts = Object.fromEntries(
     categories.map((c) => [c.id, projects.filter((p) => p.category === c.id).length])
   );
 
   await mkdir(resolve(ROOT, "data"), { recursive: true });
-  await writeFile(
-    resolve(ROOT, "data/projects.json"),
-    JSON.stringify(projects, null, 0)
-  );
+  await writeFile(projectsPath, JSON.stringify(projects, null, 0));
   await writeFile(
     resolve(ROOT, "data/meta.json"),
     JSON.stringify(

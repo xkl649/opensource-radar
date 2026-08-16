@@ -62,7 +62,10 @@ node scripts/fetch-github.mjs \
   --enrich=600       # 做深度分析的项目数
   --quick            # 每个方向只查 2 个 topic，用于快速验证
   --from-cache       # 跳过检索，直接用上次的原始结果重新排序/分析
+  --rebuild-steps    # 完全离线：只用已存的信号重算评分和搭建命令，不发任何请求
 ```
+
+调 `STEP_RECIPES` 或打分权重时用 `--rebuild-steps`，几十毫秒出结果，不消耗 API 配额。
 
 ## 项目结构 · Layout
 
