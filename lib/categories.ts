@@ -20,18 +20,27 @@ export const CATEGORIES: Category[] = taxonomy.categories;
 
 const BY_ID = new Map(CATEGORIES.map((c) => [c.id, c]));
 
+/** Datasets collected before the hardware split still carry this id. */
+const LEGACY_IDS: Record<string, string> = {
+  hardware: "hardware-design",
+};
+
+function resolveCategory(id: string): Category | undefined {
+  return BY_ID.get(id) ?? BY_ID.get(LEGACY_IDS[id] ?? "");
+}
+
 export function getCategory(id: string): Category | undefined {
-  return BY_ID.get(id);
+  return resolveCategory(id);
 }
 
 export function categoryLabel(id: string, lang: Lang): string {
-  const c = BY_ID.get(id);
+  const c = resolveCategory(id);
   if (!c) return id;
   return lang === "zh" ? c.zh : c.en;
 }
 
 export function categoryDesc(id: string, lang: Lang): string {
-  const c = BY_ID.get(id);
+  const c = resolveCategory(id);
   if (!c) return "";
   return lang === "zh" ? c.descZh : c.descEn;
 }
@@ -129,6 +138,6 @@ const HUES: Record<string, HueClasses> = {
 };
 
 export function hueClasses(categoryId: string): HueClasses {
-  const hue = BY_ID.get(categoryId)?.hue ?? "slate";
+  const hue = resolveCategory(categoryId)?.hue ?? "slate";
   return HUES[hue] ?? HUES.slate;
 }

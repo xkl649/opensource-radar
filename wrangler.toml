@@ -1,0 +1,4 @@
+# Cloudflare Pages project. The site is a fully static Next.js export.
+name = "opensource-radar"
+compatibility_date = "2026-08-16"
+pages_build_output_dir = "out"

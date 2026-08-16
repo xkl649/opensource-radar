@@ -12,3 +12,5 @@ next-env.d.ts
 .tmp-home
 data/.raw-repos.json
 .github-token
+.cloudflare-token
+.wrangler-home
