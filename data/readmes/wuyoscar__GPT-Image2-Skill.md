@@ -1013,20 +1013,6 @@ Background: muted concrete-grey seamless paper backdrop, vertical shaft of cool 
 
 Exact cover typography (all English, crisp, correctly spelled):
 - Masthead, huge uppercase serif, white: "VOGUE"
-- Date strip top-left, tiny caps: "NOVEMBER 2026 · PARIS EDITION · €9.00"
-- Main cover line, bold sans-serif centered: "THE QUIET POWER ISSUE"
-- Right-edge cover lines, stacked:
-   "THE NEW MINIMALISTS — a 40-page portfolio"
-   "HOW AI TOOLS ARE REWRITING THE ATELIER"
-   "MARTIN MARGIELA'S UNREVEALED ARCHIVE"
-   "SKIN · INVESTMENT · WHERE THE MONEY GOES NEXT"
-- Bottom-left barcode with catalog code "VG1126"
-
-Lighting: classic fashion editorial — soft single-source key, subtle fill, deep shadow on one cheek, fine film grain.
-```
-
-**Prompt C — 1950s Astounding Stories pulp cover**
-```text
 ```
 
 <!-- opensource-radar:truncated -->

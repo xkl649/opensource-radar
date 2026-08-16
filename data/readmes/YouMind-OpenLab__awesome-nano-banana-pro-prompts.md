@@ -1221,26 +1221,5 @@ A structured JSON-formatted prompt for a high-fashion studio portrait with a lar
 #### 📌 Details
 
 - **Author:** [KeorUnreal](https://x.com/KeorUnreal)
-- **Source:** [Twitter Post](https://x.com/KeorUnreal/status/2087894905053921756)
-- **Published:** August 13, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=31352)**
-
----
-
-### No. 13: Profile / Avatar - Stylish Airport Travel Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A high-fashion portrait of a young man at an airport, designed to maintain facial consistency from an uploaded reference photo.
-
-#### 📝 Prompt
-
-```
-```
 
 <!-- opensource-radar:truncated -->

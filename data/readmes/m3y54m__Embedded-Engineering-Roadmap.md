@@ -821,22 +821,5 @@ Embedded systems often communicate with other devices or external systems via in
 
 - [🎞️👶 Microchip University - CAN and CAN FD Protocol and Physical Layer Basics](https://mu.microchip.com/understanding-the-can-fd-protocol)
 - [📝👶 CAN bus in 2024: Operation, Advantages and Recent Developments](https://www.parlezvoustech.com/en/bus-can-2024-technologie-avantages-evolutions/)
-- [🎞️👶 CAN Bus: Serial Communication - How It Works?](https://www.youtube.com/watch?v=JZSCzRT9TTo&t=21s)
-- [🎞️👶 CAN Bus: A Beginners Guide Part 1](https://www.youtube.com/watch?v=YBrU_eZM110)
-- [🎞️👶 CAN Bus: A Beginners Guide Part 2](https://www.youtube.com/watch?v=z5CVljiLhvc)
-- [🎞️💎 Microchip University - Designing and Implementing a CAN FD Network](https://mu.microchip.com/designing-and-implementing-a-can-fd-network)
-- [🎞️ Improving my electric longboard with a CAN Bus! What can the CAN Bus do? EB#44](https://www.youtube.com/watch?v=PL0TPdrhMuI)
-- [🎞️ CAN Bus, OBD2 & J1939 Explained (YouTube Playlist)](https://www.youtube.com/playlist?list=PLpV68vjf4Xo4vZ_SjJ6tTlomYm-k18vDZ)
-- [🎞️ J1939 Explained - A Simple Intro [v2.0 | 2021]](https://www.youtube.com/watch?v=vlqxu9ojbHg)
-- [🎞️ Unified Diagnostic Services (UDS) Explained - A Simple Intro [2022]](https://www.youtube.com/watch?v=CV_B8tJgI5E)
-
-#### 🔵 Network Protocols / Socket Programming
-
-- [🎞️ Networking Fundamentals - Practical Networking (YouTube Playlist)](https://www.youtube.com/playlist?list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi)
-- [🎞️ TCP vs UDP - Explaining Facts and Debunking Myths - TCP Masterclass](https://www.youtube.com/watch?v=jE_FcgpQ7Co)
-- [🎞️ TCP - 12 simple ideas to explain the Transmission Control Protocol](https://www.youtube.com/watch?v=JFch3ctY6nE)
-- [🎞️ UDP doesn't suck! It's the BEST L4 protocol for THESE types of applications...](https://www.youtube.com/watch?v=LaDRWycC7Iw)
-- [🎞️ Networking tutorial - Ben Eater (YouTube Playlist)](https://www.youtube.com/playlist?list=PLowKtXNTBypH19whXTVoG3oKSuOcw_XeW)
-- [📘💎 Hands-On Network Programming with C - Lewis Van Winkle](https://www.amazon.com/exec/obidos/ASIN/1789349869/aoeu-20)
 
 <!-- opensource-radar:truncated -->

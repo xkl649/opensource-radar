@@ -740,13 +740,5 @@ _Official channel first, then sorted by subscriber count. Refreshed nightly._
 - [SlackerLabs](https://www.youtube.com/@SlackerLabs) - Automation, scripting, and tinkering walkthroughs by Jeffrey Stone (30.6K subs).
 - [Michael Leen](https://www.youtube.com/@michaelsleen) - Smart-home tutorials and integration walkthroughs (26.7K subs).
 - [Technithusiast](https://www.youtube.com/@technithusiast) - Tutorials, integrations, and automations by Michael Montaque (22.8K subs).
-- [3ATIVE VFX](https://www.youtube.com/@3ATIVE) - Smart-home automations and integrations by VFX artist David Martin (20.5K subs).
-- [Smart Home Australia](https://www.youtube.com/@smart_home_australia) - Australia-flavored smart-home reviews and tutorials by Paul Toner (20.7K subs).
-- [CTech&Media](https://www.youtube.com/@CTechMedia) - Smart-home reviews and tutorials by Charly Schulte (18K subs).
-- [Frenck | Home Assistant & Smart Home](https://www.youtube.com/@frenck) - Lead of the Home Assistant project, with occasional videos on his own experience and inside views on what is happening in the Home Assistant world (9.8K subs).
-
-#### 🌍 In other languages
-
-_Sorted alphabetically by language, then by subscriber count._
 
 <!-- opensource-radar:truncated -->

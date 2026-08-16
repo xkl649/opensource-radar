@@ -1202,45 +1202,5 @@ Create an insanely photorealistic, stop-scrolling vertical portrait that feels l
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786695862612_nhdl3t_HPp2is7acAARpYH.jpg" width="600" alt="Profile / Avatar - Candid Flagship Camera Selfie - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786695862607_hhlgb9_HPp2k3WaoAAhwhL.jpg" width="600" alt="Profile / Avatar - Candid Flagship Camera Selfie - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Jahan Zaib](https://x.com/jzaib4269)
-- **Source:** [Twitter Post](https://x.com/jzaib4269/status/2088111776475017325)
-- **Published:** August 14, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31369)**
-
----
-
-### No. 18: Profile / Avatar - Hyperrealistic Mirror Selfie Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-
-#### 📖 Description
-
-A high-quality prompt for generating hyperrealistic mirror selfies with specific clothing, accessories, and atmospheric lighting details for identity preservation.
-
-#### 📝 Prompt
-
-```
-Preserve the clearly adult woman’s exact identity, facial features, proportions, skin tone, and natural asymmetry. Hyperrealistic Pinterest-style iPhone 15 Pro Max mirror selfie inside a modern brushed-steel elevator. She leans lightly against the wall, one leg straight and the other bent with foot resting naturally against the wall, relaxed elegant pose. She holds an iPhone beside her cheek while her other hand carries pink roses and a white shopping bag. Fitted black mini dress, oversized black blazer, black strappy heels, delicate necklace, small hoop earrings, light makeup. Dim overhead lighting, cool metallic reflections, realistic skin texture, authentic phone-camera grain, natural mirror perspective, full-length vertical 9:16, sharp face and clothing, believable hands and reflections. --no altered identity, extra fingers, extra people, duplicated reflection, warped phone, CGI, plastic skin.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786781676276_4gpabc_HPpwYsxbUAAjwNU.jpg" width="600" alt="Profile / Avatar - Hyperrealistic Mirror Selfie Portrait - Image 1">
 
 <!-- opensource-radar:truncated -->
