@@ -63,6 +63,7 @@ node scripts/fetch-github.mjs \
   --quick            # 每个方向只查 2 个 topic，用于快速验证
   --from-cache       # 跳过检索，直接用上次的原始结果重新排序/分析
   --rebuild-steps    # 完全离线：只用已存的信号重算评分和搭建命令，不发任何请求
+  --readmes-only     # 只补抓现有数据集的 README，不改动 projects.json
 ```
 
 调 `STEP_RECIPES` 或打分权重时用 `--rebuild-steps`，几十毫秒出结果，不消耗 API 配额。
@@ -80,6 +81,7 @@ data/
   taxonomy.json          分类定义：检索用 topic、关键词、星标门槛（脚本与前端共用）
   projects.json          抓取产物，由 Actions 每日更新
   meta.json              数据集元信息（更新时间、各方向数量）
+  readmes/<id>.md        每个项目的 README 原文，详情页在构建时按需读取单个文件
 scripts/
   fetch-github.mjs       抓取 + 分析 + 打分，纯 Node，无额外依赖
 .github/workflows/

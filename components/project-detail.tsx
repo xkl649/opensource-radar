@@ -27,13 +27,23 @@ import { CopyButton } from "./copy-button";
 import { GithubIcon } from "./icons";
 import { useLang } from "./lang-provider";
 import { ProjectCard } from "./project-card";
+import { ReadmeCollapse } from "./readme-collapse";
+
+/** Markdown rendered by the server component; opaque to this client tree. */
+interface RenderedReadme {
+  content: React.ReactNode;
+  truncated: boolean;
+  collapsible: boolean;
+}
 
 export function ProjectDetail({
   project,
   related,
+  readme,
 }: {
   project: Project;
   related: ProjectSummary[];
+  readme?: RenderedReadme | null;
 }) {
   const { lang, t } = useLang();
   const hue = hueClasses(project.category);
@@ -170,21 +180,46 @@ export function ProjectDetail({
             </Panel>
           )}
 
-          {project.readmePreview && (
-            <Panel title={t("detail.readme")}>
-              <p className="text-[13px] leading-relaxed text-slate-400">
-                {project.readmePreview}…
-              </p>
-              <a
-                href={`${project.url}#readme`}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-violet-300 transition hover:text-violet-200"
-              >
-                {t("detail.readmeMore")}
-                <ExternalLink size={13} />
-              </a>
+          {readme ? (
+            <Panel title={t("detail.readme.full")}>
+              <ReadmeCollapse collapsible={readme.collapsible}>
+                {readme.content}
+              </ReadmeCollapse>
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-white/[0.06] pt-3.5">
+                {readme.truncated && (
+                  <p className="text-[12px] text-slate-500">
+                    {t("detail.readme.truncated")}
+                  </p>
+                )}
+                <a
+                  href={`${project.url}#readme`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[12px] font-medium text-violet-300 transition hover:text-violet-200"
+                >
+                  {t("detail.readme.onGithub")}
+                  <ExternalLink size={12} />
+                </a>
+              </div>
             </Panel>
+          ) : (
+            project.readmePreview && (
+              // No stored README — the enrichment pass still leaves an excerpt.
+              <Panel title={t("detail.readme")}>
+                <p className="text-[13px] leading-relaxed text-slate-400">
+                  {project.readmePreview}…
+                </p>
+                <a
+                  href={`${project.url}#readme`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-violet-300 transition hover:text-violet-200"
+                >
+                  {t("detail.readmeMore")}
+                  <ExternalLink size={13} />
+                </a>
+              </Panel>
+            )
           )}
 
           {!project.enriched && (

@@ -45,12 +45,15 @@ jobs:
 
       - name: Commit refreshed dataset
         run: |
-          if git diff --quiet -- data/; then
+          # git diff cannot see the README files added for newly indexed
+          # projects, so the change check goes through status instead.
+          if [ -z "$(git status --porcelain -- data/)" ]; then
             echo "No dataset changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/projects.json data/meta.json
+          # -A picks up data/readmes/ additions and the pruned files alike.
+          git add -A data/
           git commit -m "chore(data): refresh open-source project index"
           git push

@@ -2,7 +2,11 @@
  * Builds data/projects.json by searching GitHub for active open-source projects
  * across the categories declared in data/taxonomy.json, then enriching each repo
  * with the signals a person needs in order to actually clone and run it:
- * dependency manifests, container files, releases and a README excerpt.
+ * dependency manifests, container files, releases and the README.
+ *
+ * READMEs are written to data/readmes/<id>.md rather than into projects.json,
+ * which is imported wholesale by the app and would otherwise grow by tens of
+ * megabytes; the detail page reads only the single file it renders.
  *
  * Usage:
  *   GITHUB_TOKEN=ghp_xxx node scripts/fetch-github.mjs [--quick] [--limit=400] [--min-stars=150]
@@ -11,7 +15,7 @@
  * hour, so the script degrades to searching only and enriching the top repos.
  */
 
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, readdir, writeFile, mkdir, rm } from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -42,6 +46,10 @@ const QUICK = args.includes("--quick");
 const FROM_CACHE = args.includes("--from-cache");
 /** Recompute scores and setup steps from the stored signals, offline. */
 const REBUILD_STEPS = args.includes("--rebuild-steps");
+/** Classify the cached search results and report where they land, offline. */
+const DRY_CLASSIFY = args.includes("--dry-classify");
+/** Refetch only the READMEs of the projects already in data/projects.json. */
+const README_ONLY = args.includes("--readmes-only");
 const LIMIT = Number(flag("limit", 400));
 const MIN_STARS = Number(flag("min-stars", 150));
 const FRESH_MIN_STARS = Number(flag("fresh-min-stars", 40));
@@ -119,36 +127,48 @@ async function search(query, { perPage = 30, sort = "stars" } = {}) {
 /* Classification                                                      */
 /* ------------------------------------------------------------------ */
 
+/** Substring matching turns "cad" into a hit for "academy", so match words. */
+function containsWord(text, word) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, "i").test(text);
+}
+
 function scoreCategory(repo, category) {
   const topics = (repo.topics || []).map((t) => t.toLowerCase());
   const haystack = `${repo.name} ${repo.description || ""}`.toLowerCase();
-  let score = 0;
+  let topicScore = 0;
+  let textScore = 0;
+
   for (const topic of category.searchTopics) {
-    if (topics.includes(topic.toLowerCase())) score += 4;
+    if (topics.includes(topic.toLowerCase())) topicScore += 4;
   }
   for (const kw of category.keywords) {
-    if (topics.some((t) => t.includes(kw))) score += 2;
-    if (haystack.includes(kw)) score += 1;
+    if (topics.some((t) => containsWord(t, kw))) topicScore += 2;
+    if (containsWord(haystack, kw)) textScore += 1;
   }
-  return score;
+  return { topicScore, textScore };
 }
 
 function classify(repo, categories, seedCategoryId) {
-  const scored = categories
-    .map((c) => ({ id: c.id, score: scoreCategory(repo, c) }))
-    .filter((c) => c.score > 0)
-    .sort((a, b) => b.score - a.score);
+  const scored = categories.map((c) => ({ id: c.id, ...scoreCategory(repo, c) }));
 
-  // The query that surfaced the repo is strong evidence; give it a nudge so a
-  // ROS package found under "robotics" does not get filed under "ml-frameworks".
+  // The repo turned up in this domain's topic search, which is itself
+  // topic-level evidence, so a ROS package found under "robotics" does not get
+  // filed under "ml-frameworks".
   const seed = scored.find((c) => c.id === seedCategoryId);
-  if (seed) seed.score += 3;
-  else scored.push({ id: seedCategoryId, score: 3 });
-  scored.sort((a, b) => b.score - a.score);
+  if (seed) seed.topicScore += 3;
+
+  const ranked = scored
+    .filter((c) => c.topicScore > 0)
+    .sort((a, b) => b.topicScore - a.topicScore || b.textScore - a.textScore);
+
+  // Prose alone must never move a repo between domains: a description
+  // mentioning "editor" or "simulator" says nothing about hardware.
+  const winner = ranked[0]?.id ?? seedCategoryId;
 
   return {
-    category: scored[0]?.id ?? seedCategoryId,
-    categories: scored.slice(0, 3).map((c) => c.id),
+    category: winner,
+    categories: [winner, ...ranked.filter((c) => c.id !== winner).slice(0, 2).map((c) => c.id)],
   };
 }
 
@@ -345,6 +365,58 @@ function cleanReadme(md) {
     .trim();
 }
 
+const READMES_DIR = resolve(ROOT, "data/readmes");
+/** A handful of repos ship book-length READMEs; nobody reads 400KB in a panel. */
+const README_MAX_CHARS = 64 * 1024;
+/** Kept in sync with lib/readme.ts, which strips it and shows a "truncated" note. */
+const TRUNCATION_MARKER = "<!-- opensource-radar:truncated -->";
+
+const readmePath = (id) => resolve(READMES_DIR, `${id}.md`);
+
+/**
+ * Cuts at a line boundary rather than mid-sentence, and closes a code fence
+ * left hanging by the cut — an unbalanced fence would otherwise swallow the
+ * whole tail of the document into one code block.
+ */
+function clipReadme(md) {
+  const text = md.replace(/\r\n/g, "\n").replace(/^\uFEFF/, "");
+  if (text.length <= README_MAX_CHARS) return `${text.trimEnd()}\n`;
+
+  let cut = text.slice(0, README_MAX_CHARS);
+  const lastBreak = cut.lastIndexOf("\n");
+  if (lastBreak > README_MAX_CHARS * 0.9) cut = cut.slice(0, lastBreak);
+  cut = cut.trimEnd();
+  if ((cut.match(/^\s*```/gm) || []).length % 2 === 1) cut += "\n```";
+  return `${cut}\n\n${TRUNCATION_MARKER}\n`;
+}
+
+async function saveReadme(id, md) {
+  await mkdir(READMES_DIR, { recursive: true });
+  await writeFile(readmePath(id), clipReadme(md));
+}
+
+async function dropReadme(id) {
+  await rm(readmePath(id), { force: true });
+}
+
+/** Keeps data/readmes/ from accumulating files for projects that dropped out. */
+async function pruneReadmes(keptIds) {
+  let files;
+  try {
+    files = await readdir(READMES_DIR);
+  } catch {
+    return 0;
+  }
+  let removed = 0;
+  for (const file of files) {
+    if (!file.endsWith(".md")) continue;
+    if (keptIds.has(file.slice(0, -3))) continue;
+    await rm(resolve(READMES_DIR, file), { force: true });
+    removed++;
+  }
+  return removed;
+}
+
 /* ------------------------------------------------------------------ */
 /* Main                                                                */
 /* ------------------------------------------------------------------ */
@@ -401,10 +473,15 @@ async function enrich(project) {
 
   project.signals = Array.isArray(contents) ? detectSignals(contents) : [];
 
-  if (typeof readme === "string" && readme.length) {
+  if (typeof readme === "string" && readme.trim()) {
     project.hasQuickstart = QUICKSTART_RE.test(readme);
     project.readmeLength = readme.length;
+    // Still stored on the project: it is the page <meta> description.
     project.readmePreview = cleanReadme(readme).slice(0, 600);
+    await saveReadme(project.id, readme);
+  } else {
+    // Confirmed to have none, so a file left over from an earlier run is stale.
+    await dropReadme(project.id);
   }
 
   if (release?.tag_name) {
@@ -544,8 +621,44 @@ function rescore(projects) {
   return projects;
 }
 
+/**
+ * Backfills data/readmes/ for the dataset that is already committed, at one API
+ * call per project instead of the three a full enrichment pass costs. Leaves
+ * projects.json untouched.
+ */
+async function fetchReadmesOnly(projectsPath) {
+  const projects = JSON.parse(await readFile(projectsPath, "utf8"));
+  console.log(`Fetching READMEs for ${projects.length} projects`);
+
+  let stored = 0;
+  let missing = 0;
+  for (let i = 0; i < projects.length; i++) {
+    const project = projects[i];
+    const readme = await api(`/repos/${project.fullName}/readme`, { raw: true });
+    if (typeof readme === "string" && readme.trim()) {
+      await saveReadme(project.id, readme);
+      stored++;
+    } else {
+      await dropReadme(project.id);
+      missing++;
+    }
+    if ((i + 1) % 50 === 0)
+      console.log(`  ${i + 1}/${projects.length} (core budget left: ${coreRemaining})`);
+  }
+
+  const pruned = await pruneReadmes(new Set(projects.map((p) => p.id)));
+  console.log(
+    `\nStored ${stored} READMEs, ${missing} projects have none, pruned ${pruned} stale files`
+  );
+}
+
 async function main() {
   const projectsPath = resolve(ROOT, "data/projects.json");
+
+  if (README_ONLY) {
+    await fetchReadmesOnly(projectsPath);
+    return;
+  }
 
   if (REBUILD_STEPS) {
     const existing = JSON.parse(await readFile(projectsPath, "utf8"));
@@ -617,7 +730,10 @@ async function main() {
     )
   );
 
+  const pruned = await pruneReadmes(new Set(projects.map((p) => p.id)));
+
   console.log(`\nWrote ${projects.length} projects to data/projects.json`);
+  if (pruned) console.log(`Pruned ${pruned} stale README files`);
   console.table(counts);
 }
 
