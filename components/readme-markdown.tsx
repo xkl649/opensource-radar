@@ -24,7 +24,9 @@ export function ReadmeMarkdown({
   defaultBranch: string;
 }) {
   return (
-    <div className="text-slate-300">
+    // break-words is inherited: bare URLs are everywhere in READMEs and would
+    // otherwise push the layout wide on a phone. Code blocks scroll instead.
+    <div className="break-words text-slate-300">
       <Markdown
         remarkPlugins={[remarkGfm]}
         urlTransform={repoUrlTransform(fullName, defaultBranch)}

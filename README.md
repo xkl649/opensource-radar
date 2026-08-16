@@ -64,9 +64,21 @@ node scripts/fetch-github.mjs \
   --from-cache       # 跳过检索，直接用上次的原始结果重新排序/分析
   --rebuild-steps    # 完全离线：只用已存的信号重算评分和搭建命令，不发任何请求
   --readmes-only     # 只补抓现有数据集的 README，不改动 projects.json
+  --dry-classify     # 完全离线：只跑分类，打印各方向数量，用来调 taxonomy
 ```
 
-调 `STEP_RECIPES` 或打分权重时用 `--rebuild-steps`，几十毫秒出结果，不消耗 API 配额。
+两个离线模式都不消耗 API 配额，几十毫秒出结果，适合反复迭代：
+
+- 改 `STEP_RECIPES` 或打分权重 → `--rebuild-steps`
+- 改 `data/taxonomy.json` 的 topic / keyword → `--from-cache --dry-classify`，
+  再加 `--show=repo1,repo2` 可以直接查某几个仓库被归到了哪个方向
+
+### 分类是怎么判定的
+
+只有**仓库自己的 topic** 能决定方向，描述文字里的关键词只用于同分时排序。这条规则是必要的：
+`editor`、`simulator`、`case` 这类词在任何项目的描述里都可能出现，早期版本靠描述匹配
+把一堆无关项目塞进了硬件方向。关键词一律按**整词**匹配，否则 `cad` 会命中 `academy`、
+`stl` 会命中 `mostly`。完全没有 topic 证据的仓库会被丢弃，不会硬塞进某个方向。
 
 ## 项目结构 · Layout
 

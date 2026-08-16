@@ -149,12 +149,14 @@ function scoreCategory(repo, category) {
   return { topicScore, textScore };
 }
 
+/** Returns null when nothing in the repo's metadata ties it to a domain. */
 function classify(repo, categories, seedCategoryId) {
   const scored = categories.map((c) => ({ id: c.id, ...scoreCategory(repo, c) }));
 
   // The repo turned up in this domain's topic search, which is itself
   // topic-level evidence, so a ROS package found under "robotics" does not get
-  // filed under "ml-frameworks".
+  // filed under "ml-frameworks". A stale seed from a category that has since
+  // been renamed or removed carries no weight.
   const seed = scored.find((c) => c.id === seedCategoryId);
   if (seed) seed.topicScore += 3;
 
@@ -162,13 +164,14 @@ function classify(repo, categories, seedCategoryId) {
     .filter((c) => c.topicScore > 0)
     .sort((a, b) => b.topicScore - a.topicScore || b.textScore - a.textScore);
 
-  // Prose alone must never move a repo between domains: a description
-  // mentioning "editor" or "simulator" says nothing about hardware.
-  const winner = ranked[0]?.id ?? seedCategoryId;
+  // Prose alone must never place a repo in a domain: a description mentioning
+  // "editor" or "simulator" says nothing about hardware.
+  if (!ranked.length) return null;
 
+  const winner = ranked[0].id;
   return {
     category: winner,
-    categories: [winner, ...ranked.filter((c) => c.id !== winner).slice(0, 2).map((c) => c.id)],
+    categories: [winner, ...ranked.slice(1, 3).map((c) => c.id)],
   };
 }
 
@@ -367,7 +370,7 @@ function cleanReadme(md) {
 
 const READMES_DIR = resolve(ROOT, "data/readmes");
 /** A handful of repos ship book-length READMEs; nobody reads 400KB in a panel. */
-const README_MAX_CHARS = 64 * 1024;
+const README_MAX_BYTES = 64 * 1024;
 /** Kept in sync with lib/readme.ts, which strips it and shows a "truncated" note. */
 const TRUNCATION_MARKER = "<!-- opensource-radar:truncated -->";
 
@@ -377,14 +380,22 @@ const readmePath = (id) => resolve(READMES_DIR, `${id}.md`);
  * Cuts at a line boundary rather than mid-sentence, and closes a code fence
  * left hanging by the cut — an unbalanced fence would otherwise swallow the
  * whole tail of the document into one code block.
+ *
+ * The budget is in bytes, not characters: a Chinese README would otherwise be
+ * three times the size of an English one under the same limit.
  */
 function clipReadme(md) {
   const text = md.replace(/\r\n/g, "\n").replace(/^\uFEFF/, "");
-  if (text.length <= README_MAX_CHARS) return `${text.trimEnd()}\n`;
+  const buf = Buffer.from(text, "utf8");
+  if (buf.length <= README_MAX_BYTES) return `${text.trimEnd()}\n`;
 
-  let cut = text.slice(0, README_MAX_CHARS);
+  // Slicing bytes can land inside a multi-byte character; drop the remnant.
+  let cut = buf
+    .subarray(0, README_MAX_BYTES)
+    .toString("utf8")
+    .replace(/\uFFFD$/, "");
   const lastBreak = cut.lastIndexOf("\n");
-  if (lastBreak > README_MAX_CHARS * 0.9) cut = cut.slice(0, lastBreak);
+  if (lastBreak > cut.length * 0.9) cut = cut.slice(0, lastBreak);
   cut = cut.trimEnd();
   if ((cut.match(/^\s*```/gm) || []).length % 2 === 1) cut += "\n```";
   return `${cut}\n\n${TRUNCATION_MARKER}\n`;
@@ -689,10 +700,31 @@ async function main() {
     console.log(`\nFound ${raw.length} unique repositories`);
   }
 
-  const classified = raw.map(({ repo, seeds }) => {
-    const { category, categories: cats } = classify(repo, categories, seeds[0]);
-    return toProject(repo, category, cats);
-  });
+  const classified = [];
+  let unclassified = 0;
+  for (const { repo, seeds } of raw) {
+    const verdict = classify(repo, categories, seeds[0]);
+    if (!verdict) {
+      unclassified++;
+      continue;
+    }
+    classified.push(toProject(repo, verdict.category, verdict.categories));
+  }
+  if (unclassified) {
+    console.log(`Dropped ${unclassified} repositories with no domain evidence`);
+  }
+
+  if (DRY_CLASSIFY) {
+    const counts = {};
+    for (const p of classified) counts[p.category] = (counts[p.category] ?? 0) + 1;
+    console.table(counts);
+    const names = flag("show", "");
+    for (const name of names.split(",").filter(Boolean)) {
+      const hit = classified.find((p) => p.name === name || p.fullName === name);
+      console.log(hit ? `${hit.fullName} -> ${hit.category}` : `${name}: not in cache`);
+    }
+    return;
+  }
 
   const candidates = shortlist(classified, categories, LIMIT);
   const toEnrich = candidates.slice(0, ENRICH_LIMIT);
