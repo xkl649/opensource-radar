@@ -10,6 +10,8 @@ export interface Category {
   hue: string;
   /** Domains like open hardware have far smaller communities than AI. */
   minStars?: number;
+  /** Rank repositories that actually ship design files above popular tooling. */
+  probeDesignFiles?: boolean;
   searchTopics: string[];
   keywords: string[];
 }
@@ -102,6 +104,13 @@ const HUES: Record<string, HueClasses> = {
     dot: "bg-rose-400",
     text: "text-rose-300",
     bar: "bg-rose-400",
+  },
+  teal: {
+    chip: "bg-teal-500/10 text-teal-300 ring-teal-400/25",
+    activeChip: "bg-teal-500/20 text-teal-100 ring-teal-400/60",
+    dot: "bg-teal-400",
+    text: "text-teal-300",
+    bar: "bg-teal-400",
   },
   emerald: {
     chip: "bg-emerald-500/10 text-emerald-300 ring-emerald-400/25",

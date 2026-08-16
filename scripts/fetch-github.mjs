@@ -46,7 +46,9 @@ const LIMIT = Number(flag("limit", 400));
 const MIN_STARS = Number(flag("min-stars", 150));
 const FRESH_MIN_STARS = Number(flag("fresh-min-stars", 40));
 // Enriching costs 3 API calls per repo, which is unaffordable unauthenticated.
-const ENRICH_LIMIT = Number(flag("enrich", QUICK ? 40 : TOKEN ? LIMIT : 12));
+const ENRICH_LIMIT = Number(
+  flag("enrich", QUICK ? 40 : TOKEN ? Number.MAX_SAFE_INTEGER : 12)
+);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const daysAgo = (n) =>
@@ -462,35 +464,73 @@ function toProject(repo, categoryId, categoryIds) {
   };
 }
 
+const rank = (p) => p.stars + p.momentum * 3;
+const quotaFor = (limit, categoryCount) => Math.ceil((limit / categoryCount) * 0.75);
+
+/** Extra candidates pulled in for domains that are filtered after analysis. */
+const PROBE_FACTOR = 3;
+
 /**
  * Ranking purely on stars would hand almost every slot to AI repos, because an
  * LLM framework routinely out-stars the best open hardware project by 50x.
  * Each domain therefore gets a guaranteed quota first, and whatever is left is
  * handed out globally.
+ *
+ * Domains flagged `probeDesignFiles` are deliberately over-filled here: whether
+ * a repo contains real hardware drawings is only knowable after enrichment, so
+ * the surplus is analysed and then trimmed by `finalize`.
  */
-function selectBalanced(projects, categoryIds, limit) {
-  const rank = (p) => p.stars + p.momentum * 3;
-  const quota = Math.ceil((limit / categoryIds.length) * 0.75);
-
+function shortlist(projects, categories, limit) {
+  const quota = quotaFor(limit, categories.length);
   const picked = [];
   const taken = new Set();
 
-  for (const id of categoryIds) {
+  for (const category of categories) {
+    const slots = category.probeDesignFiles ? quota * PROBE_FACTOR : quota;
     const inCategory = projects
-      .filter((p) => p.category === id)
+      .filter((p) => p.category === category.id)
       .sort((a, b) => rank(b) - rank(a))
-      .slice(0, quota);
+      .slice(0, slots);
     for (const p of inCategory) {
       picked.push(p);
       taken.add(p.id);
     }
   }
 
+  const surplus =
+    categories.filter((c) => c.probeDesignFiles).length * quota * (PROBE_FACTOR - 1);
   const rest = projects
     .filter((p) => !taken.has(p.id))
     .sort((a, b) => rank(b) - rank(a));
 
-  return [...picked, ...rest].slice(0, limit).sort((a, b) => rank(b) - rank(a));
+  return [...picked, ...rest].slice(0, limit + surplus);
+}
+
+/** Applies the real quotas once build signals are known. */
+function finalize(candidates, categories, limit) {
+  const quota = quotaFor(limit, categories.length);
+  const kept = [];
+  const taken = new Set();
+
+  for (const category of categories) {
+    const inCategory = candidates.filter((p) => p.category === category.id);
+    if (category.probeDesignFiles) {
+      const hasDesign = (p) => (p.signals.includes("hardware") ? 1 : 0);
+      inCategory.sort((a, b) => hasDesign(b) - hasDesign(a) || rank(b) - rank(a));
+    } else {
+      inCategory.sort((a, b) => rank(b) - rank(a));
+    }
+    for (const p of inCategory.slice(0, quota)) {
+      kept.push(p);
+      taken.add(p.id);
+    }
+  }
+
+  const rest = candidates
+    .filter((p) => !taken.has(p.id))
+    .sort((a, b) => rank(b) - rank(a));
+
+  return [...kept, ...rest].slice(0, limit).sort((a, b) => rank(b) - rank(a));
 }
 
 /** Recomputes everything derived from already-stored signals. */
@@ -536,18 +576,13 @@ async function main() {
     console.log(`\nFound ${raw.length} unique repositories`);
   }
 
-  let projects = raw.map(({ repo, seeds }) => {
+  const classified = raw.map(({ repo, seeds }) => {
     const { category, categories: cats } = classify(repo, categories, seeds[0]);
     return toProject(repo, category, cats);
   });
 
-  projects = selectBalanced(
-    projects,
-    categories.map((c) => c.id),
-    LIMIT
-  );
-
-  const toEnrich = projects.slice(0, ENRICH_LIMIT);
+  const candidates = shortlist(classified, categories, LIMIT);
+  const toEnrich = candidates.slice(0, ENRICH_LIMIT);
   console.log(`Enriching ${toEnrich.length} repositories with build signals`);
   for (let i = 0; i < toEnrich.length; i++) {
     await enrich(toEnrich[i]);
@@ -559,7 +594,7 @@ async function main() {
     }
   }
 
-  rescore(projects);
+  const projects = rescore(finalize(candidates, categories, LIMIT));
 
   const counts = Object.fromEntries(
     categories.map((c) => [c.id, projects.filter((p) => p.category === c.id).length])
