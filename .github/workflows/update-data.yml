@@ -1,0 +1,56 @@
+name: Update dataset
+
+on:
+  schedule:
+    # 01:20 UTC daily, i.e. 09:20 Beijing time.
+    - cron: "20 1 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max number of projects to keep"
+        required: false
+        default: "400"
+      min-stars:
+        description: "Minimum stars for the main sweep"
+        required: false
+        default: "150"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-dataset
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect projects from GitHub
+        env:
+          # The default job token is enough for the search and repos endpoints
+          # and lifts the rate limit from 60/h to 5000/h.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/fetch-github.mjs \
+            --limit=${{ inputs.limit || '400' }} \
+            --min-stars=${{ inputs.min-stars || '150' }}
+
+      - name: Commit refreshed dataset
+        run: |
+          if git diff --quiet -- data/; then
+            echo "No dataset changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/projects.json data/meta.json
+          git commit -m "chore(data): refresh open-source project index"
+          git push

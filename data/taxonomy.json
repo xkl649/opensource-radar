@@ -1,0 +1,262 @@
+{
+  "categories": [
+    {
+      "id": "ai-agents",
+      "zh": "AI 应用与智能体",
+      "en": "AI Apps & Agents",
+      "descZh": "可直接部署使用的 AI 产品、Agent 框架、工作流与 RAG 应用",
+      "descEn": "Deployable AI products, agent frameworks, workflows and RAG apps",
+      "hue": "violet",
+      "searchTopics": [
+        "ai-agents",
+        "llm-agent",
+        "autonomous-agents",
+        "rag",
+        "chatbot",
+        "llmops",
+        "prompt-engineering"
+      ],
+      "keywords": [
+        "agent",
+        "rag",
+        "chatbot",
+        "copilot",
+        "assistant",
+        "workflow",
+        "prompt",
+        "retrieval"
+      ]
+    },
+    {
+      "id": "llm-models",
+      "zh": "大模型与推理引擎",
+      "en": "LLMs & Inference",
+      "descZh": "开源大模型权重、量化部署与本地推理引擎",
+      "descEn": "Open model weights, quantization and local inference engines",
+      "hue": "indigo",
+      "searchTopics": [
+        "llm",
+        "large-language-models",
+        "llm-inference",
+        "quantization",
+        "llama",
+        "transformer",
+        "local-llm"
+      ],
+      "keywords": [
+        "llm",
+        "gpt",
+        "llama",
+        "qwen",
+        "mistral",
+        "inference",
+        "gguf",
+        "quantiz",
+        "serving",
+        "vllm"
+      ]
+    },
+    {
+      "id": "ml-frameworks",
+      "zh": "训练框架与 MLOps",
+      "en": "Training & MLOps",
+      "descZh": "模型训练、微调、分布式与实验管理工具链",
+      "descEn": "Model training, fine-tuning, distributed compute and experiment tooling",
+      "hue": "blue",
+      "searchTopics": [
+        "machine-learning",
+        "deep-learning",
+        "pytorch",
+        "fine-tuning",
+        "mlops",
+        "distributed-training"
+      ],
+      "keywords": [
+        "training",
+        "fine-tun",
+        "pytorch",
+        "tensorflow",
+        "jax",
+        "mlops",
+        "dataset",
+        "distributed",
+        "lora"
+      ]
+    },
+    {
+      "id": "vision",
+      "zh": "计算机视觉与生成",
+      "en": "Vision & Generative",
+      "descZh": "图像/视频理解、检测分割、图像与视频生成",
+      "descEn": "Image and video understanding, detection, segmentation and generation",
+      "hue": "fuchsia",
+      "searchTopics": [
+        "computer-vision",
+        "object-detection",
+        "image-generation",
+        "stable-diffusion",
+        "text-to-video",
+        "3d-reconstruction"
+      ],
+      "keywords": [
+        "vision",
+        "diffusion",
+        "image",
+        "video",
+        "detection",
+        "segmentation",
+        "nerf",
+        "gaussian splatting",
+        "ocr"
+      ]
+    },
+    {
+      "id": "speech-audio",
+      "zh": "语音与音频",
+      "en": "Speech & Audio",
+      "descZh": "语音识别、语音合成、声音克隆与音乐生成",
+      "descEn": "Speech recognition, TTS, voice cloning and music generation",
+      "hue": "cyan",
+      "minStars": 100,
+      "searchTopics": [
+        "speech-recognition",
+        "text-to-speech",
+        "voice-cloning",
+        "audio-processing",
+        "speech-to-text"
+      ],
+      "keywords": [
+        "speech",
+        "voice",
+        "tts",
+        "asr",
+        "whisper",
+        "audio",
+        "music",
+        "vocoder"
+      ]
+    },
+    {
+      "id": "robotics",
+      "zh": "机器人",
+      "en": "Robotics",
+      "descZh": "机械臂、人形机器人、ROS 生态、SLAM 与运动控制",
+      "descEn": "Manipulators, humanoids, the ROS ecosystem, SLAM and motion control",
+      "hue": "orange",
+      "minStars": 60,
+      "searchTopics": [
+        "robotics",
+        "ros2",
+        "ros",
+        "slam",
+        "humanoid-robot",
+        "robot-arm",
+        "motion-planning",
+        "quadruped"
+      ],
+      "keywords": [
+        "robot",
+        "ros",
+        "slam",
+        "humanoid",
+        "quadruped",
+        "manipulat",
+        "gripper",
+        "urdf",
+        "moveit",
+        "drone",
+        "uav"
+      ]
+    },
+    {
+      "id": "embedded",
+      "zh": "嵌入式与固件",
+      "en": "Embedded & Firmware",
+      "descZh": "MCU 固件、RTOS、ESP32/STM32/树莓派 等平台项目",
+      "descEn": "MCU firmware, RTOS and ESP32 / STM32 / Raspberry Pi platform projects",
+      "hue": "amber",
+      "minStars": 80,
+      "searchTopics": [
+        "embedded",
+        "esp32",
+        "stm32",
+        "firmware",
+        "rtos",
+        "microcontroller",
+        "raspberry-pi",
+        "arduino"
+      ],
+      "keywords": [
+        "firmware",
+        "esp32",
+        "esp8266",
+        "stm32",
+        "arduino",
+        "rp2040",
+        "microcontroller",
+        "rtos",
+        "bare-metal",
+        "platformio"
+      ]
+    },
+    {
+      "id": "hardware",
+      "zh": "开源硬件与 3D 打印",
+      "en": "Open Hardware & 3D Printing",
+      "descZh": "PCB 与电路设计、机械结构、3D 打印模型、DIY 硬件",
+      "descEn": "PCB and circuit design, mechanical parts, 3D printable models and DIY hardware",
+      "hue": "rose",
+      "minStars": 40,
+      "searchTopics": [
+        "open-source-hardware",
+        "pcb",
+        "kicad",
+        "3d-printing",
+        "electronics",
+        "hardware-design",
+        "cad"
+      ],
+      "keywords": [
+        "pcb",
+        "kicad",
+        "eagle",
+        "schematic",
+        "3d print",
+        "3d-print",
+        "stl",
+        "openscad",
+        "cad",
+        "enclosure",
+        "diy hardware"
+      ]
+    },
+    {
+      "id": "iot",
+      "zh": "物联网与智能家居",
+      "en": "IoT & Smart Home",
+      "descZh": "智能家居网关、传感器网络、边缘计算与设备互联",
+      "descEn": "Smart home gateways, sensor networks, edge computing and device connectivity",
+      "hue": "emerald",
+      "minStars": 80,
+      "searchTopics": [
+        "iot",
+        "smart-home",
+        "home-automation",
+        "mqtt",
+        "edge-computing",
+        "zigbee"
+      ],
+      "keywords": [
+        "iot",
+        "smart home",
+        "smart-home",
+        "home assistant",
+        "mqtt",
+        "zigbee",
+        "matter",
+        "edge",
+        "sensor"
+      ]
+    }
+  ]
+}
