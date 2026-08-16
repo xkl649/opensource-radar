@@ -1,17 +1,18 @@
 {
-  "updatedAt": "2026-08-16T10:31:34.582Z",
+  "updatedAt": "2026-08-16T10:58:46.824Z",
   "total": 600,
   "enriched": 600,
   "authenticated": true,
   "counts": {
-    "ai-agents": 131,
-    "llm-models": 85,
-    "ml-frameworks": 81,
-    "vision": 53,
-    "speech-audio": 50,
-    "robotics": 50,
-    "embedded": 50,
-    "hardware": 50,
-    "iot": 50
+    "ai-agents": 128,
+    "llm-models": 78,
+    "ml-frameworks": 78,
+    "vision": 46,
+    "speech-audio": 45,
+    "robotics": 45,
+    "embedded": 45,
+    "hardware-design": 45,
+    "hardware-tools": 45,
+    "iot": 45
   }
 }
