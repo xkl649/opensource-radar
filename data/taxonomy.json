@@ -209,11 +209,18 @@
       "minStars": 40,
       "searchTopics": [
         "open-source-hardware",
+        "open-hardware",
         "pcb",
+        "pcb-design",
         "kicad",
         "3d-printing",
+        "3d-models",
+        "openscad",
         "electronics",
+        "electronics-projects",
         "hardware-design",
+        "diy",
+        "maker",
         "cad"
       ],
       "keywords": [

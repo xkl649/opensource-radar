@@ -9,8 +9,8 @@ on:
       limit:
         description: "Max number of projects to keep"
         required: false
-        default: "400"
-      min-stars:
+        default: "600"
+      min_stars:
         description: "Minimum stars for the main sweep"
         required: false
         default: "150"
@@ -40,8 +40,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/fetch-github.mjs \
-            --limit=${{ inputs.limit || '400' }} \
-            --min-stars=${{ inputs.min-stars || '150' }}
+            --limit=${{ inputs.limit || '600' }} \
+            --min-stars=${{ inputs.min_stars || '150' }}
 
       - name: Commit refreshed dataset
         run: |

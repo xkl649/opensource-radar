@@ -165,9 +165,16 @@ const FILE_SIGNALS = [
   { key: "arduino", match: (f) => /\.ino$/i.test(f) },
   { key: "espidf", match: (f) => /^sdkconfig(\.defaults)?$/i.test(f) },
   { key: "ros", match: (f) => /^package\.xml$|^colcon\.meta$/i.test(f) },
-  { key: "notebook", match: (f) => /\.ipynb$/i.test(f) },
+  { key: "notebook", match: (f) => /\.ipynb$/i.test(f) || /^notebooks?$/i.test(f) },
   { key: "examples", match: (f) => /^examples?$|^demos?$|^samples?$|^tutorials?$/i.test(f) },
-  { key: "hardware", match: (f) => /\.(kicad_pcb|kicad_pro|sch|brd|step|stl|f3d|scad|dxf)$/i.test(f) },
+  {
+    key: "hardware",
+    // Only the repository root is listed, and hardware projects almost always
+    // file their drawings under a directory rather than at the top level.
+    match: (f) =>
+      /\.(kicad_pcb|kicad_pro|kicad_sch|sch|brd|step|stl|3mf|f3d|scad|dxf|gbr)$/i.test(f) ||
+      /^(hardware|hw|pcb|pcbs|cad|kicad|eagle|altium|electronics|mechanical|enclosures?|schematics?|gerbers?|3d[-_ ]?print(ing|able)?|3d[-_ ]?models?|stl|stls)$/i.test(f),
+  },
   { key: "docs", match: (f) => /^docs?$|^documentation$/i.test(f) },
   { key: "install", match: (f) => /^install\.sh$|^setup\.sh$|^bootstrap\.sh$/i.test(f) },
   { key: "tests", match: (f) => /^tests?$|^spec$/i.test(f) },
