@@ -2,8 +2,9 @@
 
 [中文说明](./README.zh-CN.md)
 
-Experimental DeepSeek Harness agent presets — one base mode plus two variants
-— that anchor a session's first model request on the Minimal condition
+Experimental DeepSeek Harness agent presets — a base mode, two live-anchor
+variants, and one seeded prefab mode — that anchor a session's model trajectory
+on the Minimal condition
 (real Minimal tool schema, no auto-injected context), then promote to a small
 resident catalog once the session is durable, unlocking heavier Standard tools
 on demand.
@@ -11,7 +12,25 @@ on demand.
 This is a community project. It is not an official DeepSeek preset and is not
 affiliated with or endorsed by DeepSeek.
 
-Welcome to submit feedback on the plugin in the form of Issues or PRs. For ideas for new plugins or useful findings, please submit them under the [repository](https://github.com/0liveiraaa/DeepseekCotexplorations).
+Feel free to submit feedback on the plugin in the form of Issues or PRs. For ideas for new plugins or useful findings, please submit them under the [repository](https://github.com/0liveiraaa/DeepseekCotexplorations).
+
+## Project status (2026-08-17)
+
+Following the price increases on both the DeepSeek official API and the opencode go
+subscription, active development of this project has effectively stopped: the evaluation
+loops these presets depend on (Project2-class runs and multi-trial roll/probe experiments)
+are no longer affordable. The repository stays available as-is and receives **maintenance
+only** (bug fixes and harness-compatibility updates when feasible). The mechanism findings,
+the dose-response data, and the tooling (context-gate, the prefab pipeline, the probe
+suite) remain valid and are largely model-agnostic. A personal note from the maintainer:
+[FAREWELL.md](./FAREWELL.md) (Chinese).
+
+Community projects that users report perform better in some scenarios:
+
+- [dsh-routing-suite](https://github.com/yjh051108/dsh-routing-suite) — a runtime injector
+  plus task-aware thinking-mode routing presets (the router-standard family).
+- [J-Space Cognition Suite](https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6)
+  — a model-agnostic inference-time cognitive control layer packaged as a Skill.
 
 ## Modes at a glance
 
@@ -20,9 +39,14 @@ Welcome to submit feedback on the plugin in the form of Issues or PRs. For ideas
 | Anchored Standard | `preset/` | 2 tools (the Minimal pair) | Minimal tool schema | first durable `tool/call` **or** `assistant/message` (`promoteOn: either`) | none |
 | Zero-Anchored Standard | `zero-anchored-standard/` | 0 tools | one fixed anchor turn | the anchor reply (`assistant/message`) | +1 model call |
 | Whoami Standard | `whoami-standard/` | 0 tools | one "你是谁" self-introduction turn | the self-introduction reply (`assistant/message`) | +1 model call |
+| Prefab Anchored Standard | `prefab/` | seeded rolled history | bundled successful trajectory | already promoted in the seed | no model call to instantiate |
+| Eternal Minimal | `eternal-minimal/` | 2 tools, forever | the visible catalog never grows; heavier tools run via the `dshx` bash gateway | none (no phases) | none |
+| Wire Think-Execute Standard | `wire-think-standard/` | tools present, `tool_choice: none` on the wire | sibling provider route per think step | per-turn: the steer itself | +1 model call/turn, prefix-cache churn |
+| Combo Anchored | `combo-anchored/` | 0 tools, on every user turn | think/execute split + depth gate + deliberation drip as three independent rows | per-mechanism | +1 model call/turn |
 
 Every mode directory is self-contained and installs alone under whatever id
-you copy it to (see [Install](#install)).
+you copy it to (see [Install](#install)). The prefab hydrates the blank session
+in place when its preset is selected; no per-workspace import is required.
 
 ## Terminology
 
@@ -78,8 +102,10 @@ Three first-request levers decide the trajectory (issue #11):
    (26/32), independent of the tool descriptions. The base mode leaves this
    lever unset (`bootstrapMaxTokens` is opt-in).
 3. **Injected reminders** — the AGENTS.md/CLAUDE.md digest and the
-   available-skills reminder. With the skill catalog present the anchor did
-   not reproduce at all (0/9); both are stripped during bootstrap.
+   available-skills reminder. With the skill catalog present, the anchor did
+   not reproduce at all (0/9). The base mode now suppresses EVERY automatic
+   injection during bootstrap at the harness's two unified injection paths
+   (the `context-gate` plugin), not just the two measured ones.
 
 ## Why
 
@@ -90,15 +116,23 @@ however, gives up the Standard preset's broader tool set.
 
 Anchored Standard separates initial trajectory selection from later tool use:
 
-1. Keep the Minimal complete system prompt.
+1. Keep the complete Minimal system prompt.
 2. Expose the Minimal preset's REAL tool schemas — persistent `bash` +
    `str_replace_editor`, byte-identical to the official Minimal composition —
    on the first model request (lever 1 above).
-3. Strip the auto-injected context on that first request as well — the
-   AGENTS.md/CLAUDE.md workspace digest and the available-skills reminder that
-   true Minimal never mounts (`suppressedContextSources` in the
-   `tool-bootstrap` row; lever 3). User-initiated skill gestures are not
-   filtered, and both injections return unchanged from request #2 on.
+3. Suppress EVERY auto-injected context on that first request — at the
+   harness's unified injection paths, not per source name (the `context-gate`
+   row, mounted FIRST; lever 3). While the session is unpromoted the
+   assembly's dynamic runtime-context contributions are blanked (the whole
+   `SystemPrompt.context()` family: sandbox/approval policy snapshots and any
+   third-party context provider), and the pre-step waterfall keeps only the
+   CLAIMED message batch plus a small kind allowlist (a user-initiated skill
+   gesture survives; skill catalog, AGENTS.md digest, time/tmux context,
+   hooks, and unknown third-party injections are stripped by default). After
+   promotion the gate opens and the loop's own snapshot projection diffs
+   exactly ONE fresh runtime-context message into the next request — minimal
+   first round, injections on the second round. A `compaction/end` boundary
+   re-closes the gate the same way.
 4. After the session records its first durable promotion signal — a `tool/call`
    or the first `assistant/message`, whichever comes first — promote to the
    RESIDENT catalog: the bootstrap pair plus the discovery tools plus whatever
@@ -121,55 +155,122 @@ catalog on Windows.
 
 ## Results
 
-Project2 V4.1b, DeepSeek V4 Pro, `reasoningEffort=max`, Windows native:
+The anchored family was validated on Project2 with three V4 Pro scores of
+98, 99, and 99. Provenance note (issue #60): those three runs predate the
+current composition — they used the Minimal system prompt with a first-request
+`pwsh` + `read` surface and promoted to the full 25-tool Standard catalog;
+the exact Minimal pair (persistent `bash` + `str_replace_editor`) with the
+small resident catalog was introduced afterward. The bundled generic prefab
+removes Project2-specific warm-up facts and was not re-benchmarked before the
+API price change, so those scores must not be attributed to the generic
+template.
 
-| Run | Ability | Reasoning blocks | `we` | `let's` | `let me` | Visible replies |
-|---|---:|---:|---:|---:|---:|---:|
-| r1 | 98 | 193 | 179 | 88 | 1 | 1 |
-| r2 | 99 | 162 | 165 | 98 | 0 | 1 |
+Independent replications: the trajectory anchoring reproduces strongly, but
+the ability gap is unresolved at small n — see
+[#65](https://github.com/xiaobright/dsh-anchored-standard/issues/65)
+(anchoring 9/9 separated by preset; anchored−standard +3.3, 95% CI
+[−2.6, +9.3]) and
+[#51](https://github.com/xiaobright/dsh-anchored-standard/issues/51)
+(multi-env, Ability 85–90, 98/99 not reproduced). Treat the scores above as
+our original observations, not a settled effect size.
 
-Both runs emitted exactly two tool-catalog snapshots: the two-tool Minimal
-bootstrap, followed by the 25-tool Standard catalog (these runs predate the
-post-promotion narrowing to the resident set — see [How it works](#how-it-works)).
-The result is reproducible evidence for this task, not a claim of universal
-improvement across models or workloads.
+Research write-ups live in the companion exploration repository
+[DeepseekCotexplorations](https://github.com/0liveiraaa/DeepseekCotexplorations)
+(data and methodology; this repository keeps the code):
 
-Cross-version evidence (issue #11, Windows + official endpoint, first-request
-trajectory only): at the adapter-default maxTokens the Minimal tool schema
-anchored 5/5 (`We need modify…` first lines, `we` 1.4, `let me` 0.0), while
-pwsh/read, pwsh-only, and sandboxed bash/read all produced standard-like
-first lines 11/11 — the tool schema, not the output cap, is the decisive
-first-request variable at 256000.
+- [Tool-surface dose-response + Project2 replication](https://github.com/0liveiraaa/DeepseekCotexplorations/tree/main/contributions/xiaobright-v4-tool-surface-dose-response/) —
+  methodology, per-run scope, tool-surface experiments, and limitations.
+- [Anchor-mass quantification + single-request probe methodology](https://github.com/0liveiraaa/DeepseekCotexplorations/tree/main/contributions/xiaobright-v4-anchor-mass-probe/) —
+  the prefab template quality model and the post-price-hike low-cost
+  evaluation loop.
 
-Full methodology and aggregate evidence are in
-[`xiaobright/modeltest`](https://github.com/xiaobright/modeltest).
+Development-process records (what was done, why, and the pitfall lists) are
+kept in this repository as [`HANDOFF.md`](./HANDOFF.md) and
+[`HANDOFF-2.md`](./HANDOFF-2.md).
 
 ## Configuration reference
 
 All knobs are rows in each mode's `agent.cordis.yml`. Unknown keys fail at
 preset mount.
 
-`tool-bootstrap` (in `preset/agent.cordis.yml`; the row must stay FIRST —
-waterfall registration order decides the first-request strip):
+`context-gate` (mounted FIRST in `preset/`, `zero-anchored-standard/`, and
+`whoami-standard/` — waterfall registration order makes the gate the outermost
+transform; the plugin lives in `shared/context-gate.mjs` and is reusable by
+any other composition that wants unified injection control alone):
+
+| Key | Default | Meaning |
+|---|---|---|
+| `promoteOn` | `either` | Promotion trigger: `either`, `tool-call`, or `assistant-message` (the variants use `assistant-message`). |
+| `includeSubagents` | `false` | Gate subagents too (`true` in the base mode and whoami; keep in sync with the bootstrap row). |
+| `enabled` | `true` | `false` disables both interception paths (A/B testing without touching the row set). |
+| `allowKinds` | `[skill-invocation]` | `source.kind` values allowed beyond the claimed batch; `[]` keeps ONLY the claimed batch. |
+
+Injection control division of labor: session-phase suppression (everything
+keyed on a promotion boundary) belongs to `context-gate`. Two documented
+exceptions keep their own enumerated `suppressedContextSources` strip because
+the gate's phase machine does not map onto their scope: the think-step strip
+in `think-phase`/`wire-think` (per-step, not per-session-phase) and the
+permanent every-request strip in `eternal-minimal` (no promotion boundary;
+frozen to the configuration its recorded measurements were taken under).
+
+`tool-bootstrap` (in `preset/agent.cordis.yml`; mount right after
+`context-gate`):
 
 | Key | Default | Meaning |
 |---|---|---|
 | `bootstrapTools` | `[bash, str_replace_editor]` | Tools visible on request #1. |
 | `promoteOn` | `either` | Promotion trigger: `either`, `tool-call`, or `assistant-message`. |
 | `bootstrapMaxTokens` | unset | Optional output cap for request #1; stripped after promotion. |
-| `suppressedContextSources` | `[agent-instructions, skill-catalog]` | `source.kind` values stripped during bootstrap; `[]` disables the filter. |
+| `includeSubagents` | `false` | Subagents take the bootstrap phase too (`true` in the base mode). |
 | `compactionTools` | `[]` | Extra tools available between a compaction boundary and re-promotion. |
 
 `zero-tool-bootstrap` (in `zero-anchored-standard/` and `whoami-standard/`):
-`suppressedContextSources` and `compactionTools` have the same semantics
-(promotion is always the first `assistant/message`), plus
-`includeSubagents` — whether subagents also take the anchor phase (set `true`
-in `whoami-standard`, `false` in `zero-anchored-standard`).
+`compactionTools` has the same semantics (promotion is always the first
+`assistant/message`), plus `includeSubagents`, whether subagents also take the
+anchor phase (set `true` in `whoami-standard`, `false` in
+`zero-anchored-standard`). Context suppression is NOT here — both variants
+mount the `context-gate` row (above) with `promoteOn: assistant-message`;
+the bootstrap's former `suppressedContextSources` key now fails at mount.
 
 `anchor-turn` (in both variants): `text` — the synthetic first user message
 (default "This round is a test. Tools are not open yet; all tools will open
 next round." in zero-anchored, "你是谁" in whoami); `includeSubagents` —
 whether subagents also take the anchor turn.
+
+
+`eternal-minimal` (in `eternal-minimal/`; the row must stay FIRST):
+
+| Key | Default | Meaning |
+|---|---|---|
+| `guide` | `true` | Append the short `dshx` capability guide to the system prompt; `false` keeps the persona byte-pure. |
+| `gateway` | `true` | Intercept `dshx` shell commands and execute the real tools; `false` leaves the bare Minimal pair. |
+| `gatewayCommand` | `dshx` | The interception word. |
+| `maxGatewayChars` | `12000` | Cap on one gateway result payload. |
+| `suppressedContextSources` | `[agent-instructions, skill-catalog]` | Stripped on every request (no promotion boundary; the enum intentionally stays — see the division-of-labor note above). |
+
+
+`cot-drip` (in `combo-anchored/`):
+
+| Key | Default | Meaning |
+|---|---|---|
+| `every` | `4` | Attach one deliberation beat after every Nth tool result; `0` disables the drip. |
+| `maxPerTurn` | `1` | Beats per turn. |
+| `text` | built-in beat | The reminder text (one "We …" sentence restating the remaining goal). |
+| `includeSubagents` | `false` | Whether subagent calls are dripped too. |
+
+`toolchoice-adapter` (in `wire-think-standard/`; the row must stay the first LOCAL row):
+
+| Key | Default | Meaning |
+|---|---|---|
+| `provider` | `deepseek-wire-think` | The sibling route id the adapter owns; registering an id twice throws DUPLICATE_ADAPTER (caught, degraded). |
+| `toolChoice` | `none` | The wire `tool_choice` sent whenever tool definitions are present. |
+| `baseURL` / `apiKeyEnv` | settings/env | Row config first, then the `llm-deepseek` settings section, then `DEEPSEEK_BASE_URL` / `DEEPSEEK_API_KEY`. |
+| `logprobs` | `false` | Opt-in research hook: request token logprobs and log a per-request mean summary (no StreamChunk surface exists). |
+
+`wire-think` (in `wire-think-standard/`): same `mode` / `suppressedContextSources` /
+`includeSubagents` / `steerText` semantics as `think-phase`, plus
+`provider` (must match the `toolchoice-adapter` row's id) and `defaultProvider`
+(the route execute steps restore onto, default `deepseek-official`).
 
 `instruction-hint` (all modes): `promoteOn` matching the mode's promotion
 semantics (`either` in the base mode, `assistant-message` in the variants) —
@@ -182,11 +283,19 @@ for promotion.
 preset/                  Anchored Standard — the base mode
 zero-anchored-standard/  variant: fixed zero-tool anchor turn
 whoami-standard/         variant: "你是谁" anchor turn, subagents inherit
+eternal-minimal/         variant: Minimal pair forever + dshx bash gateway
+wire-think-standard/     variant: wire-level condition (tools + tool_choice=none)
+combo-anchored/          combination package: think split + gate + drip rows
 shared/                  single source of truth for plugins used by 2+ modes
 scripts/sync-modes.mjs   materializes shared/ plugins into every mode dir
 test/                    zero-dependency test suite (npm test)
 verify/                  one-shot headless verification runner
+prefab/                  Prefab Anchored Standard + bundled session template
 ```
+
+`prefab/` ships a generic template by default and a Project2-specific template
+as an explicit opt-in. Both contain real model reasoning; read the mode's
+[installation notes](./prefab/README.md) before use.
 
 Invariants, enforced by `npm run check`:
 
@@ -195,7 +304,10 @@ Invariants, enforced by `npm run check`:
 - Plugins shared by several modes live once in `shared/`; the copies in mode
   directories are generated. Edit `shared/`, run `npm run sync`, commit both —
   never edit a materialized copy.
-- The `tool-bootstrap` row stays the FIRST row of `preset/agent.cordis.yml`.
+- The `context-gate` row stays the FIRST row of `preset/agent.cordis.yml`
+  (the gate must register before every injecting plugin), with
+  `tool-bootstrap` right after it. The same first-row rule holds for the
+  `context-gate` row in `zero-anchored-standard/` and `whoami-standard/`.
 
 This repository deliberately ships no AGENTS.md/CLAUDE.md: the presets' whole
 mechanism is a clean request #1, stripping exactly those instruction-file
@@ -210,6 +322,13 @@ Developed and tested against:
 - DeepSeek Harness `0.1.0-rc.5`
 - repository commit [`47f9438`](https://github.com/deepseek-ai/deepseek-harness/tree/47f943859bef60e4160492346772ded9b24f765a)
 - Node.js 24 on Windows
+
+The persistent shell resolves `shellPath` adaptively: it keeps the
+terminal-bash plugin default `/bin/bash` on hosts where that absolute path
+exists, and falls back to `bash` (PATH lookup) otherwise — e.g. NixOS, where
+bash lives under the Nix store. Hosts that ship `/bin/bash` keep the previous
+behavior exactly; the fallback only activates where the default would make
+every bash call fail with "PTY shell exited during startup".
 
 On the `0.1.0-rc.5` source checkout, `bootstrapMaxTokens` reaches the actual
 first request (the first `request/header` records the cap, `adapterDefaults`
@@ -227,11 +346,21 @@ so review upstream changes before using it with a newer release.
 
 ## Install
 
+For the prefab mode, the recommended path is AI-assisted one-command setup.
+Give your coding agent this repository and ask it to follow the
+[installation-agent contract](./prefab/AGENT_INSTALL.md). When it reports
+`INSTALL READY`, start DSH, select **Prefab Anchored Standard**, create a new
+session in the target workspace, and send the real task prompt. This installs
+the generic template; the Project2 benchmark template requires an explicit
+`--template project2` selection and installs under a separate preset id.
+
 Clone this repository, then copy the entire `preset` directory into the user
 preset root under the id `anchored-standard`. Every mode directory in this
-repository is self-contained: the `zero-anchored-standard/` and
-`whoami-standard/` variants install the same way, alone or together, with no
-other directory required (see their sections below).
+repository is self-contained: the `zero-anchored-standard/`,
+`whoami-standard/`, `prefab/`, `eternal-minimal/`, `wire-think-standard/`, and
+`combo-anchored/` variants install the same way, alone or together, with no
+other directory required (see their sections below). `prefab/` automatically
+hydrates newly selected sessions; follow [`prefab/README.md`](./prefab/README.md).
 
 PowerShell:
 
@@ -311,12 +440,13 @@ npm test
   session; invalid `promoteOn` values fail at preset mount instead.
 - Promotion decisions are memoized per session for the process lifetime; the
   durable event scan runs once per session per process.
-- While a session is unpromoted, the pre-step filter strips messages whose
-  `source.kind` is listed in `suppressedContextSources` (default:
-  `agent-instructions` and `skill-catalog`, the two automatic injections
-  Standard adds over Minimal). Set the list to `[]` to disable the context
-  filter; add other `source.kind` values to suppress more. A filter failure
-  degrades to keeping every message rather than eating context.
+- While a session is unpromoted, the `context-gate` plugin closes BOTH unified
+  injection paths: the assembly's runtime-context contributions are blanked
+  (the whole `SystemPrompt.context()` family, without enumerating sources),
+  and the pre-step waterfall keeps only the claimed batch plus the
+  `allowKinds` entries. At promotion the loop's snapshot projection diffs in
+  exactly ONE fresh runtime-context message; a gate failure degrades to
+  keeping every message rather than eating context.
 - The tool catalog changes at promotion and again whenever `dev_tool_search`
   unlocks a new tool; request-prefix cache continuity breaks at those points.
 - The preset has the same trust level as shell access. Review its files before
@@ -420,6 +550,86 @@ Restart DeepSeek Harness, create a blank session, select **Whoami Standard
 (experimental)**, then send your first message — the self-introduction round
 runs first, and your message is answered with the full tooling on the next
 turn.
+
+## Think-Execute Standard (experimental)
+## Eternal Minimal (experimental)
+
+The "make the model believe it never left Minimal" mode: the model-visible
+catalog stays EXACTLY the Minimal pair (`bash` + `str_replace_editor`) for
+the WHOLE session — no anchor round, no promotion, no discovery tools, no
+catalog growth — while the full Standard toolset stays registered and
+executes FOR REAL behind the `dshx` bash gateway:
+
+```
+dshx list                           # list every gateway tool
+dshx web_search '{"query": "..."}'  # execute the real web_search
+dshx read_image '{"path": "..."}'   # execute the real read_image
+```
+
+1. **Eternal pair**: `system-prompt/assemble` keeps only the shells +
+   `str_replace_editor` on every request (think steps, post-compaction,
+   subagents — everything), and auto-injected context is stripped everywhere
+   (there is no promotion boundary to key suppression on).
+2. **Gateway**: a `tools/pre-execute` listener intercepts bash commands
+   starting with `dshx`, dispatches them through `ctx.tools.execute()` (the
+   full registry pipeline — policy, guards, execution, rendering), and
+   returns the rendered output as the command result. The deny channel is the
+   only sanctioned pre-dispatch way to substitute a result, so gateway
+   payloads arrive flagged as errors — every payload states plainly that the
+   tool executed and its output follows, so the model reads it as output.
+   The real tool really ran: the user sees genuine effects (files, searches,
+   subagents) exactly as if it had been called by name.
+3. **Guide**: a short `dshx` capability guide is appended to the system
+   prompt (`guide: false` for a byte-pure Minimal persona) so the model knows
+   the gateway exists without a third visible tool.
+
+The gateway refuses to dispatch the shells/`str_replace_editor` themselves
+("invoke them directly"), which also makes recursion impossible. Unknown
+tools, malformed JSON, and tool failures all come back as readable payloads.
+Set `gateway: false` for a bare two-tool session with no interception.
+
+Install as a separate preset id:
+
+```sh
+dsh_home="${DSH_HOME:-$HOME/.dsh}"
+mkdir -p "$dsh_home/.agent-presets"
+test ! -e "$dsh_home/.agent-presets/eternal-minimal"
+cp -R eternal-minimal "$dsh_home/.agent-presets/eternal-minimal"
+```
+
+Restart DeepSeek Harness, create a blank session, select **Eternal Minimal
+(experimental)**, then work as usual — the model composes shell commands,
+and `dshx …` lines run the heavier Standard tools for real.
+
+## Deliberation Gate (experimental)
+## Wire Think-Execute Standard (experimental)
+## Combo Anchored (experimental) — the combination package
+
+The everything-is-a-plugin showcase: THREE orthogonal anchoring mechanisms
+composed as independent rows, each with its own knobs, each removable or
+retunable by editing one line of `agent.cordis.yml`. They attack the
+pre-tool deliberation collapse at different moments of a turn:
+
+| Row | Mechanism | Owns |
+|---|---|---|
+| `think-phase` | zero-tool think step + steering notice | the turn OPENING |
+| `deliberation-gate` | depth gate denies the first tool call of a shallow turn | the FIRST ACTION |
+| `cot-drip` | one "We …" beat after every Nth tool result (`tools/post-execute` additionalContexts — never blocking, never erroring) | the LONG MIDDLE |
+
+With `mode: every-turn` the think step opens every turn, the gate catches
+the paths that skip it (steering continuations, resumed sessions,
+straight-to-tools follow-ups), and the drip sustains deliberation across
+long tool loops. Defaults are deliberately gentle (`minChars: 400`,
+`every: 4`, one beat per turn); tune per workload. Swapping the
+`think-phase` row for `wire-think` + `toolchoice-adapter` upgrades the
+opening to the wire-level condition (see above) at the cost of the sibling
+route and its prefix-cache churn.
+
+Explored and rejected for this package: pure Code Mode presentation
+(`presentAs('code')` collapses the catalog into one `run_code` tool) — a
+single-tool surface measurably underperforms the two-tool condition in the
+sibling project's evaluations; and text-only fake tools or ghost tool-call
+histories — both proved unreliable anchors in practice.
 
 ## Official ecosystem guidance
 

@@ -143,9 +143,9 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 
 | Metric | Count |
 |--------|-------|
-| 📝 Total Prompts | **15226** |
+| 📝 Total Prompts | **15225** |
 | ⭐ Featured | **9** |
-| 🔄 Last Updated | **Sunday, August 16, 2026 at 8:03:58 AM UTC** |
+| 🔄 Last Updated | **Monday, August 17, 2026 at 12:34:07 AM UTC** |
 
 </div>
 
@@ -793,42 +793,7 @@ Create a photorealistic portrait of a young woman standing indoors against a mut
 
 ---
 
-### No. 4: Profile / Avatar - Cinematic Male Portrait with Car
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A detailed prompt for a high-end commercial style portrait of a man leaning against a luxury vehicle, focusing on preserving facial identity from a reference image.
-
-#### 📝 Prompt
-
-```
-Use the uploaded image as the only facial reference and preserve 100% facial identity, hairstyle, beard, skin tone, and natural skin texture.
-A {argument name="subject" default="stylish young Pakistani man"} leaning casually against a {argument name="car" default="blue BMW X5 M"}, wearing a {argument name="clothing" default="black traditional Kurta Shalwar"} with a mandarin collar, brown leather loafers, black sunglasses, and a black smartwatch. Pose: one leg bent against the car, hands clasped in front, confident attitude, looking away from camera. Background: open road or parking area, blurred cityscape, bright daylight, cinematic lighting, luxury
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786861120869_235ysi_HPuamLWaEAA0lZJ.jpg" width="600" alt="Profile / Avatar - Cinematic Male Portrait with Car - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Dilshad Hussain](https://x.com/DilshadAI1)
-- **Source:** [Twitter Post](https://x.com/DilshadAI1/status/2088432846683910481)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=31467)**
-
----
-
-### No. 5: Profile / Avatar - Detailed East Asian Woman Portrait
+### No. 4: Profile / Avatar - Detailed East Asian Woman Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 
@@ -881,7 +846,7 @@ Indoor setting with soft, warm directional lighting casting gentle shadows, slig
 
 ---
 
-### No. 6: Profile / Avatar - Playful Mirror Selfie Portrait
+### No. 5: Profile / Avatar - Playful Mirror Selfie Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -927,7 +892,7 @@ A young East Asian woman with long, straight, {argument name="hair color" defaul
 
 ---
 
-### No. 7: Profile / Avatar - Futuristic Arachnid Gamer Persona
+### No. 6: Profile / Avatar - Futuristic Arachnid Gamer Persona
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -981,7 +946,7 @@ Soft cinematic key lighting. Deep controlled shadows. Subtle crimson ambient ill
 
 ---
 
-### No. 8: Profile / Avatar - Retro Studio Magazine Portrait
+### No. 7: Profile / Avatar - Retro Studio Magazine Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1015,7 +980,7 @@ Vertical studio portrait in a 3:4 format. The frame is shot approximately from t
 
 ---
 
-### No. 9: Profile / Avatar - Cinematic Photographer Studio Portrait
+### No. 8: Profile / Avatar - Cinematic Photographer Studio Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1049,7 +1014,7 @@ A medium close-up cinematic portrait of a {argument name="subject" default="youn
 
 ---
 
-### No. 10: Profile / Avatar - Beach Arcade Night iPhone Shot
+### No. 9: Profile / Avatar - Beach Arcade Night iPhone Shot
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1095,7 +1060,7 @@ hyper real vertical amateur iphone shot of a young woman around {argument name="
 
 ---
 
-### No. 11: Profile / Avatar - Monochrome Studio Portrait with Colored Lens
+### No. 10: Profile / Avatar - Monochrome Studio Portrait with Colored Lens
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1147,7 +1112,7 @@ Ultra-realistic studio portrait of a man, close-up headshot, centered compositio
 
 ---
 
-### No. 12: Profile / Avatar - Minimalist Sage Green Studio Portrait
+### No. 11: Profile / Avatar - Minimalist Sage Green Studio Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1221,5 +1186,39 @@ A structured JSON-formatted prompt for a high-fashion studio portrait with a lar
 #### 📌 Details
 
 - **Author:** [KeorUnreal](https://x.com/KeorUnreal)
+- **Source:** [Twitter Post](https://x.com/KeorUnreal/status/2087894905053921756)
+- **Published:** August 13, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=31352)**
+
+---
+
+### No. 12: Profile / Avatar - Stylish Airport Travel Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A high-fashion portrait of a young man at an airport, designed to maintain facial consistency from an uploaded reference photo.
+
+#### 📝 Prompt
+
+```
+Ultra-realistic 8K portrait of a stylish young man FROM ATTACHED PHOTO, standing confidently with a VIP suitcase in front of an {argument name="airline" default="Emirates airplane"} at the airport. Passengers board in the blurred background. he wears an {argument name="top clothing" default="white linen shirt"}, {argument name="bottom clothing" default="black cargo pants"}, white sneakers, and aviators sunglasses. Stylish pose with one hand casually in her pocket. Realistic lighting, cinematic, and natural, capturing a modern, fashionable travel vibe. keep my face exactly the same as the uploaded photo.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786690125520_f0pgp4_HPmVDceWIAAhJmW.jpg" width="600" alt="Profile / Avatar - Stylish Airport Travel Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
 
 <!-- opensource-radar:truncated -->
