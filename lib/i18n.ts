@@ -273,7 +273,7 @@ export const messages = {
 export type MessageKey = keyof (typeof messages)["zh"];
 
 export function translate(lang: Lang, key: MessageKey): string {
-  return messages[lang][key] ?? messages.zh[key] ?? key;
+  return messages[lang][key] ?? messages.en[key] ?? messages.zh[key] ?? key;
 }
 
 export function formatRelative(iso: string, lang: Lang): string {

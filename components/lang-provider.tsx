@@ -22,17 +22,15 @@ interface LangContextValue {
 const LangContext = createContext<LangContextValue | null>(null);
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
-  // Always start on zh so the server and the first client render agree;
-  // the stored preference is applied right after mount.
-  const [lang, setLangState] = useState<Lang>("zh");
+  // Always start on en so the server and the first client render agree;
+  // a stored preference is applied right after mount.
+  const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY) as Lang | null;
     if (stored === "zh" || stored === "en") {
       setLangState(stored);
-      return;
     }
-    if (!navigator.language.toLowerCase().startsWith("zh")) setLangState("en");
   }, []);
 
   useEffect(() => {

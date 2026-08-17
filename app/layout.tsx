@@ -8,23 +8,23 @@ import { messages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: {
-    default: `${messages.zh["site.name"]} · ${messages.en["site.name"]}`,
-    template: `%s · ${messages.zh["site.name"]}`,
+    default: `${messages.en["site.name"]} · ${messages.zh["site.name"]}`,
+    template: `%s · ${messages.en["site.name"]}`,
   },
-  description: messages.zh["site.description"],
+  description: messages.en["site.description"],
   keywords: [
-    "开源项目",
-    "开源雷达",
-    "AI 开源",
-    "机器人开源",
-    "智能硬件",
     "open source",
+    "open source radar",
+    "AI",
     "robotics",
     "embedded",
+    "开源项目",
+    "开源雷达",
+    "智能硬件",
   ],
   openGraph: {
-    title: `${messages.zh["site.name"]} · ${messages.en["site.name"]}`,
-    description: messages.zh["site.description"],
+    title: `${messages.en["site.name"]} · ${messages.zh["site.name"]}`,
+    description: messages.en["site.description"],
     type: "website",
   },
 };
@@ -33,7 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen antialiased">
         <LangProvider>
           <SiteHeader />
