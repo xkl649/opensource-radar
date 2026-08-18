@@ -318,6 +318,39 @@ The more you use it, the better it gets. Your data stays yours.
 
 ---
 
+## Evaluation Results
+
+| Feature | Key Metric | Value | Baseline | Improvement |
+|---------|-----------|-------|----------|-------------|
+| Speculative Execution | Cache Hit Rate | **73.2%** | 0% (no speculation) | 3.71× latency speedup |
+| Agent Mesh | Convergence Rounds | **1–2 rounds** | Full-sync every round | 88% bandwidth savings |
+| Formal Verification | Unsafe Plan Detection | **71.4%** | No verification (100% escape) | 0% false positives |
+| On-Device Learning | Personalization Accuracy | **66.8%** | 5% (static model) | +61.8pp lift |
+| Constrained Decoding | Valid Output Rate | **100%** | 16.7% (unconstrained) | 83.3pp improvement |
+
+> Run `./eval/run_all.sh` to reproduce these results.
+
+---
+
+## Technical Report
+
+- [Technical Report](docs/TECHNICAL_REPORT.md) — detailed evaluation methodology, results analysis, and system design decisions
+- [Why On-Device?](docs/WHY_ON_DEVICE.md) — rationale for on-device agent execution over cloud-based alternatives
+
+---
+
+## Reproducing Results
+
+```bash
+# Build evaluation suite
+cd build && cmake .. -DBUILD_EVAL=ON && make -j$(nproc)
+# Run all evaluations
+./eval/run_all.sh
+# Results appear in eval/results/
+```
+
+---
+
 ## 📦 Examples
 
 ```bash

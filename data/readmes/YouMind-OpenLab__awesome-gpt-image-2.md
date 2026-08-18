@@ -139,9 +139,9 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 
 | Metric | Count |
 |--------|-------|
-| 📝 Total Prompts | **15340** |
+| 📝 Total Prompts | **15421** |
 | ⭐ Featured | **6** |
-| 🔄 Last Updated | **Monday, August 17, 2026 at 12:35:08 AM UTC** |
+| 🔄 Last Updated | **Tuesday, August 18, 2026 at 12:34:50 AM UTC** |
 
 </div>
 
@@ -525,19 +525,41 @@ Transforms a flat evolutionary timeline into a realistic 3D stone staircase info
 
 > 📝 Sorted by publish date (newest first)
 
-### No. 1: Profile / Avatar - Anime Girl on Garden Bench
+### No. 1: Profile / Avatar - Woman with Guitar by Window Blinds
 
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Language-JA](https://img.shields.io/badge/Language-JA-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A gentle anime illustration prompt for creating a young girl seated on a park bench in a sunlit Japanese garden by a pond.
+A photorealistic prompt for a cozy, slightly melancholic scene of a woman sitting by a window with an electric guitar, featuring dramatic blind-light shadows.
 
 #### 📝 Prompt
 
 ```
-Create a soft, detailed anime-style illustration of a young girl sitting on a wooden park bench beside a calm pond in a lush Japanese garden. The girl is centered slightly left, with {argument name="hair color" default="warm brown"} hair in twin low pigtails tied with white ribbon bows, large gentle brown eyes, a small smile, and a peaceful, shy posture with both hands folded on her lap. She wears a light blue sleeveless dress with tiny white floral patterns, a white cardigan, tan strappy sandals, and a small pale yellow crossbody satchel. The setting is a bright spring or early summer park with dappled sunlight, dense green trees, flowering plants, grasses, lily pads, and a reflective pond behind her. Include exactly one wooden arched bridge in the mid-background crossing the water, exactly one small pavilion or gazebo on the far right bank, exactly one large tree trunk on the far left foreground, and exactly one small wooden sign at the lower left with simple Japanese characters and a pink flower symbol. Use a square canvas, warm daylight, soft watercolor-like rendering, delicate linework, rich foliage detail, sparkling reflections on the water, and a wholesome nostalgic mood. Avoid modern city elements, extra characters, logos, watermarks, or random added text beyond the small sign.
+Subject:
+Guitar by the window in the afternoon
+
+Subject Body:
+A young adult woman sitting sideways on a dark wood counter by a window with wooden blinds. Position the person largely from the center to the right of the screen, featuring the face down to the bent legs and white socks, showing an electric guitar leaning in the right foreground and bottles and a biscuit jar at the bottom left.
+
+Character/Expression:
+Slightly thin oval face, bright smooth skin, grayish dark brown eyes, thin natural eyebrows, clean nose, and pale rose slightly parted lips. Facing the camera in front with an upward gaze and a quiet, listless expression. Long eyelashes, thin eyeliner, and faint redness under the eyes and on the cheeks. Long, messy wavy hair reaching near the waist, {argument name="hair color" default="near black"}, with bangs close to a center part and a large volume of hair surrounding the face and shoulders.
+
+Clothing/Pose:
+A short sleeveless top with thin shoulder straps made of white fine rib fabric with black trim, black shorts with a thick white waistband and trim, white calf-length loose socks, and a thin silver chain on the right wrist. Sitting sideways on the counter, with the left knee raised high and the right leg folded with the toes on the shelf below. Rest the left elbow on the raised knee, place the tip of the left finger on the lip, and let the right arm hang in front of the knee with the fingers loosely bent.
+
+Background/Light:
+Brown horizontal blinds occupying the top right, small music posters or cards on the white wall on the left. The bottom is a dark wood shelf, with a glass biscuit jar and a brown bottle on the left, an electric guitar with a wood-colored head and black neck in the right foreground, and a green bottle in the bottom right. Strong direct sunlight in thin strips enters from the window in the top right, diagonally illuminating the hair, shoulders, waist, and thighs. Soft fill light from the front ensures that the shadows on the face are not too heavy.
+
+Composition/Camera:
+Vertical 2:3. Sitting portrait close to full body captured from a horizontal camera slightly lower than the seating surface, facing diagonally forward. Position the top of the head near the top edge and the tips of the white socks near the bottom edge, with the person large in the center and the guitar neck extending diagonally upward from the bottom right. Precision focus on the face, upper body, and raised left knee, with a medium depth of field where small items on the wall can be identified.
+
+Texture/Style:
+High-definition photorealistic live-action photo combining direct window light with a weak flash feel. Realistically depict the grain and luster of the skin, messy thin hair strands, rib fabric, sock weave, wood grain, glass, biscuits, and the metal and strings of the guitar. Slightly retro indoor colors based on white, black, and dark wood, avoiding excessive skin beautification or illustrative styles.
+
+Negative:
+Alteration of facial features, long messy hair, sitting posture, or guitar position
 ```
 
 #### 🖼️ Generated Images
@@ -545,39 +567,33 @@ Create a soft, detailed anime-style illustration of a young girl sitting on a wo
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867817489_mgxesk_HP0uf-2a8AASfTn.jpg" width="600" alt="Profile / Avatar - Anime Girl on Garden Bench - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867817768_k312o0_HP0ug6hasAE6gIc.jpg" width="600" alt="Profile / Avatar - Anime Girl on Garden Bench - Image 2">
+<img src="https://cms-assets.youmind.com/media/1786954574448_sr2gzk_HPq_SwybEAAWg4t.jpg" width="600" alt="Profile / Avatar - Woman with Guitar by Window Blinds - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [まゆひらa](https://x.com/riddi0908)
-- **Source:** [Twitter Post](https://x.com/riddi0908/status/2088877264851419278#reversed-0)
-- **Published:** August 16, 2026
-- **Languages:** en
+- **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
+- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2089223196952117598)
+- **Published:** August 17, 2026
+- **Languages:** ja
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31638)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31688)**
 
 ---
 
-### No. 2: Profile / Avatar - Nostalgic Japanese Studio Portrait Collage
+### No. 2: Profile / Avatar - Cinematic Split Lighting Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A photorealistic collage prompt for a consistent female subject in various playful poses, with a soft pink nostalgic Japanese studio aesthetic.
+Generates a professional studio portrait with a dramatic blue and orange split-lighting effect, including a stylized ghost-like shadow.
 
 #### 📝 Prompt
 
 ```
-Use as the exact reference image for the {argument name="subject" default="woman’s face"}, hairstyle, outfit, accessories, colors, and overall visual identity. Create a photorealistic 2×2 collage featuring the same adult woman in every panel. 1. Playful wink over a giant pink heart. 2. Seated with hands framing her face. 3. Full-body beside the heart. 4. Close-up with fingertips near her lips. Keep everything consistent across all panels. Soft blush-pink/gray studio, diffused lighting, faded colors, subtle film grain, halation, and nostalgic Japanese coming-of-age mood. No identity changes, extra people, duplicate hearts, distorted hands, extra fingers, CGI, anime, text, logo, or watermark. --ar 3:4 --quality high
+Create an ultra-photorealistic cinematic studio portrait based on the reference image. {argument name="subject" default="Young South Asian man"}, centered in a 9:16 vertical frame, wearing an {argument name="outfit" default="oversized plain white T-shirt"}, natural masculine face, realistic skin texture, detailed hair, calm confident expression. Use {argument name="lighting style" default="dramatic blue/cyan and warm orange split lighting"}: cool cyan light across the face and shirt, warm orange rim light along the opposite side of the face, hair, ear, and shoulder. Add a soft offset blue ghost-like shadow silhouette behind him. Clean electric-blue gradient background, subtle atmospheric glow, realistic fabric folds, natural skin pores, shallow depth of field, cinematic teal-orange color grading, soft bloom, subtle film grain, HDR, professional fashion photography, 8K ultra-realistic detail. Negative: cartoon, anime, CGI, plastic skin, beauty filter, distorted face, extra limbs/fingers, excessive glow, oversaturation, text, watermark.
 ```
 
 #### 🖼️ Generated Images
@@ -585,33 +601,55 @@ Use as the exact reference image for the {argument name="subject" default="woman
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867784838_vnrcwk_HP0f8jlbEAA165v.jpg" width="600" alt="Profile / Avatar - Nostalgic Japanese Studio Portrait Collage - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954565734_dgk095_HP5Q5S4aoAAfP_l.jpg" width="600" alt="Profile / Avatar - Cinematic Split Lighting Portrait - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Eesha](https://x.com/MissDelulu9)
-- **Source:** [Twitter Post](https://x.com/MissDelulu9/status/2088860942251798860)
-- **Published:** August 16, 2026
+- **Author:** [Duet | AI](https://x.com/Sheldon056)
+- **Source:** [Twitter Post](https://x.com/Sheldon056/status/2089196233885667685)
+- **Published:** August 17, 2026
 - **Languages:** en
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31599)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31679)**
 
 ---
 
-### No. 3: Profile / Avatar - Pastel Anime Girl With Cat
+### No. 3: Profile / Avatar - Young Woman in Front of White Cafe
 
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Language-JA](https://img.shields.io/badge/Language-JA-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-Generates a soft kawaii anime avatar of a pink-haired girl with a sleeping cat mascot and star accents.
+A detailed high-definition prompt for a full-body portrait of a young woman standing outside a stylish white street-side cafe, capturing natural afternoon light and realistic textures.
 
 #### 📝 Prompt
 
 ```
-Create a square, soft pastel anime close-up portrait of a cute chibi-style girl with {argument name="hair color" default="bubblegum pink"} hair in twin ponytails, large glossy blue eyes, tiny pouty mouth, and heavily blushed cheeks. She rests her chin on one hand in a shy, sleepy, slightly mischievous pose, looking forward with a dreamy expression. Add a small white cat mascot sleeping on top of her head, with pink inner ears and a curled tail, and place one yellow star hair clip on the right ponytail plus two small glowing yellow sparkle shapes on the left side. The girl wears a simple white long-sleeve top with soft folds. Use a warm indoor background with blurred wooden tones and a bright window-like area, shallow depth of field, creamy lighting, high-key pastel colors, delicate line art, glossy highlights in the hair and eyes, soft blush gradients, and a kawaii Japanese anime screenshot aesthetic. Include exactly 4 distinct decorative elements: 1 sleeping white cat on her head, 1 yellow star hair clip, and 2 yellow sparkle shapes. No readable text, no watermark, no extra characters.
+Subject:
+Afternoon in front of a white cafe
+
+Subject Body:
+A young adult woman standing as if looking back in front of a street-corner cafe with white exterior walls and glass doors. Place the person's full body large in the center of the screen, featuring a {argument name="top" default="ivory cardigan"}, a {argument name="skirt" default="short gray pleated skirt"}, white socks, and black loafers.
+
+Character/Expression:
+Small oval face, bright smooth skin, large dark brown eyes, thin natural eyebrows, small nose, and pale coral lips. Facing the camera in front over the shoulder with a soft smile and mouth closed. Thin eyeliner, long eyelashes, pale cheek color. Loose wavy dark brown hair down to below the chest, with thin bangs near the center, short tufts around the face, and glossy hair flowing down the back.
+
+Clothing/Pose:
+Ivory white long-sleeved cropped cardigan with fine vertical ribs, shallow V-neck and small white buttons. High-waisted very short charcoal gray pleated mini skirt, white calf-length socks, and black low-heel loafers with hardware. Body facing to the right of the screen, standing with the upper body twisted toward the camera. Hands lightly overlapped in front of the waist, right knee slightly bent with the left leg as the axis, and the right foot pulled back.
+
+Background/Light:
+White plastered pillar and black-framed glass door on the right, dark interior with warm-colored pendant lights in the center back. Black shop sign, gray-potted houseplants, thin sidewalk, and sunny greenery in the left back. Bright midday diffused light enters from the front left, softly illuminating the face, white top, and legs. Faint directional shadows on the pavement at the feet.
+
+Composition/Camera:
+Vertical 3:4. Full-body portrait captured from a horizontal camera at about waist height, slightly from behind. Leave margin for the shop front above the head, and include down to the black loafers near the bottom edge. Place the person large in the center-right of the screen, leaving the sign and plants on the left small. Sharp focus on the face and full body, with the interior in the back slightly blurred (medium depth of field).
+
+Texture/Style:
+High-definition photorealistic live-action photo taken in soft midday natural light. Realistically depict the texture of skin grain, fine wavy hair, rib knit, pleated fabric, sock weave, leather shoes, white walls, glass, and potted plants. Based on ivory, gray, and black, avoiding excessive skin beautification or illustrative styles.
+
+Negative:
+Alteration of facial features, hairstyle, costume, or look-back standing pose
 ```
 
 #### 🖼️ Generated Images
@@ -619,33 +657,32 @@ Create a square, soft pastel anime close-up portrait of a cute chibi-style girl 
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867811774_q7eitj_HP0f6adWUAAVuc1.jpg" width="600" alt="Profile / Avatar - Pastel Anime Girl With Cat - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954573911_ignwcw_HPq9rIOaUAA56dq.jpg" width="600" alt="Profile / Avatar - Young Woman in Front of White Cafe - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [河合聖人🩷](https://x.com/LorraineTu7cq0)
-- **Source:** [Twitter Post](https://x.com/LorraineTu7cq0/status/2088860905215824302#reversed-0)
-- **Published:** August 16, 2026
-- **Languages:** en
+- **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
+- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2089190983280083388)
+- **Published:** August 17, 2026
+- **Languages:** ja
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31628)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31687)**
 
 ---
 
-### No. 4: Profile / Avatar - Realistic Cinematic Male Portrait
+### No. 4: Profile / Avatar - Adjust Glasses Placement in Bed Selfie
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A high-detail cinematic prompt for generating realistic portraits of men with soft lighting and professional photography features like bokeh and shallow depth of field.
+Creates a minimal image edit that only repositions eyeglasses on a photorealistic reference selfie while preserving identity and scene details.
 
 #### 📝 Prompt
 
 ```
-Ultra-realistic cinematic close-up portrait of a {argument name="subject" default="handsome young man"} with thick, naturally tousled dark wavy hair, subtle short beard and stubble, expressive deep-set eyes, defined cheekbones, natural lips, and delicate round wire-frame glasses. He wears a {argument name="clothing" default="soft cream-colored textured knit sweater"}. Three-quarter angle, shoulders and upper torso visible, head slightly tilted toward the camera, calm and introspective expression, direct gentle gaze. Warm amber cinematic lighting from the side creates glowing highlights along his hair, glasses, cheekbone, jawline, and sweater texture, while the opposite side falls naturally into deep soft shadows. Dark intimate background with warm out-of-focus practical lights and beautiful circular bokeh, subtle reflections, cozy evening atmosphere. Natural skin pores and fine facial hair, realistic eye detail, individual hair strands, authentic fabric texture, soft imperfections, shallow depth of field, creamy background separation. Shot on a professional full-frame camera with an 85mm portrait lens, wide aperture around f/1.4, cinematic low-light photography, warm film tones, subtle analog grain, soft halation around highlights, rich blacks, gentle contrast, elegant editorial aesthetic, photorealistic, highly detailed, natural color grading, vertical 4:5 composition, no text, no watermark.
+Edit the provided reference image and change only the glasses placement: make the round metal glasses sit more naturally and slightly lower/centered on her face while still covering the eye area. Preserve the same clearly adult Japanese woman, recognizable identity, black bob with bangs, lying-in-bed selfie pose, close front-camera angle, sleepy wink expression, duvet covering her mouth and nose, visible arm, bedding, hotel-room background, lighting, camera perspective, and overall photorealistic smartphone snapshot look. Do not change her face, age, hairstyle, pose, clothing visibility, environment, or add any new objects.
 ```
 
 #### 🖼️ Generated Images
@@ -653,39 +690,33 @@ Ultra-realistic cinematic close-up portrait of a {argument name="subject" defaul
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867785826_ny2ids_HP0b36obgAAPhBx.jpg" width="600" alt="Profile / Avatar - Realistic Cinematic Male Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867785769_3fg9zo_HP0b40sboAAXSTM.jpg" width="600" alt="Profile / Avatar - Realistic Cinematic Male Portrait - Image 2">
+<img src="https://cms-assets.youmind.com/media/1786954607360_olnmxj_HP5JV_faYAA1edF.jpg" width="600" alt="Profile / Avatar - Adjust Glasses Placement in Bed Selfie - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Taaruk](https://x.com/Taaruk_)
-- **Source:** [Twitter Post](https://x.com/Taaruk_/status/2088856476446306406)
-- **Published:** August 16, 2026
+- **Author:** [たかだくん](https://x.com/takada_merca)
+- **Source:** [Twitter Post](https://x.com/takada_merca/status/2089187929013010561#reversed-1)
+- **Published:** August 17, 2026
 - **Languages:** en
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31600)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31730)**
 
 ---
 
-### No. 5: Profile / Avatar - Pink Hijab Mirror Selfie Portrait
+### No. 5: Profile / Avatar - Stylish Middle-Aged Man Cinematic Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A detailed prompt for creating a photorealistic mirror selfie of a woman in a pink hijab and tweed blazer, set in a luxurious marble bathroom with recursive mirror reflections.
+A cinematic close-up portrait of a middle-aged man featuring moody studio lighting with blue and warm light contrasts, highlighting detailed skin textures and vintage accessories.
 
 #### 📝 Prompt
 
 ```
-A photorealistic full-body mirror selfie of a young woman wearing a soft {argument name="outfit color" default="blush-pink"} hijab, a textured pink tweed cropped blazer over a cream top, and a high-waisted cream skirt with dark buttons and a tan belt. She holds a {argument name="phone color" default="rose-pink"} smartphone in front of her face, looking slightly to the side with a gentle confident smile. A structured beige luxury-style handbag sits on the marble counter beside her. Elegant modern bathroom with white veined marble walls, large illuminated rectangular mirror, and repeating mirror reflections creating an infinite tunnel effect. Soft bright indoor lighting, clean luxurious aesthetic, {argument name="color palette" default="pastel pink and cream"} color palette, natural skin texture, realistic fabric details, balanced composition, high-end fashion photography, sharp focus, vertical 9:16.
+A cinematic, ultra-realistic close-up portrait of a {argument name="subject" default="stylish middle-aged man"} with {argument name="hair" default="thick, naturally curly dark brown hair"}, a neatly trimmed salt-and-pepper beard, and a strong masculine facial structure. He is wearing round vintage amber-brown sunglasses and a black oversized hoodie with the hood resting around his neck. Moody studio lighting with dramatic deep blue rim light illuminating the right side of his face, contrasted by warm soft light from the front. Highly detailed skin texture, realistic beard hairs, natural facial imperfections, sharp eyes visible behind slightly tinted lenses, rich shadows, shallow depth of field, {argument name="background" default="dark blue-gray studio background"}. Fashion editorial photography, sophisticated and mysterious mood, 85mm portrait lens, f/1.8, crisp facial details, cinematic color grading, photorealistic, high dynamic range, professional studio photography, centered composition, head-and-shoulders framing.
 ```
 
 #### 🖼️ Generated Images
@@ -693,75 +724,33 @@ A photorealistic full-body mirror selfie of a young woman wearing a soft {argume
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867794639_kj2hkb_HP0HKo8aUAAocKQ.jpg" width="600" alt="Profile / Avatar - Pink Hijab Mirror Selfie Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867794564_0wyohk_HP0HLrpbcAAO0d6.jpg" width="600" alt="Profile / Avatar - Pink Hijab Mirror Selfie Portrait - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Aqsa](https://x.com/Aqsahere_)
-- **Source:** [Twitter Post](https://x.com/Aqsahere_/status/2088833719234674907)
-- **Published:** August 16, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31607)**
-
----
-
-### No. 6: Profile / Avatar - Chiaroscuro Portrait in Traditional Robe
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A dramatic high-contrast portrait prompt for a man in traditional silk robes, focusing on melancholic mood and refined facial textures.
-
-#### 📝 Prompt
-
-```
-Cinematic chiaroscuro portrait of a {argument name="subject" default="man"} use image for face reference in a {argument name="clothing" default="dark silk traditional robe"}. Side profile, downward gaze, introspective and melancholic mood. Dramatic high-contrast lighting carves refined facial features, porcelain skin texture, and fine strands of raven-black hair from deep, velvety shadows. Minimalist composition, heavy negative space, soft bokeh highlight in the background. Desaturated aesthetic with naturally toned lips. Sharp focus on the jawline, cheekbones, and facial contours, elegant silhouette, quiet solitude. High fidelity, 8k, artistic photography, moody atmosphere, subtle silk sheen, cinematic depth of field, timeless and contemplative. 3:4
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867779969_9vx401_HPz-wVebUAAp9bS.jpg" width="600" alt="Profile / Avatar - Chiaroscuro Portrait in Traditional Robe - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954556257_m6v5b1_HP5FNULacAEYv4T.jpg" width="600" alt="Profile / Avatar - Stylish Middle-Aged Man Cinematic Portrait - Image 1">
 </div>
 
 #### 📌 Details
 
 - **Author:** [Aijaz](https://x.com/iamsofiaijaz)
-- **Source:** [Twitter Post](https://x.com/iamsofiaijaz/status/2088824440901840974)
-- **Published:** August 16, 2026
+- **Source:** [Twitter Post](https://x.com/iamsofiaijaz/status/2089183381104017577)
+- **Published:** August 17, 2026
 - **Languages:** en
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31594)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31671)**
 
 ---
 
-### No. 7: Profile / Avatar - Realistic Black and White Male Portrait
+### No. 6: Profile / Avatar - Vintage Digital Camera Mirror Selfie
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A high-contrast, cinematic black-and-white portrait prompt for a young man, featuring chiaroscuro lighting and a sophisticated film-noir aesthetic.
+A nostalgic Y2K-style mirror selfie prompt that maintains character identity from a reference image, featuring a dreamy aesthetic with butterfly clips and soft floral decorations.
 
 #### 📝 Prompt
 
 ```
-Ultra-realistic cinematic black-and-white portrait of a handsome young man with {argument name="hair style" default="tousled wavy dark hair"}, subtle stubble, defined masculine facial features, and classic round black eyeglasses, seated in a luxurious dark leather armchair. He wears a perfectly tailored black blazer over a black turtleneck, with one hand resting naturally near his neck and a sophisticated metal luxury wristwatch visible on his wrist. Calm, confident, slightly mysterious expression, looking directly toward the camera.
-
-Extremely low-key chiaroscuro lighting, a single narrow window light cutting diagonally across the scene and illuminating one side of his face while the other side falls into deep shadow. Strong geometric light and shadow patterns on the textured wall, deep blacks, crisp highlights, rich monochrome tonal range, subtle analog film grain, realistic skin pores, detailed hair strands, natural facial proportions, soft background falloff, dark elegant interior, intimate luxury editorial mood, timeless film-noir aesthetic. Shot on a professional camera with an {argument name="lens" default="85mm"} lens, shallow depth of field, cinematic composition, high contrast, photorealistic, refined photographic texture, vertical 4:5 composition, no color, no text, no watermark.
+Create an ultra-realistic dreamy vintage digital-camera mirror selfie of the same {argument name="subject" default="clearly adult woman"} from the reference image, preserving her recognizable facial identity, natural facial proportions, facial structure, skin tone, and individual features exactly as they appear in the reference. Do not alter, beautify, or reshape her face. She has a non-East-Asian appearance, long, voluminous black hair with soft wispy bangs falling naturally across part of her forehead. Her hair is decorated with multiple {argument name="accessories" default="tiny colorful butterfly and flower-shaped clips"} scattered casually throughout. She has large expressive eyes, soft realistic skin with visible natural texture and subtle imperfections, a gentle pink blush, glossy natural pink lips, delicate facial features, and a tiny silver lip piercing below her lower lip. She looks directly into the mirror/camera with a calm, slightly dreamy expression while holding a compact black digital camera close to her face, naturally covering part of one side of her face. She wears a {argument name="jewelry" default="delicate layered necklace with a small pendant"} and a stylish dark sleeveless top. Add a few tiny colorful butterfly and flower stickers naturally around her cheeks and hair without overwhelming the composition. The photo is captured through a bedroom mirror in a cozy, softly lit indoor setting. Surroundings feature dreamy pastel decorations, subtle floral elements, and softly reflected shapes in the background. Keep the environment intimate and authentic rather than overly polished. Strong early-2000s premium compact-digital-camera aesthetic, authentic straight-out-of-camera JPEG character, subtle direct-flash reflection, hazy glow, gentle bloom, slight lens softness, realistic skin texture, natural imperfections, muted pastel tones, mild digital noise, nostalgic Y2K atmosphere, candid mirror-selfie composition, shallow depth of field, realistic reflections, high photographic detail, photorealistic, vertical portrait.
 ```
 
 #### 🖼️ Generated Images
@@ -769,51 +758,61 @@ Extremely low-key chiaroscuro lighting, a single narrow window light cutting dia
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867763386_isfa54_HPyeFe3aYAAbbsU.jpg" width="600" alt="Profile / Avatar - Realistic Black and White Male Portrait - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954557286_j12sr0_HP5D3zRbcAAol8_.jpg" width="600" alt="Profile / Avatar - Vintage Digital Camera Mirror Selfie - Image 1">
 </div>
 
 ##### Image 2
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867764795_ts1fue_HPyeF_nbsAAaBvq.jpg" width="600" alt="Profile / Avatar - Realistic Black and White Male Portrait - Image 2">
+<img src="https://cms-assets.youmind.com/media/1786954557821_abisok_HP5D4jfasAA1kM5.jpg" width="600" alt="Profile / Avatar - Vintage Digital Camera Mirror Selfie - Image 2">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Aatif J](https://x.com/aatif_j)
-- **Source:** [Twitter Post](https://x.com/aatif_j/status/2088718161759924679)
-- **Published:** August 15, 2026
+- **Author:** [Meem](https://x.com/mehvishs25)
+- **Source:** [Twitter Post](https://x.com/mehvishs25/status/2089181926519374149)
+- **Published:** August 17, 2026
 - **Languages:** en
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31577)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31672)**
 
 ---
 
-### No. 8: Profile / Avatar - High Fidelity Identity Portrait
+### No. 7: Profile / Avatar - Poolside Hand Wave Portrait
 
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Language-JA](https://img.shields.io/badge/Language-JA-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A complex prompt for preserving an uploaded face identity while generating a luxury monochrome editorial portrait in a cafe setting.
+A highly detailed prompt for a photo-realistic portrait of a woman waving at the camera by a tropical resort pool, featuring intricate descriptions of clothing, lighting, and composition.
 
 #### 📝 Prompt
 
 ```
-Use my uploaded face image as the primary facial identity reference with the highest identity weight. Preserve my exact facial identity with absolute accuracy. My face must remain instantly recognizable, including my face shape, hairstyle, hairline, eyebrows, eyes, nose, lips, beard, skin tone, ears, facial proportions, jawline, and every unique facial feature. Do not beautify, stylize, age, de-age, feminize, masculinize, or replace my identity. Maintain perfect facial consistency and natural skin texture.
+Theme:
+{argument name="theme" default="white hand at poolside"}
 
-Create a hyper-realistic cinematic black-and-white luxury editorial portrait of me seated casually on a premium black leather sofa inside an {argument name="setting" default="elegant upscale café or private lounge"}. I am wearing an {argument name="outfit" default="oversized white linen button-up shirt"} with the top three buttons open, sleeves casually rolled to the forearms, paired with tailored black trousers. Accessories include minimalist rectangular black sunglasses, a luxury stainless-steel square bracelet watch, and a thin black pendant necklace resting naturally on my chest.
+Subject:
+{argument name="subject" default="A woman in her 20s waving at the camera by a tropical poolside. The person's head to thighs are placed large in the center of the screen, featuring a white frilled swimsuit top, pale light blue string bottoms, a transparent white robe, and a transparent tote bag at the bottom right."}
 
-Pose me with a relaxed, confident posture. My right elbow rests on the sofa armrest, while my right hand partially covers my mouth and chin in a thoughtful pose. My head is turned about 35–45° to the right, looking off-camera with a calm, mysterious, self-assured expression. My left arm rests naturally on my lap.
+Person/Expression:
+A small round oval face with a slender round chin, large almond-shaped dark brown eyes, thin loose arched eyebrows, a thin nose bridge and small nose tip, and naturally thick, glossy pale coral lips. Looking directly at the camera and smiling softly, showing teeth slightly. Light brown eyeliner, long eyelashes, peach cheeks. Bright dark brown loose wavy hair down to below the chest, long bangs near the center, rich bundles of hair flowing to the right shoulder, and hair ends translucent gold in the sun.
 
-The background features a dark matte charcoal wall with a framed vintage Marilyn Monroe black-and-white portrait hanging softly out of focus, creating a refined, timeless café atmosphere. Keep the environment minimal and luxurious with no distractions.
+Clothing/Pose:
+{argument name="clothing" default="Ivory white triangle swimsuit top, thin shoulder straps, wide double-tier frills covering the chest. Small pale light blue bottoms tied in long ribbons at the left and right waist. A transparent white long-sleeved robe with a polka dot pattern is worn over both shoulders, with thin frills at the cuffs. Standing in front, raising the person's own right hand (left side of the screen) to the side of the face and opening the palm and five fingers toward the camera. The left arm is down, holding the handle of a black-rimmed transparent tote bag with the left hand."} 
 
-Lighting is soft natural window light entering from the left, producing dramatic Rembrandt lighting across the face with smooth falloff into rich shadows. Add subtle rim lighting to define the hair and shoulders while preserving a natural monochrome look. Maintain high contrast, deep blacks, bright whites, and delicate grayscale transitions.
+Background/Lighting:
+A transparent turquoise pool on the left, a bright stone tile deck on the right. A round rattan floating tray floats on the water surface at the bottom left, carrying pineapple, watermelon, black fruit, a silver wine cooler, a green bottle, and thin glasses. A deck chair with white cushions and a potted palm tree in the back left, a large glass door with a black frame in the back right. Strong direct sunlight from above slightly to the left illuminates the hair, face, hands, and chest, shining through the robe and casting soft shadows on the deck.
 
-Shot on an 85mm full-frame portrait lens at f/1.8, eye-level composition, vertical framing, shallow depth of field, razor-sharp focus on the face, creamy background bokeh, realistic skin pores, detailed beard texture, crisp linen fabric, premium watch reflections, subtle film grain, HDR, magazine-quality retouching without altering identity.
+Composition/Camera:
+3:4 vertical. An above-thigh portrait captured from the front by a horizontal camera slightly higher than the chest. The face is centered in the top half, the raised right hand is toward the top left, the torso and swimsuit are in the center, and the bag is in the bottom right, with the thighs cut off at the bottom edge. While making the person appear large, the pool and floating tray are left on the left side. Precisely focus on the face and the raised hand, and lightly blur the background with a medium depth of field.
 
-Style: Ultra-photorealistic, monochrome fine-art photography, luxury menswear campaign, Vogue Homme, GQ editorial, Leica M11 aesthetic, timeless masculine elegance, cinematic realism, minimalist composition, masterpiece, 8K, award-winning fashion photography.
+Texture/Style:
+A high-definition photorealistic live-action photo taken in bright natural light. Realistically depict skin, hair, frilled fabric, transparent robe, transparent bag, sparkling water surface, fruit, and metal, neatly combining white and pale light blue.
+
+Negative:
+Alteration of the raised right hand and white transparent layers",
 ```
 
 #### 🖼️ Generated Images
@@ -821,49 +820,70 @@ Style: Ultra-photorealistic, monochrome fine-art photography, luxury menswear ca
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867764815_jvgi0m_HPyb_fobMAAlmP_.jpg" width="600" alt="Profile / Avatar - High Fidelity Identity Portrait - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954587613_dpvjyz_HPq8UOQboAAvb3x.jpg" width="600" alt="Profile / Avatar - Poolside Hand Wave Portrait - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Aatif J](https://x.com/aatif_j)
-- **Source:** [Twitter Post](https://x.com/aatif_j/status/2088715851348500803)
-- **Published:** August 15, 2026
-- **Languages:** en
+- **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
+- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2089157512649965758)
+- **Published:** August 17, 2026
+- **Languages:** ja
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31579)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31703)**
 
 ---
 
-### No. 9: Profile / Avatar - Authentic Candid East Asian Portrait
+### No. 8: Profile / Avatar - Modern Minimalist Monochrome Studio Portrait
 
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Language-KO](https://img.shields.io/badge/Language-KO-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A detailed prompt for generating a highly realistic candid portrait of an East Asian woman, emphasizing skin texture, soft lighting, and effortless style.
+A sophisticated, high-fashion prompt for a monochrome studio portrait of a woman on a leather sofa, emphasizing textures like ribbed knit and matte-glossy leather.
 
 #### 📝 Prompt
 
 ```
-Create an insanely lifelike, scroll-stopping portrait of a beautiful young adult {argument name="subject" default="East Asian woman"} in a {argument name="setting" default="warm minimalist interior"}, photographed at the fleeting moment she naturally turns her attention toward the camera.
+[Person] {argument name="person" default="Image 1"} [Signature] In the bottom right corner, there is a small Threads logo operated by Meta, and above it, "{argument name="signature" default="CHAse"}" is written in small white cursive like a signature.
 
-She has radiant yet completely realistic skin, with visible pores, subtle tonal variation, tiny natural imperfections, and authentic texture. Her features are delicate and balanced, with expressive dark almond-shaped eyes, sharp natural catchlights, softly defined brows, gently flushed cheeks, and naturally hydrated rosy-pink lips. Her straight jet-black hair is gathered into a neat low bun, with a few loose flyaway strands framing her face for an effortless, lived-in appearance.
+[Pose and Expression]
+Pose and Composition: A medium full-length shot centered on the front, capturing the full silhouette of the person sitting on the top backrest of a heavy black leather sofa.
 
-She wears understated gold hoop earrings and an extremely fine gold necklace. An oversized cream-beige ribbed sweater sits naturally across her shoulders, slipping slightly from one side and revealing a simple black camisole strap underneath. One arm is relaxed behind her head, creating a candid, graceful silhouette rather than a deliberately posed fashion pose.
+Posture: Sitting with the left leg over the right leg and resting on the sofa armrest, the left leg hanging naturally, with one hand brought near the mouth and fingers slightly covering the mouth in a thoughtful pose. A loosely worn white jacket naturally exposes one shoulder line.
 
-Her expression should carry the entire image: direct but gentle eye contact, relaxed confidence, a barely perceptible knowing smile, and the feeling that the camera captured her between moments. She should look effortlessly attractive without appearing aware of a photoshoot.
+Expression: A calm gaze that does not look directly at the camera but looks wistfully and quietly toward the left of the screen. A neat, understated mask creates a modern and chic feel.
 
-The setting is a quiet, cozy room with a smooth warm beige-cream wall. Soft late-day sunlight enters from a nearby window, creating believable directional illumination, delicate shadows, and a subtle natural silhouette on the wall behind her. Include realistic ambient warmth, soft reflected light, gentle highlight transitions, fine knit-fabric detail, individual hair strands, and convincing depth separation.
+[Clothing and Props]
+Outfit: Matched a {argument name="outfit" default="pure white short-sleeved button-up knit top with a sophisticated vertical rib pattern and an overfit white denim jacket thrown casually over it"}. The bottom wears light black and white striped short pants.
 
-Visual & Camera Direction
+Props:
+White Cotton Socks: Wears only simple pure white cotton crew socks rising above the ankles without shoes, emphasizing a natural and private homewear sensibility.
+Black Leather Sofa: The cushioned leather sofa the person is sitting on serves as a heavy, modern minimal object in the space.
 
-The final image should resemble an exceptional candid photograph captured on a premium flagship smartphone, blended with the restraint and sophistication of a high-end editorial portrait. Natural 50mm-equivalent perspective, shallow f/1.8-style depth of field, extremely crisp eyes with gradual falloff across the face and hair, softly defocused background, accurate skin color, restrained neutral tones, subtle sensor grain, high dynamic range, and smooth highlight handling.
+[Hair and Makeup Details]
+Hair: A calm jet black/dark brown straight long hairstyle with a 5:5 part falling neatly over the shoulders and back. The hair line falling neatly without flyaways adds to the minimal aesthetic.
+Makeup: Matched a brown shade shadow makeup that lightly emphasizes the eyes on a clean, transparent cool-tone skin base. The lips are neatly finished with a calm nude coral pink lip that brings out the natural complexion.
 
-Frame vertically at 3:4 in a close-medium composition. Position her face around the upper-third area while leaving tasteful breathing room around her. Preserve realistic proportions and perspective; avoid an exaggerated close-up or overly tight crop. The composition should feel spontaneous, intimate, elegant, and aesthetically addictive—the kind of image that looks like an unexpectedly perfect moment discovered on someone's camera roll.
+[Lighting and Light Direction]
+Light Source: Soft diffused natural daylight from the window on the left side of the screen and studio cool-tone ambient lighting.
+Effect: Forms calm highlights over the skin texture, white knit texture, and subtle glossy surface of the black leather sofa, creating a modern and neat contrast.
 
-Prioritize authentic human texture over perfection: natural pores, fine facial detail, realistic hair behavior, physically believable clothing folds, accurate anatomy, lifelike hands, and convincing light interaction.
+[Texture and Color Mood]
+Color: A calm 'Modern Minimal Monochrome' color mood consisting of the clean snow white of the clothing and socks, the absolute jet black of the sofa, and the subtle greyish-white of the walls.
+Texture Details (Special Analysis):
+Leather Texture: Fine wrinkles and matte-glossy texture of the leather sofa surface that glitters when receiving light.
+Knit and Cotton Texture: Dense ribbed texture of the knit top and woven texture of the soft, fluffy cotton socks wrapping the ankles.
+Wall Texture: The characteristic bumpy and subtly light-diffusing texture of the plaster wall behind the person.
+
+[Film and Camera Lens Depth, Angle]
+Composition and Angle: A horizontal frontal composition matched with the eye-level of the sitting subject, providing a stable and neat portrait view.
+Features: Through the sharp focus of a standard portrait view, the model's features, knit ribbing, woven feel of socks, and leather sofa texture are clearly captured, with the background wall neatly arranged to maximize immersion in the subject.
+
+[Background and Studio Layout Elements]
+Space: A white studio interior with minimal, clutter-free interior design.
+Details: The clean white plaster wall behind the person and the herringbone wood flooring slightly revealed in the bottom left corner support the neatness of the space.
 ```
 
 #### 🖼️ Generated Images
@@ -871,103 +891,48 @@ Prioritize authentic human texture over perfection: natural pores, fine facial d
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867766678_0vd7dd_HPwDq01a8AAEDHK.jpg" width="600" alt="Profile / Avatar - Authentic Candid East Asian Portrait - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954593559_38pa79_HOHD0DgaoAAcw-m.jpg" width="600" alt="Profile / Avatar - Modern Minimalist Monochrome Studio Portrait - Image 1">
 </div>
 
 ##### Image 2
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867766598_bstdey_HPwDrXAaMAAO1xm.jpg" width="600" alt="Profile / Avatar - Authentic Candid East Asian Portrait - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867766592_7z1erz_HPwDsFNbEAAMAJV.jpg" width="600" alt="Profile / Avatar - Authentic Candid East Asian Portrait - Image 3">
-</div>
-
-##### Image 4
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867767468_x9luob_HPwDstoagAAnYVb.jpg" width="600" alt="Profile / Avatar - Authentic Candid East Asian Portrait - Image 4">
+<img src="https://cms-assets.youmind.com/media/1786954593533_9mivxi_HOHD009bUAE8TeC.jpg" width="600" alt="Profile / Avatar - Modern Minimalist Monochrome Studio Portrait - Image 2">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Johnn](https://x.com/john_my07)
-- **Source:** [Twitter Post](https://x.com/john_my07/status/2088548403387252990)
-- **Published:** August 15, 2026
-- **Languages:** en
+- **Author:** [CHAse](https://x.com/CHAseUnre)
+- **Source:** [Twitter Post](https://x.com/CHAseUnre/status/2089147194708492796)
+- **Published:** August 17, 2026
+- **Languages:** ko
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31581)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31711)**
 
 ---
 
-### No. 10: Profile / Avatar - Cinematic Film-Noir Male Portrait
+### No. 9: Profile / Avatar - Hyper-realistic Smartphone Triple Frame Portrait
 
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+![Language-JA](https://img.shields.io/badge/Language-JA-blue)
 
 #### 📖 Description
 
-A classic monochrome portrait prompt focusing on high-contrast chiaroscuro lighting and masculine elegance.
+A professional fashion portrait prompt creating a vertical stack of three smartphone-style frames, capturing natural expressions and raw skin textures.
 
 #### 📝 Prompt
 
 ```
-Ultra-realistic cinematic black-and-white portrait of a handsome young man with tousled wavy dark hair, subtle stubble, defined masculine facial features, and classic round black eyeglasses, {argument name="pose" default="seated in a luxurious dark leather armchair"}. He wears {argument name="outfit" default="a perfectly tailored black blazer over a black turtleneck"}, with one hand resting naturally near his neck and a sophisticated metal luxury wristwatch visible on his wrist. Calm, confident, slightly mysterious expression, looking directly toward the camera.
+Use the reference image as an accurate source of identity to create a surreal fashion portrait. Preserve facial features, proportions, skin tone, asymmetry, and natural skin texture, and do not perform retouching or beautification.
 
-{argument name="lighting style" default="Extremely low-key chiaroscuro lighting"}, a single narrow window light cutting diagonally across the scene and illuminating one side of his face while the other side falls into deep shadow. Strong geometric light and shadow patterns on the textured wall, deep blacks, crisp highlights, rich monochrome tonal range, subtle analog film grain, realistic skin pores, detailed hair strands, natural facial proportions, soft background falloff, dark elegant interior, intimate luxury editorial mood, timeless film-noir aesthetic. Shot on a full-frame professional camera with an 85mm lens, shallow depth of field, cinematic composition, high contrast, photorealistic, refined photographic texture, vertical 4:5 composition, no color, no text, no watermark.
-```
+Three vertically stacked smartphone photo frames of a young woman with long, voluminous dark brown wavy hair leaning against a fluffy white bed:
 
-#### 🖼️ Generated Images
+Top: Supporting her chin with one hand, looking at the camera with a gentle smile.
 
-##### Image 1
+Middle: A soft profile, looking away and smiling, hair flowing over her face and shoulders.
 
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867775634_a6ckk7_HPvu-fjaYAAAkBL.jpg" width="600" alt="Profile / Avatar - Cinematic Film-Noir Male Portrait - Image 1">
-</div>
+Bottom: Supporting her cheek with her hand, an adorable smile, and a playful wink.
 
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867775732_vo1s3g_HPvvABJbYAAeQIg.jpg" width="600" alt="Profile / Avatar - Cinematic Film-Noir Male Portrait - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Taaruk](https://x.com/Taaruk_)
-- **Source:** [Twitter Post](https://x.com/Taaruk_/status/2088525665952014417)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31484)**
-
----
-
-### No. 11: Profile / Avatar - Multi-Pose Wavy Dark Hair Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A prompt for generating three vertically stacked photos of a woman with long dark-brown wavy hair on a bed, using a reference image for identity.
-
-#### 📝 Prompt
-
-```
-Create an ultra-realistic fashion portrait using the reference image as the exact identity source. Preserve facial features, proportions, skin tone, asymmetry, and natural skin texture without retouching or beautification.
-
-{argument name="poses" default="Three vertically stacked smartphone-photo frames"} of a young woman with {argument name="hair style" default="long, voluminous dark-brown wavy hair"} resting on a plush white bed:
-
-Top: Chin resting on one hand, looking at camera with a gentle smile.
-
-Middle: Soft profile, looking away and smiling, hair flowing across face and shoulder.
-
-Bottom: Cheek on hand, playful wink with an affectionate smile.
-
-{argument name="outfit" default="Minimal black thin-strap top"}, natural makeup, soft brows, pink lips, flushed cheeks. Bright minimalist bedroom, white bedding/walls, sheer curtain, dark-grey headboard. Soft natural morning side-light, realistic smartphone exposure, wide-angle selfie perspective, crisp facial focus, photorealistic, unedited, natural pores.
+Minimalist black thin strap top, natural makeup, soft eyebrows, pink lips, flushed cheeks. Bright minimalist bedroom, white bedding/walls, chiffon curtains, dark gray headboard. Soft natural morning side light, realistic smartphone exposure, wide-angle selfie perspective, sharp facial focus, photorealistic, unedited, natural pores.
 
 Negative: CGI, 3D, cartoon, anime, deformed eyes, extra limbs, blur, heavy makeup, plastic/smooth skin, oversaturation, filters, harsh shadows, low resolution, bad anatomy.
 ```
@@ -977,219 +942,55 @@ Negative: CGI, 3D, cartoon, anime, deformed eyes, extra limbs, blur, heavy makeu
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786781673379_0c5p7c_HPvtArHbgAAhX-m.jpg" width="600" alt="Profile / Avatar - Multi-Pose Wavy Dark Hair Portrait - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954584899_vnlrks_HP4LlSIaoAAvtyG.jpg" width="600" alt="Profile / Avatar - Hyper-realistic Smartphone Triple Frame Portrait - Image 1">
 </div>
 
 #### 📌 Details
 
-- **Author:** [Eesha](https://x.com/MissDelulu9)
-- **Source:** [Twitter Post](https://x.com/MissDelulu9/status/2088523465263366283)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31490)**
-
----
-
-### No. 12: Profile / Avatar - High Angle Quiet Luxury Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-An ultra-realistic fashion portrait instruction that preserves identity while styling the subject in a quiet-luxury aesthetic with a unique high-angle perspective.
-
-#### 📝 Prompt
-
-```
-Use the {argument name="identity reference" default="uploaded photo"} as the only identity reference. Preserve her exact face, features, skin tone, age, hair color/length, proportions, and natural texture, no beautifying or reshaping. Create an ultra-realistic {argument name="clothing style" default="European preppy, quiet-luxury street-style"} portrait, shot from a strong high-angle top-down perspective. She looks upward with eyes closed and a soft playful pout, relaxed posture, hands near trouser pockets. Style her in a {argument name="outfit" default="light blue-and-white striped oversized shirt with white collar, navy sweater tied over the shoulders, pale/light-wash trousers or jeans, and sculptural gold hoop earrings"}. Keep her original hair, styled into a loose messy updo with natural face-framing strands. Place her on a clean gray stone sidewalk/terrace with a dark metal railing. Use soft natural daylight, realistic shadows, authentic skin pores, natural fabric texture, muted cool tones, and premium candid fashion photography. No facial distortion, plastic skin, excessive makeup, AI look, or identity changes.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867774060_w5dtzf_HPvIKqIaQAEIVr1.jpg" width="600" alt="Profile / Avatar - High Angle Quiet Luxury Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Sairah](https://x.com/Sairah_0)
-- **Source:** [Twitter Post](https://x.com/Sairah_0/status/2088482947682988123)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31489)**
-
----
-
-### No. 13: Profile / Avatar - Realistic Elevator Mirror Selfie
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A prompt designed to generate a sophisticated, hyper-realistic mirror selfie in an elevator, maintaining consistent facial identity and natural lighting.
-
-#### 📝 Prompt
-
-```
-Create a hyper-realistic full-length mirror selfie of a clearly adult woman, maintaining her exact facial identity, facial structure, proportions, skin tone, and natural asymmetry. She is standing inside {argument name="location" default="a sleek contemporary elevator with brushed-metal walls and subtle cool reflections"}. Her pose is relaxed and sophisticated: gently leaning against the elevator wall, one leg extended naturally while the other is bent with her foot resting lightly against the wall. She holds an iPhone close beside her cheek, while her free hand carries {argument name="accessories" default="a small bouquet of pink roses together with a white shopping bag"}.
-She wears {argument name="clothing" default="a fitted black mini dress beneath an oversized black blazer, elegant black strappy heels, a delicate necklace, and small hoop earrings"}. Keep makeup light and realistic. Use subdued overhead elevator lighting with cool metallic highlights and believable shadows. Capture authentic iPhone 15 Pro Max photography characteristics, including natural skin pores, subtle texture, realistic fabric detail, mild smartphone grain, accurate mirror reflections, and natural perspective. Vertical full-body composition, 9:16, sharp facial detail and clothing.
-Avoid identity changes, face beautification, artificial skin smoothing, extra fingers, malformed hands, duplicated people, duplicate reflections, distorted phone geometry, warped limbs, unrealistic reflections, CGI appearance, or plastic-looking skin.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867774222_lrc9df_HPu65eVaMAAFwdf.jpg" width="600" alt="Profile / Avatar - Realistic Elevator Mirror Selfie - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867774255_xquf1x_HPu66HQaIAAHPub.jpg" width="600" alt="Profile / Avatar - Realistic Elevator Mirror Selfie - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Meem](https://x.com/mehvishs25)
-- **Source:** [Twitter Post](https://x.com/mehvishs25/status/2088468371939733646)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31495)**
-
----
-
-### No. 14: Profile / Avatar - Surreal Glitch Cyber-Organic Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A high-contrast monochrome portrait prompt featuring vibrant liquid glitch effects and biomechanical detailing.
-
-#### 📝 Prompt
-
-```
-Tight frontal portrait of {argument name="subject" default="[Subject]"}, face filling most of the frame, direct gaze, clean pale or white background. {argument name="color scheme" default="Predominantly monochrome black-and-white"} rendering with high editorial contrast, fine photographic texture, and ultra-detailed skin, hair, and material surfaces. One side of the portrait is interrupted by a sharp vertical rupture or glitch seam, revealing {argument name="accent colors" default="vivid fluorescent liquid color, acid magenta, cyan, electric green, orange, and violet"}, flowing like molten holographic marbling. One eye glows intensely with concentric neon rings. Geometric glyphs, nested square motifs, pixel fragments, and subtle biomechanical textures spread across the forehead, temple, cheek, and neck. Cyber-organic surrealism, sleek but unsettling, asymmetrical interference within an otherwise balanced composition.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867794479_ud37dw_HPud49jWAAAAsOc.jpg" width="600" alt="Profile / Avatar - Surreal Glitch Cyber-Organic Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867794448_0934up_HPud49lW0AAXo3a.jpg" width="600" alt="Profile / Avatar - Surreal Glitch Cyber-Organic Portrait - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867794480_nz7r6y_HPud49iXQAAb7Ir.jpg" width="600" alt="Profile / Avatar - Surreal Glitch Cyber-Organic Portrait - Image 3">
-</div>
-
-##### Image 4
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867796284_t0moyg_HPud49kWMAATVdX.jpg" width="600" alt="Profile / Avatar - Surreal Glitch Cyber-Organic Portrait - Image 4">
-</div>
-
-#### 📌 Details
-
-- **Author:** [LANDCÄSTER.EXE](https://x.com/LANDCASTER_92)
-- **Source:** [Twitter Post](https://x.com/LANDCASTER_92/status/2088436460902822045)
-- **Published:** August 15, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31526)**
-
----
-
-### No. 15: Profile / Avatar - Asymmetrical Realistic Human Face
-
-![Language-JA](https://img.shields.io/badge/Language-JA-blue)
-
-#### 📖 Description
-
-A prompt focused on creating realistic human faces by introducing subtle asymmetry and specific part tilts to increase perceived authenticity.
-
-#### 📝 Prompt
-
-```
-A person who is slightly asymmetrical, has a bit of a quirk, and is about the 3rd most attractive in class. The face is asymmetrical, and the tilt of the features is 2 degrees.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867783512_eceeyk_HPt0Un3a8AA_8gD.jpg" width="600" alt="Profile / Avatar - Asymmetrical Realistic Human Face - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1786867783502_ayb40u_HPt0Un3aEAELOpO.jpg" width="600" alt="Profile / Avatar - Asymmetrical Realistic Human Face - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [青 露花](https://x.com/aoao_roca)
-- **Source:** [Twitter Post](https://x.com/aoao_roca/status/2088391093360681028)
-- **Published:** August 14, 2026
+- **Author:** [アプ猿](https://x.com/appzaru)
+- **Source:** [Twitter Post](https://x.com/appzaru/status/2089120017787105656)
+- **Published:** August 16, 2026
 - **Languages:** ja
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31598)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31700)**
 
 ---
 
-### No. 16: Profile / Avatar - Night Resort Pool Side Portrait
+### No. 10: Profile / Avatar - Seaside Woman in Yellow and Cyan Swimsuit
 
 ![Language-JA](https://img.shields.io/badge/Language-JA-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A highly detailed structured prompt for a photorealistic night portrait of a woman sitting by a resort pool, featuring specific details on lighting, textures, and camera composition.
+A detailed high-definition prompt for a profile portrait of a woman at the beach, featuring vibrant summer colors and realistic natural lighting.
 
 #### 📝 Prompt
 
 ```
 Subject:
-{argument name="subject" default="Turning back in the night blue"}
+Profile at the seaside in yellow and cyan
 
-Main Subject:
-A single adult woman sitting by a {argument name="location" default="night pool at a tropical resort"}. A night portrait from the head to below the waist, wearing {argument name="attire" default="a gray thin-strap bikini"}, showing her back in the lower center of the screen while looking back at the camera.
+Subject Body:
+A woman in her 20s standing sideways at the edge of a calm blue sea. Position the person's head to thighs slightly left of the center of the screen, featuring the short-haired profile, the {argument name="swimsuit" default="yellow and cyan swimsuit"}, and the hand placed on the arm from the back side as main subjects.
 
-Person/Expression:
-A slightly slender oval face with a small chin, light brown almond-shaped eyes, thin natural eyebrows, a small nose, and glossy coral-pink lips. The face is turned toward the camera over her own left shoulder, gaze directed forward, with a calm expression and slightly parted lips. Light brown long hair reaching below the chest is parted near the center, with translucent thin bangs, fine strands along the cheeks, and loosely waving ends flowing down her back. Delicate eyeliner, faint blush, and smooth skin reflecting a warm flash light.
+Character/Expression:
+Small oval face and clean jawline, horizontally long dark brown eyes, thin eyebrows, straight nose bridge and small nose tip, and pale coral slightly parted lips. A side profile facing the right of the screen, with a calm expression quietly staring into the distance of the sea. Thin eyeliner and pale cheek color. Light brown short layered bob with long bangs covering the eyes and thin hair strands flicking slightly outward around the ears and nape.
 
 Clothing/Pose:
-A plain, muted gray bikini. The top has thin shoulder straps and multiple thin straps crossing the back, with long strings tied in a ribbon at the bottom center. Simple high-cut bottoms. Sitting sideways on the stone edge of the pool with knees bent, hips moved to the right side of the frame, supporting the upper body with both hands on the floor by her side.
+Light yellow triangle bikini swimsuit with cyan trim and shoulder straps, halter-neck tied behind the neck and back, and small silver rings on both hips of the bottom. Standing straight with the body facing to the right of the screen, chest slightly out. Extend the near arm down along the body, bend the far arm, and place the hand on the near upper arm. Pull both shoulders slightly back.
 
 Background/Light:
-A deep blue rectangular pool occupies most of the frame, with underwater lighting and warm lights reflecting off fine ripples. In the background are a wooden deck, lined lounge chairs, closed parasols, a wooden pergola, tall palms, and dense greenery. Vertical warm-colored lights are scattered across the black night sky. A soft warm flash near the camera serves as the main light on the subject, keeping the background dark while adding blue reflected light from the pool to her silhouette.
+Bright sandy beach in the foreground, thin white waves and transparent shallow water in the center, and blue sea in the back. Low breakwaters on the left and right of the horizon, and a green hill in the back right. The top half is a clear blue sky with thin clouds, and small swimmers and buoys are scattered on the sea surface. Strong midday direct sunlight enters from above slightly to the left of the screen, brightly illuminating the hair, face, shoulders, and chest, creating contoured shadows on the side of the body.
 
 Composition/Camera:
-3:4 vertical. A close-up portrait taken from a rear-diagonal angle, slightly looking down from a camera position higher than the seated subject's shoulders. The subject is placed largely in the lower half, centered to the right, leaving a wide night view of the pool, deck, and palms above. Captures from the head to the bent waist and thighs, with knees cropped near the bottom edge. Focus is on the face and back, while the chairs and greenery in the distance are blurred with a shallow depth of field.
+Vertical 3:4. Above-the-knee portrait captured from a horizontal camera slightly above waist height, capturing the person's left side. Crop the face at the top half center, the torso at the center, and the thighs at the bottom edge, leaving wide margins for the sea and hills on the person's right. The person occupies most of the screen height, but leave sufficient blue sky above the head. Sharp focus on the profile and swimsuit, with a deep depth of field where the seascape is also visible.
 
 Texture/Style:
-High-definition photorealistic night photography. Precisely depicts wet skin, gray swimsuit fabric, long hair, stone floors, the blue water surface, and warm reflections. A quiet, high-quality resort night with strong contrast between deep blue, black, and amber.
+High-definition photorealistic live-action photo taken in strong summer natural light. Realistically depict skin, short hair, swimsuit fabric and trim, sand, waves, and distant hills, summarizing {argument name="accent colors" default="yellow, cyan, and blue sky"} brightly and cleanly.
+
+Negative:
+Alteration of the profile and side pose with the arm wrapped behind the back
 ```
 
 #### 🖼️ Generated Images
@@ -1197,20 +998,165 @@ High-definition photorealistic night photography. Precisely depicts wet skin, gr
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1786781698382_b1a9vg_HPiDzmXbYAARbH1.jpg" width="600" alt="Profile / Avatar - Night Resort Pool Side Portrait - Image 1">
+<img src="https://cms-assets.youmind.com/media/1786954576624_porsxf_HPq6uGpaEAAyzgu.jpg" width="600" alt="Profile / Avatar - Seaside Woman in Yellow and Cyan Swimsuit - Image 1">
 </div>
 
 #### 📌 Details
 
 - **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
-- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2088388948393611672)
-- **Published:** August 14, 2026
+- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2089112465955336433)
+- **Published:** August 16, 2026
 - **Languages:** ja
 
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31517)**
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31692)**
 
 ---
 
-### No. 17: Profile / Avatar - Chinese Martial Arts Beauty Portrait
+### No. 11: Profile / Avatar - Ancient Chinese Aesthetic Portrait
+
+![Language-ZH](https://img.shields.io/badge/Language-ZH-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A detailed prompt for generating high-end oriental fashion portraits featuring a 'glancing back over the shoulder' pose, traditional silk clothing, and intricate enamel headwear.
+
+#### 📝 Prompt
+
+```
+Create a {argument name="aspect ratio" default="9:16"} vertical ancient-style fashion portrait. An adult young woman appears in a close-up half-body composition. Her body is significantly turned towards the front left, with her shoulders and back entering the frame first, and her face looking back intensely at the camera from over her shoulder, forming a distinct 'glance back over the shoulder' pose. The camera distance is close, with the focus locked on the eyes, bridge of the nose, lips, and shoulder. The character's hand lightly rests on the shoulder or the edge of the fabric, with fingertips naturally curved, enhancing a reserved yet tense posture. She has fair and delicate skin, light gray-green or light amber eyes, soft-mist orange-brown eye makeup, naturally reddish lower eyelids, small freckles on the bridge of the nose and cheeks, soft bean-paste peach lips, and a small red floral ornament on her forehead. The hairstyle is a high bun or half bun, with black hair loosely tucked up, accompanied by gorgeous Chinese-style headwear: gilded structures, turquoise enamel, beads, flowers, tassels, and fine hairpins, with a large amount of curly stray hair and fine hair brushing the face at the temples and forehead. The clothing is mainly {argument name="clothing material" default="off-white old silk and ancient-style brocade with blue-green and orange-red patterns"}, with loose fabric wrapped around the shoulders. The lighting uses a soft warm golden side-front light, forming a warm highlight on the face and shoulder. The background is minimalist, softened, and low-contrast. The overall style is between realistic photography and delicate painting, with a calm, gorgeous, restrained, and mysterious temperament, avoiding a cheesy photo studio ancient costume feel.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954582225_jc7u4g_HP2slKMbsAA7bWR.jpg" width="600" alt="Profile / Avatar - Ancient Chinese Aesthetic Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954582246_yh33hf_HP2sm9cbEAANI8y.jpg" width="600" alt="Profile / Avatar - Ancient Chinese Aesthetic Portrait - Image 2">
+</div>
+
+##### Image 3
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954583949_pt6bj0_HP2sq1yagAE4HNO.jpg" width="600" alt="Profile / Avatar - Ancient Chinese Aesthetic Portrait - Image 3">
+</div>
+
+##### Image 4
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954583021_tf5bcv_HP2sxG4bsAAlLgI.jpg" width="600" alt="Profile / Avatar - Ancient Chinese Aesthetic Portrait - Image 4">
+</div>
+
+#### 📌 Details
+
+- **Author:** [mo Ki](https://x.com/static_stare)
+- **Source:** [Twitter Post](https://x.com/static_stare/status/2089016302694518793)
+- **Published:** August 16, 2026
+- **Languages:** zh
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31698)**
+
+---
+
+### No. 12: Profile / Avatar - Golden Hour City Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A photorealistic portrait prompt featuring golden hour lighting on a city street, emphasizing reflections and cinematic bokeh.
+
+#### 📝 Prompt
+
+```
+Photorealistic cinematic golden-hour portrait of a {argument name="subject" default="young man with naturally messy dark wavy hair"}, wearing a {argument name="outfit" default="black lightweight jacket over a simple white T-shirt"}, standing casually beside a large glass window on a {argument name="setting" default="city street at sunset"}, looking down at and using his smartphone with a quiet, introspective expression. Warm low-angle sunlight streams directly down the street behind him, creating strong golden rim light around his hair and shoulders, dramatic long shadows, glowing reflections on the wet pavement, soft lens flare and atmospheric haze. His reflection is clearly visible in the glass beside him, creating a beautiful mirrored composition. Urban buildings recede into the distance with the setting sun glowing between them, warm amber and deep brown tones, subtle film grain, natural skin texture, realistic fabric detail, shallow depth of field, creamy cinematic bokeh, soft highlight bloom, moody editorial photography, authentic candid moment, shot on a full-frame camera, 50mm lens, f/1.8, high dynamic range, realistic lighting, cinematic color grading, ultra-detailed, photorealistic, vertical 4:5 composition.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954567644_k04ub9_HP2kSdra0AA_blZ.jpg" width="600" alt="Profile / Avatar - Golden Hour City Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Taaruk](https://x.com/Taaruk_)
+- **Source:** [Twitter Post](https://x.com/Taaruk_/status/2089006451826302989)
+- **Published:** August 16, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31682)**
+
+---
+
+### No. 13: Profile / Avatar - Elegant Profile Portrait in Blue Blazer
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A sophisticated cinematic profile portrait of a woman in a royal-blue satin blazer, lit by warm natural window light for a high-end fashion editorial look.
+
+#### 📝 Prompt
+
+```
+A close-up cinematic portrait of a {argument name="subject" default="young woman"} shown in elegant side profile, facing toward the right. She has light brown hair gathered into a loose messy bun with delicate flyaway strands catching the light. Her features are softly illuminated by warm natural sunlight streaming from the side, creating a beautiful glow along her hair, cheek, and neck. She wears a {argument name="outfit" default="luxurious deep royal-blue satin blazer"} over a dark inner top, paired with a {argument name="jewelry" default="delicate gold necklace and ornate gold statement earrings"}. Her makeup is refined and natural, with subtle eyeliner, softly defined brows, and muted rosy lips. Her expression is calm, poised, and thoughtful. Soft indoor background with cool neutral tones, strong warm window light, gentle reflections, dreamy atmospheric glow, shallow depth of field, realistic skin texture, fine hair detail, elegant fashion editorial photography, cinematic lighting, subtle film grain, sophisticated blue-and-gold color palette, high-resolution photography, vertical composition, 4:5 aspect ratio.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954558711_7v5jhm_HP2f0XVXYAA55Pg.jpg" width="600" alt="Profile / Avatar - Elegant Profile Portrait in Blue Blazer - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1786954558755_u4n4fg_HP2f1uWWkAAjZnS.jpg" width="600" alt="Profile / Avatar - Elegant Profile Portrait in Blue Blazer - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Aqsa](https://x.com/Aqsahere_)
+- **Source:** [Twitter Post](https://x.com/Aqsahere_/status/2089001565717962759)
+- **Published:** August 16, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31674)**
+
+---
+
+### No. 14: Profile / Avatar - Woman in Orchid Greenhouse Corridor
+
+![Language-JA](https://img.shields.io/badge/Language-JA-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A surreal and beautiful photorealistic prompt featuring a woman in a mirrored greenhouse corridor filled with orchids, emphasizing reflections and floral density.
+
+#### 📝 Prompt
+
+```
+Subject:
+Flower corridor of orchids and mirrors
+
+Subject Body:
+A young adult woman standing in a mirrored greenhouse corridor with countless hanging orchids and greenery. Position the person's full body slightly left of the center of the screen, featuring the flowers, leaves, and long reflections of the legs repeated on the surroundings and the floor surface as the main subjects.
+
+Character/Expression:
+```
 
 <!-- opensource-radar:truncated -->
