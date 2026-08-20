@@ -20,7 +20,7 @@
 <p align="center">
   <a href="https://github.com/JuliusBrussee/caveman/stargazers"><img src="https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow" alt="Stars"></a>
   <a href="./INSTALL.md"><img src="https://img.shields.io/badge/skill_works_with-30%2B_agents-orange?style=flat" alt="30+ agents"></a>
-  <a href="#wrap-any-agent"><img src="https://img.shields.io/badge/wrap-7_native_agents-blue?style=flat" alt="7 native wrap profiles"></a>
+  <a href="#wrap-any-agent"><img src="https://img.shields.io/badge/wrap-8_native_agents-blue?style=flat" alt="8 native wrap profiles"></a>
   <a href="#license"><img src="https://img.shields.io/badge/license-MIT_%2B_BSL-green?style=flat" alt="License"></a>
   <a href="https://skills.sh/JuliusBrussee/caveman"><img src="https://skills.sh/b/JuliusBrussee/caveman"></a>
 </p>
@@ -117,7 +117,7 @@ Prefer building the proxy from source instead of signed binaries? `scripts/insta
 You have months of agent history on disk. `caveman learn` reads it and scores your setup. Local, read-only, no account.
 
 ```bash
-caveman learn             # scan Claude Code + Codex history, open the report
+caveman learn             # Claude Code + Codex + Gemini CLI + opencode; aider via CAVEMAN_AIDER_ROOT
 ```
 
 <p align="center">
@@ -133,6 +133,8 @@ caveman learn implement   # hand the plan to Claude Code or Codex
 ```
 
 The analyzer never edits your files. `learn implement` opens your own agent with the plan and the `caveman-learn` skill, which instructs it to propose each fix as a diff, apply only on your yes, re-measure, and revert anything that did not lower tokens per turn. Caveman never makes your agent dumber to make it cheaper.
+
+Fix land? `caveman learn applied <sink_id>` records it. Future runs say improved, unchanged, regressed, or need more data. No fake win.
 
 ## Caveman Proxy
 
@@ -249,6 +251,9 @@ One install also brings the small tools:
 | `/caveman-review` | One-line, actionable review findings. |
 | `/caveman-compress <file>` | Smaller Markdown memory files, with the original backed up. |
 | `/caveman-stats` | Local session token usage and estimated savings in Claude Code. |
+| `/caveman-help` | One-screen reminder of every mode and command. |
+| `investigate-first`, `lean-build`, `surgical-patch`, `safe-refactor`, `migration`, `verify-and-stop` | Work patterns that write less code, so the agent bills fewer tokens. Your agent picks these up on its own when a task fits. |
+| `/caveman-setup`, `/caveman-discover`, `/caveman-learn`, `/caveman-manage`, `/caveman-optimize`, `/caveman-explore`, `/caveman-evidence-review` | Drive the caveman engine and proxy: set it up, find where tokens go, act on what it finds. |
 
 <!-- BENCHMARK-TABLE-START -->
 | Task | Normal | Caveman | Saved |
@@ -268,10 +273,12 @@ One install also brings the small tools:
 
 > [!IMPORTANT]
 > **Honest number warning.** The skill only shrinks **output** tokens. Input and reasoning tokens are untouched, and the skill itself adds ~1–1.5k input tokens per turn. Whole-session savings run smaller than the output number, and on already-terse workloads they can go net-negative. The real win is **readability and speed**; cost savings are the bonus. When caveman wins, when it loses, and how to measure it yourself: **[docs/HONEST-NUMBERS.md](./docs/HONEST-NUMBERS.md)**.
+>
+> **"Normal" above means an unprompted assistant, not a terse one.** Some of that 65% is what any "answer concisely" instruction would buy you. `benchmarks/run.py` now runs a terse control arm alongside the other two, so the next regenerated table splits the two apart; the numbers above predate it.
 
 ## Wrap any agent
 
-`caveman <agent>` wraps seven agents natively. Adding one is a data change, a single JSON profile in [`agents/profiles/`](./agents/profiles/), no code.
+`caveman <agent>` wraps eight agents natively. Adding one is a data change, a single JSON profile in [`agents/profiles/`](./agents/profiles/), no code.
 
 | Agent | Vendor | How it's wrapped |
 |---|---|---|
@@ -282,8 +289,9 @@ One install also brings the small tools:
 | **opencode** | sst | inline config via env, your `opencode.json` untouched |
 | **Hermes Agent** | Nous Research | `--provider custom` + env |
 | **OpenClaw** | OpenClaw | ephemeral merged config, your config read-only |
+| **Pi** | pi.dev | bundled native extension, your `~/.pi` config untouched |
 
-Wrap never edits your own config files. Real sessions round-trip in record mode, tested against **Hermes v0.18.0** and **OpenClaw 2026.6.11**.
+Wrap never edits your own config files. Real sessions round-trip in record mode, tested against **Hermes v0.18.0**, **OpenClaw 2026.6.11**, and **Pi 0.84.2**.
 
 Not on the list? Point any provider SDK or framework (Vercel AI SDK, LangChain, LiteLLM, OpenAI Agents, CrewAI, PydanticAI) at the local proxy with a `baseURL` swap: [`integrations/recipes/`](./integrations/recipes/).
 
@@ -331,27 +339,6 @@ Split license. Skill and adoption surfaces are [MIT](./LICENSE). Engine-linked r
 `engine/pixel` embeds [pxpipe](https://github.com/teamchong/pxpipe) (MIT) plus glyph atlases derived from Spleen 5×8 (BSD-2-Clause) and GNU Unifont (dual OFL-1.1 / GPLv2-with-font-exception); its `NOTICE` travels with that source.
 
 "Caveman" and the rock logo are trademarks of Julius Brussee. "Powered by Caveman" is fine when true.
-
-## Sponsors
-
-Caveman free forever. Sponsors keep the rock sharp.
-
-<p align="center">
-  <a href="https://www.atlascloud.ai">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/assets/atlas-cloud-dark.svg">
-      <img src="docs/assets/atlas-cloud.svg" alt="Atlas Cloud" height="32">
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://www.atlascloud.ai"><strong>Atlas Cloud</strong></a> — full-modal AI inference platform, one API.
-</p>
-
-<p align="center">
-  <a href="https://github.com/sponsors/JuliusBrussee"><strong>Want your rock here? → Sponsor caveman</strong></a>
-</p>
 
 ## Star this repo
 

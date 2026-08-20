@@ -27,6 +27,10 @@
 
 ### *Advancing Code Generation with Multi-Agent Systems*
 
+<p align="center">
+  <a href="https://hkuds.github.io/DeepCode/" target="_blank"><img alt="Website — hkuds.github.io/DeepCode" src="https://img.shields.io/badge/Website-hkuds.github.io%2FDeepCode%20%E2%86%97-06B6D4?style=for-the-badge&labelColor=0B1116" height="36"></a>
+</p>
+
 <!-- <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-00d4ff?style=for-the-badge&logo=rocket&logoColor=white" alt="Version">
 
@@ -143,6 +147,44 @@ Skills, permissions, Goals, and Automations. See the
 </p>
 
 ## News
+
+**2026-08-19 · Sessions that survive resume, compaction, and a second window**
+
+- **Resuming a session restores what the agent did, not only what it said.**
+  Tool calls and their results are part of the canonical record now, so a
+  resumed agent can answer "what did you just run?". A test makes the rule
+  executable: every request a run sends must be rebuildable from the session
+  file alone.
+- **Compaction keeps the recent tail.** The checkpoint replaces the older
+  range and everything recent survives verbatim — assistant messages and tool
+  results included — instead of dropping them and putting the summary last.
+  Manual `/compact` used to refuse almost every real conversation; it works,
+  and the checkpoint speaks as the model's own history, so it stops being
+  discounted as someone else's report.
+- **Context pressure is measured, not guessed.** The gate now anchors on the
+  size the provider itself reports. The built-in estimator prices Chinese
+  prose at more than twice its real cost, which was compacting Chinese
+  conversations at roughly half the context they could hold.
+- **Two windows on one Session no longer crash each other.** Each Session
+  now has one live writer, enforced by an OS lock held around a turn: the
+  second window gets a sentence naming who is running it, instead of a
+  process dying to a database constraint about half the time. Alternate
+  freely between Desktop and the terminal — just not mid-turn.
+
+**2026-08-18 · The runtime learns dsh's context discipline, and the TUI gets a face**
+
+- **A new turn no longer throws away the prompt cache.** The environment
+  block used to be re-inserted before your newest message every turn, so each
+  turn diverged from the previous request right where that block had been:
+  7,420 prompt tokens recomputed at every turn boundary, now 28.
+- **The TUI has a logo, a live status line, and tool cards that read.** A
+  spinner and a sweep while work runs, paths written the way you would type
+  them, the plan tool's checklist visible at last, and a turn footer with its
+  time and token usage. An idle TUI costs nothing to animate.
+- **A source-level comparison against dsh became a plan.** Where the message
+  list the model sees comes from, what compaction should keep, and what the
+  session record must contain — measured and written down, and four
+  unreferenced documents retired.
 
 **2026-08-17 · Fixes from a review pass over the new settings and TUI work**
 
@@ -785,6 +827,10 @@ Open **Settings → AI providers** after Desktop starts.
 
 ## Using DeepCode
 
+Prefer a guided walkthrough? The [teaching guides](docs/guide/README.md) cover
+the same ground page by page — first session, the TUI, sessions, models,
+skills and memory, and headless automation — with worked examples.
+
 ### Sessions
 
 Every task lives in a durable Session attached to its original Project. Open a
@@ -804,10 +850,17 @@ and CLI without export or conversion.
 | Load Skills for the next Turn | Composer Skills control | `/skill <name>` |
 | Create a reusable Skill | **Skills → Create Skill** | `$skill-creator` |
 | Set or revise a durable Goal | Goal panel | `/goal` |
+| Queue the next instruction | Composer while a Turn runs | `/queue <text>` |
 | Stop the active Turn | Use the stop control | `/stop` |
+| Re-run the last Turn | Retry control on the Turn | `/retry` |
+| Compact a long conversation | Automatic under pressure | `/compact` (also automatic) |
+| Change transcript detail | — | `/transcript` or `Ctrl+O` |
+| Rename or delete a Session | Session context menu | `/rename <title>` · `/delete <id>` |
 
 Session history, tool activity, approvals, Goal state, and verification evidence
-remain together. Archiving hides a Session without deleting its history;
+remain together. A Session has one live writer at a time: Desktop and the CLI
+may hold it open together, but if one is mid-Turn the other refuses new input
+with a message naming the holder instead of corrupting shared history. Archiving hides a Session without deleting its history;
 permanent deletion removes the Session records but never repository files.
 
 ### Connections and models

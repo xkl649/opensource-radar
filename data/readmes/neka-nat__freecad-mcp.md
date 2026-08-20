@@ -38,6 +38,7 @@ FreeCAD Addon directory is
   * Ubuntu: `~/.FreeCAD/Mod/` or `~/snap/freecad/common/Mod/` (if you install FreeCAD from snap)
   * Debian: `~/.local/share/FreeCAD/Mod`
   * Arch / CachyOS (FreeCAD 1.1 from `extra/freecad`): `~/.local/share/FreeCAD/v1-1/Mod/`
+  * Flatpak: `~/.var/app/org.freecad.FreeCAD/data/FreeCAD/v1-1/Mod/`
 
 Please put `addon/FreeCADMCP` directory to the addon directory.
 
@@ -52,6 +53,10 @@ cp -r addon/FreeCADMCP ~/.FreeCAD/Mod/
 # For Linux (Arch/CachyOS, FreeCAD 1.1 from extra/freecad)
 mkdir -p ~/.local/share/FreeCAD/v1-1/Mod/
 cp -r addon/FreeCADMCP ~/.local/share/FreeCAD/v1-1/Mod/
+
+# For Linux (Flatpak)
+mkdir -p ~/.var/app/org.freecad.FreeCAD/data/FreeCAD/v1-1/Mod/
+cp -r addon/FreeCADMCP ~/.var/app/org.freecad.FreeCAD/data/FreeCAD/v1-1/Mod/
 
 # For macOS (FreeCAD 1.1)
 mkdir -p ~/Library/Application\ Support/FreeCAD/v1-1/Mod/
@@ -190,9 +195,23 @@ The `--host` value is validated on startup — it must be a valid IPv4/IPv6 addr
 * `get_objects`: Get all objects in a document.
 * `get_object`: Get an object in a document.
 * `get_parts_list`: Get the list of parts in the [parts library](https://github.com/FreeCAD/FreeCAD-library).
+* `get_rpc_status`: Report RPC and GUI-dispatch health without using the FreeCAD GUI thread.
 * `run_fem_analysis`: Run the CalculiX solver on an existing `Fem::FemAnalysis` and return summary results (max von Mises stress, max displacement, node count, working directory). Auto-creates a `SolverCcxTools` if the analysis has none. See [`examples/cantilever_fem.py`](examples/cantilever_fem.py) for an end-to-end usage example.
 
 Tools that return a screenshot (`create_object`, `edit_object`, `delete_object`, `execute_code`, `insert_part_from_library`, `get_objects`, `get_object`, `run_fem_analysis`) accept optional `include_screenshot` (default `true`) and `view_name` (default `"Isometric"`) parameters to suppress or reorient the returned image per call.
+
+### GUI dispatch timeouts
+
+If a GUI-thread operation exceeds its timeout after it has started, the bridge
+returns `GUI_DISPATCH_STUCK` and rejects later GUI operations immediately. Use
+`get_rpc_status` to identify the operation that is still running. FreeCAD GUI
+work cannot be force-cancelled safely; if the status does not return to
+`healthy` after the operation finishes, restart FreeCAD.
+
+After an `execute_code` exception on a FreeCAD development build, inspect any
+new `FeaturePython` object before mutating or deleting it. In particular, do
+not continue with an object whose required `Proxy` was never installed, as
+touching that broken object can wedge FreeCAD's GUI thread.
 
 ## Contributors
 
