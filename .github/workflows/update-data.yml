@@ -65,6 +65,8 @@ jobs:
       # separate deploy.yml never ran after a scheduled refresh and the live
       # site stayed on stale data. Publish from this job instead.
       - name: Install and build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: |
           npm ci
           npm run build

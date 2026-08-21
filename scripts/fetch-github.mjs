@@ -48,6 +48,28 @@ function parseLimit(raw) {
   return Math.floor(n);
 }
 const isUnlimited = (limit) => !limit;
+
+/** Lone UTF-16 surrogates (often a truncated emoji) are invalid in JSON. */
+function sanitizeText(s) {
+  return s.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]?|[\uDC00-\uDFFF]/g, (pair) =>
+    pair.length === 2 ? pair : "\uFFFD"
+  );
+}
+
+function sanitize(value) {
+  if (typeof value === "string") return sanitizeText(value);
+  if (Array.isArray(value)) return value.map(sanitize);
+  if (value && typeof value === "object") {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) out[k] = sanitize(v);
+    return out;
+  }
+  return value;
+}
+
+function toJson(value) {
+  return JSON.stringify(sanitize(value));
+}
 const QUICK = args.includes("--quick");
 /** Re-rank and re-enrich from the last search cache instead of hitting search again. */
 const FROM_CACHE = args.includes("--from-cache");
@@ -689,7 +711,7 @@ async function main() {
   if (REBUILD_STEPS) {
     const existing = JSON.parse(await readFile(projectsPath, "utf8"));
     rescore(existing);
-    await writeFile(projectsPath, JSON.stringify(existing, null, 0));
+    await writeFile(projectsPath, toJson(existing));
     console.log(`Recomputed scores and steps for ${existing.length} projects (no API calls)`);
     return;
   }
@@ -766,7 +788,7 @@ async function main() {
   );
 
   await mkdir(resolve(ROOT, "data"), { recursive: true });
-  await writeFile(projectsPath, JSON.stringify(projects, null, 0));
+  await writeFile(projectsPath, toJson(projects));
   await writeFile(
     resolve(ROOT, "data/meta.json"),
     JSON.stringify(
