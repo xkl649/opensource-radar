@@ -1,6 +1,6 @@
 # tscircuit - React for Circuits
 
-Make electronics using Typescript, React, and AI tools.
+Make electronics using Typescript, React, and AI tools. Just prompt your agent to "use tscircuit" and 10x its PCB capabilities!
 
 tscircuit makes developing electronics like web development. Edit code in your favorite IDE and watch the changes
 create electronics in realtime. When you're done, [export your project and manufacture](https://docs.tscircuit.com/guides/understanding-fabrication-files)!
@@ -44,6 +44,12 @@ Get started by running `npm install -g tscircuit`! [(CLI quickstart doc)](https:
 </div>
 
 </div>
+
+
+
+
+https://github.com/user-attachments/assets/91218278-2f00-48bf-97a2-53c7652c25e5
+
 
 
 

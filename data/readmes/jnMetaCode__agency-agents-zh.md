@@ -44,23 +44,6 @@
 
 <table>
 <tr>
-<td width="55%">
-  <a href="https://duoyuanx.com/register?aff=LErO">
-    <img src="assets/sponsor-duoyuanx.jpeg" alt="多元探索 — 全球 AI 模型 API 聚合与源头直供平台，汇集 OpenAI、Claude、Gemini、DeepSeek 等数百款主流模型" width="100%">
-  </a>
-</td>
-<td width="45%" valign="middle">
-
-感谢[多元探索](https://duoyuanx.com/register?aff=LErO)赞助了本项目！多元探索专注全球AI模型API聚合与源头直供服务，已与多家头部科技企业建立合作，汇集OpenAI、Claude、Gemini、DeepSeek等数百款主流模型。平台构建统一、稳定、安全、高性价比的服务体系，实现一次接入、多模型调用，持续提升使用效率并优化算力成本；同时提供企业级解决方案、专业技术支持与快速客服响应，为每一次AI调用提供可靠保障。
-
-🎁 **通过[专属链接](https://duoyuanx.com/register?aff=LErO)注册后立获3元免费测试额度，充值100元以上返现10%（找客服获取）！**
-
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
 <td width="25%">
   <a href="https://www.aicodemirror.ai/register?invitecode=XO5L7R">
     <img src="assets/sponsor-aicodemirror.jpeg" alt="AICodeMirror — Claude / Codex / Gemini 官方高稳定中转服务，Codex 官方渠道低至 0.7 折" width="100%">

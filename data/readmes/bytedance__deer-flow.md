@@ -210,6 +210,23 @@ That prompt is intended for coding agents. It tells the agent to clone the repo 
    - Codex CLI reads `~/.codex/auth.json`
    - Claude Code accepts `CLAUDE_CODE_OAUTH_TOKEN`, `ANTHROPIC_AUTH_TOKEN`, `CLAUDE_CODE_CREDENTIALS_PATH`, or `~/.claude/.credentials.json`
    - ACP agent entries are separate from model providers — if you configure `acp_agents.codex`, point it at a Codex ACP adapter such as `npx -y @zed-industries/codex-acp`
+   - MiniMax Code speaks ACP directly. Install and authenticate it, then add it as an ACP agent:
+
+   ```bash
+   npm install --global @minimax-ai/code
+   mcode login
+   ```
+
+   ```yaml
+   acp_agents:
+     mcode:
+       command: mcode
+       args: ["acp"]
+       description: MiniMax Code for implementation, refactoring, debugging, and repository tasks
+       auto_approve_permissions: false
+   ```
+
+   `mcode` must be on the Gateway process's `PATH`; installing it only on the Docker host does not make it available inside the Gateway container. DeerFlow invokes it through `invoke_acp_agent` in a per-thread ACP workspace and forwards enabled MCP servers. Keep `auto_approve_permissions: false` for untrusted tasks; enable it only when MCode must edit files or run commands and you trust the task.
    - On macOS, export Claude Code auth explicitly if needed:
 
    ```bash
@@ -400,6 +417,8 @@ cannot restore server privileges or be discarded by the runtime's startup
 cleanup. Keep the backend dependencies synchronized with `uv sync`; this
 compatibility path requires the declared LangGraph runtime versions and logs a
 warning if the persisted-store contract no longer matches its expectations.
+The documented command uses LangGraph's file-based custom-app loader, which is
+also covered directly by DeerFlow's regression tests.
 
 For workflows that invoke `backend/langgraph.json` through LangGraph Studio or
 a direct LangGraph Server, DeerFlow consumes the authenticated identity
@@ -927,18 +946,5 @@ acme = "acme_deerflow_extension:install"
 ```
 
 That callable uses the standalone `deerflow-extension-api` contract and can register five
-contribution kinds: isolated middleware at semantic lead/subagent model or tool positions,
-lead and subagent task-lifecycle hooks, observers for DeerFlow-owned model calls that are
-not wrapped by middleware model-call hooks (goal, memory, title, and summarization),
-Gateway-lifetime services, and eager FastAPI HTTP routers. The contract package has no
-framework dependencies; extensions must declare FastAPI, LangChain, LangGraph, or other
-libraries they import.
-
-DeerFlow allocates a task-scoped extension store only for middleware, lifecycle, or
-system-model observation. Services receive app-scoped runtime dependencies after Gateway
-persistence is ready and stop in reverse order after active runs drain. Extension HTTP
-routers are mounted after every host route; definite shadows and routes entering the
-host's authentication- or CSRF-exempt paths are rejected with attributed diagnostics,
-while unrelated routers continue to load. Because the host's public paths are a reserved
 
 <!-- opensource-radar:truncated -->

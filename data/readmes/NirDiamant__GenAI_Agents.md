@@ -36,6 +36,8 @@ One `npm install` adds the module's AI assistant to your Claude Code, and it gui
 <div align="center">
 
 <a href="https://coderabbit.link/nir"><img src="images/coderabbit_Light_Type_Mark_Orange.png" height="80" alt="CodeRabbit" /></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.qodo.ai/?utm_source=diamantai&utm_medium=github&utm_campaign=genai-agents&utm_content=readme-sponsor"><img src="images/qodo-logo.svg" height="80" alt="Qodo" /></a>
 
 </div>
 
@@ -683,9 +685,5 @@ Explore our extensive list of GenAI agent implementations, sorted by categories:
 
     #### Implementation 🛠️
     Leverages LangChain and LangGraph to orchestrate a multi-step recruitment pipeline with structured state management, OpenAI for language generation, and automated candidate evaluation workflows.
-
-47. **[AI-Driven ML and Data Science Assistant](https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/ai_driven_ml_and_datascience_assistant.ipynb)**
-
-    #### Overview 🔎
 
 <!-- opensource-radar:truncated -->

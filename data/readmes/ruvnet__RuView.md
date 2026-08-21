@@ -49,25 +49,26 @@ Every WiFi router already fills your space with radio waves. When people move, b
 <details>
 <summary><strong>RuView MetaHarness</strong> — guided operation for humans and AI agents</summary>
 
-The RuView-specific metaharness we created is published as [`@ruvnet/ruview`](harness/ruview/README.md). It provides source-cited guidance, guarded Claude Code/Codex agents, deterministic verification, and an honesty check for accuracy claims.
+The RuView-specific metaharness we created is published as [`@ruvnet/ruview`](harness/ruview/README.md). It provides source-cited guidance, guarded Claude Code/Codex agents, deterministic verification, an honesty check for accuracy claims, and an explicitly granted OAuth-only Cognitum Spaces read.
 
 ```bash
 # Check the local setup and get source-cited guidance
-npx @ruvnet/ruview@0.3.1 doctor
-npx @ruvnet/ruview@0.3.1 guidance --topic sensing --query "model loading"
+npx @ruvnet/ruview@0.4.0 doctor
+npx @ruvnet/ruview@0.4.0 guidance --topic sensing --query "model loading"
 
 # Run a read-only RuView agent through Codex
-npx @ruvnet/ruview@0.3.1 agent run --host codex --repo . \
+npx @ruvnet/ruview@0.4.0 agent run --host codex --repo . \
   --prompt "Find the nearest tests and cite the source files"
 
 # Search or verify the reviewed contributor brain
-npx @ruvnet/ruview@0.3.1 brain search --query "calibration"
-npx @ruvnet/ruview@0.3.1 brain verify --repo .
+npx @ruvnet/ruview@0.4.0 brain search --query "calibration"
+npx @ruvnet/ruview@0.4.0 brain verify --repo .
 
 # Check claims, replay the deterministic proof, or expose the MCP server
-npx @ruvnet/ruview@0.3.1 claim-check --file REPORT.md
-npx @ruvnet/ruview@0.3.1 verify
-npx @ruvnet/ruview@0.3.1 mcp start
+npx @ruvnet/ruview@0.4.0 claim-check --file REPORT.md
+npx @ruvnet/ruview@0.4.0 verify
+npx @ruvnet/ruview@0.4.0 spaces
+npx @ruvnet/ruview@0.4.0 mcp start
 ```
 
 Agent runs are read-only by default. Workspace writes require both `--allow-write` and `--confirm`; retrieved brain content is evidence, not authority.
@@ -694,7 +695,7 @@ claude --plugin-dir ./plugins/ruview
 
 Verify the plugin structure: `bash plugins/ruview/scripts/smoke.sh`. Full details: [`plugins/ruview/README.md`](plugins/ruview/README.md).
 
-For the portable RuView MetaHarness, use `npx @ruvnet/ruview@0.3.1`; the quick commands and fuller explanation are in the collapsed MetaHarness section near the top of this README and in [`harness/ruview/`](harness/ruview/README.md).
+For the portable RuView MetaHarness, use `npx @ruvnet/ruview@0.4.0`; the quick commands and fuller explanation are in the collapsed MetaHarness section near the top of this README and in [`harness/ruview/`](harness/ruview/README.md).
 
 </details>
 
@@ -720,6 +721,5 @@ Start with the user, build, and calibration guides; expand for the full referenc
 | [Claude Code / Codex Plugin](plugins/ruview/README.md) | The `ruview` plugin + marketplace — skills, `/ruview-*` commands, agents, and the Codex prompt mirror |
 | [Portable harness — `npx @ruvnet/ruview`](harness/ruview/README.md) | MetaHarness-minted, host-portable RuView operator harness — `ruview.*` MCP tools + the MEASURED-vs-CLAIMED honesty guardrail enforced in code ([ADR-182](docs/adr/ADR-182-npx-ruview-harness-via-metaharness.md)). A lighter, multi-host companion to the in-repo plugin. |
 | [Architecture Decisions](docs/adr/README.md) | 205 ADRs — why each technical choice was made, organized by domain (hardware, signal processing, ML, platform, infrastructure) |
-| [Domain Models](docs/ddd/README.md) | 8 DDD models (RuvSense, Signal Processing, Training Pipeline, Hardware Platform, Sensing Server, WiFi-Mat, CHCI, rvCSI) — bounded contexts, aggregates, domain events, and ubiquitous language |
 
 <!-- opensource-radar:truncated -->
