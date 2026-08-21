@@ -9,7 +9,7 @@
  * megabytes; the detail page reads only the single file it renders.
  *
  * Usage:
- *   GITHUB_TOKEN=ghp_xxx node scripts/fetch-github.mjs [--quick] [--limit=400] [--min-stars=150]
+ *   GITHUB_TOKEN=ghp_xxx node scripts/fetch-github.mjs [--quick] [--limit=0] [--min-stars=150]
  *
  * Without a token the GitHub API allows only 60 core + 10 search requests per
  * hour, so the script degrades to searching only and enriching the top repos.
@@ -41,6 +41,13 @@ const flag = (name, fallback) => {
   const hit = args.find((a) => a.startsWith(`--${name}=`));
   return hit ? hit.split("=").slice(1).join("=") : fallback;
 };
+function parseLimit(raw) {
+  if (raw == null || raw === "" || raw === "unlimited" || raw === "none") return 0;
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n <= 0) return 0;
+  return Math.floor(n);
+}
+const isUnlimited = (limit) => !limit;
 const QUICK = args.includes("--quick");
 /** Re-rank and re-enrich from the last search cache instead of hitting search again. */
 const FROM_CACHE = args.includes("--from-cache");
@@ -50,12 +57,14 @@ const REBUILD_STEPS = args.includes("--rebuild-steps");
 const DRY_CLASSIFY = args.includes("--dry-classify");
 /** Refetch only the READMEs of the projects already in data/projects.json. */
 const README_ONLY = args.includes("--readmes-only");
-const LIMIT = Number(flag("limit", 400));
+/** 0 / unlimited / omitted means keep every classified repository. */
+const LIMIT = parseLimit(flag("limit", "0"));
 const MIN_STARS = Number(flag("min-stars", 150));
 const FRESH_MIN_STARS = Number(flag("fresh-min-stars", 40));
 // Enriching costs 3 API calls per repo, which is unaffordable unauthenticated.
-const ENRICH_LIMIT = Number(
-  flag("enrich", QUICK ? 40 : TOKEN ? Number.MAX_SAFE_INTEGER : 12)
+// 0 means "all shortlisted candidates".
+const ENRICH_LIMIT = parseLimit(
+  flag("enrich", QUICK ? "40" : TOKEN ? "0" : "12")
 );
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -453,7 +462,7 @@ async function collect(categories) {
     for (const topic of topics) {
       const items = await search(
         `topic:${topic} stars:>=${minStars} pushed:>=${activeSince}`,
-        { perPage: 30 }
+        { perPage: 100 }
       );
       items.forEach((r) => record(r, category.id));
       process.stdout.write(
@@ -467,7 +476,7 @@ async function collect(categories) {
     const freshTopic = category.searchTopics[0];
     const fresh = await search(
       `topic:${freshTopic} stars:>=${Math.min(FRESH_MIN_STARS, minStars)} created:>=${newSince}`,
-      { perPage: 20 }
+      { perPage: 100 }
     );
     fresh.forEach((r) => record(r, category.id));
     process.stdout.write(`  ${category.id}/fresh: +${fresh.length}\n`);
@@ -569,6 +578,9 @@ const PROBE_FACTOR = 3;
  * the surplus is analysed and then trimmed by `finalize`.
  */
 function shortlist(projects, categories, limit) {
+  if (isUnlimited(limit)) {
+    return [...projects].sort((a, b) => rank(b) - rank(a));
+  }
   const quota = quotaFor(limit, categories.length);
   const picked = [];
   const taken = new Set();
@@ -596,6 +608,9 @@ function shortlist(projects, categories, limit) {
 
 /** Applies the real quotas once build signals are known. */
 function finalize(candidates, categories, limit) {
+  if (isUnlimited(limit)) {
+    return [...candidates].sort((a, b) => rank(b) - rank(a));
+  }
   const quota = quotaFor(limit, categories.length);
   const kept = [];
   const taken = new Set();
@@ -727,8 +742,13 @@ async function main() {
   }
 
   const candidates = shortlist(classified, categories, LIMIT);
-  const toEnrich = candidates.slice(0, ENRICH_LIMIT);
-  console.log(`Enriching ${toEnrich.length} repositories with build signals`);
+  const toEnrich = isUnlimited(ENRICH_LIMIT)
+    ? candidates
+    : candidates.slice(0, ENRICH_LIMIT);
+  console.log(
+    `Enriching ${toEnrich.length} of ${candidates.length} repositories` +
+      (isUnlimited(LIMIT) ? " (no keep-limit)" : ` (keep-limit ${LIMIT})`)
+  );
   for (let i = 0; i < toEnrich.length; i++) {
     await enrich(toEnrich[i]);
     if ((i + 1) % 20 === 0)

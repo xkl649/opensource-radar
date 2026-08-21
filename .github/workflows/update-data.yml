@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     inputs:
       limit:
-        description: "Max number of projects to keep"
+        description: "Max projects to keep. 0 = keep everything the search finds"
         required: false
-        default: "600"
+        default: "0"
       min_stars:
         description: "Minimum stars for the main sweep"
         required: false
@@ -27,7 +27,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
 
@@ -43,7 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/fetch-github.mjs \
-            --limit=${{ inputs.limit || '600' }} \
+            --limit=${{ inputs.limit || '0' }} \
             --min-stars=${{ inputs.min_stars || '150' }}
 
       - name: Commit refreshed dataset

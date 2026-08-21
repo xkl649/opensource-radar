@@ -57,9 +57,9 @@ npm run fetch
 
 ```bash
 node scripts/fetch-github.mjs \
-  --limit=600        # 最终保留的项目数
+  --limit=0          # 最终保留的项目数；0 表示不截断，搜到多少收多少
   --min-stars=150    # 主检索的星标门槛（各方向可在 taxonomy 里单独覆盖）
-  --enrich=600       # 做深度分析的项目数
+  --enrich=0         # 做深度分析的项目数；0 或省略且有 token 时分析全部
   --quick            # 每个方向只查 2 个 topic，用于快速验证
   --from-cache       # 跳过检索，直接用上次的原始结果重新排序/分析
   --rebuild-steps    # 完全离线：只用已存的信号重算评分和搭建命令，不发任何请求
