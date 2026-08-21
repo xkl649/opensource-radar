@@ -100,7 +100,7 @@ It's already moving in directions I didn't choose. One contributor is building o
 | :--- | :--- |
 | **Display** | 128 × 64 HUB75 RGB LED matrix, P2.5 (320 × 160 mm) |
 | **Brain** | ESP32-S3-WROOM-1 **N16R8** (16 MB flash, 8 MB PSRAM) · standalone, no sending card |
-| **Input** | 4× EC11 rotary encoders with push-switch; long-press encoder 4 to switch patterns |
+| **Input** | 4× EC11 rotary encoders with push-switch; long-press encoder 4 to switch patterns ([controls](#playing-it)) |
 | **Power** | 5 V over USB from any power bank; about **4 h per 10,000 mAh** at max brightness with a typical pattern (see [runtime](#power--runtime)) |
 | **Size / weight** | 245 × 325 × 36 mm (9.6 × 12.8 × 1.4 in) · 933 g (2.06 lb) |
 | **Firmware** | Arduino-compatible C++, modular pattern architecture, runtime switching (no reflash) |
@@ -126,15 +126,27 @@ In testing, a 40,000 mAh bank dropped about 13% over 2 hours at **full brightnes
 
 These were measured with a bright generative pattern at maximum brightness, which is how the device is normally used. Lowering the brightness (long-press encoder 1) extends runtime well beyond these figures.
 
-**Sleep mode** takes it further: the panel goes dark, the HUB75 transfer stops and the board idles, while staying on Wi-Fi so it can be woken again from MQTT or a browser. Hold encoder 2 for the NETWORK screen, then turn encoder 1; any knob or button wakes it. The pattern that was running comes back — as it does after a full power cut.
+**Sleep mode** takes it further: the panel goes dark, the HUB75 transfer stops and the board idles, while staying on Wi-Fi so it can be woken again from MQTT or a browser. Hold encoder 2 for the NETWORK screen, then turn encoder 1; any knob or button wakes it. The pattern that was running comes back, as it does after a full power cut.
 
 **A pattern that fills the screen with white is a different story.** The same 40,000 mAh bank dropped 9% in 30 minutes: about 26.6 W, or roughly 4.8 A at 5 V, which is above what a typical USB-A port is rated for and enough to make the connector warm. That works out to ~5.5 hours on a 40,000 mAh bank. A total-pixel-power clamp is going into the firmware so this can't happen; until then, avoid near-full-white patterns on a power bank, or use a supply and cable rated for the current.
 
 </details>
 
+## Playing it
+
+Every encoder does two jobs. Turn it, or give it a short press, and you are moving the pattern that's running. Hold it down and a device function opens instead, and a second long-press closes it again.
+
+<p align="center">
+  <img src="./docs/media/device-card.png" width="100%" alt="Patternflow controls: encoder 1 brightness, 2 network, 3 knob numbers, 4 patterns; turn or short-press to move the running pattern, long-press for device functions" />
+</p>
+
+What a knob does to a running pattern is the pattern's own decision, so the same knob feels different on every one of them. That is what encoder 3 is for: hold it and each knob puts its own number on the panel, which saves counting around the front.
+
+The device functions themselves are fixed. Encoder 1 is brightness. Encoder 4 opens the pattern list, where you turn to browse the names and long-press again to load one, choosing from whatever is installed at the time. Encoder 2 puts the board's IP address on the panel, and typing that into a browser opens the web console, which carries every feature the device has and works from a phone.
+
 ## On the device
 
-A new board boots into **Origin**, concentric sine waves sampled by an emergent grid, and long-pressing encoder 4 cycles through whatever else is installed. Patterns live on the filesystem rather than inside the program. The firmware compiles in Origin alone, as the failsafe a board can always boot into, and everything else installs as **`.pfm` modules over Wi-Fi**, up to 128 of them, no reflash. Adding a pattern never costs a firmware update, and a firmware update never touches your patterns, your Wi-Fi, or your storage.
+A new board boots into **Origin**, concentric sine waves sampled by an emergent grid, and long-pressing encoder 4 opens the list of whatever else is installed. Patterns live on the filesystem rather than inside the program. The firmware compiles in Origin alone, as the failsafe a board can always boot into, and everything else installs as **`.pfm` modules over Wi-Fi**, up to 128 of them, no reflash. Adding a pattern never costs a firmware update, and a firmware update never touches your patterns, your Wi-Fi, or your storage.
 
 A new board is therefore nearly empty, so a set ships with it: the **Basics pack**, 33 patterns, at the top of the [decks shelf](https://community.patternflow.work/community/decks). One click installs the lot, no account and no build queue, or drop the `.zip` on your board's Patterns page yourself. The [Live Editor](https://patternflow.work/pattern) opens with its own preset library of 42 patterns, each loadable and remixable in the browser.
 
@@ -148,7 +160,9 @@ The Arduino IDE is only needed for firmware feature development or targeting an 
 
 **Bidirectional OSC.** Over Wi-Fi, Patternflow speaks OSC in both directions: knob turns, button presses, and pattern switches stream out to a remote host (Ableton Live, Max/MSP, TouchDesigner, anything that speaks OSC), and incoming OSC messages drive the device exactly like physical encoder motion. Play Patternflow as a controller for your set, let your set drive the light, or both at once. If you play MIDI instruments, this will feel like home. For Ableton Live Suite there's a ready-made Max for Live bridge in [`integrations/ableton`](integrations/ableton). Click Connect, map the four knobs to any Live parameters, done. The wire protocol is documented in [`docs/osc-spec.md`](docs/osc-spec.md).
 
-**MQTT.** Patternflow also speaks MQTT, both ways, on the broker you already run. Knob turns and pattern changes publish as they happen; messages coming the other way move the knobs and switch patterns exactly as a hand on the encoder would. Two boards pointed at the same broker follow each other, which is the short version of why it exists. It also puts the device on the same bus as the rest of a home or venue setup, so Home Assistant, Node-RED or a lighting desk can drive it without anything Patternflow-specific in the middle. Point it at a broker on the device's own **MQTT** page; a pattern can be addressed by name or by slug. Publishing `1` to `<prefix>/sleep` puts the panel to sleep and `0` wakes it, with the current state mirrored on `<prefix>/sleep/state` — enough for a Home Assistant switch, and the one command a panel obeys whether it is set to Publisher or Subscriber. Contributed by **[@SimonePDA](https://github.com/SimonePDA)** (Simone Majocchi), along with the browser-side zip unpacking that makes pattern packs install in one click.
+**MQTT.** Patternflow also speaks MQTT, both ways, on the broker you already run. Knob turns and pattern changes publish as they happen; messages coming the other way move the knobs and switch patterns exactly as a hand on the encoder would. Two boards pointed at the same broker follow each other, which is the short version of why it exists. It also puts the device on the same bus as the rest of a home or venue setup, so Home Assistant, Node-RED or a lighting desk can drive it without anything Patternflow-specific in the middle. Point it at a broker on the device's own **MQTT** page; a pattern can be addressed by name or by slug. Publishing `1` to `<prefix>/sleep` puts the panel to sleep and `0` wakes it, with the current state mirrored on `<prefix>/sleep/state`. That is enough for a Home Assistant switch, and it is the one command a panel obeys whether it is set to Publisher or Subscriber. Contributed by **[@SimonePDA](https://github.com/SimonePDA)** (Simone Majocchi), along with the browser-side zip unpacking that makes pattern packs install in one click.
+
+**Home Assistant.** There is a ready-made integration in [`integrations/homeassistant`](integrations/homeassistant): the panel is discovered on the network and appears as a device with an On/Sleep switch, a pattern picker, the four knobs, and the numbers worth watching. It also ships a dashboard card that plays the running pattern with the four encoders laid over it as zones you drag — by mouse or by thumb. Everything runs on your LAN over the device's own HTTP API; the only thing that needs the broker above is turning a knob, because that is the one command the HTTP API has no endpoint for. The card never asks the panel for pixels — it runs the pattern's own code in your browser, sandboxed, which is the only version of a live preview this device can afford. The wire protocol behind all of it is documented in [`docs/rest-api.md`](docs/rest-api.md).
 
 **Audio-react.** Patternflow can also react to browser audio. The experimental Chrome/Edge extension in [`tools/patternflow-audio-extension`](tools/patternflow-audio-extension) captures the current tab's audio, analyzes four FFT bands, and sends lightweight WebSocket knob values to the device. The firmware converts those into virtual encoder motion, so every encoder-driven pattern responds, with no audio code needed in the patterns themselves.
 
@@ -167,9 +181,9 @@ Patternflow is built around a standalone ESP32-S3 driving a HUB75 RGB LED matrix
 | `web/` | Next.js site (landing, Live Editor, Pattern Lab, community, browser flasher & build server, journal) |
 | `docs/` | Assembly map, build-guide media, manifesto, license summary |
 | `tools/` | Desktop-side helpers, including the audio-react browser extension |
-| `integrations/` | Host-software bridges: Ableton Live / Max for Live (OSC knob mapping) |
+| `integrations/` | Host-software bridges: Ableton Live / Max for Live (OSC knob mapping), Home Assistant (device, entities and a dashboard card) |
 
-**Docs:** [Full Build Guide](BUILD_GUIDE.md) · [Pattern Guide](PATTERN_GUIDE.md) · [Assembly Map](docs/assembly/README.md) · [Custom Patterns](firmware/CUSTOM_PATTERNS.md) · [Manifesto](docs/manifesto.md) · [Changelog](CHANGELOG.md) · [License Summary](docs/LICENSE-SUMMARY.md)
+**Docs:** [Full Build Guide](BUILD_GUIDE.md) · [Pattern Guide](PATTERN_GUIDE.md) · [Assembly Map](docs/assembly/README.md) · [Custom Patterns](firmware/CUSTOM_PATTERNS.md) · [HTTP API](docs/rest-api.md) · [OSC Spec](docs/osc-spec.md) · [Manifesto](docs/manifesto.md) · [Changelog](CHANGELOG.md) · [License Summary](docs/LICENSE-SUMMARY.md)
 
 **Links:** [patternflow.work](https://patternflow.work) · [Community](https://community.patternflow.work/community) · [Crowd Supply](https://www.crowdsupply.com/engmung/patternflow) · [Releases](../../releases) · [Discord](https://discord.gg/Vr9QtsxeTk) · [Instagram](https://www.instagram.com/patternflow.work)
 

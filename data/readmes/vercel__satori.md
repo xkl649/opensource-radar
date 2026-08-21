@@ -198,6 +198,11 @@ Satori uses the same Flexbox [layout engine](https://yogalayout.com) as React Na
 <tr><td><code>borderBottomRightRadius</code></td><td>Supported</td><td></td></tr>
 <tr><td>Shorthand</td><td>Supported, i.e. <code>5px</code>, <code>50% / 5px</code></td><td></td></tr>
 
+<tr><td rowspan="4"><code>cornerShape</code></td></tr>
+<tr><td>Values</td><td><code>round</code>, <code>squircle</code>, <code>square</code>, <code>bevel</code>, <code>scoop</code>, <code>notch</code>, and <code>superellipse()</code></td><td></td></tr>
+<tr><td>Corner longhands (<code>cornerTopLeftShape</code>, <code>cornerTopRightShape</code>, ...)</td><td>Supported</td><td></td></tr>
+<tr><td>Side shorthands (<code>cornerTopShape</code>, <code>cornerRightShape</code>, ...)</td><td>Supported. Corner shapes apply when the corresponding <code>borderRadius</code> is nonzero.</td><td></td></tr>
+
 <tr><td rowspan="11">Flex</td></tr>
 <tr><td><code>flexDirection</code></td><td><code>column</code>, <code>row</code>, <code>row-reverse</code>, <code>column-reverse</code>, default to <code>row</code></td><td></td></tr>
 <tr><td><code>flexWrap</code></td><td><code>wrap</code>, <code>nowrap</code>, <code>wrap-reverse</code>, default to <code>nowrap</code></td><td></td></tr>
@@ -210,11 +215,12 @@ Satori uses the same Flexbox [layout engine](https://yogalayout.com) as React Na
 <tr><td><code>justifyContent</code></td><td>Supported</td><td></td></tr>
 <tr><td><code>gap</code></td><td>Supported</td><td></td></tr>
 
-<tr><td rowspan="5">Font</td></tr>
+<tr><td rowspan="6">Font</td></tr>
 <tr><td><code>fontFamily</code></td><td>Supported</td><td></td></tr>
 <tr><td><code>fontSize</code></td><td>Supported</td><td></td></tr>
 <tr><td><code>fontWeight</code></td><td>Supported</td><td></td></tr>
 <tr><td><code>fontStyle</code></td><td>Supported</td><td></td></tr>
+<tr><td><code>fontFeatureSettings</code></td><td>Supported via HarfBuzz text shaping. Enables OpenType features like ligatures, small caps, stylistic sets, etc.</td><td></td></tr>
 
 <tr><td rowspan="13">Text</td></tr>
 <tr><td><code>tabSize</code></td><td>Supported</td><td></td></tr>
@@ -293,8 +299,14 @@ Satori uses the same Flexbox [layout engine](https://yogalayout.com) as React Na
 </tr>
 
 <tr>
+<td colspan="2"><code>backdropFilter</code></td>
+<td>Supports chained <code>blur()</code>, <code>brightness()</code>, <code>contrast()</code>, <code>drop-shadow()</code>, <code>grayscale()</code>, <code>hue-rotate()</code>, <code>invert()</code>, <code>opacity()</code>, <code>saturate()</code>, and <code>sepia()</code></td>
+<td></td>
+</tr>
+
+<tr>
 <td colspan="2"><code>clipPath</code></td>
-<td>Supported</td>
+<td>Supports <code>circle()</code>, <code>ellipse()</code>, <code>inset()</code>, <code>polygon()</code>, <code>path()</code>, and <code>shape()</code>. <code>shape()</code> supports <code>move</code>, <code>line</code>, <code>hline</code>, <code>vline</code>, <code>curve</code>, <code>smooth</code>, <code>arc</code>, and <code>close</code> commands.</td>
 <td><a href="https://og-playground.vercel.app/?share=XVJNb9wgEP0rI6poW8lJnX6pstpe0h7aQ1UlrXLJBZvBZosZBDgbZ7X_PQMbZze5wPCGmXmPx1Z0pFA04osytzcOIKbZ4tftNscAA5p-SA2szuv6ZFXtwY1RaXiBKRO9lTOj2uLdgub4uwnYJUOOcx3ZaXRLVlrTu58Jx5hT6BKGJbWeYjJ6viAGXZ7_PN3K7n8faHLqgiwFzr_SWj9N5aorc48NvH93BF0_avlU1wXd7W7ctxws0l-KP8j_8FhypP4Y8lIp4_oGzg_YgSKzY6FDau2EC0WAzhr_R5Z39GTnntzrj_UJ1BU34Z3jKi_lVEGd4zerfXEmDlCoA_yLqKCdIdKIQBrSgLChYNUqgpWhx5igo9FLZzBW8Bvv0tk6AjrZWoww0wSJoAsoE4KerD2NianDNbYgvbemk9m8mGdwLbqstEyxXMHNL1F2CTTXTyFPkE6BYbP6wIV81dMGAzeGS_b0tJWZ7y95K6-6YHzi4WTzNU2hdNUylrbtZKyKZ8Wft2wQy112UQnyhZRotqL4IZrP7IfY-yWabI5Q2E69aLS0ESuBI63N39nnv5425cR98r_4MbaoRJPChLtKJNnyjQGtpfKMYvcA">Example</a></td>
 </tr>
 
@@ -335,9 +347,24 @@ Note:
 
 ### Language and Typography
 
-Advanced typography features such as kerning, ligatures and other OpenType features are not currently supported.
+**OpenType Features**: Satori supports advanced typography features via HarfBuzz text shaping. Use the `font-feature-settings` CSS property to enable OpenType features such as:
+- Ligatures (`liga`, `dlig`, `hlig`)
+- Small caps (`smcp`, `c2sc`)
+- Stylistic sets (`ss01`-`ss20`)
+- Contextual alternates (`calt`)
+- Swashes (`swsh`, `cswh`)
+- And many more OpenType features
 
-RTL languages are not supported either.
+Example:
+```jsx
+<div style={{ fontFeatureSettings: '"smcp" 1, "liga" 0' }}>
+  This Text Uses Small Caps
+</div>
+```
+
+HarfBuzz also improves glyph shaping for complex scripts such as Arabic. Full
+Unicode bidirectional layout is not yet supported, so mixed LTR and RTL text
+may not follow browser ordering.
 
 #### Fonts
 
