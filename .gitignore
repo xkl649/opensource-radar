@@ -14,3 +14,7 @@ data/.raw-repos.json
 .github-token
 .cloudflare-token
 .wrangler-home
+public/projects.json
+public/summaries.json
+public/meta.json
+public/readmes

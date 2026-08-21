@@ -1,13 +1,13 @@
+"use client";
+
 import Markdown, { defaultUrlTransform } from "react-markdown";
 import type { Components, UrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 /**
- * Renders a repository README.
- *
- * This is a server component on purpose: the markdown is turned into HTML once
- * at build time, so none of react-markdown ships to the browser and the string
- * itself never has to travel in the RSC payload.
+ * Renders a repository README in the browser. Detail routes are no longer
+ * prerendered (Cloudflare Pages caps deployments at 20,000 files), so the
+ * markdown is fetched and converted on the client.
  *
  * README content is untrusted third-party input. rehype-raw is deliberately not
  * installed, so the raw HTML that many READMEs embed is parsed and dropped

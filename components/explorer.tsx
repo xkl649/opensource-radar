@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { CATEGORIES, categoryLabel, hueClasses } from "@/lib/categories";
 import type { MessageKey } from "@/lib/i18n";
@@ -59,14 +59,34 @@ function matchScore(p: ProjectSummary, needle: string): number {
   return score;
 }
 
-export function Explorer({ projects }: { projects: ProjectSummary[] }) {
+export function Explorer({ projects: seeded }: { projects?: ProjectSummary[] }) {
   const { lang, t } = useLang();
+  const [projects, setProjects] = useState<ProjectSummary[]>(seeded ?? []);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("");
   const [sort, setSort] = useState<SortKey>("relevance");
   const [language, setLanguage] = useState("");
   const [toggles, setToggles] = useState<Record<string, boolean>>({});
   const [visible, setVisible] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    if (seeded?.length) return;
+    let cancelled = false;
+    fetch("/summaries.json")
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json();
+      })
+      .then((rows: ProjectSummary[]) => {
+        if (!cancelled) setProjects(rows);
+      })
+      .catch(() => {
+        if (!cancelled) setProjects([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [seeded]);
 
   const languages = useMemo(() => {
     const counts = new Map<string, number>();

@@ -27,11 +27,11 @@ import { CopyButton } from "./copy-button";
 import { GithubIcon } from "./icons";
 import { useLang } from "./lang-provider";
 import { ProjectCard } from "./project-card";
+import { ReadmeMarkdown } from "./readme-markdown";
 import { ReadmeCollapse } from "./readme-collapse";
 
-/** Markdown rendered by the server component; opaque to this client tree. */
-interface RenderedReadme {
-  content: React.ReactNode;
+interface ReadmePayload {
+  markdown: string;
   truncated: boolean;
   collapsible: boolean;
 }
@@ -43,7 +43,7 @@ export function ProjectDetail({
 }: {
   project: Project;
   related: ProjectSummary[];
-  readme?: RenderedReadme | null;
+  readme?: ReadmePayload | null;
 }) {
   const { lang, t } = useLang();
   const hue = hueClasses(project.category);
@@ -183,7 +183,11 @@ export function ProjectDetail({
           {readme ? (
             <Panel title={t("detail.readme.full")}>
               <ReadmeCollapse collapsible={readme.collapsible}>
-                {readme.content}
+                <ReadmeMarkdown
+                  markdown={readme.markdown}
+                  fullName={project.fullName}
+                  defaultBranch={project.defaultBranch}
+                />
               </ReadmeCollapse>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-white/[0.06] pt-3.5">
                 {readme.truncated && (

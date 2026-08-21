@@ -1,10 +1,9 @@
 import { Explorer } from "@/components/explorer";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
-import { allProjects, datasetMeta, toSummary } from "@/lib/data";
+import { allProjects, datasetMeta } from "@/lib/data";
 
 export default function HomePage() {
-  const summaries = allProjects.map(toSummary);
   const runnable = allProjects.filter((p) => p.buildability >= 70).length;
 
   return (
@@ -12,7 +11,7 @@ export default function HomePage() {
       <Hero meta={datasetMeta} runnable={runnable} />
 
       <div className="mx-auto max-w-7xl px-4 pb-4 sm:px-6">
-        {summaries.length === 0 ? <EmptyDataset /> : <Explorer projects={summaries} />}
+        {datasetMeta.total === 0 ? <EmptyDataset /> : <Explorer />}
         <HowItWorks />
       </div>
     </>

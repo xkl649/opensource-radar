@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight, Download, Star, TrendingUp } from "lucide-react";
 import { categoryLabel, hueClasses } from "@/lib/categories";
 import { formatCount, formatRelative } from "@/lib/i18n";
@@ -48,13 +47,13 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
           className="size-9 shrink-0 rounded-lg bg-ink-800 ring-1 ring-white/10"
         />
         <div className="min-w-0 flex-1">
-          <Link
+          <a
             href={`/project/${project.id}`}
             className="block truncate text-[15px] font-semibold text-slate-100 transition group-hover:text-white"
           >
             {project.name}
             <span className="absolute inset-0" aria-hidden />
-          </Link>
+          </a>
           <p className="truncate text-xs text-slate-500">{project.owner}</p>
         </div>
         <span
@@ -111,13 +110,13 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
           >
             <Download size={13} strokeWidth={2.2} />
           </a>
-          <Link
+          <a
             href={`/project/${project.id}`}
             className="inline-flex items-center gap-1 rounded-lg bg-white/[0.06] px-2.5 py-1.5 text-xs font-medium text-slate-200 ring-1 ring-white/10 transition hover:bg-white/[0.12] hover:text-white"
           >
             {t("card.detail")}
             <ArrowUpRight size={12} strokeWidth={2.4} />
-          </Link>
+          </a>
         </div>
       </div>
     </article>
