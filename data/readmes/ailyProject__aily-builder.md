@@ -1,0 +1,242 @@
+# Aily Builder - Arduino Lightning Compilation Tool
+
+[中文](README-ZH.md) | English
+
+> Arduino Lightning Compilation Tool  
+> Compilation speed far exceeds Arduino CLI, superior to PlatformIO  
+> Make Arduino Great Again!  
+
+If this tool helps you, please give it a ⭐️ for support!
+
+## Core Features
+
+### Lightning-Fast Compilation
+- **Staged Builds**: Separates preprocessing and compilation to avoid unnecessary repeated dependency analysis
+- **Ultra-Fast Analysis**: Uses a streaming, macro-aware preprocessor directive scanner for precise dependency detection
+- **Build System**: Uses Ninja build system with parallel compilation to maximize CPU utilization
+- **Smart Caching**: Avoids redundant compilation, significantly reducing build time
+- **Incremental Builds**: Only compiles modified files
+
+## Quick Start
+
+```bash
+npm install -g aily-builder
+aily-builder --help
+```
+
+For local development:
+
+```bash
+git clone https://github.com/ailyProject/aily-builder
+cd aily-builder
+npm install
+npm link
+aily-builder --help
+```
+
+### Basic Usage
+
+```bash
+# Compile Arduino project
+aily-builder compile sketch.ino
+
+# Specify board
+aily-builder compile sketch.ino --board arduino:avr:uno
+
+# Parallel compilation (8 tasks)
+aily-builder compile sketch.ino --jobs 8
+
+# With external libraries
+aily-builder compile sketch.ino --libraries-path "C:\Arduino\libraries"
+
+# Enable verbose output
+aily-builder compile sketch.ino --verbose
+```
+
+### Preprocess and Compile Separation
+
+The tool supports separating preprocessing from compilation, which is useful for:
+- **CI/CD pipelines**: Run preprocessing once, compile multiple times
+- **Parallel builds**: Share preprocessing results across build workers
+- **Debugging**: Inspect preprocessing results before compilation
+- **Performance optimization**: Skip preprocessing when dependencies haven't changed
+
+#### Preprocessing Only
+
+Perform preprocessing without compilation (dependency analysis, config generation, prebuild hooks):
+
+```bash
+# Basic preprocessing
+aily-builder preprocess sketch.ino --board arduino:avr:uno
+
+# With external libraries
+aily-builder preprocess sketch.ino --board esp32:esp32:esp32 --libraries-path "C:\Arduino\libraries"
+
+# Output as JSON for programmatic use
+aily-builder preprocess sketch.ino --output-json
+
+# Save result for later compilation (useful for CI/CD)
+aily-builder preprocess sketch.ino --save-result ./preprocess.json
+```
+
+#### Compile with Preprocess Result
+
+Use saved preprocessing results to skip the preprocessing phase:
+
+```bash
+# Compile using saved preprocess result (skips preprocessing)
+aily-builder compile sketch.ino --preprocess-result ./preprocess.json
+
+# Full workflow example
+aily-builder preprocess sketch.ino --board arduino:avr:uno --save-result ./preprocess.json
+aily-builder compile sketch.ino --board arduino:avr:uno --preprocess-result ./preprocess.json
+```
+
+**Preprocessing Steps:**
+1. Validate sketch file
+2. Extract macros from sketch
+3. Parse board and platform configuration
+4. Prepare build directory
+5. Analyze dependencies
+6. Generate compile configuration
+7. Run prebuild hooks (if configured)
+
+### Upload Firmware
+
+```bash
+# Upload firmware to Arduino board
+aily-builder upload -p COM3 -f firmware.hex --board arduino:avr:uno
+
+# With verbose output
+aily-builder upload -p /dev/ttyUSB0 -f firmware.bin --board esp32:esp32:esp32 --verbose
+```
+
+### Cache Management
+
+```bash
+# View cache statistics
+aily-builder cache stats
+
+# Clear entries not used in the last 30 days
+aily-builder cache clear --unused-30
+
+# Preview what would be deleted (dry run)
+aily-builder cache clear --unused-7 --dry-run
+
+# Clear all cache
+aily-builder cache clear --all
+```
+
+## Detailed Documentation
+
+### Compile Command Options
+
+```bash
+Arguments:
+  sketch                           Path to Arduino sketch (.ino file)
+
+Options:
+  -b, --board <board>              Target board (default: "arduino:avr:uno")
+  -p, --port <port>                Serial port for upload
+  --sdk-path <path>                Path to Arduino SDK
+  --tools-path <path>              Path to additional tools
+  --build-path <path>              Build output directory
+  --libraries-path <path>          Additional libraries path (can be used multiple times)
+  --build-property <key=value>     Additional build property (can be used multiple times)
+  --build-macros <macro[=value]>   Custom macro definitions (e.g., DEBUG, VERSION=1.0.0)
+  --board-options <key=value>      Board menu options (e.g., flash=2097152_0)
+  --tool-versions <versions>       Specify tool versions (format: tool1@version1,tool2@version2)
+  --preprocess-result <path>       Use preprocess result JSON file (skip preprocessing)
+  --archive-cloud-cache <path>     Local archive cloud cache directory
+  --no-archive-cloud-cache         Disable archive cloud cache restore and generation
+  --archive-cloud-cache-url <url>  Remote archive cloud cache base URL
+  --no-fetch-archive-cloud-cache   Do not fetch cached .a archives from remote cloud cache
+  --archive-cloud-cache-local-only Only use local archive cloud cache; do not request remote cache
+  --generate-archive-cloud-cache   Generate uploadable archive cloud cache entries after successful builds
+  -j, --jobs <number>              Number of parallel compilation jobs (default: "4")
+  --verbose                        Enable verbose output
+  --log-file                       Write logs to file in build directory
+  -h, --help                       Display help for command
+```
+
+### Preprocess Command Options
+
+```bash
+Arguments:
+  sketch                           Path to Arduino sketch (.ino file)
+
+Options:
+  -b, --board <board>              Target board (default: "arduino:avr:uno")
+  --sdk-path <path>                Path to Arduino SDK
+  --tools-path <path>              Path to additional tools
+  --build-path <path>              Build output directory
+  --libraries-path <path>          Additional libraries path (can be used multiple times)
+  --build-property <key=value>     Additional build property
+  --build-macros <macro[=value]>   Custom macro definitions
+  --board-options <key=value>      Board menu options
+  --tool-versions <versions>       Specify tool versions
+  --output-json                    Output preprocess result as JSON
+  --save-result <path>             Save full preprocess result to JSON file
+  --verbose                        Enable verbose output
+  --log-file                       Write logs to file in build directory
+  -h, --help                       Display help for command
+```
+
+### Upload Command Options
+
+```bash
+Options:
+  -b, --board <board>              Target board (default: "arduino:avr:uno")
+  -p, --port <port>                Serial port for upload (required)
+  -f, --file <file>                Firmware file path (.hex or .bin) (required)
+  --build-property <key=value>     Additional build property
+  --verbose                        Enable verbose output
+  --log-file                       Write logs to file
+  -h, --help                       Display help for command
+```
+
+### Cache Commands
+
+```bash
+# Cache statistics
+aily-builder cache stats [--verbose] [--json]
+
+# Cache cleanup
+aily-builder cache clear [options]
+  --all               Clear all persistent cache data
+  --unused-30         Clear entries not used in the last 30 days
+  --unused-7          Clear entries not used in the last 7 days
+  --dry-run           Preview mode, don't actually delete
+  --json              Output machine-readable JSON
+
+# Clear all cache
+aily-builder cache clear --all
+```
+
+### Build Path Configuration
+
+Build output is stored by default in:
+- **Windows**: `%LOCALAPPDATA%\aily-builder\project\<sketchname>_<hash>`
+- **macOS**: `~/Library/aily-builder/project/<sketchname>_<hash>`
+
+## Build progress protocol
+
+Starting with 1.2.11, the `compile` command emits a single-line, machine-readable global progress event on stdout:
+
+```text
+[aily-builder:progress] {"protocolVersion":1,"stage":"core","percent":63,"status":"running","message":"Compiling core"}
+```
+
+`percent` is monotonic across the complete build, and only the final successful event uses `status: "complete"` with `percent: 100`. Consumers should handle this line as protocol data rather than displaying it as a regular build log. Clients can continue parsing the legacy Ninja progress format for builder 1.2.10 and earlier.
+
+## Contributing
+Issues and Pull Requests are welcome!
+
+## License
+
+GNU GENERAL PUBLIC LICENSE V3
+
+## Acknowledgments
+
+- [Ninja Build System](https://ninja-build.org/) - High-performance build system
+- [Arduino CLI](https://arduino.github.io/arduino-cli/) - Arduino development tools
