@@ -4,6 +4,8 @@ on:
   schedule:
     # 01:20 UTC daily, i.e. 09:20 Beijing time.
     - cron: "20 1 * * *"
+    # Backup window: GitHub sometimes drops a scheduled run (see 2026-08-19).
+    - cron: "20 13 * * *"
   workflow_dispatch:
     inputs:
       limit:
@@ -32,6 +34,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Collect projects from GitHub
         env:
@@ -57,3 +60,21 @@ jobs:
           git add -A data/
           git commit -m "chore(data): refresh open-source project index"
           git push
+
+      # A push made with GITHUB_TOKEN does not trigger other workflows, so the
+      # separate deploy.yml never ran after a scheduled refresh and the live
+      # site stayed on stale data. Publish from this job instead.
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish out/ to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: >
+          npx wrangler@4 pages deploy out
+          --project-name=opensource-radar
+          --branch=main
+          --commit-dirty=true
