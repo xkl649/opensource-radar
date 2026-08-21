@@ -1,0 +1,135 @@
+<div align="center">
+
+# Codex Autoresearch
+
+### Give Codex a benchmark, a boundary, and a memory.
+
+**[Install](#install)** - **[Try it](#try-it)** - **[How it works](#how-it-works)** - **[Dashboard](#dashboard)** - **[Docs](#docs)**
+</div>
+
+Most improvement requests start out vague: make this faster, make it smaller, stop it from breaking. Codex can usually produce a plausible change. The harder part is knowing whether the change helped, whether it traded away something important, and whether the next session can pick up the work without guessing what happened.
+
+Codex Autoresearch gives that work a memory and a measuring stick. It runs small experiments against a benchmark, records what happened, and keeps the useful results separate from the dead ends. You can stop after one baseline or let the loop run through several ideas, but either way you get an evidence trail instead of a confident paragraph about how much better everything is now.
+
+![Codex Autoresearch live dashboard showing a demo runtime improvement](plugins/codex-autoresearch/assets/showcase/dashboard-demo.png)
+
+The loop is inspired by [karpathy/autoresearch](https://github.com/karpathy/autoresearch) and [pi-autoresearch](https://github.com/davebcn87/pi-autoresearch). This version is built around Codex, local repositories, and ordinary reviewable Git work.
+
+## Install
+
+Open the plugin picker in Codex:
+
+```text
+/plugins
+```
+
+Choose `TheGreenCedar -> codex-autoresearch -> Install plugin`, then start a new Codex task in the repository you want to improve.
+
+If your Codex build supports marketplace management from the terminal, you can register the source marketplace first:
+
+```bash
+codex plugin marketplace add TheGreenCedar/AgentPluginMarketplace --ref main
+```
+
+The marketplace lives in `TheGreenCedar/AgentPluginMarketplace`; this repository is the plugin source.
+
+## Try it
+
+After installing the plugin, open Codex in the repository you want to improve and give it a goal, a benchmark, and a boundary. This prompt contains the information Codex needs:
+
+```text
+/goal @Codex Autoresearch make the unit tests faster.
+Benchmark: npm test -- --runInBand
+Wrap that raw command so the benchmark prints METRIC seconds=<number>.
+Metric: seconds, lower is better
+Checks: npm test
+Scope: test runner config and test helpers only
+Stop after 5 attempts or 30 minutes.
+```
+
+Autoresearch will measure the current result before Codex changes anything. That baseline matters. Without it, a faster-looking implementation is still just a faster-looking implementation.
+
+If you do not know what the benchmark should be, say what outcome you want and ask Codex to propose one:
+
+```text
+/goal @Codex Autoresearch improve the speed of my indexer's pipeline without using more memory.
+Measure a baseline first. Propose a benchmark and a safe edit scope, then ask me about anything the repository cannot answer.
+```
+
+Codex can help build the measurement, but it cannot decide whether the measurement represents your product. That judgment stays with you.
+
+## How it works
+
+The normal loop is short:
+
+```text
+setup -> doctor -> next -> log -> state -> finalize-preview
+```
+
+Setup records the goal, metric, benchmark, checks, budget, and file scope. Doctor makes sure the benchmark can be trusted before the first experiment. `next` runs one benchmark packet. `log` records whether the result was a baseline, a keep, a discard, or a failure. `state` reads the ledger and tells Codex what makes sense next. When there is useful work to review, `finalize-preview` shows what can be turned into review branches without changing branches yet.
+
+The benchmark must print at least one line in this form:
+
+```text
+METRIC seconds=12.34
+```
+
+The primary metric decides whether the result moved in the right direction. Checks protect correctness. Secondary metrics can catch known tradeoffs such as lower runtime with much higher memory use.
+
+Autoresearch stores the durable session record in the target project. In a Git repository, transient packet state lives under `.git/autoresearch/`; outside Git it falls back to local worktree files.
+
+Some commands can change Git state. Keeping a result can create a commit limited to configured paths. Discards, crashes, and failed checks can clean up the configured or explicitly supplied experiment paths. A plain measurement never stages, commits, or reverts anything. Finalization begins with a read-only preview, and review branches are created only after approval. The details are in [Trust](plugins/codex-autoresearch/docs/trust.md).
+
+## When it helps
+
+Autoresearch is a good fit when you can measure the outcome repeatedly, keep the benchmark reasonably stable, protect correctness with checks, and name the part of the repository Codex is allowed to change. It is especially useful when several small attempts are more likely to teach you something than one large rewrite.
+
+It is probably the wrong tool for a one-off edit, a result that is mostly a matter of taste, or a benchmark so slow and noisy that another measurement adds little information.
+
+Docs, UX, architecture, and product research can use a quality-gap loop instead of a performance metric. In that mode, source-backed findings become an accepted checklist and the loop measures how many of those gaps remain. Reaching `quality_gap=0` closes that checklist; it does not prove there is nothing left to discover.
+
+## Dashboard
+
+The dashboard is optional. It gives you a live view of the metric history, the current blocker, the next action, the runtime that produced the evidence, and the state of finalization.
+
+It is deliberately read-only. The CLI still owns setup, experiments, logging, export, and finalization. If the browser and terminal ever disagree, stop and fix the disagreement rather than choosing the answer you prefer.
+
+Ask Codex to serve the dashboard when a visual readout would help. Use an export when you need a portable snapshot rather than live state.
+
+## Safety and privacy
+
+Autoresearch does not have a hosted backend of its own, but it runs inside a Codex session. The Codex service or model provider is a separate data path governed by its own settings and terms. Commands you approve run with your local permissions: a benchmark can read files, start processes, use credentials available through explicit packet variables or operating-system stores, contact external services, and cost money if those services charge for use. Packet processes receive a minimal environment by default; inheriting the caller's full environment requires `--packet-env-mode inherit`.
+
+Keep secrets out of command lines, output, experiment notes, and artifacts. Redaction is best-effort, not a security boundary. Treat ledgers and dashboard exports as project records that may contain paths, command names, output excerpts, and notes about what Codex tried.
+
+Read [Trust](plugins/codex-autoresearch/docs/trust.md), [Privacy](plugins/codex-autoresearch/docs/privacy.md), and [Terms](plugins/codex-autoresearch/docs/terms.md) before using the plugin on sensitive repositories or expensive workloads.
+
+## Docs
+
+- [Start](plugins/codex-autoresearch/docs/start.md) gets the first baseline measured and logged.
+- [Walkthrough](plugins/codex-autoresearch/docs/walkthrough.md) follows one session from prompt to finalization preview.
+- [Operate](plugins/codex-autoresearch/docs/operate.md) covers running, resuming, and repairing a session.
+- [Finish](plugins/codex-autoresearch/docs/finish.md) explains how kept work becomes review branches.
+- [Troubleshooting](plugins/codex-autoresearch/docs/troubleshooting.md) starts from the symptom when something goes wrong.
+
+The [Docs index](plugins/codex-autoresearch/docs/index.md) has the rest, including [workflow diagrams](plugins/codex-autoresearch/docs/workflows.md) and the [architecture](plugins/codex-autoresearch/docs/architecture.md).
+
+## Update or uninstall
+
+Use `/plugins` to refresh or uninstall the workspace plugin. Where terminal marketplace management is available, these commands manage the source registration:
+
+```bash
+codex plugin marketplace add TheGreenCedar/AgentPluginMarketplace --ref main
+codex plugin marketplace upgrade TheGreenCedar
+codex plugin marketplace remove TheGreenCedar
+```
+
+Removing a marketplace registration may not uninstall a plugin that is already installed in a workspace. Use the plugin UI for that.
+
+## Development
+
+Source development requires Node.js 24 or newer, npm, and Git. See [Contributing](CONTRIBUTING.md) for local setup and verification. Packaging and release work is covered in [Maintainers](plugins/codex-autoresearch/docs/maintainers.md), and user-facing changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+[Apache License 2.0](./LICENSE). Copyright (c) 2026 Albert Najjar.

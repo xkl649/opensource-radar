@@ -139,9 +139,9 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 
 | Metric | Count |
 |--------|-------|
-| 📝 Total Prompts | **15722** |
+| 📝 Total Prompts | **15796** |
 | ⭐ Featured | **6** |
-| 🔄 Last Updated | **Friday, August 21, 2026 at 12:37:30 AM UTC** |
+| 🔄 Last Updated | **Friday, August 21, 2026 at 12:22:54 PM UTC** |
 
 </div>
 
@@ -525,7 +525,489 @@ Transforms a flat evolutionary timeline into a realistic 3D stone staircase info
 
 > 📝 Sorted by publish date (newest first)
 
-### No. 1: Profile / Avatar - Cat-Eared Maid Portrait
+### No. 1: Profile / Avatar - Kawaii Cactus Sticker
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+
+#### 📖 Description
+
+A cheerful sticker-style potted cactus mascot illustration for cute icons, decals, posters, or pet-themed graphic workflows.
+
+#### 📝 Prompt
+
+```
+Create a cute kawaii sticker-style illustration of a smiling green cactus in a terracotta flower pot on a transparent checkerboard background. The cactus should have one large rounded central barrel body with vertical ribbing and two raised curved arms, one on each side. Give it a happy face with two glossy black oval eyes with white highlights, pink circular blush cheeks, and an open smiling mouth with a dark interior and pink tongue. Add many small pale yellow star-shaped spines with orange bases across the cactus: 28 visible spine clusters total, including 11 on the central cactus body, 9 on the left arm/left side, and 8 on the right arm/right side. Place a large red-pink flower on the upper left of the cactus crown with 7 rounded petals and a cluster of 8 yellow pollen dots in the center. The pot should be warm orange terracotta with a thick rounded rim, darker orange shading, glossy white highlight spots, tiny speckles, and visible brown pebbles/soil at the top. Use bright saturated colors, soft gradients, shiny highlights, thick dark green/black cartoon outlines, and a clean white sticker border around the whole cactus and pot. Center the subject, crop close but keep the entire pot and arms visible, square composition, cheerful mascot icon style, no text, no watermark.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299965754_5o2h8n_HQNqPjjbYAA1TbV.png" width="600" alt="Profile / Avatar - Kawaii Cactus Sticker - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [成云杉YSC](https://x.com/yscai101)
+- **Source:** [Twitter Post](https://x.com/yscai101/status/2090678564844888561#reversed-0)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32175)**
+
+---
+
+### No. 2: Profile / Avatar - Photorealistic Cinematic Woman Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A comprehensive prompt for generating high-quality, photorealistic portraits of a woman with cinematic lighting and detailed fashion elements.
+
+#### 📝 Prompt
+
+```
+Use the uploaded image as the main visual reference. Create a highly photorealistic, stylish cinematic portrait of the same {argument name="subject" default="young woman"}, preserving her overall facial appearance, face shape, skin tone, eyes, eyebrows, nose, lips, and natural proportions as closely as possible. She has {argument name="hair style" default="long, straight, silky dark-brown to black hair with soft natural volume and wispy curtain bangs"} falling gently across her forehead. Her hair flows naturally over both shoulders with realistic individual strands and subtle shine. She is wearing sleek black rectangular sunglasses with dark tinted lenses and a glossy black frame. The sunglasses should fit naturally on her face and remain proportional to her features. She is dressed in a {argument name="outfit" default="crisp white oversized button-up shirt"} with a relaxed, elegant fit. The shirt has realistic fabric folds, a classic collar, visible buttons, and naturally loose sleeves. Pose: close-up three-quarter portrait. Her body is angled slightly away from the camera while her face turns toward the camera. One hand is raised naturally near the bridge of her sunglasses, gently touching or adjusting them with relaxed fingers. Her expression is calm, confident, slightly mysterious, and elegant, with soft natural lips and a subtle neutral smile. Add a simple black wristwatch with a round dial and black strap on the wrist of the raised hand. Background: softly blurred modern indoor/outdoor setting with neutral gray, beige, and muted green tones. Use shallow depth of field and creamy cinematic bokeh so the woman remains the clear focal point. Lighting: soft natural daylight, gentle highlights on her hair and sunglasses, realistic shadows, subtle warm-neutral color grading, cinematic contrast, natural skin texture and visible fine facial details. Photography style: ultra-photorealistic Korean-inspired fashion photography, premium editorial portrait, 85mm lens look, shallow depth of field, crisp focus on the face and sunglasses, realistic skin pores, detailed hair strands, realistic hands and fingers, natural body proportions, high dynamic range, professional composition, 4K/8K detail. Keep the overall mood and composition close to the reference image: long dark hair, curtain bangs, black sunglasses, oversized white shirt, raised hand near the sunglasses, black wristwatch, confident expression, and elegant cinematic aesthetic. Negative prompt: cartoon, anime, illustration, artificial face, plastic skin, excessive makeup, distorted facial features, unnatural eyes, deformed hands, extra fingers, missing fingers, malformed wrist, warped sunglasses, distorted watch, unrealistic hair, bad anatomy, blurry face, oversaturated colors, duplicate person, low resolution, text, watermark, logo.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299927064_977wyh_HQOEokDbYAAwzqN.jpg" width="600" alt="Profile / Avatar - Photorealistic Cinematic Woman Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Amelia Ai](https://x.com/AmeliaAi12)
+- **Source:** [Twitter Post](https://x.com/AmeliaAi12/status/2090660517576925488)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32133)**
+
+---
+
+### No. 3: Profile / Avatar - Limit Reset Chibi Sticker
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A cute die-cut laptop sticker featuring a chibi character pressing a red limit reset button with a circular reset arrow.
+
+#### 📝 Prompt
+
+```
+Create a cute die-cut laptop sticker illustration on a clean white background, in glossy kawaii chibi mascot style with thick black outlines and a bold white sticker border. Center a smiling chibi adult man with {argument name="hair color" default="dark brown"} messy short hair, big shiny brown eyes, thick eyebrows, light stubble beard, rosy cheeks, and an excited open-mouth smile, wearing a {argument name="hoodie color" default="black"} hoodie. He leans forward with both hands pressing down on a large glossy red emergency-style button at the bottom center, mounted on a dark gray circular base; the button has bold white uppercase text reading {argument name="button text" default="LIMIT RESET"}. Behind the character, draw one large red circular reset arrow forming an almost complete loop, ending in a downward arrowhead on the upper right. Add exactly 3 yellow sparkle icons: 2 on the left side of the character and 1 on the right side, plus exactly 4 small yellow burst rays near the lower sides, 2 on the left and 2 on the right. Use vibrant red, black, white, and yellow colors, smooth vector-like shading, glossy highlights on the button and face, playful sticker proportions, centered composition, no extra text, no watermark.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299966430_8ofgb4_HQN8EFzXAAA9o2a.jpg" width="600" alt="Profile / Avatar - Limit Reset Chibi Sticker - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Developing Adventures](https://x.com/DevAdventur3s)
+- **Source:** [Twitter Post](https://x.com/DevAdventur3s/status/2090651300098613354#reversed-0)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32176)**
+
+---
+
+### No. 4: Profile / Avatar - Japanese Woman Candid Bedroom Selfie
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+Creates a realistic smartphone selfie of a young Japanese woman in a casual bedroom setting, mimicking the look of authentic front-facing camera photos.
+
+#### 📝 Prompt
+
+```
+A photorealistic close-up smartphone selfie of a {argument name="subject" default="young Japanese woman"} in a {argument name="setting" default="cozy bedroom"}, captured naturally with a front-facing phone camera. She has dark brown-black hair tied into a slightly messy low bun, soft wispy straight bangs, warm brown eyes, naturally fair skin, subtle rosy cheeks, minimal makeup, glossy pink lips, and a tiny beauty mark on her cheek. She rests one hand gently against her cheek while making a soft playful pout and looking directly into the camera. She wears an {argument name="clothing" default="oversized textured white sweatshirt"} with partially visible dark navy lettering. The background is a simple lived-in bedroom with warm off-white walls, a white curtain on the left, a small green houseplant, and a light wooden slatted closet/room divider behind her. Natural indoor daylight, slightly uneven smartphone exposure, subtle phone-camera grain, realistic skin pores and fine hair strands, mild lens softness, natural shadows, no studio lighting, authentic unedited mobile-photo appearance, casual candid composition, close framing, realistic proportions, high detail, vertical 3:4 aspect ratio.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299912061_ydy7y7_HQN7lYVb0AAchIw.jpg" width="600" alt="Profile / Avatar - Japanese Woman Candid Bedroom Selfie - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299915696_s6qw7i_HQN7l8gaEAALrf5.jpg" width="600" alt="Profile / Avatar - Japanese Woman Candid Bedroom Selfie - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [𝗦𝗮𝗻𝗶𝗮](https://x.com/saniaspeaks_)
+- **Source:** [Twitter Post](https://x.com/saniaspeaks_/status/2090650552720142805)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32123)**
+
+---
+
+### No. 5: Profile / Avatar - Rugged Masculine B&W Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+
+#### 📖 Description
+
+A cinematic high-contrast black-and-white portrait of a mature man with a beard and curly hair, featuring dramatic studio lighting.
+
+#### 📝 Prompt
+
+```
+A cinematic black-and-white close-up portrait of a rugged, mature man with thick, naturally curly dark hair, strong masculine facial features, deep-set intense eyes, prominent brow, defined nose, full lips, and a dense salt-and-pepper beard. He wears a fitted black turtleneck sweater. Dramatic side lighting creates deep shadows across one half of his face while a bright rectangular patch of light falls on the dark background behind him. High-contrast monochrome photography, moody editorial fashion aesthetic, raw natural skin texture, detailed beard and hair, subtle facial wrinkles, realistic pores, sharp eyes, soft falloff, shallow depth of field, 85mm portrait lens, studio-quality photography, sophisticated and mysterious atmosphere, slightly off-center composition, shoulders and upper torso visible, ultra-realistic, fine film grain, rich blacks, soft highlights, timeless masculine portrait.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299902279_beyzsn_HQNrygMbsAA5G1w.jpg" width="600" alt="Profile / Avatar - Rugged Masculine B&W Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Aijaz](https://x.com/iamsofiaijaz)
+- **Source:** [Twitter Post](https://x.com/iamsofiaijaz/status/2090633174493843683)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32111)**
+
+---
+
+### No. 6: Profile / Avatar - Japanese Fashion Editorial Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A detailed prompt for generating a high-quality, photorealistic portrait of a woman with a Japanese fashion aesthetic, featuring cinematic lighting and soft bokeh.
+
+#### 📝 Prompt
+
+```
+Beautiful woman with {argument name="hair color" default="long, flowing dark-brown hair"}, mesmerizing {argument name="eye color" default="deep hazel-brown eyes"} with a soft, gentle gaze, natural lashes and sparkling catchlights. Warm golden-hour sunlight illuminates her face and hair, creating dreamy amber highlights and cinematic shadows. Natural skin texture, glossy lips, minimal makeup, delicate loose hair strands, cute and elegant {argument name="aesthetic" default="Japanese fashion-editorial aesthetic"}, soft charming expression, shallow depth of field, creamy bokeh, 85mm lens, f/1.4, ultra-photorealistic, cinematic, elegant and captivating.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299906483_5c6qt2_HQNo5NtasAA-OqK.jpg" width="600" alt="Profile / Avatar - Japanese Fashion Editorial Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299906558_t4zbch_HQNo6NoagAEFHTv.jpg" width="600" alt="Profile / Avatar - Japanese Fashion Editorial Portrait - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Eesha](https://x.com/MissDelulu9)
+- **Source:** [Twitter Post](https://x.com/MissDelulu9/status/2090630021329428683)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32116)**
+
+---
+
+### No. 7: Profile / Avatar - Anime Cafe Barista Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A clean vertical anime portrait prompt for creating a stylish female cafe barista character with glasses, apron, and coffee cup.
+
+#### 📝 Prompt
+
+```
+Create a vertical stylized anime character portrait of {argument name="character name" default="a young female cafe barista"} shown from mid-thigh up against a clean warm off-white studio background. She has {argument name="hair color" default="messy black"} hair with a side-swept fringe, loose strands framing her face, and a low tousled bun at the back; sharp expressive brown eyes behind thin round glasses; delicate angular facial features; a calm, slightly serious expression; and a recognizable slim silhouette. Dress her in a crisp white button-up shirt with rolled sleeves, a black neck scarf tied loosely like a ribbon, and a {argument name="apron color" default="rust brown"} cafe apron with dark brown shoulder straps and a tied waist sash. Her posture is relaxed and professional, one arm bent across her body while holding {argument name="held object" default="a takeaway coffee cup with a black lid"} near her waist. Use a distinctive character-driven anime aesthetic with slightly unconventional facial proportions, clean confident linework, sketchy ink accents, warm muted colors, soft cel shading, subtle fabric folds, and minimal background detail. Add a faint blurred foreground hint of cafe equipment at the lower left for depth, but keep the focus entirely on the character. No text, no logo, no watermark.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299968622_1vsuvx_HQMmjQzWgAAYHK8.jpg" width="600" alt="Profile / Avatar - Anime Cafe Barista Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299968603_sfjldt_HQMmj-nXoAA2Ff7.jpg" width="600" alt="Profile / Avatar - Anime Cafe Barista Portrait - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Kōda](https://x.com/aimikoda)
+- **Source:** [Twitter Post](https://x.com/aimikoda/status/2090557069275664458#reversed-0)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32180)**
+
+---
+
+### No. 8: Profile / Avatar - Stylish Man Editorial Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A high-fashion editorial prompt for a charismatic man in a tailored suit against a dark background, featuring dramatic lighting.
+
+#### 📝 Prompt
+
+```
+A stylish man {argument name="outfit" default="a sleek, all-black outfit"} poses confidently against a pitch-black background. He wears a tailored black suit, a black shirt with the top buttons open, and a {argument name="accessories" default="subtle gold chain around his neck, he sports golden sunglasses"} and a well-groomed beard, exuding charisma and mystery A luxury wristwatch glint on his left wrist, the lighting is dramatic, highlighting his facial features and casting soft shas, creating a bold, high -fashion editorial look
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299908213_7vw5q7_HQMOzI3aoAAnbWv.jpg" width="600" alt="Profile / Avatar - Stylish Man Editorial Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299908204_n42nmh_HQMOzl8bUAAObWS.jpg" width="600" alt="Profile / Avatar - Stylish Man Editorial Portrait - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Aatif J](https://x.com/aatif_j)
+- **Source:** [Twitter Post](https://x.com/aatif_j/status/2090530939189514391)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32118)**
+
+---
+
+### No. 9: Profile / Avatar - Woman Holding Teddy Bear Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A detailed portrait prompt for a young woman holding a teddy bear in a cozy, warmly lit bedroom environment.
+
+#### 📝 Prompt
+
+```
+A beautiful young woman with {argument name="hair color" default="long straight dark brown hair"} parted in the middle, wearing {argument name="accessory" default="two cute black bear-shaped hair clips"} on top of her head, soft fair skin, large expressive brown eyes, delicate facial features and a gentle closed-mouth smile, holding a {argument name="prop" default="fluffy light beige teddy bear"} tightly against her chest with both arms, wearing a simple light cream short-sleeved t-shirt, sitting in a cozy warmly lit bedroom with soft golden lamp light on the left, beige curtains in the background and a dark headboard behind her, intimate soft focus atmosphere, highly detailed realistic portrait.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299916362_s7ymmg_HQK2jNSaEAA_q2b.jpg" width="600" alt="Profile / Avatar - Woman Holding Teddy Bear Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [ayzalnoor](https://x.com/ayzalnooor24521)
+- **Source:** [Twitter Post](https://x.com/ayzalnooor24521/status/2090433901252800899)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32122)**
+
+---
+
+### No. 10: Profile / Avatar - Golden Academia Anime Scholar
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A cinematic anime portrait prompt for creating a handsome red-haired scholar in a warm antique study with chalkboard formulas and dramatic sunset lighting.
+
+#### 📝 Prompt
+
+```
+Create a vertical 2:3 anime-style portrait illustration of a charismatic young male scholar in a warm, old-world study. The subject is a slim, handsome young man with {argument name="hair color" default="deep auburn red"} wavy medium-length hair, long bangs falling over one eye, sharp {argument name="eye color" default="emerald green"} eyes, fair skin, and a subtle confident smile. He stands in a three-quarter pose, looking directly at the viewer, with one hand raised thoughtfully to his lips and the other arm folded across his torso while holding a closed dark book. Dress him in a crisp cream dress shirt with slightly rolled, wrinkled sleeves, a small tied cravat, and a fitted black waistcoat with buttons, giving him a refined professor or alchemist look. Place him beside a dark chalkboard covered with glowing handwritten cursive formulas, equations, symbols, and sketch marks, but keep the writing decorative and mostly unreadable. Add wooden bookshelves and antique objects on the left side, including exactly 3 visible brass or gold-toned instruments/ornaments and a row of old books near the bottom. Use dramatic golden sunset light streaming from the upper left, strong rim lighting on his hair and sleeves, warm amber reflections, deep shadows, and atmospheric dust motes. Render with polished high-detail anime painting, cinematic composition, rich linework, glossy eyes, soft bloom, warm environmental color grading, and elegant romantic academia mood. Keep the background detailed but secondary, avoid modern items, avoid extra characters, and do not include readable text or watermark.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299951045_vkx0gx_HQKsgNAb0AAw6-W.jpg" width="600" alt="Profile / Avatar - Golden Academia Anime Scholar - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [🐹🐹](https://x.com/hmst_yyyy)
+- **Source:** [Twitter Post](https://x.com/hmst_yyyy/status/2090422852076077131#reversed-0)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32158)**
+
+---
+
+### No. 11: Profile / Avatar - Alpine Dirndl Anime Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+Generates a soft semi-realistic anime portrait of a woman in a dirndl beside a mountain stream, ideal for character art or scenic illustration.
+
+#### 📝 Prompt
+
+```
+Create a polished semi-realistic anime portrait of a {argument name="character description" default="young adult woman with fair skin, light freckles, large blue eyes, and a gentle slightly coy smile"} leaning forward toward the camera in a close three-quarter view. She has {argument name="hair style" default="long chestnut-brown hair with wispy bangs and a loose side braid over one shoulder"}, delicate round wire-frame glasses, soft natural makeup, and luminous skin with detailed highlights. Dress her in a {argument name="outfit" default="traditional alpine dirndl: white puff-sleeve blouse with lace trim, navy bodice with crisscross lacing, and a blue skirt tied with a bow"}; the visible outfit has 4 main pieces: white lace blouse, navy laced bodice, blue skirt, and waist bow. Set the scene beside a clear mountain stream with smooth rocks in the foreground, green forest slopes and misty mountains behind her, and exactly 2 blurred wooden chalet houses on the right side of the background. Use warm morning sunlight, soft rim lighting in the hair, sparkling water reflections, shallow depth of field, high-detail digital painting, romantic alpine atmosphere, 3:4 vertical composition, sharp face and eyes, creamy bokeh background, no text, no watermark.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299954422_og201z_HQKliqAaYAAeDi-.jpg" width="600" alt="Profile / Avatar - Alpine Dirndl Anime Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Harf_Done](https://x.com/half_done_yet)
+- **Source:** [Twitter Post](https://x.com/half_done_yet/status/2090415367118336216#reversed-0)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32163)**
+
+---
+
+### No. 12: Profile / Avatar - Blue Night Anime Flower Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+Generates a moody blue-toned anime portrait of a braided character surrounded by glowing flowers for aesthetic character art.
+
+#### 📝 Prompt
+
+```
+Create a vertical anime-style portrait illustration of {argument name="character name" default="a quiet androgynous young person"} in a deep indigo night scene, shown from the chest up in a close, intimate crop. The character has {argument name="hair color" default="cool blue-black"} layered bangs covering much of the forehead and one eye, a long thick side braid over the right shoulder tied near the end, pale skin, delicate eyelashes, downcast blue eyes, and a melancholy, serene expression as they lean toward a flower near their lips. Dress them in a dark blue kimono or robe with simple folded collar lines and subtle shadowed fabric folds. Surround the face with exactly 5 luminous blue lotus-like flowers: 1 large flower directly in front of the mouth and nose, 1 large flower at the lower left foreground, 1 partial flower on the far left edge, 1 flower in the upper right corner, and 1 smaller flower on the mid-right background; also include exactly 2 unopened buds near the lower-left stems. Use intense blue monochrome lighting with glowing cyan highlights, dark navy shadows, strong rim light from the upper right, translucent layered petals, golden-yellow stamens, fine hair strands, and crisp anime cel shading blended with painterly gradients. Composition should feel poetic and nocturnal, with the character partially hidden by flowers, high detail in hair and petals, shallow depth of field, no text, no watermark, no border.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299950729_t82z6b_HQKgpPeakAAwNZj.jpg" width="600" alt="Profile / Avatar - Blue Night Anime Flower Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [🐹🐹](https://x.com/hmst_yyyy)
+- **Source:** [Twitter Post](https://x.com/hmst_yyyy/status/2090409812102369582#reversed-0)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32156)**
+
+---
+
+### No. 13: Profile / Avatar - High-Fashion Male Editorial
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A bold fashion prompt for a stylish man in a black suit against a dark background, emphasizing dramatic lighting and luxury accessories.
+
+#### 📝 Prompt
+
+```
+A stylish man a sleek, {argument name="outfit style" default="all-black"} outfit poses confidently against a {argument name="background" default="pitch-black background"}. He wears a tailored {argument name="suit color" default="black suit"}, a black shirt with the top buttons open, and a subtle gold chain around his neck, he sports golden sunglasses and a well-groomed beard, exuding charisma and mystery A luxury wristwatch glint on his left wrist, the lighting is dramatic, highlighting his facial features and casting soft shas, creating a bold, high -fashion editorial look
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299909744_a4izkv_HQKIhMtbAAAtN-q.jpg" width="600" alt="Profile / Avatar - High-Fashion Male Editorial - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299909811_c7tjd5_HQKIh5maIAAWms_.jpg" width="600" alt="Profile / Avatar - High-Fashion Male Editorial - Image 2">
+</div>
+
+##### Image 3
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299909787_ceyk05_HQKIioEbEAAvcNv.jpg" width="600" alt="Profile / Avatar - High-Fashion Male Editorial - Image 3">
+</div>
+
+##### Image 4
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299910658_7lhzd1_HQKIjbcbMAAxxR1.jpg" width="600" alt="Profile / Avatar - High-Fashion Male Editorial - Image 4">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Harboris](https://x.com/harboriis)
+- **Source:** [Twitter Post](https://x.com/harboriis/status/2090383330487550289)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32120)**
+
+---
+
+### No. 14: Profile / Avatar - Cat-Eared Maid Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -559,47 +1041,19 @@ Create a polished anime-style vertical portrait illustration of a cute kemonomim
 
 ---
 
-### No. 2: Profile / Avatar - Storybook Character Photo Transformation
+### No. 15: Profile / Avatar - Sunny Daikanyama Street Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-Transforms a real person's photo into an adorable, handcrafted 2D children's storybook character while preserving their recognizable identity.
+A photorealistic square lifestyle portrait of a smiling young woman on a bright leafy Tokyo shopping street.
 
 #### 📝 Prompt
 
 ```
-Use the single uploaded photo as the only visual reference. Transform the person into an {argument name="character style" default="adorable hand-drawn 2D children’s storybook character"}, while keeping their identity immediately recognizable.
-
-Preserve exactly from the photo:
-- Facial features and skin tone
-- Real hairstyle, length, texture, and color
-- Exact clothing, colors, patterns, and layering
-- Glasses, jewelry, headwear, bags, and all visible accessories
-
-Do not invent or copy hairstyles, outfits, accessories, braids, pigtails, bows, bonnets, or headscarves from any reference artwork.
-
-### Character
-Use an oversized rounded head, tiny compact body, short arms, narrow shoulders, soft rounded silhouette, and cute childlike proportions. Keep the head visually dominant. Avoid realistic anatomy.
-
-### Face
-Simplify into tiny dot/oval eyes, minimal nose, tiny smiling mouth, rounded cheeks, and soft peach/pink blush. Keep recognizable facial characteristics. No realistic eyes, detailed lips, anime features, glossy 3D rendering, or heavy shading.
-
-### Hair & Clothing
-Recreate the exact hairstyle and outfit from the uploaded photo, simplified into chunky hand-drawn shapes. Preserve important colors, patterns, jewelry, glasses, and other recognizable details.
-
-### Style
-Handmade 2D picture-book aesthetic using soft gouache, wax crayon, colored pencil, and dry pastel. Use slightly irregular dark-brown linework, subtle paper grain, uneven pigment, soft brush marks, and imperfect painted edges. Avoid clean vector art, CGI, anime, or photorealism.
-
-### Composition
-Square 1:1 portrait, chest/waist-up, centered and facing mostly forward, with balanced negative space. Use a relaxed, charming pose.
-
-### Background
-Simple warm {argument name="background tone" default="mustard, butter yellow, ochre, or cream"} background with subtle paper texture. No scenery, objects, text, borders, or distractions.
-
-Final feeling: the same person lovingly redrawn as an extremely cute, warm, wholesome, nostalgic, handcrafted children’s-book character—same identity, same hair, same clothes, same accessories, completely simplified and adorable.
+Create an ultra-realistic lifestyle portrait photo of a cheerful {argument name="subject description" default="young Japanese woman in her early 20s"} walking through a fashionable Tokyo neighborhood in bright morning sunlight. She is shown in a close, square-cropped, waist-up over-the-shoulder pose, turned back toward the camera with a warm natural smile, visible teeth, soft rosy cheeks, clear skin, and expressive brown eyes. Her {argument name="hair style" default="shoulder-length slightly messy dark brown bob with airy bangs"} is gently wind-tousled, and one hand is raised near her ear as if brushing hair aside. She wears a {argument name="outfit" default="oversized cream cable-knit sweater"} with detailed knit texture and a thin brown leather shoulder bag strap crossing diagonally over her back. The setting is a clean leafy urban sidewalk in {argument name="location" default="Daikanyama, Tokyo"}, with modern shopfront glass on the left, trees casting dappled shadows, pedestrians softly blurred in the distance, and visible street signage including “DAIKANYAMA,” “Good Coffee, Better Days,” and a vertical black sign reading “COFFEE BOOKS MUSIC PEOPLE TOKYO ALWAYS A GOOD IDEA.” Use natural backlit daylight, soft high-key exposure, shallow depth of field, realistic skin texture, subtle lens flare, pastel airy color grading, 35mm editorial street photography, crisp focus on the face, background bokeh, no watermark, no extra people in the foreground, no distorted hands, no artificial plastic skin.
 ```
 
 #### 🖼️ Generated Images
@@ -607,13 +1061,65 @@ Final feeling: the same person lovingly redrawn as an extremely cute, warm, whol
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213814063_m9a3pe_HQJQCVhbgAAMMJq.jpg" width="600" alt="Profile / Avatar - Storybook Character Photo Transformation - Image 1">
+<img src="https://cms-assets.youmind.com/media/1787299966207_zc7v2n_HQJW_via0AAMzLz.jpg" width="600" alt="Profile / Avatar - Sunny Daikanyama Street Portrait - Image 1">
 </div>
 
 ##### Image 2
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213814280_4sv54r_HQJQCWlaoAAujjZ.jpg" width="600" alt="Profile / Avatar - Storybook Character Photo Transformation - Image 2">
+<img src="https://cms-assets.youmind.com/media/1787299966211_yc7kna_HQJXAcBaMAAXIJ9.jpg" width="600" alt="Profile / Avatar - Sunny Daikanyama Street Portrait - Image 2">
+</div>
+
+##### Image 3
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299966260_u0f096_HQJXBYUaUAAz8vI.jpg" width="600" alt="Profile / Avatar - Sunny Daikanyama Street Portrait - Image 3">
+</div>
+
+##### Image 4
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299967288_fy8hq1_HQJXCT2bAAAfDTa.jpg" width="600" alt="Profile / Avatar - Sunny Daikanyama Street Portrait - Image 4">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Harshith](https://x.com/HarshithLucky3)
+- **Source:** [Twitter Post](https://x.com/HarshithLucky3/status/2090328884306911266#reversed-0)
+- **Published:** August 20, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32177)**
+
+---
+
+### No. 16: Profile / Avatar - Children's Storybook Character Transformation
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+Transforms a reference photo into a charming, hand-drawn 2D storybook character while maintaining personal identity.
+
+#### 📝 Prompt
+
+```
+Use the single uploaded photo as the only visual reference. Transform the person into an adorable {argument name="style" default="hand-drawn 2D children’s storybook character"}, while keeping their identity immediately recognizable. Preserve exactly from the photo: - Facial features and skin tone - Real hairstyle, length, texture, and color - Exact clothing, colors, patterns, and layering - Glasses, jewelry, headwear, bags, and all visible accessories. Do not invent or copy hairstyles, outfits, accessories, braids, pigtails, bows, bonnets, or headscarves from any reference artwork. ### Character Use an oversized rounded head, tiny compact body, short arms, narrow shoulders, soft rounded silhouette, and cute childlike proportions. Keep the head visually dominant. Avoid realistic anatomy. ### Face Simplify into tiny dot/oval eyes, minimal nose, tiny smiling mouth, rounded cheeks, and soft peach/pink blush. Keep recognizable facial characteristics. No realistic eyes, detailed lips, anime features, glossy 3D rendering, or heavy shading. ### Hair & Clothing Recreate the exact hairstyle and outfit from the uploaded photo, simplified into chunky hand-drawn shapes. Preserve important colors, patterns, jewelry, glasses, and other recognizable details. ### Style Handmade 2D picture-book aesthetic using soft gouache, wax crayon, colored pencil, and dry pastel. Use slightly irregular dark-brown linework, subtle paper grain, uneven pigment, soft brush marks, and imperfect painted edges. Avoid clean vector art, CGI, anime, or photorealism. ### Composition Square 1:1 portrait, chest/waist-up, centered and facing mostly forward, with balanced negative space. Use a relaxed, charming pose. ### Background Simple {argument name="background color" default="warm mustard, butter yellow, ochre, or cream"} background with subtle paper texture. No scenery, objects, text, borders, or distractions. Final feeling: the same person lovingly redrawn as an extremely cute, warm, wholesome, nostalgic, handcrafted children’s-book character—same identity, same hair, same clothes, same accessories, completely simplified and adorable.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299929234_frbiya_HQJQCVhbgAAMMJq.jpg" width="600" alt="Profile / Avatar - Children's Storybook Character Transformation - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787299929471_rphis0_HQJQCWlaoAAujjZ.jpg" width="600" alt="Profile / Avatar - Children's Storybook Character Transformation - Image 2">
 </div>
 
 #### 📌 Details
@@ -627,19 +1133,19 @@ Final feeling: the same person lovingly redrawn as an extremely cute, warm, whol
 
 ---
 
-### No. 3: Profile / Avatar - Luxury Men's Suede Jacket Portrait
+### No. 17: Profile / Avatar - Luxury Men's Fashion Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
 
 #### 📖 Description
 
-A sophisticated male portrait prompt featuring a burgundy suede jacket and vintage sunglasses, designed for luxury fashion campaigns.
+An ultra-realistic portrait prompt for a stylish man using a face reference, ideal for luxury fashion editorial shots with dramatic studio lighting.
 
 #### 📝 Prompt
 
 ```
-A cinematic, ultra-realistic close-up portrait of a stylish man, using the provided image as an accurate face reference. Preserve his natural facial identity, {argument name="hair style" default="thick naturally curly dark brown hair"}, neatly trimmed salt-and-pepper beard, strong masculine facial structure, and realistic facial proportions. He wears sophisticated round vintage amber-brown sunglasses and a {argument name="clothing" default="premium deep burgundy suede jacket"} over a fitted black silk-knit shirt, creating a refined luxury fashion aesthetic. Warm cinematic studio lighting with a soft amber-golden key light illuminating the face from the front-left, complemented by a subtle crimson-red rim light outlining the hair and shoulders. The background is a {argument name="background color" default="rich burgundy, wine-red, and dark plum gradient"}, with soft atmospheric haze and subtle diffused light creating depth without distracting from the subject. Elegant warm highlights contrast beautifully against the dark clothing. Extremely detailed natural skin texture, individual beard hairs, realistic pores, subtle facial imperfections, sharp eyes visible behind slightly tinted lenses, natural reflections on the sunglasses, rich dimensional shadows, realistic fabric and suede texture, shallow depth of field. Sophisticated luxury fashion campaign, mysterious and confident mood, premium men's editorial photography, cinematic color grading, photorealistic, HDR, professional studio photography, 85mm portrait lens, f/1.8, crisp facial details, soft background bokeh, centered composition, head-and-shoulders framing, powerful masculine presence, understated elegance, 3:4 aspect ratio.
+A cinematic, ultra-realistic close-up portrait of a stylish man, using the provided image as an accurate face reference. Preserve his natural facial identity, thick naturally curly dark brown hair, neatly trimmed salt-and-pepper beard, strong masculine facial structure, and realistic facial proportions. He wears {argument name="sunglasses" default="sophisticated round vintage amber-brown sunglasses"} and a {argument name="clothing" default="premium deep burgundy suede jacket over a fitted black silk-knit shirt"}, creating a refined luxury fashion aesthetic. Warm cinematic studio lighting with a soft amber-golden key light illuminating the face from the front-left, complemented by a subtle crimson-red rim light outlining the hair and shoulders. The {argument name="background" default="background is a rich burgundy, wine-red, and dark plum gradient"}, with soft atmospheric haze and subtle diffused light creating depth without distracting from the subject. Elegant warm highlights contrast beautifully against the dark clothing. Extremely detailed natural skin texture, individual beard hairs, realistic pores, subtle facial imperfections, sharp eyes visible behind slightly tinted lenses, natural reflections on the sunglasses, rich dimensional shadows, realistic fabric and suede texture, shallow depth of field. Sophisticated luxury fashion campaign, mysterious and confident mood, premium men's editorial photography, cinematic color grading, photorealistic, HDR, professional studio photography, 85mm portrait lens, f/1.8, crisp facial details, soft background bokeh, centered composition, head-and-shoulders framing, powerful masculine presence, understated elegance, 3:4 aspect ratio.
 ```
 
 #### 🖼️ Generated Images
@@ -647,455 +1153,5 @@ A cinematic, ultra-realistic close-up portrait of a stylish man, using the provi
 ##### Image 1
 
 <div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213768100_v1st5e_HQI4HtpagAA9Lzj.jpg" width="600" alt="Profile / Avatar - Luxury Men's Suede Jacket Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Aijaz](https://x.com/iamsofiaijaz)
-- **Source:** [Twitter Post](https://x.com/iamsofiaijaz/status/2090294894187413883)
-- **Published:** August 20, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32019)**
-
----
-
-### No. 4: Profile / Avatar - Playful park portrait photography
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A prompt for a candid outdoor portrait of an East Asian woman in a park with warm late-afternoon sunlight.
-
-#### 📝 Prompt
-
-```
-Photorealistic candid outdoor portrait of a young {argument name="ethnicity" default="East Asian"} woman enjoying a sunny afternoon in a quiet green park. She has smooth shoulder-length dark brown hair with full straight bangs, naturally framing her face, soft fair skin, subtle rosy cheeks, and large expressive eyes. She makes a cute playful {argument name="expression" default="pout"} while looking slightly to the side, with one arm raised above her head and her palm held like a small sunshade over her forehead. She wears an oversized black graphic T-shirt with a simple floral design and loose sleeves, along with a delicate beaded bracelet on her wrist. The background features a wide freshly cut green lawn, leafy trees, tall grass, a white wooden fence, and a peaceful rural-style landscape. Warm late-afternoon sunlight shines from behind her, creating a bright glowing sky, gentle rim light around her hair, soft natural highlights, and a dreamy summer atmosphere. Casual smartphone photography, slightly soft focus, natural exposure, subtle lens flare, realistic skin and hair texture, authentic candid pose, shallow depth of field, natural green tones, high-resolution photorealistic image, vertical composition, youthful carefree mood.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213762180_tw7nk3_HQIu8z5WwAAVZMG.jpg" width="600" alt="Profile / Avatar - Playful park portrait photography - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213762163_6j60tb_HQIu9awWUAAHCHM.jpg" width="600" alt="Profile / Avatar - Playful park portrait photography - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [𝗦𝗮𝗻𝗶𝗮](https://x.com/saniaspeaks_)
-- **Source:** [Twitter Post](https://x.com/saniaspeaks_/status/2090284820069048481)
-- **Published:** August 20, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32011)**
-
----
-
-### No. 5: Profile / Avatar - Y2K Retro Indie Pop Girl with Blue LP
-
-![Language-KO](https://img.shields.io/badge/Language-KO-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A comprehensive prompt for creating a nostalgic Y2K indie pop aesthetic featuring a girl with long black hair holding a bright cyan LP cover, using studio flash lighting for a vintage magazine feel.
-
-#### 📝 Prompt
-
-```
-[Character] Image 1 [Signature] In the lower right corner, there is a small {argument name="logo name" default="Threads"} logo, and above it, "{argument name="signature text" default="CHAse"}" is written in small white cursive like a signature. [Pose and Expression] Pose and Composition: A centered medium shot capturing a cheerful moment of holding a blue vinyl LP cover with both hands over the head. Pose: Holding both arms in a triangle shape with the LP cover held slightly upside down, tilting the upper body pleasantly to the left. The free-spirited upper body line and sculptural beauty of the arms create an indie artist's vibe. Expression: Not looking directly at the camera lens but glancing to the upper right with a curious and playful look. The slightly parted lips and transparent mask evoke a witty aura characteristic of Y2K indie pop. [Outfit and Props] Outfit: Top: A deep blue sleeveless ribbed crop top with a three-dimensional texture. Bottom: A minimal linen/denim texture long skirt in light sky blue with natural shirring at the waist, completing a sophisticated tone-on-tone blue look. Props: LP Cover ({argument name="album title" default="CHASE - Love Wins All"}): A bright cyan blue LP paper cover held above the head as a retro rock visual point. Nails: Neatly groomed pure white nail art providing a clear contrast with the blue tones. [Hair and Makeup] Hair: Rich jet black long natural straight hair falling over shoulders and back. Makeup: Clear porcelain skin under direct flash lighting with subtle brown shadow and moist pinkish coral glossy lips. [Lighting] Source: Direct studio camera flash from the front. Effect: Creates deep drop shadows on the background wall following the silhouette, producing a 90s vintage magazine contrast. [Texture and Color Mood] Colors: Deep blue, sky blue, and cyan blue creating a 'Cool Retro Indie Pop' mood. Texture Details: Matte and hard paper texture of the LP sleeve, ribbed fabric of the top, and glossy skin with sharp shadow edges. [Camera] Composition: Horizontal eye-level shot. Features: Deep depth of field and sharp focus ensuring model features and LP typography are crystal clear. [Background] Space: Minimalist light cool gray/ivory studio horizon wall focusing entirely on the subject.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213820653_ykgfvd_HOMLfs5aQAAkV54.jpg" width="600" alt="Profile / Avatar - Y2K Retro Indie Pop Girl with Blue LP - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213820081_477z41_HOMLfs9a4AAWL8M.jpg" width="600" alt="Profile / Avatar - Y2K Retro Indie Pop Girl with Blue LP - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [CHAse](https://x.com/CHAseUnre)
-- **Source:** [Twitter Post](https://x.com/CHAseUnre/status/2090232345194377301)
-- **Published:** August 20, 2026
-- **Languages:** ko
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32054)**
-
----
-
-### No. 6: Profile / Avatar - Candid Night Market Dinner Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A realistic vertical phone-photo prompt for generating a smiling woman eating at a busy outdoor night market food stall.
-
-#### 📝 Prompt
-
-```
-Create a candid, realistic smartphone-style photo of a smiling young woman at a lively outdoor night market food court. She is seated at a red-and-white checkered plastic tablecloth table, leaning slightly toward the camera and looking directly into the lens with a warm natural smile. She has long wavy {argument name="hair color" default="dark brown"} hair worn loose, natural makeup, small gold hoop earrings, layered delicate gold necklaces, and a bright {argument name="hoodie color" default="royal blue"} oversized hoodie with black bottoms. Her left hand holds a black smartphone near the lower-left of the frame, and her right hand rests near a clear plastic cup of water on the lower-right. In the foreground are exactly 2 white disposable paper bowls: one bowl on the left filled with glossy grilled meat in dark sauce, and one bowl on the right filled with white rice topped by a sunny-side-up fried egg with a bright orange yolk. Add one clear plastic cup of water beside the rice bowl and a partial white plastic fork at the far lower-left edge. The setting is a crowded night market under a black tarp canopy with metal poles and scaffolding, bright overhead bulbs, blurred diners sitting on stools, food stalls in the background, and a visible sign reading {argument name="stall sign text" default="THAI FOOD"}. Use realistic ambient night lighting, slight wide-angle phone-camera perspective, shallow depth of field, wet reflective pavement, casual candid composition, high detail skin texture, natural facial proportions, and no studio polish. Make it feel like an authentic travel dinner snapshot taken with a phone, vertical 3:4 framing, subject centered, food prominently visible in the foreground.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213829438_3ojylg_HQHSd-5bAAAUJl1.jpg" width="600" alt="Profile / Avatar - Candid Night Market Dinner Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213829461_7ls2ix_HQHSet5a8AAh16l.jpg" width="600" alt="Profile / Avatar - Candid Night Market Dinner Portrait - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213829408_a5ueuq_HQHSfYLagAAHWxS.jpg" width="600" alt="Profile / Avatar - Candid Night Market Dinner Portrait - Image 3">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Harshith](https://x.com/HarshithLucky3)
-- **Source:** [Twitter Post](https://x.com/HarshithLucky3/status/2090183148391076343#reversed-0)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32062)**
-
----
-
-### No. 7: Profile / Avatar - Gothic Vampire Noble Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A cinematic portrait prompt for generating a refined vampire nobleman in a candlelit Gothic mansion interior.
-
-#### 📝 Prompt
-
-```
-Create a cinematic full-body portrait of a charismatic {argument name="character type" default="young vampire nobleman"} standing in a dark Gothic mansion hall at night. He faces the camera with a confident friendly smile, pale skin, slicked-back dark hair, sharp features, and subtle fangs visible. Dress him in an elegant black Victorian formal suit with a white high collar, black waistcoat, decorative chain brooch, polished black shoes, and a long black cape with a high Dracula-style collar and faint embroidered details. The setting is an opulent old interior with dark carved wood wall panels, deep red velvet curtains, glossy black marble floor with warm reflections, a staircase receding into shadow, ornate gold-framed ancestral portraits on the walls, and exactly three visible candle groupings: one red candelabrum with four lit candles on the left, one tall standing candelabrum with five lit candles behind him, and one gold candelabrum with six lit candles on the right. Use warm candlelight against deep shadows, shallow depth of field, realistic photography, dramatic chiaroscuro, rich burgundy and black tones, vertical composition, centered subject, high detail, no text, no watermark.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213827781_vxfg90_HQGZoHGacAA0NGu.jpg" width="600" alt="Profile / Avatar - Gothic Vampire Noble Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213828161_d1l29r_HQGZohYacAA781D.jpg" width="600" alt="Profile / Avatar - Gothic Vampire Noble Portrait - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Rodrigo Bressane](https://x.com/bressane)
-- **Source:** [Twitter Post](https://x.com/bressane/status/2090120626845650956#reversed-0)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32061)**
-
----
-
-### No. 8: Profile / Avatar - Anubis Dark Fantasy Pixel Warrior
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A detailed prompt for generating a full-body pixel-art Egyptian jackal god warrior character suitable for fantasy game concept art.
-
-#### 📝 Prompt
-
-```
-Create a full-body dark fantasy pixel-art character portrait of {argument name="character name" default="Anubis"}, an imposing anthropomorphic jackal-headed Egyptian god-warrior standing against a pure black background. The figure is centered, front-facing in a slight three-quarter stance, tall and extremely muscular, with charcoal-gray stone-like skin, a black jackal muzzle, tall pointed ears, sharp claws, bare digitigrade feet, and glowing {argument name="eye color" default="golden amber"} eyes. He wears ornate ancient Egyptian armor and jewelry in tarnished gold, dark teal enamel, and weathered linen. Count and include exactly 12 main visible costume and accessory elements: 1 striped pharaoh-style nemes headdress with gold trim and teal panels, 2 leafy green laurel or vine strands draped over the crown, 3 broad gold-and-teal collar necklace, 4 large gold ankh pendant at the chest, 5 smaller dark ankh marking or pendant on the abdomen, 6 stacked gold bracelets on the weapon-holding wrist, 7 gold-and-teal upper arm band, 8 ornate belt with a large central green gemstone, 9 hanging front loincloth panel with an ankh symbol and geometric Egyptian patterns, 10 tattered beige side skirt strips, 11 matching gold-and-teal forearm bracer, 12 matching gold-and-teal shin guards and knee plates. In his left hand he holds a massive cracked obsidian greatsword resting across his shoulders; the blade is jagged black stone with glowing orange lava fissures and a fiery molten tip. Add a dangling gold ankh charm from the sword hilt. The mood is regal, brutal, mythic, and intimidating. Use crisp high-detail 16-bit / 32-bit game sprite rendering, strong rim lighting, dramatic highlights on the gold, subtle lava glow from the sword, visible pixel texture, clean silhouette, no text, no border, no watermark, black empty background.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213856045_nrmw7d_HQGMXoVXYAAIXrB.jpg" width="600" alt="Profile / Avatar - Anubis Dark Fantasy Pixel Warrior - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Obscurivelle](https://x.com/obscurivelle)
-- **Source:** [Twitter Post](https://x.com/obscurivelle/status/2090106054428242406#reversed-0)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32089)**
-
----
-
-### No. 9: Profile / Avatar - Japanese Woman Cozy Bedroom Selfies Collage
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-Generates a 2x2 collage of a Japanese woman taking cozy bedroom selfies with a soft-girl lifestyle aesthetic and natural lighting.
-
-#### 📝 Prompt
-
-```
-Create a photorealistic 2×2 collage of a cute adult {argument name="subject" default="Japanese woman"} taking cozy bedroom selfies. She has delicate feminine features, clear natural skin, soft pink cheeks, glossy lips, expressive brown eyes, and dark brown hair in a slightly messy high bun with wispy curtain bangs and loose strands. She wears a delicate {argument name="clothing" default="white camisole"} with thin straps and subtle lace detailing. The bedroom is bright, cozy, and minimalist, with white bedding, fluffy pillows, sheer curtains, warm natural sunlight, soft beige and cream tones, and a cute plush bunny. Japanese/Korean-inspired soft-girl lifestyle photography, realistic iPhone selfie quality, natural skin texture, gentle daylight, shallow depth of field, and soft film-like detail. Panel 1: Resting her cheek on one hand, looking at the camera with a sweet, gentle smile. Panel 2: Hugging a fluffy white pillow close to her face, making a tiny adorable pout with a playful expression. Panel 3: Both hands softly framing her cheeks, making a cute kissy pout while looking directly at the camera. Panel 4: Relaxing comfortably on the bed, face slightly tilted toward the camera, giving a warm and innocent smile.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213772632_jtx6fr_HQFtGjPaUAAl0tZ.jpg" width="600" alt="Profile / Avatar - Japanese Woman Cozy Bedroom Selfies Collage - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Eesha](https://x.com/MissDelulu9)
-- **Source:** [Twitter Post](https://x.com/MissDelulu9/status/2090071679997534275)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32023)**
-
----
-
-### No. 10: Profile / Avatar - Floral Morning Bedside Portrait
-
-![Language-JA](https://img.shields.io/badge/Language-JA-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A serene prompt for a young woman in a floral dress sitting on a white bed in the morning light, perfect for lifestyle and fashion AI art.
-
-#### 📝 Prompt
-
-```
-Subject: Morning bed with floral dress Subject: A {argument name="woman's age" default="20-something"} woman sitting against a wall on a white bed with both knees raised to her chest. Most of her body is placed in the center-right of the screen, featuring a {argument name="dress pattern" default="pale small floral pattern"} dress, a large white ribbon at the chest, and white ribbon socks. Person/Expression: Rounded oval face with a small jaw, large dark brown eyes, thin arched eyebrows, a small nose, and pale coral lips. Head tilted slightly to the left, looking at the camera with a gentle, relaxed expression. Dark brown hair loosely tied up with thin bangs, long stray hairs by the cheeks, and a {argument name="flower ornament color" default="pale pink"} flower ornament at the back of the head. Clothing/Pose: A thin-strap ruffled dress with a white base and small pink, blue, and yellow floral patterns. Clear small ornaments on the straps, a large white satin ribbon in the center of the chest, a form-fitting bodice, and a multi-layered sheer skirt. Short white socks with ruffled tops and ribbons on the outer ankles. Both knees bent together, supporting herself with her right hand on the bed. Background/Light: Pale beige wall on the right, window with white lace curtains on the left, white cabinet, pink and white vase, and a frilled lampshade table lamp. Soft diffused light from the window on the left brightens the face, chest, and legs uniformly, casting very faint shadows toward the wall. Composition/Camera: 3:4 vertical. Full-body portrait from a front camera slightly overlooking the bed. Face in the upper third right, bent knees placed large in the center left, socks and toes cut off at the bottom. Focus on the person, with a shallow depth of field lightly blurring the vase and window. Texture/Style: Photorealistic live-action photo taken in soft white natural light. Detailed depiction of skin texture, chiffon transparency, satin ribbons, sock stitches, and bedding lace. Negative: Significant change in facial features; change in pose with knees raised to the chest.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213797149_4uoyig_HP7sfqAaMAAae7D.jpg" width="600" alt="Profile / Avatar - Floral Morning Bedside Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
-- **Source:** [Twitter Post](https://x.com/CyberTotal2026/status/2090064741158805753)
-- **Published:** August 19, 2026
-- **Languages:** ja
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32042)**
-
----
-
-### No. 11: Profile / Avatar - Japanese Style Digital Girl Portrait Illustration
-
-![Language-ZH](https://img.shields.io/badge/Language-ZH-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A highly detailed digital illustration of a young East Asian woman in a close-up, selfie-style pose. The artwork features soft features, expressive eyes, and intricate accessories with a summer aesthetic.
-
-#### 📝 Prompt
-
-```
-Create a {argument name="completion level" default="high-completion"} {argument name="style" default="Japanese-style girl"} digital illustration using a very close-up half-body portrait composition. A young adult East Asian woman appears very close to the camera, her face occupying most of the frame, head tilted slightly to one side, with one hand naturally supporting her chin or cheek. Her body leans slightly toward the lens, creating an intimate, relaxed, and slightly selfie-like visual distance. The character has soft and delicate girl-like features, {argument name="eye details" default="large and transparent gray-brown or light tea-colored eyes"}, with highlights, a glass-like feel, and fine layers inside the iris, and long but not overly exaggerated eyelashes. Eyebrows are soft and natural; the bridge and tip of the nose are shaped only with light shading, without hard outlines. The lips are small, soft, slightly moist pink, with the corners turned up in a subtle, gentle, and approachable smile. Her black or dark gray-brown long hair is presented in a naturally fluffy half-updo or loose tie, with thin fragmented bangs on the forehead and many fine strands and curved sideburns on the sides of the face. The hair lines are dense and smooth, with both clear line art and soft color blocking. When the hair is exposed to warm sunlight, orange-gold highlights and light-transmitting edges appear in parts, making the dark hair show warm brown changes under the light. The character wears very gorgeous large earrings with a summer Japanese vibe. The earrings are composed of golden metal structures, transparent beads, small flowers, shells or glass-textured decorations, and several hanging rectangular decorative plaques. The surfaces of the rectangular pendants are painted with bright fruit or summer patterns, such as orange slices, citrus, tropical patterns, and gradient glass color blocks, mainly in orange-yellow, coral pink, cyan-blue, and milky white. The earrings hang in layers, numerous but clearly structured, forming one of the most eye-catching decorative elements in the scene. The clothing carries the visual language of light Japanese style, yukata, summer dresses, or modified kimono, but does not require strict historical accuracy. The fabric is based on dark gray, smoky pink, warm brown, and light beige, with flowers, plants, leaves, or traditional patterns added. Some fabrics use translucent tulle, light silk, and soft printed fabrics overlaid to form delicate layers. The shoulder and neck area retains soft skin space, making the large earrings and face the visual focus. The composition uses an ultra-close-up diagonal layout. The character's face is located slightly above the center of the frame, the head slightly tilted, and one hand supports the chin from the bottom right, with the arm and wrist naturally entering the edge of the frame. On the other side, hair strands, earrings, and clothing form a complex but orderly visual decoration. Allow parts of the hair, shoulders, arms, and clothing to extend beyond the frame to give the image a sense of closeness and dynamics.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213786831_6gla9a_HQFcV3Ba0AAVlTP.jpg" width="600" alt="Profile / Avatar - Japanese Style Digital Girl Portrait Illustration - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [mo Ki](https://x.com/static_stare)
-- **Source:** [Twitter Post](https://x.com/static_stare/status/2090053245851013540)
-- **Published:** August 19, 2026
-- **Languages:** zh
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32032)**
-
----
-
-### No. 12: Profile / Avatar - Strawberry Drink Cup POV Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A photorealistic vertical cup-perspective portrait of a young woman sipping a strawberry drink through a teal straw on a sunny Japanese street.
-
-#### 📝 Prompt
-
-```
-Create a hyper-realistic vertical close-up selfie-style photo from inside a clear plastic cup, looking upward through a circular transparent rim. A young Japanese woman, {argument name="character age" default="early 20s"}, leans very close to the camera and sips through one thick teal-green straw centered in extreme perspective, running from the bottom foreground directly to her puckered lips. She has soft fair skin, large glossy brown eyes, natural makeup, rosy cheeks, long eyelashes, and reddish-brown hair in a loose side braid with wispy bangs and flyaway strands. She wears a delicate white lace blouse with ruffled shoulders and dangling pearl earrings. The cup foreground contains bright red strawberry pieces and crushed ice, heavily blurred with sparkling highlights and condensation; the cup rim forms a translucent circular frame around her face. Background: a sunny Japanese shopping street or festival lane with traditional wooden storefronts, blue sky, leafy trees, colorful hanging banners, and one visible banner with a strawberry motif, all softly out of focus. Lighting is bright midday sunlight with backlit hair glow, lens flare, glittering bokeh on the ice, cheerful summer atmosphere. Use an ultra-wide macro perspective, shallow depth of field, realistic skin texture, crisp focus on her eyes and lips, vibrant colors, vertical 9:16 composition. Include exactly one visible straw, one main subject, one cup rim circle, and multiple strawberry chunks in the foreground; avoid extra people in focus, avoid text overlays, watermark, or cartoon styling.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213833527_br125f_HQDWrzkb0AACf-X.jpg" width="600" alt="Profile / Avatar - Strawberry Drink Cup POV Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213833438_9yd6a6_HQDWrzgbwAAH9de.jpg" width="600" alt="Profile / Avatar - Strawberry Drink Cup POV Portrait - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213833904_rccntm_HQDWrzfaIAA8VJL.jpg" width="600" alt="Profile / Avatar - Strawberry Drink Cup POV Portrait - Image 3">
-</div>
-
-##### Image 4
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213834970_2qrtya_HQDWrzhakAAsLD-.jpg" width="600" alt="Profile / Avatar - Strawberry Drink Cup POV Portrait - Image 4">
-</div>
-
-#### 📌 Details
-
-- **Author:** [いちこ（ichico）](https://x.com/eiai_picfactory)
-- **Source:** [Twitter Post](https://x.com/eiai_picfactory/status/2090011891859071114#reversed-0)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=32067)**
-
----
-
-### No. 13: Profile / Avatar - Car Interior Selfie Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A realistic vertical phone-style selfie of a fashionable young woman posed inside a car with greenery visible through the window.
-
-#### 📝 Prompt
-
-```
-Create a realistic smartphone selfie portrait of a young woman seated sideways inside a bright modern car, composed in a vertical 3:4 frame. Place the subject on the center-right of the image, with her face and upper body sharply in focus and her waist visible; leave the left side open to show the black car seat, dark door panel, side window, and lush green scenery outside. The woman has {argument name="hair color" default="long light brown hair with soft bangs"}, natural fair skin, glossy lips, and wears {argument name="glasses style" default="rimless brown-tinted glasses"}, a delicate necklace, small earrings, a fitted white ribbed camisole, and distressed white denim shorts. Her arm extends toward the camera in a close selfie perspective, creating natural foreshortening; she tilts her head slightly and looks directly at the lens with a calm, slightly pouty expression. Outside the car window, show sunlit trees and a lake or river in soft focus. Use natural daylight, realistic phone-camera optics, subtle skin texture, shallow depth of field, no studio lighting, no exaggerated retouching, and no text or watermark.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787127653380_ri4yzo_HQEWJKbboAAQrXv.jpg" width="600" alt="Profile / Avatar - Car Interior Selfie Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [yuqi295](https://x.com/yuqi2956820)
-- **Source:** [Twitter Post](https://x.com/yuqi2956820/status/2089976289709203624#reversed-0)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/gpt-image-2-prompts?id=31948)**
-
----
-
-### No. 14: Profile / Avatar - Woman Stretching in Sports Wear Under Blue Sky
-
-![Language-JA](https://img.shields.io/badge/Language-JA-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A comprehensive photorealistic prompt for a low-angle wide shot of a young woman stretching her arms overhead in athletic clothing against a vibrant sky.
-
-#### 📝 Prompt
-
-```
-Subject:
-White sleeves extending toward the blue sky
-
-Main Subject:
-A {argument name="age" default="20-something"} woman standing on a low concrete wall, stretching her arms overhead with interlaced hands. Place the full body prominently in the center of the frame, showing {argument name="sportswear" default="gray-blue sportswear and a white patterned windbreaker"} against a vast blue sky.
-
-Character and Expression:
-A small oval face, thin brown eyes, natural eyebrows, and pale pink lips. Facing the upper right of the frame, looking up at the sky with a gentle smile. Long dark brown hair worn down, flowing to the left of the frame in the wind.
-
-Clothing and Pose:
-A gray-blue thin-strap sports top and high-waisted short sports pants. Layered over it is a thin long-sleeved zip jacket with a black abstract pattern on a white background, worn open. White short socks and white platform sneakers. Standing with legs slightly crossed. Arms stretched straight up, hands interlaced overhead.
-
-Background and Light:
-Most of the background is a vivid blue sky, with white cumulus clouds at the bottom left and lower edge, and a gray concrete wall at the very bottom. Strong direct sunlight from above brightly illuminates the white sleeves and legs, creating short shadows in the clothing folds.
-
-Composition and Camera:
-Vertical 3:4 aspect ratio. A strong low-angle wide-angle camera shot looking up from near the ground, capturing the entire body from the soles of the shoes to the interlaced hands. Position the person tall and large in the center, leaving wide blue sky margins above and to the sides. Place the shoes and wall near the bottom edge, focusing on the person to keep them and the sky clear.
-
-Texture and Style:
-A photorealistic live-action photograph taken outdoors at midday. Precisely depict the stretch and luster of the sports fabric, the wrinkles of the thin jacket, the movement of the hair in the wind, and the texture of the white shoes.
-
-Negative:
-Changes to the interlaced arms overhead; omission of the white patterned jacket
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787213796440_nr76aq_HP7ktTkbMAA9_zh.jpg" width="600" alt="Profile / Avatar - Woman Stretching in Sports Wear Under Blue Sky - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Prompt アトリエ｜AI画像プロンプト](https://x.com/CyberTotal2026)
 
 <!-- opensource-radar:truncated -->

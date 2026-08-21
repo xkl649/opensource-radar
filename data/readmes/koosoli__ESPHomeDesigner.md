@@ -1,0 +1,425 @@
+# ESPHome Designer
+
+**A visual drag-and-drop editor for smart displays, supporting ESPHome, OpenEpaperLink (OEPL), and OpenDisplay - running as a Home Assistant integration or a standalone web app.**
+
+<div align="center">
+  <a href="https://github.com/sponsors/koosoli">
+    <img src="https://img.shields.io/badge/Sponsor-Project-ff69b4?style=for-the-badge&logo=github-sponsors" alt="Sponsor Project">
+  </a>
+  <a href="https://buymeacoffee.com/koosoli">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee">
+  </a>
+  <br>
+  <strong>If you find this project useful, consider <a href="https://github.com/sponsors/koosoli">supporting its development!</a></strong>
+</div>
+
+<div align="center">
+  <a href="https://youtu.be/BLkzDYYQJcQ">
+    <img src="https://img.youtube.com/vi/BLkzDYYQJcQ/maxresdefault.jpg" alt="Watch the v0.8.6 Feature Walkthrough" width="600">
+  </a>
+  <br>
+  <a href="https://youtu.be/BLkzDYYQJcQ">
+    <img src="https://img.shields.io/badge/YouTube-Watch%20v0.8.6%20Overview-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Video">
+  </a>
+  <a href="https://koosoli.github.io/ESPHomeDesigner/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Try%20it%20now-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo">
+  </a>
+  <br>
+  <strong>Click to watch the latest feature walkthrough or try the demo.</strong>
+</div>
+
+<div align="center">
+  
+### Supported Platforms
+  
+| Platform | Output Format | Use Case |
+|----------|---------------|----------|
+| **ESPHome** | C++ Lambda / LVGL YAML | ESP32 devices with direct display control |
+| **OpenEpaperLink** | Home Assistant Service Call (JSON) | Wireless e-paper price tags (AP-based) |
+| **OpenDisplay** | JSON Actions | HTTP-driven e-paper displays |
+
+</div>
+
+**No more hand-coding ESPHome display lambdas.**
+
+Build premium, touch-interactive dashboards for ESP32-based devices, wireless e-paper price tags, and HTTP-driven displays - all without writing a single line of display code.
+
+---
+
+## What Does It Do?
+
+- **Visual drag-and-drop editor** - Design layouts in your browser, see your actual HA entities update live on the canvas
+- **Multi-Platform Export** - One design, multiple outputs:
+  - **ESPHome**: Native C++ lambda code or LVGL YAML for ESP32 devices with direct display control
+  - **OpenEpaperLink (OEPL)**: JSON service calls for wireless e-paper tags via the OEPL Access Point
+  - **OpenDisplay (ODP)**: JSON action payloads for HTTP-driven displays
+- **Flexible Data Sources** - Connect widgets to Home Assistant entities or **MQTT topics** directly with no extra configuration needed.
+- **Multi-Page "World View"** - Manage all your project pages on a single unified stage with artboard-style rendering.
+- **Plugin-Based Architecture** - 55+ independent widget modules for everything from sensors and graphs to polygons and complex patterns.
+- **Round-trip editing** - Import existing ESPHome configs, OEPL YAML arrays, or ODP JSON payloads back into the editor.
+- **AI-Powered Dashboard Assistant** - Generate entire layouts or individual widgets from simple text prompts.
+- **Conditional Visibility** - Show or hide any widget based on Home Assistant entity state (binary, numeric, text, and range conditions).
+- **Time-Based Page Scheduling** - Assign visibility windows to pages so your device automatically shows the right content at the right time.
+- **Full device integration** - Exposes buttons, buzzer, temperature, and humidity sensors back to HA for automations.
+- **Smart power management** - Battery monitoring, configurable refresh intervals, and hardware-aware energy saving strategies.
+
+**Use case:** Display a weather page when you wake up, switch to a sensor dashboard during the day, show a specific alert page when the doorbell rings - all automated through Home Assistant.
+
+---
+
+## Quick Start
+
+### Installation (pick one)
+
+#### 1. Live Web Version (Easiest)
+
+You can use the designer without installing anything! 
+
+1. Go to [koosoli.github.io/ESPHomeDesigner/](https://koosoli.github.io/ESPHomeDesigner/)
+2. Open **Editor Settings** (gear icon)
+3. Enter your Home Assistant URL and a **Long-Lived Access Token** (created in your HA profile)
+4. Add the designer URL to your HA `cors_allowed_origins` (see below)
+
+#### 2. Install via HACS (Recommended)
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=koosoli&repository=ESPHomeDesigner&category=Integration)
+
+1. Add `https://github.com/koosoli/ESPHomeDesigner` to HACS as a custom repository
+2. Search for "ESPHome Designer" and install
+3. Restart Home Assistant
+4. Go to **Settings** -> **Devices & Services** -> **Add Integration** -> Search for "ESPHome Designer"
+
+#### 3. Manual Installation
+
+1. Download the `custom_components/esphome_designer` folder from this repo
+2. Copy it to your Home Assistant `config/custom_components/` directory
+3. Restart Home Assistant
+4. Add the integration via **Settings** -> **Devices & Services**
+
+### Where Home Assistant Stores Your Data
+
+When you run ESPHome Designer inside Home Assistant, your saved layouts are stored in Home Assistant's storage folder:
+
+- **Layouts and editor state**: `/config/.storage/esphome_designer`
+- **Custom layouts you create in the editor**: saved inside that same `/config/.storage/esphome_designer` file as separate layout entries
+- **Manual edits made in the YAML snippet box**: saved inside the active layout entry in `/config/.storage/esphome_designer` as part of the layout state, not as a standalone ESPHome device YAML file
+- **Legacy installs (0.8.6.2 and older)**: may still have old data in `/config/.storage/reterminal_dashboard`; the integration can read that and migrate it on a later save
+- **Uploaded custom hardware profiles**: `/config/esphomedesigner_custom_profiles/*.yaml`
+
+If you are browsing the Home Assistant filesystem from the host OS, replace `/config` with your actual Home Assistant configuration directory.
+
+### How Saving and YAML Import Work
+
+- **Save Layout** saves the current canvas, layout settings, and any persisted manual YAML override to the active layout in Home Assistant storage. It does **not** automatically overwrite your real ESPHome device YAML file.
+- **Save Hardware Profile** is a separate action for reusable hardware recipes. It writes a YAML profile to `/config/esphomedesigner_custom_profiles/*.yaml`.
+- **Generated ESPHome YAML** in the snippet box is meant to be copied into your actual ESPHome device configuration. The normal workflow is still: design in the editor, copy the generated snippet, paste/merge it into your device YAML, then compile/flash from ESPHome.
+- **Import YAML back to canvas** / **Update Layout from YAML** does the reverse: it parses supported YAML back into pages/widgets and rebuilds the editor canvas for round-trip editing.
+- **Show grid coordinates** by enabling **Debug Grid** in **Editor Settings** when you want an overlay with placement coordinates while arranging widgets.
+- **Round-trip note**: very custom `lambda:` or `script:` code may not preview or reconstruct perfectly in the visual editor, even though the raw YAML can still be preserved.
+
+#### 4. Local Development Server
+
+Run the editor locally without Home Assistant:
+
+**Option A: Full Repository Clone (with npm/bun)**
+
+If you cloned the full repository, run from the project root:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5174` in your browser.
+
+**Option B: Frontend-Only (Python HTTP Server)**
+
+If you only have the `custom_components` folder (e.g., HACS install), serve the frontend directly:
+
+```bash
+cd custom_components/esphome_designer/frontend
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000` in your browser.
+
+Connect to Home Assistant by entering your HA URL and a Long-Lived Access Token in Editor Settings.
+
+### Development Verification
+
+For local feature work, the canonical verification path is:
+
+```bash
+npm test
+npm run python:test
+npm run quality
+```
+
+`npm test` runs the frontend suite and checks the schema hash without rewriting the committed baseline. If you intentionally changed a schema or snapshot contract, inspect it with `npm run schema:check` and then update the baseline with `npm run schema:update`.
+
+To run the full Python panel/auth test flow locally, install the optional Python dependencies into your virtualenv once:
+
+```bash
+npm run python:deps
+```
+
+The Python helper scripts automatically prefer the repository `.venv` when it exists, then fall back to your active Python environment.
+
+CI runs `npm run quality` on every pull request, and the protected-branch guidance in [docs/branch_protection.md](docs/branch_protection.md) should require those `test (...)` checks before merge.
+
+For manual GitHub uploads, especially version bumps or frontend changes, run:
+
+```bash
+npm run release:prepare:skip-hassfest
+```
+
+This rebuilds the shipped frontend bundle, checks the release/version surfaces, runs the local CI-style checks, and writes `tmp/release-upload-manifest.txt` so you do not forget the full `custom_components/esphome_designer/frontend/dist` directory. If Docker is available and you want Hassfest too, use `npm run release:prepare`.
+
+The shipped dist bundle now includes `custom_components/esphome_designer/frontend/dist/build-meta.json`. CI uses that file to verify that the current frontend sources and the active Vite asset-map-backed dist files stay in sync without false-failing on Windows-vs-Linux text normalization, checkout-only workspace drift, or leftover unreferenced hashed assets from manual browser uploads.
+
+### Setup (ESPHome devices)
+
+#### 5. Prepare Your Device
+
+**Important:** Copy the Material Design Icons font file first!
+
+From this repo: `font_ttf/font_ttf/materialdesignicons-webfont.ttf`  
+To your ESPHome: `/config/esphome/fonts/materialdesignicons-webfont.ttf`
+
+(Create the `fonts` folder if it doesn't exist)
+
+Then create a new ESPHome device:
+
+1. Create a new device in ESPHome Dashboard
+2. Let ESPHome generate the base config (WiFi, API, OTA, etc.)
+3. Configure the correct ESP platform for your device (instructions included in the generated YAML comments)
+
+#### 6. Design Your Dashboard
+
+1. Open the integration at `/esphome-designer` in Home Assistant
+2. Select your device type (E1001, E1002, TRMNL,...)
+3. Drag widgets onto the canvas
+4. Add your sensors, weather entities, icons, shapes
+5. Create multiple pages with different refresh rates
+6. **Live Preview**: Your YAML is generated on the fly as you design! Just look at the YAML snippet box.
+   <p align="center"><img src="screenshots/canvas.gif" width="800" alt="Modern Canvas Interaction"></p>
+
+#### 7. Flash It
+
+1. Copy the generated YAML snippet
+2. Paste it below ESPHome's auto-generated sections in your device config
+3. Compile and flash via ESPHome
+
+`Save Layout` stores your editor state in Home Assistant so you can come back later. Flashing still uses the YAML in your actual ESPHome device configuration.
+
+Done! Your custom dashboard is now running on your device.
+
+#### 8. Connect & Automate
+
+Once flashed, your device will come online.
+
+1. Go to **Settings** -> **Devices & Services** in Home Assistant.
+2. Your device should be discovered (or you can add it via the ESPHome integration).
+3. **Configure it** to ensure Home Assistant connects to its API.
+
+---
+
+## Widget Types
+
+- **Text & Sensor Text** - Static labels or live HA entity values with smart type detection and multiple formatting options
+  <p align="center"><img src="screenshots/text_formatting.gif" width="700" alt="Rich Text Formatting"></p>
+- **Icon & Weather Icon** - 360+ Material Design Icons or dynamic weather-state icons with full size/color control
+  <p align="center"><img src="screenshots/icon_picker2.gif" width="700" alt="Icon Picker System"></p>
+- **Date, Time & Calendar** - Customizable clock, date, and full monthly calendar views
+- **Progress Bar & Battery** - Visual indicators for percentages and dynamic battery level tracking
+- **Shapes & Rounded Rects** - Rectangles, circles, lines, and rounded rects with gray/dither support
+- **Graph** - Advanced sensor history plotting with auto-scaling, grid lines, and X/Y axis labeling
+- **Image & Online Image** - Static photos or dynamic URLs (weather maps, cameras) with auto-dithering
+- **Quote / RSS Feed** - Inspirational quotes or external RSS feeds with auto-scaling, refresh logic, and **multi-item display** (up to 10 items per feed)
+- **QR Code** - Dynamic QR generation for URLs, text, or **WiFi credentials** (auto-formats SSID/password for instant phone scanning)
+- **Touch Area** - Invisible or icon-labeled interactive zones to trigger HA actions (supports dual-state feedback)
+  <p align="center"><img src="screenshots/touch_icons.gif" width="700" alt="Touch Interactive Icons"></p>
+- **Weather Forecast** - Multi-day or **hourly** forecast display integrated with HA weather entities, with configurable hour slots and start offsets
+
+---
+
+## LVGL Support (Experimental)
+
+**Warning: Highly Experimental - Expect Bugs!**
+
+This tool includes experimental support for **LVGL (Light and Versatile Graphics Library)** widgets on LCD+Touch devices. LVGL enables interactive widgets like buttons, switches, sliders, and checkboxes that can control Home Assistant entities directly from the touchscreen.
+
+### Important Notes
+
+- **LCD+Touch devices only** - LVGL is designed for real-time displays, not e-paper
+- **Entire page switches to LVGL mode** if you add any LVGL widget
+- **High memory usage** - Requires ESP32-S3 with PSRAM
+- **May be unstable** - This feature is under active development
+
+### Available LVGL Widgets
+
+- Buttons, Switches, Checkboxes, Sliders (interactive, can trigger HA actions)
+- Arcs, Bars, Charts (display sensor values)
+- Labels, Images, QR Codes, and more
+- **Service Overrides** for buttons - explicitly choose `cover.open_cover`, `button.press`, etc. instead of default toggle
+- **Grid Layout Mode** - assign widgets to grid cells with automatic row/column span detection
+
+For stable results, stick to **Native Mode** (standard widgets without LVGL prefix).
+
+---
+
+## OpenEpaperLink & OpenDisplay
+
+Design once, export to wireless e-paper displays:
+
+- **[OpenEpaperLink](https://github.com/jjwbruijn/OpenEPaperLink)** - Select "OpenEpaperLink" mode, enter your tag's entity ID, copy the JSON for use in HA service calls
+- **[OpenDisplay](https://github.com/open-display/open-display)** - Select "OpenDisplay" mode, copy the JSON actions, send via HTTP POST
+
+Most widgets (text, shapes, images, icons, QR codes) work on all platforms. Graphs, touch areas, and LVGL are ESPHome-only.
+
+---
+
+## Features
+
+**Editor**
+- Visual drag-and-drop canvas with snap-to-grid and live entity state updates
+- Multi-page "World View" - see all pages as artboards on a unified stage
+- Hierarchy panel for layer management, z-index, and widget locking
+- Entity picker with real-time preview of your HA entities
+- AI assistant (Gemini, OpenAI, OpenRouter) for generating layouts from text prompts
+- Round-trip editing - import existing ESPHome/OEPL/ODP code back into the editor
+- Per-page visibility windows for time-based content scheduling
+- Conditional widget visibility based on HA entity states
+
+**Output**
+- Live code generation as you design (no "Generate" button needed)
+- Multi-platform export: ESPHome C++/LVGL, OpenEpaperLink JSON, OpenDisplay JSON
+- Smart YAML generator - clean, additive output that won't conflict with your base config
+- **MQTT data source support** - widgets can subscribe directly to MQTT topics instead of HA entities
+- Optimized LVGL export with automatic stripping of default property values
+
+**Design Tools**
+- RGB color picker, dark mode toggle, zoom controls
+- Smart spacing, alignment guides, and radial context menu
+- **Multi-select editing** - edit common properties across multiple widgets simultaneously
+- Widget grouping with preserved hierarchy
+- 55+ widget plugins (v1.0 modular architecture)
+
+**Hardware**
+- Buttons, buzzer, temp/humidity sensors exposed to Home Assistant
+- Battery monitoring and configurable refresh intervals
+- Hardware-aware energy strategies for LCD, OLED, and E-Ink
+- Custom hardware profile creation (experimental)
+
+---
+
+## Technical Details
+
+The generator produces a **complete display/application snippet** for your project. In the normal ESPHome workflow, you paste that snippet into your existing device YAML below ESPHome's auto-generated base sections.
+
+**What it generates (everything you need):**
+- **Hardware Config**: `psram`, `i2c`, `spi`, `external_components`, and device-specific sections (`m5paper`, `axp2101`)
+- **Core Components**: `http_request`, `time` (Home Assistant), `globals` (page tracking), and `deep_sleep`
+- **Widgets & Assets**: `font` (MDI icons), `image` (deduplicated), `online_image`, `graph`, and `qr_code`
+- **HA Integration**: `sensor`, `text_sensor`, `binary_sensor`, `button`, and `switch` entities
+- **Logic & Display**: `script` (smart refresh), `display` (lambda code), and `lvgl` (if enabled)
+
+**What ESPHome provides** (auto-generated when you create a device):
+- `wifi:`, `api:`, `ota:`, `logger:`
+
+The workflow is safe and deterministic - same layout always produces the same YAML.
+
+---
+
+## Hardware Support
+
+**Currently Supported:**
+- **Seeed Studio**: [reTerminal E1001](https://www.seeedstudio.com/reTerminal-E1001-p-6534.html?sensecap_affiliate=U5gNTEF&referring_service=link) (BW), [reTerminal E1002](https://www.seeedstudio.com/reTerminal-E1002-p-6533.html?sensecap_affiliate=U5gNTEF&referring_service=link) (Color), [reTerminal E1003 Frame Bundle](https://www.seeedstudio.com/reTerminal-E1003-p-6731.html?sensecap_affiliate=U5gNTEF&referring_service=link) (ESP-IDF, ESPHome 2026.7.0+), [reTerminal E1004](https://www.seeedstudio.com/reTerminal-E1004-p-6692.html?sensecap_affiliate=U5gNTEF&referring_service=link) (supported), [TRMNL 7.5'' OG DIY Kit](https://www.seeedstudio.com/TRMNL-7-5-Inch-OG-DIY-Kit-p-6481.html?sensecap_affiliate=U5gNTEF&referring_service=link) (S3)
+- **Waveshare**: [PhotoPainter](https://www.waveshare.com/esp32-s3-photopainter.htm?&aff_id=136175) (7-Color)
+- **Raspberry Pi**: Pico W and Pico 2 W with Waveshare Pico e-Paper 2.13" V3
+- **Elecrow**: ESP32-P4 9" HMI 1024x600 (V1.2)
+- **M5Stack**: [M5Paper](https://shop.m5stack.com/products/m5paper-esp32-development-kit-v1-1-960x540-4-7-eink-display-235-ppi?ref=qcwynykf) (Touch), [M5Core Ink](https://shop.m5stack.com/products/m5stack-esp32-core-ink-development-kit1-54-elnk-display?ref=qcwynykf), [M5Stack Tab5](https://shop.m5stack.com/products/m5stack-tab5-iot-development-kit-esp32-p4?ref=qcwynykf) (ESP32-P4)
+- **TRMNL**: Original [ESP32-C3 e-paper device](https://shop.usetrmnl.com/collections/devices/products/trmnl)
+
+> [!IMPORTANT]
+> All devices not explicitly listed above are **untested** and may require troubleshooting.
+
+**Hardware Features Exposed:**
+- 3 physical buttons (GPIO 3/4/5)
+- RTTTL buzzer (GPIO 45)
+- SHT4x temp/humidity sensor (I2C)
+- Battery voltage monitoring (ADC GPIO1)
+- WiFi signal strength
+
+All exposed as Home Assistant entities for use in automations.
+
+---
+
+## Repository Structure
+
+- `custom_components/esphome_designer/` - Home Assistant integration
+  - `api/` - Modular Python backend handlers for HA
+  - `yaml_parser/` - Modular engine for importing ESPHome code
+  - `frontend/` - Visual drag-and-drop editor (Vite-based)
+  - `renderer.py` - Core engine for generating ESPHome lambdas
+  - `models.py` - Shared data models for widgets and layouts
+  - `storage.py` - Persistence layer for layouts and settings
+- `release_notes.md` - Full changelog and version history
+- `font_ttf/` - Icon font for widgets (Material Design Icons)
+- `hardware_recipes_guide.md` - Guide for creating custom hardware profiles
+- `screenshots/` - Editor screenshots
+
+---
+
+## Troubleshooting
+
+**Font compilation error?**
+- Make sure you copied `materialdesignicons-webfont.ttf` to `/config/esphome/fonts/`
+
+**Display not updating?**
+- Check `update_interval: never` in display config
+- Verify buttons are wired to `component.update: epaper_display`
+
+
+**Duplicate section errors?**
+- The generator now produces a complete, standalone configuration including `psram`, `i2c`, etc.
+- **Do not** use old hardware templates that define these sections. Rely on the generated code.
+
+**Compilation Fails ("Killed signal" / Out of Memory)?**
+If your Raspberry Pi crashes with `Killed signal terminated program`, it lacks the RAM for these fonts.
+
+**Try this first:**
+Add `compile_process_limit: 1` to your `esphome:` section in the YAML. This reduces memory usage but slows down compilation.
+
+**If that fails, compile on your PC:**
+
+1. **Install ESPHome**: Install Python, then run `pip install esphome` in your terminal.
+2. **Setup Folder**: Create a folder like `C:\esphome_build` (**Important**: No spaces in the folder path!).
+3. **Copy Files**: Copy your `reterminal.yaml` and the `fonts/` folder into that folder.
+4. **Compile**: Run this command:
+   ```powershell
+   python -m esphome compile C:\esphome_build\reterminal.yaml
+Upload: Take the generated .bin file and upload it via the Home Assistant ESPHome dashboard (Install -> Manual Download).
+
+**CORS errors with GitHub-hosted version?**
+Add this to your Home Assistant `configuration.yaml` and restart:
+```yaml
+http:
+  cors_allowed_origins:
+    - https://koosoli.github.io
+```
+
+---
+
+## License
+
+Made with love - free and Open Source under the GPL 3.0 license. Share the love.
+
+<div align="center">
+
+**If you find this project useful, consider supporting its development.**
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-Project-ff69b4?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/koosoli)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/koosoli)
+
+</div>

@@ -45,7 +45,7 @@ Windows (PowerShell):
 irm https://atomicagent.io/install.ps1 | iex
 ```
 
-The installer downloads the release archive, verifies the checksum, and installs the CLI plus support assets (`grammars/`, native prebuilds, and bundled `ripgrep`). Atomic Agent updates itself in place; after an update the TUI prompts you to restart.
+The installer downloads the release archive, verifies the checksum, and installs the CLI plus support assets (`grammars/`, native prebuilds, and bundled `ripgrep`). Atomic Agent updates itself in place; after an update the TUI prompts you to restart. Outside the TUI, run `atomic-agent update` (or `atag update`) to check for a newer release and re-run the installer in place — `atomic-agent update --check` probes without installing, and `--version <tag>` pins a specific release. Only the installed binary can self-update; a dev checkout updates via git.
 
 > [!NOTE]
 > Developer preview. APIs, commands, config, and behavior are still moving, so pin a release if you need a stable integration point. Current builds: macOS (Apple Silicon), Linux x64 / arm64, and Windows x64.
@@ -237,6 +237,12 @@ atomic-agent trace list --limit 10
 
 Handy slash commands: `/help` lists every command, `/tools` lists the built-in tool families, `/model` jumps to the LLM panel and reopens the model picker for the active cloud provider, `/privacy` shows what leaves the machine (`/privacy analytics off` turns analytics off). The chat log scrolls with PgUp / PgDn (fn+arrows on macOS).
 
+**Answering an approval prompt.** `y` approves the call, `s` grants its category for the session, `n` denies, `esc` aborts the run. Two more ways out:
+
+- **`e` — write it somewhere else.** On an `os.fs.write` prompt the target path becomes an editable field, prefilled with the full path. Type any other target (`~` works, missing folders are created) and Enter confirms it. The new path is re-checked against the approval ladder first: a target on the same rung as the one you approved is written, a target on a different rung (workspace → home, say) asks once more, and a target that is the agent's own `config.json` / `.env` is refused.
+- **Just type.** The input field stays live under the prompt, so you can answer the agent in words — "put the site in ~/Documents/apple-site and use an inline SVG". Enter cancels the pending call with your message as its reason (the model reads it as the tool result) and folds the same text into the running turn, so the run keeps going instead of dying. The decision keys work while the input is empty; from the first character typed they are text again, and `esc` clears the draft to hand them back.
+**Look.** The TUI ships with the `atomic-retro` palette: an indigo rail, raised `+ new` / `≡ Menu` / `send →` controls, a `RUN` badge and session title in the top bar, `AGENT` / `YOU` labels on the transcript, and green tool results. Eleven other palettes are still there — `/theme` lists them, `/theme github-dark` restores the previous look, and the choice persists.
+
 **Mouse.** The TUI is clickable: the breadcrumb (which opens the menu, the same as `ctrl+p`), sidebar sessions and tasks, every list row (skills, tasks, memory, MCP, models, providers), the session / theme / slash pickers, approval buttons, tool cards, and the prompt itself — clicking in the input places the caret. A click selects a row, a second click on the selected row opens it, and the wheel scrolls the chat or walks the focused panel.
 
 While mouse reporting is on the terminal hands clicks to the app, which means its own drag-to-select is unavailable (iTerm2, GNOME Terminal and Windows Terminal let you hold Shift to bypass; Apple Terminal does not). Turn it off whenever you want to select text: `/mouse off` in the app, `atomic-agent tui --no-mouse` for one run, or `"tui": { "mouse": false }` in `<stateDir>/config.json`. With mouse off, wheel scrolling still works through the terminal's alternate-scroll mode, exactly as before.
@@ -320,6 +326,8 @@ atomic-agent tui --cwd /path/to/work
 In the TUI, open the LLM tab, add a provider, and pick **Ollama (local)** (or **LM Studio (local)**). A local server has no API key, so the wizard skips the key screen and goes straight to the model choice: two screens, service then model.
 
 Model ids are the tags the server reports, `qwen2.5:0.5b` or `llama3.2:latest` for Ollama, so use the same name you passed to `ollama pull`. The list comes from the server's own `/v1/models`, which means anything you have pulled shows up without a restart.
+
+The preset is a fixed `http://localhost:11434` endpoint — it does not probe for a running server. If `ollama serve` isn't up when you reach the model step, the list fails to load (`could not list models from Ollama (local)`), and the wizard falls back to letting you type a model id by hand; in the LLM panel the list shows `model list unavailable` and only the current model. Start the server (`ollama serve`, then `ollama pull <model>` for anything you want) and re-open the preset.
 
 | Preset | Endpoint |
 | --- | --- |

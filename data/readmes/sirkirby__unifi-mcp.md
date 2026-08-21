@@ -1,0 +1,297 @@
+# UniFi MCP
+
+<p align="center">
+  <img src="docs/assets/hero-readme.jpg" alt="UniFi MCP — AI agents for your UniFi infrastructure" width="720">
+</p>
+
+Leverage agents and agentic AI workflows to manage your UniFi deployment.
+
+[![PyPI - Network](https://img.shields.io/pypi/v/unifi-network-mcp)](https://pypi.org/project/unifi-network-mcp/)
+[![PyPI - Protect](https://img.shields.io/pypi/v/unifi-protect-mcp)](https://pypi.org/project/unifi-protect-mcp/)
+[![PyPI - Access](https://img.shields.io/pypi/v/unifi-access-mcp)](https://pypi.org/project/unifi-access-mcp/)
+[![PyPI - Relay](https://img.shields.io/pypi/v/unifi-mcp-relay)](https://pypi.org/project/unifi-mcp-relay/)
+[![PyPI - API Server](https://img.shields.io/pypi/v/unifi-api-server)](https://pypi.org/project/unifi-api-server/)
+[![npm - Worker](https://img.shields.io/npm/v/unifi-mcp-worker)](https://www.npmjs.com/package/unifi-mcp-worker)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/downloads/)
+
+## Servers
+
+| Server | Status | Tools | Package |
+|--------|--------|-------|---------|
+| [Network](apps/network/) | Stable | 189 | [`unifi-network-mcp`](https://pypi.org/project/unifi-network-mcp/) |
+| [Protect](apps/protect/) | Stable | 61 | [`unifi-protect-mcp`](https://pypi.org/project/unifi-protect-mcp/) |
+| [Access](apps/access/) | Stable | 36 | [`unifi-access-mcp`](https://pypi.org/project/unifi-access-mcp/) |
+
+## Cloud Relay
+
+| Component | Status | Package |
+|-----------|--------|---------|
+| [Relay Sidecar](https://github.com/sirkirby/unifi-mcp/tree/main/packages/unifi-mcp-relay) | Beta | [`unifi-mcp-relay`](https://pypi.org/project/unifi-mcp-relay/) |
+| [Worker Gateway](https://github.com/sirkirby/unifi-mcp/tree/main/apps/worker) | Beta | [`unifi-mcp-worker`](https://www.npmjs.com/package/unifi-mcp-worker) (CLI) |
+
+Cloud Relay pairs the Cloudflare-hosted Worker gateway with the Relay sidecar on your LAN. The Worker provides the authenticated edge MCP endpoint, Durable Object broker, multi-location routing, token boundary, and deployment/management CLI. The Relay sidecar is a local MCP HTTP client and forwarder: it discovers configured local MCP servers over HTTP and maintains an outbound WebSocket to the Worker. Remote requests follow `MCP client → Worker gateway → outbound WebSocket → Relay sidecar → local MCP servers over HTTP`; the API server is not in this path. Read-only tools support annotation-based multi-location fan-out, while writes require explicit location targeting. Deploy the Worker with `npm install -g unifi-mcp-worker && unifi-mcp-worker install`, then see the [Relay sidecar README](packages/unifi-mcp-relay/) to connect local servers.
+
+## REST + GraphQL API (non-MCP)
+
+| Component | Status | Package |
+|-----------|--------|---------|
+| [API Server](https://github.com/sirkirby/unifi-mcp/tree/main/apps/api) | Beta | [`unifi-api-server`](https://pypi.org/project/unifi-api-server/) · [GHCR image](https://github.com/sirkirby/unifi-mcp/pkgs/container/unifi-api-server) |
+
+`unifi-api-server` is an independent HTTP service for consumers that do not speak MCP. It provides typed REST resources, read-only GraphQL queries, SSE streams, scoped API keys and administration, plus a REST action endpoint for supported controller operations. It shares `unifi-core` managers with the MCP servers but does not proxy or require them.
+
+See [`apps/api/README.md`](apps/api/README.md) for quick-start and deployment patterns.
+
+## What is this?
+
+UniFi MCP is a collection of [Model Context Protocol](https://modelcontextprotocol.io/) servers that let AI assistants and automation tools interact with Ubiquiti UniFi controllers. Each server targets a specific UniFi application (Network, Protect, Access) and exposes its functionality as MCP tools — queryable, composable, and safe by default.
+
+## MCP Discovery
+
+UniFi MCP keeps the standard MCP path primary: capable clients discover currently registered tools with `tools/list` and invoke them with `tools/call`. The default `lazy` mode keeps initial context small by exposing meta-tools first, while `eager` mode registers all selected domain tools directly for clients that prefer a full standard tool list.
+
+The lazy-loading meta-tools — `*_tool_index`, `*_execute`, `*_batch`, `*_batch_status`, and lazy-only `*_load_tools` — support filtered discovery, indirect execution, batch orchestration, and optional direct registration. They are independent of the protocol-version response compatibility policy below. See [MCP Discovery and Lazy-Loading Meta-Tools](docs/tool-index.md) for mode-by-mode behavior.
+
+## MCP response size
+
+For tool results that already provide structured output, `adaptive` response mode is the default. It classifies each request by the canonical date-based `protocolVersion` advertised during MCP initialization, not by the client's product name or application version. Requests advertising MCP `2025-06-18` or later receive concise text in `content` and the full result once in `structuredContent`; requests advertising an earlier revision (such as `2024-11-05` or `2025-03-26`), or whose revision metadata is missing or malformed, retain the full compatibility JSON in `content`. Set `UNIFI_MCP_CONTENT_MODE=compat` to force that duplicated compatibility form, or `UNIFI_MCP_CONTENT_MODE=compact` to force concise text plus the full structured result even outside a negotiated request. Use `compat` for any client that consumes the full result only from `content`, regardless of its advertised revision.
+
+The lazy-loading meta-tools remain content-only; they are not the pre-`2025-06-18` protocol category described above. For structured inner results, `*_execute` and `*_batch_status` expose one normalized JSON payload in `content` rather than a nested transport pair; content-only execute results remain unchanged. Response modes do not convert these meta-tools to `structuredContent`.
+
+`UNIFI_NETWORK_MCP_CONTENT_MODE`, `UNIFI_PROTECT_MCP_CONTENT_MODE`, and `UNIFI_ACCESS_MCP_CONTENT_MODE` override the global setting for their respective servers. Independently of transport compaction, Network's `unifi_get_dashboard` defaults to `summary=true`, while `unifi_list_rogue_aps` defaults to a summarized page of at most 100 records; pass `summary=false` when the full selected data is required.
+
+## Quick Start
+
+### Claude Code (recommended)
+
+Install via the plugin marketplace — includes the MCP server, an agent skill, and guided setup:
+
+```
+/plugin marketplace add sirkirby/unifi-mcp
+/plugin install unifi-network@unifi-plugins
+/unifi-network:unifi-network-setup
+```
+
+Repeat for Protect or Access if needed:
+```
+/plugin install unifi-protect@unifi-plugins
+/plugin install unifi-access@unifi-plugins
+```
+
+Each plugin's setup command walks you through connecting to your controller and configuring permissions.
+
+### Codex
+
+Register the UniFi MCP marketplace, then install the plugins from Codex's `/plugins` UI:
+
+```bash
+codex plugin marketplace add sirkirby/unifi-mcp
+```
+
+Launch `codex`, run `/plugins`, open the UniFi MCP marketplace, and install `unifi-network`, `unifi-protect`, or `unifi-access`. After installing, ask Codex to run the plugin's setup skill, for example:
+
+> Use the `unifi-network-setup` skill to configure this for Codex.
+
+The setup skill registers the MCP server with `codex mcp add`, stores the selected environment values in Codex's MCP configuration, and keeps the same preview-before-confirm safety model as Claude Code.
+
+### UniFi account requirements
+
+The MCP servers authenticate to the local UniFi controller APIs with a local admin/service account. Do not use a Ubiquiti SSO cloud account for MCP setup. For Network MCP today, accounts that require SSO MFA or local 2FA are not supported through configuration; use a dedicated local admin account without MFA for the service account, scoped to the permissions you are comfortable giving the MCP server.
+
+### OpenClaw
+
+OpenClaw can install the same UniFi plugin bundles from the marketplace and map their skills plus MCP server definitions into embedded Pi sessions:
+
+```bash
+openclaw plugins install unifi-network --marketplace https://github.com/sirkirby/unifi-mcp
+openclaw gateway restart
+```
+
+Then run the matching setup skill from OpenClaw (`unifi-network-setup`, `unifi-protect-setup`, or `unifi-access-setup`), or configure the server directly:
+
+```bash
+openclaw mcp set unifi-network '{
+  "command": "uvx",
+  "args": ["--python-preference", "system", "unifi-network-mcp@latest"],
+  "env": {
+    "UNIFI_NETWORK_HOST": "192.168.1.1",
+    "UNIFI_NETWORK_USERNAME": "admin",
+    "UNIFI_NETWORK_PASSWORD": "your-password"
+  }
+}'
+```
+
+Repeat with `unifi-protect` or `unifi-access` as needed. Restart the OpenClaw Gateway after changing MCP server configuration.
+
+### Other MCP clients
+
+Run the servers directly:
+
+```bash
+uvx unifi-network-mcp@latest
+uvx unifi-protect-mcp@latest
+uvx unifi-access-mcp@latest
+```
+
+For Claude Desktop, add to your `claude_desktop_config.json`:
+
+```jsonc
+{
+  "mcpServers": {
+    "unifi-network": {
+      "command": "uvx",
+      "args": ["unifi-network-mcp@latest"],
+      "env": {
+        // Server-specific vars take priority; UNIFI_* is the fallback
+        "UNIFI_NETWORK_HOST": "192.168.1.1",
+        "UNIFI_NETWORK_USERNAME": "admin",
+        "UNIFI_NETWORK_PASSWORD": "your-password"
+      }
+    },
+    "unifi-protect": {
+      "command": "uvx",
+      "args": ["unifi-protect-mcp@latest"],
+      "env": {
+        "UNIFI_PROTECT_HOST": "192.168.1.1",
+        "UNIFI_PROTECT_USERNAME": "admin",
+        "UNIFI_PROTECT_PASSWORD": "your-password"
+      }
+    },
+    "unifi-access": {
+      "command": "uvx",
+      "args": ["unifi-access-mcp@latest"],
+      "env": {
+        "UNIFI_ACCESS_HOST": "192.168.1.1",
+        "UNIFI_ACCESS_USERNAME": "admin",
+        "UNIFI_ACCESS_PASSWORD": "your-password"
+      }
+    }
+  }
+}
+```
+
+> **Tip:** If all servers connect to the same controller, you can use the shared `UNIFI_HOST` / `UNIFI_USERNAME` / `UNIFI_PASSWORD` variables instead of repeating them per server.
+
+## Usage Examples
+
+Once connected, just ask your AI agent in natural language:
+
+**Network**
+> "Show me all clients on the Guest VLAN with their signal strength and data usage"
+> "Create a firewall rule that blocks IoT devices from reaching the internet between midnight and 6 AM"
+> "Audit my firewall policies — are there any redundant or conflicting rules?"
+> "Show me the top traffic flows from the last hour and group them by destination"
+
+**Protect**
+> "List all cameras that detected motion in the last hour"
+> "Show me smart detection events from the front door camera today — people and vehicles only"
+> "Find driveway detections for white vans this week"
+
+**Access**
+> "Who badged into the office today? Show me a timeline of all door access events"
+> "Create a visitor pass for John Smith with access to the main entrance tomorrow 9-5"
+
+**Cross-Product** (requires [relay](packages/unifi-mcp-relay/) for full experience)
+> "Show me everything that happened at the front entrance in the last hour" — correlates Network clients, Protect camera events, and Access badge scans in a single timeline
+> "A switch went offline at 2 AM — was there physical activity nearby?"
+
+All mutations use a **preview-then-confirm** flow — you see exactly what will change before anything is applied.
+
+## Configuration
+
+Set these environment variables (or use a `.env` file):
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `UNIFI_HOST` | Yes | Controller IP or hostname |
+| `UNIFI_USERNAME` | Yes | Local admin/service account username; do not use a Ubiquiti SSO account |
+| `UNIFI_PASSWORD` | Yes | Password for the local account |
+| `UNIFI_API_KEY` | No | UniFi API key for selected capabilities, including firewall policy ordering and some Protect settings updates |
+
+### Multi-controller setups
+
+Each server supports its own prefixed environment variables that take priority over the shared `UNIFI_*` variables. This lets you point the Network and Protect servers at different controllers (or different credentials) while keeping a single `.env` file:
+
+| Shared (fallback) | Network server | Protect server | Access server |
+|--------------------|----------------|----------------|---------------|
+| `UNIFI_HOST` | `UNIFI_NETWORK_HOST` | `UNIFI_PROTECT_HOST` | `UNIFI_ACCESS_HOST` |
+| `UNIFI_USERNAME` | `UNIFI_NETWORK_USERNAME` | `UNIFI_PROTECT_USERNAME` | `UNIFI_ACCESS_USERNAME` |
+| `UNIFI_PASSWORD` | `UNIFI_NETWORK_PASSWORD` | `UNIFI_PROTECT_PASSWORD` | `UNIFI_ACCESS_PASSWORD` |
+| `UNIFI_PORT` | `UNIFI_NETWORK_PORT` | `UNIFI_PROTECT_PORT` | `UNIFI_ACCESS_PORT` |
+| `UNIFI_VERIFY_SSL` | `UNIFI_NETWORK_VERIFY_SSL` | `UNIFI_PROTECT_VERIFY_SSL` | `UNIFI_ACCESS_VERIFY_SSL` |
+| `UNIFI_API_KEY` | `UNIFI_NETWORK_API_KEY` | `UNIFI_PROTECT_API_KEY` | `UNIFI_ACCESS_API_KEY` |
+
+**Single controller?** Just set the shared `UNIFI_*` variables -- all servers will use them. Server-specific variables are only needed when the servers talk to different controllers or use different credentials.
+
+For the full configuration reference including permissions, transports, and advanced options, see the [Network server docs](apps/network/docs/configuration.md), [Protect server docs](apps/protect/docs/configuration.md), or [Access server docs](apps/access/docs/configuration.md).
+
+## Secret redaction
+
+Tool and API responses redact known controller secret fields by default — Wi-Fi passphrases, VPN private/preshared keys, whole VPN config blobs (imported WireGuard/OpenVPN `.conf`/`.ovpn` files), API tokens, SNMP community strings, and Access credential token/PIN values come back as `***REDACTED***`. This keeps secrets out of agent context and logs.
+
+When a trusted local administration workflow genuinely needs raw values, disable redaction for that process with `UNIFI_REDACT_SENSITIVE_FIELDS=false` or a server-specific override such as `UNIFI_NETWORK_REDACT_SENSITIVE_FIELDS=false`, `UNIFI_PROTECT_REDACT_SENSITIVE_FIELDS=false`, `UNIFI_ACCESS_REDACT_SENSITIVE_FIELDS=false`, or `UNIFI_API_REDACT_SENSITIVE_FIELDS=false`. To keep an existing secret during an update, simply omit the field — do **not** pass the `***REDACTED***` marker back; doing so is rejected so the placeholder can never be written as a real secret. See [`PRIVACY.md`](PRIVACY.md) for the full list of redacted fields.
+
+## Agent Skills
+
+Each plugin ships with agent skills that go beyond raw tool access — they teach agents how to perform common tasks effectively:
+
+| Skill | Plugin | What it does |
+|-------|--------|-------------|
+| **Network Health Check** | unifi-network | Batch diagnostics across devices, health subsystems, and alarms with reference docs for interpreting results |
+| **Firewall Manager** | unifi-network | Natural language firewall management with policy templates, config snapshots, and change tracking |
+| **Firewall Auditor** | unifi-network | Security audit with 16 benchmarks, 100-point scoring, topology analysis, and trend tracking |
+| **Security Digest** | unifi-protect | Cross-product event intelligence — summarizes camera, door, and network events with severity classification and correlation rules |
+| **UniFi Access** | unifi-access | Door control, credentials, visitors, access policies — with real-time event streaming and activity summaries |
+
+Skills include reference documentation (device states, alarm types, firewall schemas, event catalogs) and Python scripts for deterministic operations (auditing, config export/diff, template application).
+
+## Architecture
+
+This is a monorepo with shared packages:
+
+```
+apps/
+  network/          # UniFi Network MCP server (stable, 189 tools)
+  protect/          # UniFi Protect MCP server (stable, 61 tools)
+  access/           # UniFi Access MCP server (stable, 36 tools)
+  api/              # Independent REST + GraphQL API server (beta)
+  worker/           # Cloudflare Worker gateway + npm CLI
+packages/
+  unifi-core/       # Shared UniFi connectivity (auth, detection, retry)
+  unifi-mcp-shared/ # Shared MCP patterns (permissions, tools, diagnostics, config)
+  unifi-mcp-relay/  # Cloud relay sidecar (bridges local servers to Cloudflare Worker)
+plugins/
+  unifi-network/    # Claude Code/Codex/OpenClaw plugin: MCP server + agent skills + setup
+  unifi-protect/    # Claude Code/Codex/OpenClaw plugin: MCP server + agent skills + setup
+  unifi-access/     # Claude Code/Codex/OpenClaw plugin: MCP server + setup
+skills/
+  _shared/          # Shared utilities for skill scripts (MCP client, config)
+docs/               # Ecosystem-level documentation
+```
+
+Each Python server in `apps/` is an independent package that depends on the shared packages. `apps/worker/` is intentionally separate: it is a self-contained TypeScript/Node app for the Cloudflare Worker gateway and npm CLI. Keeping it in this repo lets relay protocol changes and worker contract tests move together.
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details.
+
+## Development
+
+```bash
+make sync   # Install Python workspace + worker npm dependencies
+make check  # Format check + lint + generated drift checks + tests + worker typecheck
+make build  # Build deployable artifacts, including worker typecheck
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow, including how to work with the monorepo, run tests, and submit PRs.
+
+## Support the Project
+
+UniFi MCP is maintained as an independent open-source project. Sponsorship helps cover the ongoing AI costs behind building, testing, and maintaining the project, plus live controller compatibility testing, release maintenance, documentation, and issue triage across the Network, Protect, Access, API, relay, and plugin packages.
+
+- [Sponsor on GitHub](https://github.com/sponsors/sirkirby)
+- [See what sponsorship funds](https://unifimcp.com/sponsor/)
+
+## License
+
+[MIT](LICENSE)

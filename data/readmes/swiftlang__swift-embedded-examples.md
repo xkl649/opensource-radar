@@ -1,0 +1,89 @@
+# Embedded Swift Example Projects
+
+This repository is a set of demonstration projects of **Embedded Swift**. Embedded Swift is a compilation and language mode that enables development of baremetal, embedded and standalone software in Swift. To learn more, see:
+
+- [Blog post introducing this repository](https://www.swift.org/blog/embedded-swift-examples/)
+- [Swift forums thread about this repository](https://forums.swift.org/t/embedded-swift-example-projects-for-arm-and-risc-v-microcontrollers/71066)
+- [Discussions about Embedded Swift on the Swift forums](https://forums.swift.org/t/embedded-swift/67057)
+- [Embedded Swift Vision Document](https://github.com/swiftlang/swift-evolution/blob/main/visions/embedded-swift.md)
+- [Documentation for Embedded Swift](https://github.com/swiftlang/swift/tree/main/docs/EmbeddedSwift)
+
+## Building the examples
+
+Each example in this repository contains build and deployment instructions, however there are a couple common steps needed for many of the examples included below:
+
+1. Install [`swift`](https://swift.org) using the [instructions here](https://docs.swift.org/embedded/documentation/embedded/installembeddedswift).
+
+2. Install [`uv`](https://github.com/astral-sh/uv), "an extremely fast Python package and project manager", using the [instructions here](https://docs.astral.sh/uv/getting-started/installation/).
+
+## Catalog of Examples
+
+| Name | Platform | SDK | Description | Photo |
+| ---- | -------- | --- | ----------- | ----- |
+| [esp32-led-blink-sdk](./esp32-led-blink-sdk) | ESP32-C6-Bug | ESP-IDF SDK | Blink an LED repeatedly with Swift & the ESP-IDF. | ![An ESP32-C6-Bug board with its onboard LED lit.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/ESP32Guide-card.jpg) |
+| [esp32-led-strip-sdk](./esp32-led-strip-sdk) | ESP32-C6-DevKitC-1 | ESP-IDF SDK | Control NeoPixel LEDs with Swift & the ESP-IDF. | ![An ESP32-C6-DevKitC-1 board driving a lit WS2812 LED strip.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/ESP32LedStripGuide-card.jpg) |
+| [esp32-uart-echo](./esp32-uart-echo) | ESP32-C6 | ESP-IDF SDK | UART echo example using Swift's `print()` and `readLine()`. | |
+| [harmony](./harmony) | Raspberry Pi Pico W | Pico SDK | A bluetooth speaker and ferrofluidic music visualizer. Firmware, Electrical, and Mechanical designs fully available. | ![The assembled Harmony Bluetooth speaker and ferrofluid visualizer.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/HarmonyGuide-card.jpg) |
+| [nrfx-blink-sdk](./nrfx-blink-sdk) | nRF52840-DK | Zephyr SDK | Blink an LED repeatedly with Swift & Zephyr. | ![An nRF52840-DK board with its onboard LED lit.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/nRFBlinkGuide-card.jpg) |
+| [nuttx-riscv-blink](./nuttx-riscv-blink) | QEMU | NuttX | Blink a virualized led in QEMU using the Apache NuttX RTOS | |
+| [rpi-4b-blink](./rpi-4b-blink) | Raspberry Pi 4B | None | Blink the Pi's status green LED repeatedly using Swift MMIO. | ![A Raspberry Pi 4B board.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPi4bBlinkGuide-card.jpg) |
+| [rpi-5-blink](./rpi-5-blink) | Raspberry Pi 5 | None | Blink the Pi's status green LED repeatedly with Swift MMIO. | ![A Raspberry Pi 5 board.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPi5BlinkGuide-card.jpg) |
+| [rpi-pico-blink-sdk](./rpi-pico-blink-sdk) | Raspberry Pi Pico, Pico 2 | Pico SDK | Blink an LED repeatedly with Swift & the Pico SDK. | ![A Raspberry Pi Pico board.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPiPicoGuide-card.jpg) |
+| [rpi-pico-blink](./rpi-pico-blink) | Raspberry Pi Pico | None  | Blink an LED repeatedly. | ![A Raspberry Pi Pico board.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPiPicoBlinkGuide-card.jpg) |
+| [rpi-pico-lldb](./rpi-pico-lldb) | Raspberry Pi Pico, Pico 2 | None | A tutorial project for debugging Embedded Swift with LLDB, containing bugs to find and fix. | |
+| [rpi-pico2-neopixel](./rpi-pico2-neopixel) | Raspberry Pi Pico 2 | None | Control Neopixel LEDs using the RP2350 PIO. | ![A SparkFun Pro Micro RP2350 board with its RGB LED glowing red.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPiPico2NeopixelGuide-card.jpg) |
+| [rpi-picow-blink-sdk](./rpi-picow-blink-sdk) | Raspberry Pi Pico W, Pico 2W | Pico SDK | Blink an LED to signal 'SOS' in Morse code repeatedly with Swift & the Pico SDK. | ![A Raspberry Pi Pico W board.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/RPiPicoWBlinkGuide-card.jpg) |
+| [stm32-blink](./stm32-blink) | STM32F746G-DISCO | None | Blink an LED repeatedly. | ![An STM32F746G-DISCO board with its onboard LED lit.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/STM32BlinkGuide-card.jpg) |
+| [stm32-lcd-logo](./stm32-lcd-logo) | STM32F746G-DISCO | None | Animate the Swift Logo on the built-in LCD. | ![A Swift logo rendered on the STM32F746G-DISCO's onboard LCD panel.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/STM32LcdLogoGuide-card.jpg) |
+| [stm32-lvgl](./stm32-lvgl) | STM32F746G-DISCO | – | Baremetal setup of LCD, touch panel, DRAM, using the LLVM Embedded toolchain for ARM. Renders graphics, animations, and reacts to user input via LVGL. Includes a macOS/Linux SDL based host simulation app. | ![An LVGL user interface running on the STM32F746G-DISCO's LCD.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/STM32LvglGuide-hero.gif) |
+| [stm32-neopixel](./stm32-neopixel) | STM32F746G-DISCO | None | Control NeoPixel LEDs using SPI. | ![An STM32F746G-DISCO board driving a lit WS2812 NeoPixel LED strip.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/STM32NeopixelGuide-card.jpg) |
+| [stm32-uart-echo](./stm32-uart-echo) | STM32F746G-DISCO | None | Echo user input using UART. | ![A terminal echoing UART input from the STM32F746G-DISCO.](Sources/EmbeddedSwift/EmbeddedSwift.docc/Examples/Assets/STM32UartEchoGuide-card.png) |
+
+Note that the SDK integration examples (Pico SDK, Zephyr SDK, etc.) are not recommendations or endorsement, the same is true for build system choice (Make, CMake, SwiftPM, shell scripts). Embedded Swift aims to be versatile and allowing integration into existing SDKs and build systems, and the example projects show some of the possibilities.
+
+## Community Examples
+
+> [!WARNING]
+> Community projects linked here are not officially supported by our team. They may not always be compatible with the latest nightly Swift toolchain builds.
+
+<!-- Please keep this list sorted by "Platform" then "Name" -->
+
+| Name | Platform | Description |
+| ---- | -------- | ----------- |
+| [swift-matter-examples](https://github.com/swiftlang/swift-matter-examples) | ESP32 | An Embedded Swift Matter application running on ESP32-C6. |
+| [m5stack-nano-c6-bare-swift](https://github.com/trickart/m5stack-nano-c6-bare-swift) | ESP32 | A baremetal Swift project for the M5Stack NanoC6 (ESP32-C6), running without any C, assembly, or ESP-IDF — pure Embedded Swift from bootloader to LED blink |
+| [swift-flipperzero-hello](https://github.com/Sameesunkaria/swift-flipperzero-hello) | Flipper Zero | A demonstration of running Swift apps on the Flipper Zero. |
+| [EmbeddedSwift nRF52 Examples](https://github.com/nelcea/EmbeddedSwift-nRF52-Examples) | nRF52840 (Development Kit) | A collection of examples using Embedded Swift on top of nRF Connect SDK (Zephyr). |
+| [Swatak](https://github.com/nelcea/EmbeddedSwift-nRF52-Swatak) | nRF52840 (Seeed Studio XIAO) | A reaction time game inspired by BATAK© boards, implemented in Embedded Swift using nRF Connect SDK. |
+| [swift-picosystem-example](https://github.com/jerrodputman/swift-picosystem-example) | PicoSystem | An Embedded Swift demo running on the Pimoroni PicoSystem |
+| [pico-bare-swift](https://github.com/kishikawakatsumi/pico-bare-swift) | Pico | Baremetal Raspberry Pi Pico examples in Embedded Swift — no Pico SDK required |
+| [CPicoSDK](https://github.com/gonzalolarralde/CPicoSDK/tree/main/Example) | Pico 2 | SwiftPM package that enables seamless Swift development for the Raspberry Pi Pico SDK |
+| [pico-swift-sh1106](https://github.com/mkbrwr/pico-swift-sh1106) | Pico 2 | Display Driver for SH1106 |
+| [swift-st7789-lcd](https://github.com/mkbrwr/swift-st7789-lcd) | Pico 2 | Display Driver for ST7789 |
+| [PlaydateKit](https://github.com/finnvoor/PlaydateKit) | Playdate | A full featured framework for building Playdate games using Embedded Swift. |
+| [swift-playdate-examples](https://github.com/swiftlang/swift-playdate-examples) | Playdate | An Embedded Swift game running on Playdate by Panic. |
+| [swift-stm32c011-examples](https://github.com/xtremekforever/swift-stm32c011-examples) | STM32 | Examples of running Embedded Swift on the STM32C011, which is a tiny MCU with only 6KB of SRAM and 32KB of flash. |
+| [flappy-swift](https://github.com/sliemeobn/flappy-swift) | Web | A WebAssembly game written in Swift in ~100 KB. |
+| [swift-for-wasm-examples](https://github.com/swiftlang/swift-for-wasm-examples) | Web | A "Swift Audio Workstation" example built with Swift for WebAssembly running in the browser using Embedded Swift. |
+| [swift-embedded-pebble](https://github.com/MillerTechnologyPeru/swift-embedded-pebble) | Pebble | An example Pebble app for the Pebble Time 2, written in Embedded Swift. |
+| [swift-embedded-nds](https://github.com/MillerTechnologyPeru/swift-embedded-nds) | Nintendo DS | Nintendo DS homebrew written in Embedded Swift, ported from the official devkitPro examples. |
+| [swift-embedded-wii](https://github.com/MillerTechnologyPeru/swift-embedded-wii) | Nintendo Wii | Nintendo Wii homebrew written in Embedded Swift, ported from the official devkitPro examples. |
+| [swift-embedded-nintendo-64](https://github.com/MillerTechnologyPeru/swift-embedded-nintendo-64) | Nintendo 64 | Nintendo 64 homebrew written in Embedded Swift, using the original NuSys SDK and the newer and open source libdragon SDK. |
+| [swift-embedded-ps1](https://github.com/MillerTechnologyPeru/swift-embedded-ps1) | Sony Playstation 1 | Playstation homebrew written in Embedded Swift, ported from PSn00bSDK examples. |
+| [Nanosaur2](https://github.com/colemancda/Nanosaur2) | Nintendo 3DS | Pangea Software's Nanosaur 2 game ported to Nintendo 3DS using Embedded Swift. |
+
+Please note that the presence of community repositories and devices in this list does not constitute a recommendation or endorsement. If there's a project you'd like to see included here, please [submit an issue](https://github.com/swiftlang/swift-embedded-examples/issues/new) with the details.
+
+## Contributing to this repository
+
+This repository contains code that is not continuously developed, instead it's presented "as is" for educational and demonstrational purposes. Making major improvements to existing examples is discouraged, but additions of new examples is welcome.
+
+### Code of Conduct
+
+Like all Swift.org projects, we would like these Embedded Swift example projects to foster a diverse and friendly community. We expect contributors to adhere to the [Swift.org Code of Conduct](https://swift.org/code-of-conduct/).
+
+### Contact information
+
+The current code owners of this repository are Kuba Mracek ([@kubamracek](https://github.com/kubamracek)) and Rauhul Varma ([@rauhul](https://github.com/rauhul)). You can contact them on the Swift forums via the handles [@kubamracek](https://forums.swift.org/u/kubamracek/summary) and [@rauhul](https://forums.swift.org/u/rauhul/summary).
+
+In case of moderation issues, you can also directly contact a member of the [Swift Core Team](https://swift.org/community/#community-structure).

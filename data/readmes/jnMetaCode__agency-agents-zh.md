@@ -2,7 +2,7 @@
 
 🌐 **简体中文** | [繁體中文](README.zh-TW.md) | [English (upstream)](https://github.com/msitarzewski/agency-agents)
 
-> **268 个即插即用的 AI 专家角色** — 覆盖工程、设计、营销、产品、游戏、安全、GIS、金融等 20 个部门。不是通用提示词模板，每个智能体都有独立的人设、专业流程和可交付成果。支持 Claude Code / Cursor / Copilot 等 18 种 AI 编程工具。
+> **275 个即插即用的 AI 专家角色** — 覆盖工程、设计、营销、产品、游戏、安全、GIS、金融等 20 个部门。不是通用提示词模板，每个智能体都有独立的人设、专业流程和可交付成果。支持 Claude Code / Cursor / Copilot 等 18 种 AI 编程工具。
 
 [agency-agents](https://github.com/msitarzewski/agency-agents) 的中文社区版。在完整翻译上游的基础上，新增了 50 个中国市场原创智能体（小红书、抖音、微信、B站、飞书、钉钉等平台运营，以及跨境电商、政务ToG、医疗合规、Qt 工业上位机、机械设计、畜禽养殖档案核对等垂直领域）。
 
@@ -20,7 +20,7 @@
 
 | 🤖 AI 智能体 | 🌏 英文版翻译 | 🇨🇳 中国市场原创 | 🧠 支持工具 | 🏢 部门 |
 |:---:|:---:|:---:|:---:|:---:|
-| **268** | **215** | **53** | **18 种** | **20 个** |
+| **275** | **215** | **60** | **18 种** | **20 个** |
 
 > 📖 **官方配套课程** → [AI 专家团队实战](https://aiolaola.com/course/ai-agency?utm_source=github&utm_campaign=agents)（33 节，免费）：手把手把这仓 268 位专家用成一支团队——单兵点名、自动组队、一人公司全流程，桌面端零代码教学。另有 [从零学会 AI 编程](https://aiolaola.com/?utm_source=github&utm_campaign=agents)（180 节）＋ [从零构建 AI 智能体](https://aiolaola.com/course/ai-agent?utm_source=github&utm_campaign=agents)（40 节）
 >
@@ -128,6 +128,36 @@
 <td width="75%" valign="middle">
 
 感谢[胜算云](https://www.shengsuanyun.com/?from=CH_QKH696UI)对本项目的赞助！胜算云是面向 AI 原生团队的模型 API 聚合平台，汇集 Claude、ChatGPT、Gemini 等海内外大语言模型及多媒体模型，支持统一接入与按量调用。平台坚持合规 API 服务，杜绝逆向工程和资源稀释。此外平台提供企业级定制网关，包括团队成本与权限管理、智能路由、安全防护及 BYOK 密钥托管，并提供发票服务。🎁 **新用户通过[此链接](https://www.shengsuanyun.com/?from=CH_QKH696UI)注册，即可领取 5 元 Token 体验额度！**
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="25%">
+  <a href="https://go.apimart.ai/gh-agency-agents-zh">
+    <img src="assets/sponsor-apimart.jpeg" alt="APIMart — 专注 AI 图片/视频生成的低价 API 平台，GPT-Image-2 低至 $0.006/张，图片与视频共用一套异步 API" width="100%">
+  </a>
+</td>
+<td width="75%" valign="middle">
+
+感谢 [APIMart](https://go.apimart.ai/gh-agency-agents-zh) 赞助了本项目！APIMart 是专注 AI 图片/视频生成的低价 API 平台，GPT-Image-2 低至 $0.006/张，1 美元可出图 160+ 张。图片、视频共用一套异步 API，提交任务拿 ID、轮询或回调取结果，跑批万张不超时、换模型不改代码。按量付费、无月费。🎁 **通过[此链接](https://go.apimart.ai/gh-agency-agents-zh)注册即可开用！**
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="25%">
+  <a href="https://metaso.cn/minimax-h3/?s=gt533367">
+    <img src="assets/sponsor-metaso.jpeg" alt="秘塔科技 — 高性价比 MiniMax H3 视频生成 API 服务，768P 0.09 元/秒、2K 0.15 元/秒，兼容 OpenAI 协议、支持 ComfyUI" width="100%">
+  </a>
+</td>
+<td width="75%" valign="middle">
+
+感谢[秘塔科技](https://metaso.cn/minimax-h3/?s=gt533367)赞助了本项目！秘塔科技提供高性价比的 MiniMax H3 视频生成 API 服务，适合漫剧、营销视频及批量视频生成：768P 低至 0.09 元/秒、2K 0.15 元/秒，原生 2K 画质，支持音画同步。API 兼容 OpenAI 协议，支持 ComfyUI，无需自行部署模型和 GPU，开箱即用。🎁 **通过[此链接](https://metaso.cn/minimax-h3/?s=gt533367)注册，即可享受赠送额度及专属优惠！**
 
 </td>
 </tr>

@@ -1,0 +1,133 @@
+# Tapo
+
+
+[![License][license_badge]][license]
+[![Crates][crates_badge]][crates]
+[![Documentation][crates_documentation_badge]][crates_documentation]
+[![Crates.io][crates_downloads_badge]][crates]
+[![PyPI][pypi_badge]][pypi]
+[![Python][pypi_versions_badge]][pypi]
+[![PyPI][pypi_downloads_badge]][pypi]\
+Unofficial Tapo API Client. Works with TP-Link Tapo smart devices. Tested with light bulbs (L510, L520, L530, L535, L610, L630), light strips (L900, L920, L930), plugs (P100, P105, P110, P110M, P115), power strips (P300, P304M, P306, P316M), hubs (H100), switches (S200B, S200D, S210), sensors (KE100, T100, T110, T300, T310, T315) and cameras (C210, C220, C225, C325WB, C520WS, TC40, TC70).
+
+[license_badge]: https://img.shields.io/crates/l/tapo.svg
+[license]: https://github.com/mihai-dinculescu/tapo/blob/main/LICENSE
+[crates_badge]: https://img.shields.io/crates/v/tapo.svg?logo=rust&color=F75101
+[crates]: https://crates.io/crates/tapo
+[crates_documentation_badge]: https://img.shields.io/docsrs/tapo.svg?logo=rust&color=F75101
+[crates_documentation]: https://docs.rs/tapo
+[crates_downloads_badge]: https://img.shields.io/crates/d/tapo?logo=rust&label=downloads&color=F75101
+
+[pypi_badge]: https://img.shields.io/pypi/v/tapo.svg?logo=pypi&color=00ADD4
+[pypi]: https://pypi.org/project/tapo
+[pypi_versions_badge]: https://img.shields.io/pypi/pyversions/tapo.svg?logo=python&color=00ADD4
+[pypi_downloads_badge]: https://img.shields.io/pypi/dm/tapo?logo=python&color=00ADD4
+
+## Supported Devices
+
+See [/SUPPORTED_DEVICES.md][supported_devices] for the supported devices and feature matrix.
+
+## Rust Library
+
+### Usage
+
+> Cargo.toml
+```toml
+[dependencies]
+tapo = "0.9"
+```
+
+> main.rs
+```rust
+let device = ApiClient::new("<tapo-username>", "tapo-password")
+    .p110("<device ip address>")
+    .await?;
+
+device.on().await?;
+```
+
+### Examples
+
+```bash
+export TAPO_USERNAME=
+export TAPO_PASSWORD=
+export IP_ADDRESS=
+
+cargo run --example tapo_l530
+```
+
+See all examples in [/tapo/examples][examples].
+
+## Python Library
+
+### Usage
+
+```bash
+pip install tapo
+```
+
+```python
+client = ApiClient("<tapo-username>", "tapo-password")
+device = await client.p110("<device ip address>")
+
+await device.on()
+```
+
+### Examples
+
+```bash
+cd tapo-py
+uv venv # On the initial run only
+uv sync --group dev --locked
+uv run maturin develop # On the initial run and whenever the Rust code is modified
+
+export TAPO_USERNAME=
+export TAPO_PASSWORD=
+export IP_ADDRESS=
+```
+
+```bash
+uv run python examples/tapo_p110.py
+```
+
+See all examples in [/tapo-py/examples][examples-py].
+
+## MCP Server
+
+An MCP server that exposes Tapo devices as AI-callable tools and resources via the [Model Context Protocol](https://modelcontextprotocol.io/). See [/tapo-mcp/README.md][tapo_mcp] for setup and usage.
+
+## Community Projects
+
+- [tapo-rest][tapo_rest] — a REST wrapper of this library that can be deployed as a service or serve as an advanced example.
+
+## Troubleshooting
+
+See [/TROUBLESHOOTING.md][troubleshooting] for solutions to common issues.
+
+## Contributing
+
+Contributions are welcome and encouraged! See [/CONTRIBUTING.md][contributing].
+
+## Sponsors
+
+A big thank you to the sponsors of this project!
+
+- [abler98][sponsor_abler98]
+- [nathanja][sponsor_nathanja]
+- [santiago-salas-v][sponsor_santiago_salas_v]
+
+## Credits
+
+Inspired by [petretiandrea/plugp100][inspired_by].
+
+[supported_devices]: https://github.com/mihai-dinculescu/tapo/blob/main/SUPPORTED_DEVICES.md
+[examples]: https://github.com/mihai-dinculescu/tapo/tree/main/tapo/examples
+[examples-py]: https://github.com/mihai-dinculescu/tapo/tree/main/tapo-py/examples
+[tapo_mcp]: https://github.com/mihai-dinculescu/tapo/tree/main/tapo-mcp
+[tapo_rest]: https://github.com/ClementNerma/tapo-rest
+[troubleshooting]: https://github.com/mihai-dinculescu/tapo/blob/main/TROUBLESHOOTING.md
+[contributing]: https://github.com/mihai-dinculescu/tapo/blob/main/CONTRIBUTING.md
+[sponsor_abler98]: https://github.com/abler98
+[sponsor_nathanja]: https://github.com/nathanja
+[sponsor_santiago_salas_v]: https://github.com/santiago-salas-v
+[inspired_by]: https://github.com/petretiandrea/plugp100
