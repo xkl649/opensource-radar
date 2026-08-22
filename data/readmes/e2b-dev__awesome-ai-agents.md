@@ -34,7 +34,7 @@ Add to readme list:
 	</p>
 </h1>
 <h3 align="center">
-  Add <a href="https://e2b.dev/docs?ref=awesome-sdks&utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents">Code Interpreter</a> to your AI App
+  Add <a href="https://docs.e2b.dev/?utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents">Code Interpreter</a> to your AI App
 </h3>
 
 <h5 align="center">🌟 <a href="https://e2b.dev/ai-agents?utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents">See this list in web UI</a></h5>
@@ -63,9 +63,9 @@ This list is made by the team behind [e2b](https://github.com/e2b-dev/e2b). E2b 
 --->
 
 ## Check out E2B - Code Interpreting for AI apps
-- Check out [Code Interpreter SDK](https://e2b.dev/docs?ref=awesome-sdk&utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents)
+- Check out [Code Interpreter SDK](https://docs.e2b.dev/?utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents)
 - Explore examples in [E2B Cookbook](https://github.com/e2b-dev/e2b-cookbook)
-- Read our [docs](https://e2b.dev/docs?ref=awesome-sdks&utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents)
+- Read our [docs](https://docs.e2b.dev/?utm_source=github&utm_medium=referral&utm_campaign=readme&utm_content=awesome-ai-agents)
 - Contact us at [hello@e2b.dev](mailto:hello@e2b.dev) or [on Discord](https://discord.gg/35NF4Y8WSE). Follow us on [X (Twitter)](https://twitter.com/e2b)
 
 # Open-source projects
@@ -1637,5 +1637,6 @@ Language Agents as Optimizable Graphs
 Build-your-own (agent-builing frameworks and platforms), General purpose, Multi-agent
 
 ### Description
+- 🐝 GPTSwarm is a graph-based framework for LLM-based agents, providing two high-level features:
 
 <!-- opensource-radar:truncated -->

@@ -105,6 +105,23 @@ claude mcp add screenpipe -- npx -y screenpipe-mcp@latest
 
 then ask claude `what did i see in the last 5 mins?` or `summarize today conversations` or `create a pipe that updates linear every time i work on task X`
 
+<details>
+<summary>🤖 CLI-only setup for coding agents</summary>
+
+If Claude Code, Codex, Gemini CLI, Cursor, or another coding agent is working from this repository, give it this instruction:
+
+> Read the [screenpipe CLI skill](crates/screenpipe-core/assets/skills/screenpipe-cli/SKILL.md) before operating screenpipe. Set up always-on local capture, verify capture freshness and storage, then query my history without relying on the desktop app.
+
+To install the screenpipe skills and MCP configuration into every supported agent detected on your computer, run:
+
+```bash
+npx screenpipe setup
+```
+
+The skill covers the recorder-first service default, explicit API-only server mode, human and JSON status, local search, safe read-only SQLite access, pipes, and connections.
+
+</details>
+
 
 ## specs
 
@@ -147,6 +164,7 @@ Thanks to all contributors:
 - [Deutsch (German)](docs/translations/README-de.md)
 - [Українська (Ukrainian)](docs/translations/README-uk.md)
 - [한국어 (Korean)](docs/translations/README-ko.md)
+- [Русский (Russian)](docs/translations/README-ru.md)
 
 Want to translate screenpipe into another language? See [`docs/translations/`](docs/translations/README.md).
 

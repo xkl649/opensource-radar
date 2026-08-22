@@ -121,11 +121,33 @@ path. Every figure carries its conditions in
 |---|---|
 | TTFT p50, cold | **0.166 s** (c=1) — ≤0.25 s through c=4 |
 | TTFT, cached conversation turn | **0.130 s** on a 5.7k-token context (full prefix restore) |
-| Decode p50, single stream | RTX PRO 6000: **140 tok/s** (rep medians 138–141) · RTX 5090 Laptop: 75 tok/s (range 71–80) — safetensors with the masked-ranks trim, the leading path; plain decode 75 and 44 |
-| Sampled-config throughput | top-p/top-k/min-p requests sample on-device — sampled aggregate **equals greedy** (240–245 tok/s at c=16–32) |
-| Aggregate completion | **238–245 tok/s** at c=16, flat to c=32, zero sheds across capacity mixes |
+| Decode p50, single stream | **259 tok/s** at 512-token outputs — v0.101.0 serving build, frspec (MTP) route, measured through the hosted instance’s public endpoint 2026-08-22 (n=8 medians; 136 at 128-out · 166 at 2048-out — per-length detail in the labeled paragraph below). Historical bench row: 140 tok/s @v0.86.1 (2026-08-15, RTX PRO 6000, masked-ranks trim) |
+| Sampled-config throughput | top-p/top-k/min-p requests sample on-device — sampled aggregate **equals greedy** (240–245 tok/s at c=16–32; row current to v0.84.1, 2026-08-14 — aggregate re-measure on the v0.101+ engine pending) |
+| Aggregate completion | **238–245 tok/s** at c=16, flat to c=32, zero sheds across capacity mixes (row current to v0.84.1, 2026-08-14 — single-stream moved +19–35% at v0.101.0; aggregate re-measure pending) |
 | Sustained soak | 576/576 requests, 0 errors, 0 sheds, −0.27% drift |
 | Spec ON/OFF exactness | 8/8 byte-identical; verify gate: zero differing logits at T=1..4, K=1/3/8 |
+
+**v0.101.0 moved single-stream decode** (the DFlash2-drafter × round-cost-engine train,
+2026-08-21 — [release notes](https://github.com/avifenesh/memra/releases/tag/v0.101.0)).
+Two measurements, each with its own label — different routes on different instruments,
+never one claim:
+
+- **Bench, opt-in DSpark route** (`MEMRA_DSPARK_SPEC=1`, default-off), DFlash2 drafter —
+  RTX PRO 6000 Blackwell Workstation bench silicon, serve surface, agentic pack, c=1:
+  accept **3.57 tok/round at 13.7 ms/round ≈ 260 tok/s decode-class greedy**; 217–240
+  tok/s at t0.6 with thinking on; spec **2.09×** the same gate's plain arm.
+- **Served, frspec (MTP) route — the serving default** — the v0.101.0 serving build
+  measured through the hosted instance's public endpoint (2026-08-22; single stream,
+  greedy, streamed, idle-steady medians): **259 tok/s at 512-token outputs** (n=8) ·
+  136 at 128-out · 166 at 2048-out — **+19.6% to +35.6% over v0.100.0** by output
+  length. Acceptance was unchanged across the hop, so the gain is round-cost and decays
+  as context grows — which is why the figure is quoted per output length. The 8-turn
+  agentic smoke holds turn-8 TTFT at **1.07 s** on a 38k-token prompt with 95% of it
+  prefix-cached, conversation wall −13.2%. Dated measurements of a live deployment,
+  not commitments.
+
+The served 512-out median landing at 259 while the bench cell reads ≈260 is a coincidence
+of two different measurements, not one number quoted twice.
 
 **Image and video input** on the same endpoint (OpenAI `image_url` /
 `video_url` content parts, base64 data URIs; videos as animated GIF, decoded
@@ -134,7 +156,7 @@ cosine parity oracle against the HF reference before serving (images min-cos 0.9
 video 0.99999); vision tokens bill as ordinary prompt tokens.
 
 Tuning on Qwen3.8-27B is **finished on both paths, and safetensors is the leading one** — the
-decode figures above are its numbers, measured with the masked-ranks trim. Step-3.7-Flash already
+decode p50 row above is its numbers, measured with the masked-ranks trim. Step-3.7-Flash already
 serves on the GGUF path and its current tuning is on **FP8**, not Q8. Gemma-4 31B's serving
 stack shipped in v0.89.0: an NVFP4mix GGUF trunk (Q6_K embedding + ffn_down), batched decode and
 an assistant-drafter speculative path on by default, and capacity-keyed kernel mirrors that engage
@@ -223,12 +245,15 @@ Responses-only agent clients point here directly ([docs/API-SURFACES.md](docs/AP
 
 Three things here are less common:
 
-- **Block drafters are read by their training strategy, not their file format (v0.98.0).**
-  The DFlash-family loader serves two semantic programs from one checkpoint shape:
-  mask-fill (z-lab DFlash — drafts are the block's mask rows, the anchor row is untrained)
-  and DSpark (shifted labels — every row is a draft and the anchor row's output is
-  draft 1). Which rows to harvest is a property of the checkpoint, so the convention now
-  defaults from the checkpoint's own config census; mismatching it is invisible to every
+- **Block drafters are read by their training strategy, not their file format (v0.98.0;
+  family-keyed v0.101.0).** The DFlash-family loader serves distinct semantic programs
+  from one checkpoint shape: mask-fill (z-lab DFlash — drafts are the block's mask rows,
+  the anchor row is untrained), DSpark (shifted labels — every row is a draft and the
+  anchor row's output is draft 1), and DFlash2 (mask-fill with a dynamic-conv block and
+  a codebook candidate selector in place of the markov chain). Which rows to harvest is
+  a property of the checkpoint, so the convention resolves family-first (a DFlash2
+  checkpoint is mask-fill by construction; contradicting it by env refuses loudly), then
+  from the checkpoint's own config census; mismatching it is invisible to every
   byte-exactness gate and silently costs most of the acceptance (measured 2.9 → 1.43
   tok/round before the fix). On checkpoints that carry a trained accept-rate head, each
   round's verify window is sized from the head's own per-slot scores (`confidence-slot`,
@@ -237,6 +262,22 @@ Three things here are less common:
   way: the trunk's argmax still decides every committed token, and the resolved harvest
   and window policy are printed at drafter load. The DSpark serving route itself remains
   opt-in (`MEMRA_DSPARK_SPEC`).
+- **The DFlash2 drafter and the round-cost engine landed together (v0.101.0).** One
+  release train merges the accept side (the z-lab DFlash2 drafter ported into the
+  DSpark route as its own census-keyed family: dynamic causal conv, top-16 selector
+  walk over trained codebooks, non-causal ±2048 windowed attention) with the
+  round-cost side (batched GDN state snap/commit, one merged readback sync per round,
+  batched fa/append rows, ILP-unrolled norms, dual/group-fused NVFP4 matvecs — every
+  door bit-identical to its predecessor and kill-switched). Measured on the serving
+  card class (RTX PRO 6000 Blackwell, agentic pack, c=1): accept 3.57 tok/round at
+  13.7 ms/round ≈ 260 tok/s decode-class greedy, 217–240 at t0.6 with thinking on;
+  spec-vs-plain 2.09× at engine terms. The route now serves temperature>0 through
+  true rejection sampling (the committed stream's distribution equals trunk-only
+  sampling — chi-square gated, and T=0 stays the byte-exact greedy path), and >12k-token
+  contexts no longer crash the drafter's round attention (lo-clipped windowed SDPA,
+  byte-identical and O(window) — 43k-token conversations complete with speculation
+  engaged on every turn). Accept vectors are pinned per-request byte-identical to the
+  pre-merge banks across both drafters, both window arms, greedy and t0.6.
 - **Vocab-masked draft heads.** The drafter proposes over 32,768 frequency-ranked tokens while
   verification runs the target's full 248,320-token vocabulary — so the mask moves the acceptance
   rate and cannot move output. On a safetensors trunk a published `.txt` of ranks drives the trim
@@ -272,7 +313,11 @@ Three things here are less common:
   track the conversation turn over turn, TTFT stays in the plain-with-cache class, and 8-turn
   agentic wall flips from losing 1.4–1.8× against plain decode to beating it 1.3–1.4× — with
   served bytes unchanged by construction (the door only moves where the prime stops and what
-  gets captured).
+  gets captured). v0.101.0 adds the prime-grid law underneath it: a hybrid's chunked GDN scan
+  makes a prompt primed in two calls bit-identical to the monolithic prime only when the split
+  lands on the fold grid, so every boundary the server chooses now lands on that grid
+  (`tools/prime-grid-gate.sh` pins the law and its teeth), and the checkpoint-resumed,
+  boundary-stopped and monolithic paths byte-agree.
 
 Request fields, response shapes, capability gates, auth, cache semantics and admission
 behaviour: [docs/SERVING.md](docs/SERVING.md).

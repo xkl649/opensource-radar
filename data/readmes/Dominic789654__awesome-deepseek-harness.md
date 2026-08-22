@@ -63,6 +63,7 @@ Before installing, confirm the target repo carries the **`#dsh`** GitHub topic s
 _DSH's core composition mechanism: a **profile** stacks bundle patch layers, then your own `cordis.patch.yml` (profile-level, then `$DSH_HOME`-level, then `--patch` overlays) — letting you reshape the whole plugin tree without forking. This is the layer where **task-specialized runtime configurations** live: a long-horizon profile, a math-reasoning profile, a slides-editing profile are all just a different bundle stack + patch, not a different codebase. Tools and harnesses that operate at this layer (share/export a profile, or run DSH as a specialized backend under a task-specific patch) belong here rather than under generic plugins._
 
 - [asdf17128/dshp](https://github.com/asdf17128/dshp) — Manage DeepSeek Harness profiles: list, create, clone, diff, and share a whole `dsh` setup (plugin versions + bundle order + patch) as one portable file.
+- [geohotstan/dsh-tabula-rasa-preset](https://github.com/geohotstan/dsh-tabula-rasa-preset) — Blank slate preset for DeepSeek Harness. Create your own adventure.
 - [AMAP-ML/LongHorizon-Harness](https://github.com/AMAP-ML/LongHorizon-Harness) — Long-horizon computer-use harness with a DSH adapter: runs `dsh --profile headless` under an isolated `DSH_HOME` with role-scoped patches (`workspace-write` for executors, `read-only` for Manager/auditors) — a concrete example of a task-specialized DSH profile.
 
 - [duyanta123/dsh-preset-scaffold](https://github.com/duyanta123/dsh-preset-scaffold) — DSH agent preset: scaffold a standardized, runnable, verifiable project skeleton from scratch (architect persona + six template assets + a strict bootstrap flow).
@@ -103,12 +104,18 @@ _DSH's core composition mechanism: a **profile** stacks bundle patch layers, the
 - [zhy201810576/dsh-zh-reasoning](https://github.com/zhy201810576/dsh-zh-reasoning) — Makes DeepSeek Harness's reasoning and final answers default to Simplified Chinese.
 - [chaserchan/dsh-plugin-global-prompt](https://github.com/chaserchan/dsh-plugin-global-prompt) — A global-prompt textarea in Settings > General, injected into every conversation system prompt.
 - [peterwangze/dsh-reasoning-level](https://github.com/peterwangze/dsh-reasoning-level) — Unified default reasoning level (thinking effort) for all models: per-model defaults with capability probing, live call statistics, one-command install via dsh plugin.
+- [zhangdong456/dsh-prompt-presets](https://github.com/zhangdong456/dsh-prompt-presets) — Prompt Presets to manage your library.
+- [SLAPaper/dsh-self-checking-profile](https://github.com/SLAPaper/dsh-self-checking-profile) — A drop-in dsh web profile that adds the Self Checking sandbox mode to DeepSeek Harness (dsh).
 
 ## Harnesses & Runtimes
 
 _DeepSeek-native or DeepSeek-first agent harnesses / coding agents, plus runtime-level infrastructure (diagnostics, ops, session management, approval policies)._
 
 - [gehennawu/dsh-service](https://github.com/gehennawu/dsh-service) — Self-hosted operations plugin for DSH Web: safe restart/recovery, health diagnostics, model usage/error stats, backups, and Linux permission repair.
+- [bright-y/dsh-restart](https://github.com/bright-y/dsh-restart) — One-click restart button for DeepSeek Harness (DSH Desktop).
+- [kanneiren/dsh-network-settings](https://github.com/kanneiren/dsh-network-settings) — DeepSeek Harness network diagnostics, proxy detection and repair for Windows/WSL/macOS.
+- [wizzy-yang/dsh-updater](https://github.com/wizzy-yang/dsh-updater) — DSH auto-update plugin — detects official deepseek-ai/deepseek-harness releases, one-click npm upgrade + auto restart from the sidebar.
+- [WTStarMark/DSH-QAQ](https://github.com/WTStarMark/DSH-QAQ) — Startup disaster-recovery guard for DeepSeek Harness (DSH), paired with the dsh-qaq backup plugin: headless Chrome reads the real browser DOM, detects host crashes and Web UI red-screens, auto-rolls back to the last-good config and safely restarts, with anti-loop protection. Full-screen TUI covering startup, logs, plugin management, and hot-update monitoring — zero-intrusion, one-command deploy.
 - [krystal-cao/deepseek-harness-desktop](https://github.com/krystal-cao/deepseek-harness-desktop) — Unofficial desktop wrapper for DeepSeek Harness: local-first, sandbox-isolated, with built-in dsh version management and plugin management, auto-update, and desktop task-completion notifications (macOS).
 - [frank6com/obsidian-harness-like](https://github.com/frank6com/obsidian-harness-like) — An Obsidian desktop implementation inspired by DeepSeek Harness: run a Cordis plugin system and an AI agent inside the Obsidian desktop app. The agent reads/writes your notes through approvals; you (or the agent) can create Cordis plugins in conversation to extend commands, tools & panels.
 - [songying2024/dsh-plugin-lingxi](https://github.com/songying2024/dsh-plugin-lingxi) — Imports DeepSeek Harness session records and workspace artifacts as new tasks for 灵犀 (Kingsoft Office WPS) to pick up.
@@ -377,10 +384,5 @@ _DeepSeek-native or DeepSeek-first agent harnesses / coding agents, plus runtime
 - [sgsjsgzy-commits/dsh-subagent-rules](https://github.com/sgsjsgzy-commits/dsh-subagent-rules) — Subagent model/thinking-effort policy plugin: locks `subagent_flash` model routing, defaults thinking effort to max (per-session customizable), auto-injects dispatch rules into every conversation; zero-dependency host-plane plugin.
 - [zhan-tz/dsh-plugin-runbook](https://github.com/zhan-tz/dsh-plugin-runbook) — DSH plugin: a Jupyter-style living runbook — replayable-turn dataflow DAG with git-commit provenance nodes, sub-agent handoff edges, a persistent ledger, hover re-run, and LLM explanations.
 - [zhangjunjesse/dsh-claude-code](https://github.com/zhangjunjesse/dsh-claude-code) — Claude Code integration plugin for DeepSeek Harness (no description provided upstream).
-- [zjcdkj/dsh-plugins](https://github.com/zjcdkj/dsh-plugins) — DeepSeek Harness (DSH) plugins: qwen-image gives a text-only coding model eyes via a Qwen-VL route through `ctx.llm`, returning text so DeepSeek keeps coding while Qwen looks. Pure ESM, no build permission at install.
-- [A-G-guy/dsh-plugins](https://github.com/A-G-guy/dsh-plugins) — agguy's DSH Plugins — DeepSeek Harness custom-plugin monorepo: mobile narrow-screen adaptation, task-completion email notifications, independent subagent models, custom LLM routing, and more.
-- [ChangedenCZD/dsh-minimal-turbo](https://github.com/ChangedenCZD/dsh-minimal-turbo) — DeepSeek Harness minimal-mode Windows adaptation for enjoying the full DeepSeek-V4 series models.
-- [gfds2005/dsh-timed-goal](https://github.com/gfds2005/dsh-timed-goal) — DSH (DeepSeek Harness) Web plugin: configure a one-time (or daily-repeating) task in any conversation — an absolute time plus a prompt to execute. At the scheduled time, the plugin pins the conversation to full access (danger-full-access) and creates an armed goal so the preset prompt runs automatically via /goal semantics.
-- [GMH13552/dsh-timer-scheduler](https://github.com/GMH13552/dsh-timer-scheduler) — A simple dsh timed-task plugin: supports scheduled task lists with UI display, useful for long-running tasks.
 
 <!-- opensource-radar:truncated -->

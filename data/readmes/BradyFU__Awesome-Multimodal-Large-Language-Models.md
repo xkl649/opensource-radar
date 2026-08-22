@@ -84,6 +84,7 @@ CVPR 2025, [Paper](https://arxiv.org/pdf/2405.21075.pdf), [Project](https://vide
 ## Multimodal Instruction Tuning (& Latest Works)
 |  Title  |   Venue  |   Date   |   Code   |   Demo   |
 |:--------|:--------:|:--------:|:--------:|:--------:|
+| [**DeepSeek-V4-Flash-Vision-Exp**](https://api-docs.deepseek.com/news/news260821/) | DeepSeek | 2026-08-21 | - | - |
 | [**Qwen3.8-Max: A New Bar for Coding and Cowork**](https://qwen.ai/blog?id=qwen3.8) | Blog | 2026-08-15 | [Huggingface](https://huggingface.co/collections/Qwen/qwen38) | [Demo](https://www.qwencloud.com/try-ai/chat?models=qwen3.8-max) |
 | ![Star](https://img.shields.io/github/stars/deepseek-ai/deepseek-harness.svg?style=social&label=Star) <br> [**DeepSeek Harness**](https://github.com/cordiverse/paper/blob/main/paper.pdf) <br> | DeepSeek | 2026-08-13 | [Github](https://github.com/deepseek-ai/deepseek-harness) | - |
 | ![Star](https://img.shields.io/github/stars/QwenLM/Qwen-MM-Plugins.svg?style=social&label=Star) <br> [**Qwen-MM-Plugins**](https://github.com/QwenLM/Qwen-MM-Plugins/tree/main/cookbooks) <br> | Qwen | 2026-08-11 | [Github](https://github.com/QwenLM/Qwen-MM-Plugins) | - |
@@ -298,6 +299,5 @@ CVPR 2025, [Paper](https://arxiv.org/pdf/2405.21075.pdf), [Project](https://vide
 | ![Star](https://img.shields.io/github/stars/SihengLi99/TextBind.svg?style=social&label=Star) <br> [**TextBind: Multi-turn Interleaved Multimodal Instruction-following**](https://arxiv.org/pdf/2309.08637.pdf) <br> | arXiv | 2023-09-14 | [Github](https://github.com/SihengLi99/TextBind) | [Demo](https://ailabnlp.tencent.com/research_demos/textbind/) |
 | ![Star](https://img.shields.io/github/stars/NExT-GPT/NExT-GPT.svg?style=social&label=Star) <br> [**NExT-GPT: Any-to-Any Multimodal LLM**](https://arxiv.org/pdf/2309.05519.pdf) <br> | arXiv | 2023-09-11 | [Github](https://github.com/NExT-GPT/NExT-GPT) | [Demo](https://fc7a82a1c76b336b6f.gradio.live/) |
 | ![Star](https://img.shields.io/github/stars/UCSC-VLAA/Sight-Beyond-Text.svg?style=social&label=Star) <br> [**Sight Beyond Text: Multi-Modal Training Enhances LLMs in Truthfulness and Ethics**](https://arxiv.org/pdf/2309.07120.pdf) <br> | arXiv | 2023-09-13 | [Github](https://github.com/UCSC-VLAA/Sight-Beyond-Text) | - |
-| ![Star](https://img.shields.io/github/stars/OpenGVLab/LLaMA-Adapter.svg?style=social&label=Star) <br> [**ImageBind-LLM: Multi-modality Instruction Tuning**](https://arxiv.org/pdf/2309.03905.pdf) <br> | arXiv | 2023-09-07 | [Github](https://github.com/OpenGVLab/LLaMA-Adapter) | [Demo](http://imagebind-llm.opengvlab.com/) |
 
 <!-- opensource-radar:truncated -->

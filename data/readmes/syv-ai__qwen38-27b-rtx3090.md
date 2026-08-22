@@ -156,15 +156,19 @@ having: turn 2 over a cached 100k document costs 4.7 s against 169 s cold.
 the root cause. Treat that as unsafe rather than merely slower — the corruption
 above is what it does on bare metal.
 
-Two limits worth knowing before you point this at anything, both from an
-independent RTX 3090 Ti reproduction ([#13](https://github.com/syv-ai/qwen38-27b-rtx3090/pull/13)):
-**it is a single-user mode, not a shared one.** At 8 concurrent streams the block
-verify batches badly — 16-73 tok/s per stream, ~131 aggregate, against ~447 for
-`SPEC=mtp` on bf16 KV on the same card. One person with a large document is what
-this is for; a crowd is what `batch/` is for. And `DFLASH_TOKENS=15` does not
-boot at this context on 24 GB — the pinned-buffer arithmetic in
-[docs/long-context.md](docs/long-context.md) says why — so reproduction mode and
-240k are mutually exclusive here; the default 7 is what this mode runs.
+Two limits worth knowing before you point this at anything.
+**It is a single-user mode by configuration, and the knob is `MAX_SEQS`.** Fire 8
+concurrent requests at `CTX=huge` and the server runs **two**, with the other six
+queued — because this mode sets `MAX_SEQS=2`. That is a deliberate default for
+long-document sessions, not an engine limit and not a property of the block
+verify, so `MAX_SEQS=8` lifts it: peak 5 concurrent on the same 8-stream test,
+with the KV pool **unchanged at 268,169 tokens** (a recurrent-state slot costs
+~8 MiB, so the slots are close to free; what scales with the pool is the verify
+block length, not the slot count). Raising it grows the captured decode graphs,
+which is why the default stays low rather than because it would cost you context.
+And `DFLASH_TOKENS=15` does not boot at 240k on 24 GB — the pinned-buffer
+arithmetic in [docs/long-context.md](docs/long-context.md) says why — so
+reproduction mode and 240k are mutually exclusive; the default 7 is what runs.
 
 It is a trade rather than a free win: dropping the full decode graphs costs
 short-prompt throughput. Same box, same script, only the capture toggled,
@@ -176,11 +180,26 @@ three runs each:
 | PIECEWISE (default here) | **132 tok/s (7.83/step)** | 74 | 102 | 176 |
 
 3.5x on the long shared prefix this mode exists for, 13-18% off short-prompt
-decode. The capture mode is fixed at boot, so `CTX=huge` takes the trade that
-matches what it is for. `CUDAGRAPH_MODE=FULL_AND_PIECEWISE` switches back, but
-treat that as unsafe until the capture bug is understood — here it only cost
-speed, on a bare-metal tree it corrupted the output. The hunt is in the PR
-thread.
+decode. **That 13-18% is short prompts only, and it does not generalise** — past
+8k the two capture modes are within noise of each other on bare metal (111.8 vs
+109.3 tok/s at 8k, 78.2 vs 86.1 at 16k, 68.9 vs 73.3 at 32k, 58.4 vs 56.0 at 50k,
+unique prompts, one server per mode). Under GPU passthrough on a VM the same
+comparison costs 2-3x, reported in [#13](https://github.com/syv-ai/qwen38-27b-rtx3090/pull/13)
+and consistent with the uncaptured verify being launch-bound: launches that are
+nearly free here are not free there.
+
+The capture mode is fixed at boot, so `CTX=huge` takes the trade that matches what
+it is for — **for every speculator, `mtp` included**. `CUDAGRAPH_MODE=FULL_AND_PIECEWISE`
+switches back; treat it as unsafe. What it does is corrupt one prompt length in
+every 128, and only for a request that hits the prefix cache: `dflash2` collapses
+to degenerate repetition, `mtp` stops dead and returns an empty answer. The broken residue is
+a function of the draft count (`R = 117 + k`, the same for both speculators),
+which is why scoping this workaround to `dflash2` was wrong — `SPEC=mtp CTX=huge`
+shipped with the same bug, and
+piecewise capture costs it nothing measurable (87.8/86.1/70.4/63.5 tok/s captured
+against 93.5/83.8/70.3/59.6 piecewise over 8k-50k). Gotcha 37 in
+[docs/gotchas.md](docs/gotchas.md) has the residue table and `bench/bugb_sweep.py`
+reproduces it; the hunt for the boundary case is in the PR thread.
 
 ## Benchmarks
 
@@ -354,6 +373,12 @@ curl http://localhost:18020/v1/chat/completions \
 
 Qwen recommends temperature 0.7 / top_p 0.8 for instruct mode, and 1.0 / 0.95
 with thinking enabled (the default).
+
+Tool calling works over the same endpoint — send `tools` with `tool_choice:
+"auto"` and the reply carries `tool_calls`. Both launchers set
+`--enable-auto-tool-choice --tool-call-parser qwen3_coder`; the parser has to
+read Qwen's XML call format, which is what this model's chat template emits —
+not the JSON that `hermes` reads. `TOOLS=0` turns it off.
 
 To check the numbers on your own card: `bash verify.sh` (also probes the live
 server and prints which attention backend and KV pool it came up with), then

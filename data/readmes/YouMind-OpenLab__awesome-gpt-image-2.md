@@ -141,7 +141,7 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 |--------|-------|
 | 📝 Total Prompts | **15796** |
 | ⭐ Featured | **6** |
-| 🔄 Last Updated | **Friday, August 21, 2026 at 12:22:54 PM UTC** |
+| 🔄 Last Updated | **Saturday, August 22, 2026 at 12:34:39 AM UTC** |
 
 </div>
 
@@ -1151,7 +1151,5 @@ A cinematic, ultra-realistic close-up portrait of a stylish man, using the provi
 #### 🖼️ Generated Images
 
 ##### Image 1
-
-<div align="center">
 
 <!-- opensource-radar:truncated -->

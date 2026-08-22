@@ -145,7 +145,7 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 |--------|-------|
 | 📝 Total Prompts | **15296** |
 | ⭐ Featured | **9** |
-| 🔄 Last Updated | **Friday, August 21, 2026 at 12:04:59 PM UTC** |
+| 🔄 Last Updated | **Saturday, August 22, 2026 at 12:04:36 AM UTC** |
 
 </div>
 
