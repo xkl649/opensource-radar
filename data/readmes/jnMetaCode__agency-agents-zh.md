@@ -1124,4 +1124,4 @@ MIT License — 自由使用，商业或个人均可。
 
 ## ⭐ Star 趋势
 
-[![Star History Chart](https://api.star-history.com/svg?repos=jnMetaCode/agency-agents-zh&type=Date)](https://star-history.com/#jnMetaCode/agency-agents-zh&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=jnMetaCode/agency-agents-zh&type=Date)](https://star-history.dera.page/#jnMetaCode/agency-agents-zh&Date)

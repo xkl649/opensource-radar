@@ -28,7 +28,7 @@ rather than here.
 | **Author** | [Avi Fenesh](https://github.com/avifenesh) · lab [tiyuvta.ai](https://tiyuvta.ai) · hosted instance [inference.tiyuvta.ai](https://inference.tiyuvta.ai) |
 | **Licence** | MIT |
 
-**Jump to** — [Quick start](#quick-start) · [Speed](#speed) · [Which models run](#which-models-run)
+**Jump to** — [Quick start](#quick-start) · [Cookbook](docs/COOKBOOK.md) · [Speed](#speed) · [Which models run](#which-models-run)
 · [What the server does](#what-the-server-does) · [Docs](#docs)
 · [Request a model](#request-a-model)
 
@@ -216,6 +216,8 @@ was wrong. Supported splits are `qwen35`, `qwen2`, `deepseek-v3` and `gemma4`;
 bring-up, and must never be set for a run whose numbers get quoted.
 
 Full roster, per-card targets and the reasoning: **[docs/MODELS.md](docs/MODELS.md)**.
+Ready-to-paste serving configs — per model, per card, with the artifact links and the boot-log
+line that proves the config took: **[docs/COOKBOOK.md](docs/COOKBOOK.md)**.
 
 Tensor parallel, P2P and 3-stage pipeline parallel are being built now — named here as
 unfinished rather than listed as features.
@@ -229,7 +231,11 @@ the vendor Jinja and accepted by a real agentic-CLI round-trip (per-model truth 
 in `/v1/models` `capabilities.tools`); separated reasoning
 output and `reasoning_effort` mapped through each model's chat template, with an optional
 per-model `default_reasoning_effort` in the model metadata deciding the unset case
-(explicit client choice always wins); per-model **vendor sampling defaults** in the same
+(explicit client choice always wins) — one canonical effort table serves all three
+dialects (v0.103.0, issue #31: `none|minimal|low|medium|high`, the real-client aliases
+`xhigh|max|ultra` clamp to `high`, and `/v1/messages` `output_config.effort` now
+validates and acts instead of being silently dropped; `thinking.type` keeps the on/off
+switch when both are present); per-model **vendor sampling defaults** in the same
 metadata (v0.96.0): a request that omits a sampling field gets the model vendor's own
 published recommendation for that model — not greedy, not a house guess — resolved
 identically on all four surfaces by one shared resolver; an explicit client value always
@@ -277,7 +283,20 @@ Three things here are less common:
   contexts no longer crash the drafter's round attention (lo-clipped windowed SDPA,
   byte-identical and O(window) — 43k-token conversations complete with speculation
   engaged on every turn). Accept vectors are pinned per-request byte-identical to the
-  pre-merge banks across both drafters, both window arms, greedy and t0.6.
+  pre-merge banks across both drafters, both window arms, greedy and t0.6. v0.103.0
+  finishes the route's sampling surface and its round cost: the penalty keys
+  (`presence_penalty`, `frequency_penalty`, `repetition_penalty`) now ride the sampled
+  admission — penalties apply to the verify columns over the true per-state window,
+  within-round accepts included, so a penalized T>0 request keeps speculation instead
+  of falling back to plain decode (T=0 plus penalties stays plain, and the engine
+  refuses the contradiction by name); and the verify-graph capture pool is default-ON
+  on the serve route (`MEMRA_DSPARK_VERIFY_GRAPH=0` reverts byte-identically) — a
+  model-owned pool whose captures any session replays: measured over a 240-request
+  serve lifetime, the capture storm repays itself by request ≈40 and every round after
+  runs ≈0.36 ms cheaper (−1.6% session wall, byte-exact throughout, memory bounded by
+  `MEMRA_DSPARK_VG_MAX`). The pool rides the deferred-readback verify, so it engages
+  ladder/fixed verify-window policies and head-less drafters; confidence-slot rounds
+  keep the eager walk.
 - **Vocab-masked draft heads.** The drafter proposes over 32,768 frequency-ranked tokens while
   verification runs the target's full 248,320-token vocabulary — so the mask moves the acceptance
   rate and cannot move output. On a safetensors trunk a published `.txt` of ranks drives the trim
@@ -326,6 +345,7 @@ behaviour: [docs/SERVING.md](docs/SERVING.md).
 
 | Read this | For |
 |---|---|
+| [docs/COOKBOOK.md](docs/COOKBOOK.md) | Copy-paste serving configs per model and card — artifacts, flags, and the boot-log line that proves each config took |
 | [docs/MODELS.md](docs/MODELS.md) | Every supported model, which path it runs on, per-card targets |
 | [docs/SERVING.md](docs/SERVING.md) | API contract, caching, auth, admission, PP-2, and operations |
 | [docs/API-SURFACES.md](docs/API-SURFACES.md) | The `/v1/messages` and `/v1/responses` translation surfaces |

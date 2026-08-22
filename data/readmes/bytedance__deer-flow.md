@@ -482,8 +482,11 @@ explicit, model-selected MCP tool path can run alongside the separate automatic
 OpenViking memory backend; it does not replace automatic turn capture or recall. See the
 [OpenViking MCP tools configuration](backend/docs/MCP_SERVER.md#openviking-mcp-tools).
 
-The Gateway can adapt an MCP server's ordinary `submit` / `status` / `cancel` tools into durable background tasks. The Agent sees only the configured submit tool and a DeerFlow-local task ID; remote IDs are persisted before the submit call returns, while status and cancel stay internal to the runtime. Polling uses cross-worker leases, exponential retry backoff, scoped MCP sessions, bounded result storage, and restart recovery. A status-tool `isError` is retained as a bounded diagnostic and retried; servers report a permanent remote-task outcome through a normal structured result with `status: "failed"`. Remote poll hints are finite positive numbers capped at 24 hours, artifact-reference JSON is limited to 64 KiB, and task/server identifiers are validated against their durable SQL column limits before persistence. Current-thread tasks are available through `GET /api/threads/{thread_id}/mcp-tasks` and its detail endpoint. Enable `mcp_tasks` in `config.yaml`, configure `task_toolsets` with exact raw tool names in `extensions_config.json`, and use a SQL database backend (`sqlite` or `postgres`). Task-enabled server connection, authentication, interceptor, timeout, or binding changes require a Gateway restart so Agent tool discovery and background calls cannot use different configuration versions. This phase does not yet wake the Agent when a task completes or add a frontend task panel.
+The Gateway can adapt an MCP server's ordinary `submit` / `status` / `cancel` tools into durable background tasks. The Agent sees only the configured submit tool and a DeerFlow-local task ID; remote IDs are persisted before the submit call returns, while status and cancel stay internal to the runtime. Polling uses cross-worker leases, exponential retry backoff, scoped MCP sessions, bounded result storage, and restart recovery. A status-tool `isError` is retained as a bounded diagnostic and retried; servers report a permanent remote-task outcome through a normal structured result with `status: "failed"`. Remote poll hints are finite positive numbers capped at 24 hours, artifact-reference JSON is limited to 64 KiB, and task/server identifiers are validated against their durable SQL column limits before persistence. Input-required and terminal updates wake the current chat through idempotent Agent runs, while `list_background_tasks` and `cancel_background_task` let the Agent manage tasks without asking users for remote handles. Current-thread tasks are available through `GET /api/threads/{thread_id}/mcp-tasks`, its detail endpoint, and `POST /api/threads/{thread_id}/mcp-tasks/{task_id}/cancel`; when the task runtime actually starts, the Web UI exposes the same safe local view from the chat header with live status refresh, cancellation, and on-demand result, artifact, input-request, status-error, and cancellation-retry details. Default-disabled and memory-backend deployments hide that UI and do not poll the task endpoints. A failed remote cancellation remains queued with backoff, and its latest bounded error and attempt count stay visible in the expanded task card. Enable `mcp_tasks` in `config.yaml`, configure `task_toolsets` with exact raw tool names in `extensions_config.json`, and use a SQL database backend (`sqlite` or `postgres`). Task-enabled server connection, authentication, interceptor, timeout, or binding changes require a Gateway restart so Agent tool discovery and background calls cannot use different configuration versions. `input_required` is notification-only for now: DeerFlow can display the request but cannot yet submit the user's answer back to the remote task.
 
+Notification launch and failed Agent-run deliveries use capped exponential backoff with a visible attempt count and stop after five failed attempts. A permanently rejected target such as a deleted chat is dead-lettered immediately instead of retried forever or recreated. Cancellation endpoints return after durably recording the request; the background service owns the potentially slow remote MCP call and its retry schedule.
+
+Notification runs keep their trusted delivery instruction separate from the framed, untrusted remote event payload. The process-started task runtime—not a hot config read—controls whether the task-management tools are exposed, so changing `mcp_tasks` requires a Gateway restart. When a skill's `allowed-tools` policy is active, `list_background_tasks` and `cancel_background_task` must be declared explicitly like other business tools.
 See the [MCP Server Guide](backend/docs/MCP_SERVER.md) for detailed instructions.
 
 Security: pass per-request MCP credentials only through `config.context.secrets`;
@@ -913,38 +916,6 @@ make extension-install SOURCE="deerflow-extension-acme==1.2.3"
 
 # Public HTTPS Git — pin an immutable commit
 make extension-install \
-  SOURCE="git+https://github.com/acme/deerflow-extension-acme.git@0123456789abcdef0123456789abcdef01234567"
-
-# Local package — an absolute path avoids Make's backend-relative working directory
-make extension-install SOURCE="$PWD/examples/deerflow-extension-example"
-
-make extension-list
-make extension-disable NAME=acme
-make extension-enable NAME=acme
-make extension-remove NAME=acme
 ```
-
-Installation is interactive because package installation can execute Python build hooks,
-and the loaded extension later runs with Gateway privileges. For an already-reviewed
-source, automation can acknowledge that boundary explicitly with
-`cd backend && uv run --frozen --no-group extensions deerflow extensions install <source> --yes`.
-The manager requires uv 0.8.0 or newer; the provided Docker images pin uv 0.11.1.
-The other direct
-commands are `deerflow extensions list`, `enable NAME`, `disable NAME`, and `remove NAME`;
-`NAME` may be the extension name, Python distribution, or `module:install` value. Do not
-put credentials in a source URL — a URL carrying embedded userinfo or a credential-looking
-query parameter is rejected before uv runs. Remote Git sources must use public HTTPS; SSH
-Git URLs are rejected because the stock Docker builder does not forward host SSH
-credentials. Installing from a loopback URL is allowed for local tooling but warns, because
-`127.0.0.1` recorded in the lock is a different machine inside the Docker builder.
-
-A managed package declares exactly one standard PEP 621 entry point:
-
-```toml
-[project.entry-points."deerflow.extensions"]
-acme = "acme_deerflow_extension:install"
-```
-
-That callable uses the standalone `deerflow-extension-api` contract and can register five
 
 <!-- opensource-radar:truncated -->

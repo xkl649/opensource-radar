@@ -143,9 +143,9 @@ When used in Raycast, you can dynamically replace the arguments for quick iterat
 
 | Metric | Count |
 |--------|-------|
-| 📝 Total Prompts | **15296** |
+| 📝 Total Prompts | **15311** |
 | ⭐ Featured | **9** |
-| 🔄 Last Updated | **Saturday, August 22, 2026 at 12:04:36 AM UTC** |
+| 🔄 Last Updated | **Saturday, August 22, 2026 at 12:02:31 PM UTC** |
 
 </div>
 
@@ -654,7 +654,267 @@ Aspect ratio is 3:4 vertical poster. Include vertical Japanese calligraphy descr
 
 > 📝 Sorted by publish date (newest first)
 
-### No. 1: Profile / Avatar - Copper-Red Hair Window Portrait
+### No. 1: Profile / Avatar - Festive Fashion Portrait with Red Sweater
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A descriptive prompt for generating a stylish woman in a red ribbed sweater holding a pine bouquet, featuring soft lighting and a sophisticated festive atmosphere.
+
+#### 📝 Prompt
+
+```
+Stylish young woman with elegant makeup standing confidently in front of a dark wood door with decorative glass panels. She is wearing a loose {argument name="sweater color" default="red"} ribbed sweater and matching {argument name="trousers color" default="red"} trousers. She holds a festive bouquet of {argument name="plant type" default="pine branches"} decorated with bright red berries, wrapped in brown paper. Her left hand is casually extended, leaning against the door frame. Eye-level camera, medium shot, emphasizing a confident pose and festive style. The background features a slightly blurred reflection in the glass panel, hinting at an elegant cityscape. Soft, flattering lighting creates a festive yet sophisticated atmosphere with warm tones. Shot on phone, shallow depth of field, high resolution, amateur photography style, festive aesthetic, high quality.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379853343_7gpg2u_HQOW3ldakAAZG_u.jpg" width="600" alt="Profile / Avatar - Festive Fashion Portrait with Red Sweater - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [dreamy digital arts](https://x.com/dreamydigiarts)
+- **Source:** [Twitter Post](https://x.com/dreamydigiarts/status/2091020036123312343)
+- **Published:** August 22, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32189)**
+
+---
+
+### No. 2: Profile / Avatar - Dramatic Monochrome Studio Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A prompt for a high-contrast black-and-white studio portrait of a man, emphasizing sharp details and a moody, cinematic atmosphere.
+
+#### 📝 Prompt
+
+```
+A dramatic black-and-white studio portrait of a {argument name="subject" default="young man"} wearing a {argument name="clothing" default="plain black t-shirt and glasses"}, seated on a chair, posing confidently. Dark minimalist background, cinematic lighting with strong shadows, high contrast, sharp details, professional photography style, moody atmosphere.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379853747_a6d74y_HQTIMvjacAA1fCe.jpg" width="600" alt="Profile / Avatar - Dramatic Monochrome Studio Portrait - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Duet | AI](https://x.com/Sheldon056)
+- **Source:** [Twitter Post](https://x.com/Sheldon056/status/2091016262646464620)
+- **Published:** August 22, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32190)**
+
+---
+
+### No. 3: Profile / Avatar - Casual Vintage Van Selfie
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A photorealistic selfie prompt featuring a casual aesthetic, soft lighting, and a trendy vintage vehicle background.
+
+#### 📝 Prompt
+
+```
+ar 9:16
+
+A realistic close-up selfie of a {argument name="subject" default="young East Asian woman in her early 20s"}, taken from a slightly high angle. She has soft, fair skin with a natural dewy glow, subtle rosy blush on her cheeks, light makeup with defined eyes, soft pink lips in a gentle neutral expression, and a few strands of hair falling across her face. Her dark brown hair is medium-length, slightly wavy and tousled, with soft bangs partially covering her forehead and one eye. She is looking directly at the camera with a calm, soft gaze.
+
+She is wearing a {argument name="clothing" default="maroon/burgundy ribbed knit cardigan"} that is open and loosely tied at the front with a small bow, layered over a white t-shirt featuring a large red heart graphic and partial black lettering (“I ♥” visible). A delicate silver necklace with a small key-shaped pendant rests against her collarbone.
+
+The background shows a {argument name="vehicle" default="bright blue vintage-style van or minibus"} with a partial orange-and-blue logo/sticker visible on the side, set in an outdoor daytime environment with soft natural lighting. The overall aesthetic is casual, trendy, and soft-focus with natural skin texture and realistic lighting. High detail, photorealistic style.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857317_w05lum_HQD3IFJagAAJ2cU.jpg" width="600" alt="Profile / Avatar - Casual Vintage Van Selfie - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857313_0sp2lo_HQD3IFGaMAAPuKF.jpg" width="600" alt="Profile / Avatar - Casual Vintage Van Selfie - Image 2">
+</div>
+
+##### Image 3
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857308_z0gftl_HQD3IFXaAAEc8ja.jpg" width="600" alt="Profile / Avatar - Casual Vintage Van Selfie - Image 3">
+</div>
+
+##### Image 4
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379858216_atx66j_HQD3IFVbsAAMMdH.jpg" width="600" alt="Profile / Avatar - Casual Vintage Van Selfie - Image 4">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Feyber | AI Creator](https://x.com/woleswoosh)
+- **Source:** [Twitter Post](https://x.com/woleswoosh/status/2091012488963752114)
+- **Published:** August 22, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32195)**
+
+---
+
+### No. 4: Profile / Avatar - Athletic Jersey Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A close-up portrait prompt for a young woman in athletic wear, utilizing indoor lighting and shallow depth of field.
+
+#### 📝 Prompt
+
+```
+ar 9:16 4K
+
+A photorealistic close-up portrait of a {argument name="subject" default="young East Asian woman"} with fair, smooth skin and a soft natural glow. She has long, straight, silky black hair parted in the middle, cascading over both shoulders with a few loose strands falling across her chest and framing her face. The hair has natural volume at the crown and a slight sheen under the light.
+
+She faces the camera directly with a gentle, closed-mouth smile, soft pink glossy lips, large expressive brown eyes with double eyelids, long natural-looking eyelashes, subtle eyeliner, and a light dusting of pink blush on her cheeks. Her expression is warm, friendly, and slightly playful. She has a rounded oval face, soft jawline, and a small, neat nose.
+
+She is wearing a {argument name="clothing" default="red short-sleeved athletic jersey"} with a white V-neck collar and white Adidas-style triple stripes running down the sleeves. Across the chest is bold yellow text reading “PAM” in large capital letters, with smaller yellow text “AMOS ESP” underneath.
+
+The background is an indoor room: on the left, a floral curtain with pink roses and green leaves on a light beige fabric; on the right, a plain, slightly textured dark gray wall. Soft, diffused indoor lighting illuminates her face evenly with gentle highlights on the forehead, nose, and cheeks. Shallow depth of field keeps the subject sharp while the background is softly blurred. Natural skin texture, realistic hair strands, and high detail throughout. Vertical portrait orientation, casual and intimate snapshot style.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857716_1mfytv_HQD1C9-bwAA7ycQ.jpg" width="600" alt="Profile / Avatar - Athletic Jersey Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857472_y55vg8_HQD1C9xbYAANe7s.jpg" width="600" alt="Profile / Avatar - Athletic Jersey Portrait - Image 2">
+</div>
+
+##### Image 3
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379857551_7uy8u0_HQD1C9ybUAAkLdg.jpg" width="600" alt="Profile / Avatar - Athletic Jersey Portrait - Image 3">
+</div>
+
+##### Image 4
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379860279_r70ow7_HQD1C92asAAGXAV.jpg" width="600" alt="Profile / Avatar - Athletic Jersey Portrait - Image 4">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Feyber | AI Creator](https://x.com/woleswoosh)
+- **Source:** [Twitter Post](https://x.com/woleswoosh/status/2090861495592657327)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32197)**
+
+---
+
+### No. 5: Profile / Avatar - Ultra-Realistic Yacht Sunset Portrait
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A cinematic portrait of a person relaxing on a luxury yacht at sunset, designed to use a reference photo for facial accuracy.
+
+#### 📝 Prompt
+
+```
+Ultra-realistic cinematic portrait of a me(use my image for refrence with accurate face)relaxing on a {argument name="setting" default="luxury yacht at sunset"}. Face with the face from the uploaded image, keeping the facial features exactly the same.wearing a {argument name="clothing" default="white unbuttoned shirt with white trousers"}, and stylishblack glasses. The person leansback casually on the yacht seat, barefoot, exuding a confident and relaxed vibe. The ocean waves trail behind the boat under the scaffolding sky, creating an ultrasound serene details
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379851823_89pbg2_HQQXSBeWoAAVWkj.jpg" width="600" alt="Profile / Avatar - Ultra-Realistic Yacht Sunset Portrait - Image 1">
+</div>
+
+##### Image 2
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379851815_h2w9c0_HQQXSBoXAAEQbE6.jpg" width="600" alt="Profile / Avatar - Ultra-Realistic Yacht Sunset Portrait - Image 2">
+</div>
+
+#### 📌 Details
+
+- **Author:** [Alex Prompts](https://x.com/AlexPromptsAI)
+- **Source:** [Twitter Post](https://x.com/AlexPromptsAI/status/2090821930978881741)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32187)**
+
+---
+
+### No. 6: Profile / Avatar - Sophisticated Portrait with Diamonds and Gloves
+
+![Language-EN](https://img.shields.io/badge/Language-EN-blue)
+![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
+
+#### 📖 Description
+
+A striking photorealistic portrait prompt of a woman with sophisticated makeup and accessories, including diamond jewelry and leather gloves.
+
+#### 📝 Prompt
+
+```
+A striking photorealistic portrait features a {argument name="subject" default="woman"} with {argument name="hair style" default="long, wavy brown and blonde layered hair"}, dramatic eye makeup, and glossy lips, exuding a sophisticated aura. She is adorned with sparkling diamond earrings and a necklace, wearing a {argument name="clothing" default="black collared shirt and black leather gloves"}, holding a lit joint.
+```
+
+#### 🖼️ Generated Images
+
+##### Image 1
+
+<div align="center">
+<img src="https://cms-assets.youmind.com/media/1787379854783_93ioba_HQJ2cBEa8AAveEE.jpg" width="600" alt="Profile / Avatar - Sophisticated Portrait with Diamonds and Gloves - Image 1">
+</div>
+
+#### 📌 Details
+
+- **Author:** [dreamy digital arts](https://x.com/dreamydigiarts)
+- **Source:** [Twitter Post](https://x.com/dreamydigiarts/status/2090755812822045113)
+- **Published:** August 21, 2026
+- **Languages:** en
+
+**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32191)**
+
+---
+
+### No. 7: Profile / Avatar - Copper-Red Hair Window Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -700,57 +960,7 @@ Create a photorealistic portrait of a young woman with fair skin and a warm natu
 
 ---
 
-### No. 2: Profile / Avatar - Cinematic Summer Garden Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A moody, cinematic portrait prompt of a woman in a cottage garden surrounded by cherries, captured with a grainy film aesthetic.
-
-#### 📝 Prompt
-
-```
-A cinematic, grainy close-up portrait of a {argument name="subject" default="young woman"}.
-
-She is standing in a {argument name="location" default="summer cottage garden near trees laden with large red cherries"}. She holds a large enamel basin filled with red cherries against her hip with one hand, while the other hand holds a cherry-laden branch up to her mouth.
-
-She is wearing a {argument name="clothing" default="form-fitting pink romper with thin straps and a small cherry print"}.
-
-She wears a white lace headscarf.
-
-Her very long, wavy hair is worn loose, with a few strands framing her face.
-
-Daylight with a moody, shadowed quality.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293549460_3bimjw_HQJWUMsbMAABRat.jpg" width="600" alt="Profile / Avatar - Cinematic Summer Garden Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293549685_yzostj_HQJXKVIbEAAzq9l.jpg" width="600" alt="Profile / Avatar - Cinematic Summer Garden Portrait - Image 2">
-</div>
-
-#### 📌 Details
-
-- **Author:** [dreamy digital arts](https://x.com/dreamydigiarts)
-- **Source:** [Twitter Post](https://x.com/dreamydigiarts/status/2090657648622358930)
-- **Published:** August 21, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32105)**
-
----
-
-### No. 3: Profile / Avatar - Casual Hijab Selfie Portrait
+### No. 8: Profile / Avatar - Casual Hijab Selfie Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -802,7 +1012,7 @@ A close-up selfie of a young {argument name="ethnicity" default="Southeast Asian
 
 ---
 
-### No. 4: Profile / Avatar - Madison Beer Boa Hancock Cosplay
+### No. 9: Profile / Avatar - Madison Beer Boa Hancock Cosplay
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 
@@ -841,7 +1051,7 @@ A detailed prompt for generating a photorealistic cosplay portrait of Madison Be
 
 ---
 
-### No. 5: Profile / Avatar - Ultra-Detailed Cinematic Spring Portrait
+### No. 10: Profile / Avatar - Ultra-Detailed Cinematic Spring Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -911,7 +1121,7 @@ Warm natural sunlight from behind and slightly above, creating soft rim light on
 
 ---
 
-### No. 6: Profile / Avatar - Cinematic Tropical Forest Survival Portrait
+### No. 11: Profile / Avatar - Cinematic Tropical Forest Survival Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -951,7 +1161,7 @@ Photorealistic cinematic photography, realistic skin and clothing textures, natu
 
 ---
 
-### No. 7: Profile / Avatar - Royal Blue Satin Dress Mirror Portrait
+### No. 12: Profile / Avatar - Royal Blue Satin Dress Mirror Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
@@ -1003,220 +1213,9 @@ A young woman with fair skin, delicate natural facial features, and long {argume
 
 ---
 
-### No. 8: Profile / Avatar - Fisheye Convenience Store Portrait
+### No. 13: Profile / Avatar - Fisheye Convenience Store Portrait
 
 ![Language-EN](https://img.shields.io/badge/Language-EN-blue)
 ![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A realistic fisheye lens photography prompt featuring an East Asian woman in a teal-lit convenience store at night.
-
-#### 📝 Prompt
-
-```
-Ultra-realistic {argument name="camera" default="fisheye lens"} photo, extreme low-angle looking up, {argument name="subject" default="beautiful young East Asian woman"} with long wavy dark brown hair cascading over her shoulders, wearing {argument name="clothing" default="oversized black oval sunglasses"} with gold logos on the temples, black tight tank top, small gold hoop earrings, layered delicate gold necklaces, glossy full lips slightly parted, subtle makeup, confident and alluring expression, standing behind the counter of a {argument name="location" default="brightly lit convenience store at night"}, green fluorescent ceiling lights casting a cool teal glow, shelves densely packed with cigarette packs (Marlboro, Winston, local brands in red, blue, gold, white boxes) on the left and snacks/drinks on the right, white tiled floor, cash register, card terminal, scattered papers, pens and small cups on the counter in the foreground, strong barrel distortion from the fisheye lens, high detail, sharp focus, cinematic lighting, photorealistic, 8k
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293550455_o3eqx7_HP-tO66bYAAmn5u.jpg" width="600" alt="Profile / Avatar - Fisheye Convenience Store Portrait - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293550354_p1o89v_HP-tO6MbwAAa7V1.jpg" width="600" alt="Profile / Avatar - Fisheye Convenience Store Portrait - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293550428_0zoqkz_HP-tO6Na8AA00KF.jpg" width="600" alt="Profile / Avatar - Fisheye Convenience Store Portrait - Image 3">
-</div>
-
-##### Image 4
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293551118_zr53lc_HP-tO6PboAAV6aS.jpg" width="600" alt="Profile / Avatar - Fisheye Convenience Store Portrait - Image 4">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Feyber | AI Creator](https://x.com/woleswoosh)
-- **Source:** [Twitter Post](https://x.com/woleswoosh/status/2090287716470497498)
-- **Published:** August 20, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32000)**
-
----
-
-### No. 9: Profile / Avatar - Cinematic Rural Village Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A cinematic portrait prompt designed to place a specific person into a peaceful rural village setting while maintaining their identity.
-
-#### 📝 Prompt
-
-```
-Use the uploaded reference image to preserve the girl’s exact face and identity. Create a highly realistic, aesthetic cinematic scene of {argument name="character" default="her as a simple village girl"} enjoying nature beside a {argument name="setting" default="beautiful flowing river"}, surrounded by lush green fields, trees, and majestic mountains. She wears {argument name="clothing" default="elegant traditional rural clothing"}, with a natural, peaceful expression. Warm golden-hour sunlight, soft breeze, authentic village atmosphere, photorealistic details, natural skin texture, dreamy composition, cinematic depth of field, ultra-realistic photography.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293546136_xs4azi_HQIh-auaoAAcqZf.jpg" width="600" alt="Profile / Avatar - Cinematic Rural Village Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Ayla | AI & Tech](https://x.com/AylaTechAI)
-- **Source:** [Twitter Post](https://x.com/AylaTechAI/status/2090270630377910286)
-- **Published:** August 20, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=32002)**
-
----
-
-### No. 10: Profile / Avatar - Facial Identity Preservation Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A technical prompt designed to maintain 100% facial identity and skin texture while transforming a reference portrait into a stylized professional photo.
-
-#### 📝 Prompt
-
-```
-Use the uploaded image as the only facial reference and preserve 100% facial identity, hairstyle, beard, skin tone, and natural skin texture. A handsome man same face photograph of the same young man from image_0.png, maintaining his charming smile and direct eye contact. He is upward looking back to face on a surface, looking at the camera. He wears a {argument name="clothing" default="purple shifon kurta"}, with the sleeves showing. {argument name="accessory" default="rolix watch"}. black ring. His {argument name="hair color" default="dark brown"} hair. The lighting is soft and natural. The background is nhait mood sky blue ton simple and out of focus. Skin: Porcelain-smooth, "glass skin"
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787293544255_34cylv_HQILONqbAAEi-Ae.jpg" width="600" alt="Profile / Avatar - Facial Identity Preservation Portrait - Image 1">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Dilshad Hussain](https://x.com/DilshadAI1)
-- **Source:** [Twitter Post](https://x.com/DilshadAI1/status/2090245526671491378)
-- **Published:** August 20, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=31999)**
-
----
-
-### No. 11: Profile / Avatar - Asian Woman in Striped Sweater
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A photorealistic portrait of an East Asian woman in a ribbed knit sweater, featuring warm golden-hour lighting and a minimalist bedroom setting.
-
-#### 📝 Prompt
-
-```
-A photorealistic portrait of a beautiful young {argument name="ethnicity" default="East Asian"} woman in her early 20s, fair porcelain skin, large soft brown eyes with long eyelashes and subtle winged eyeliner, delicate arched eyebrows, full glossy pink-coral lips, long wavy {argument name="hair color" default="chestnut-brown"} hair cascading over her right shoulder and down her back with soft volume and natural shine. Black rectangular cat-eye sunglasses perched on top of her head. She is wearing a cozy off-the-shoulder {argument name="clothing" default="ribbed knit sweater with bold horizontal stripes in chocolate brown and cream white"}, the neckline slipped down to reveal her left shoulder and collarbone. Soft natural window light from the right casting gentle shadows across her face and body, warm golden-hour glow. Pose: slightly tilted head, direct eye contact with a soft neutral expression, left arm crossed over her body with manicured nails in muted burgundy resting on her right upper arm. Background: plain soft pastel pink wall, elegant crystal wall sconce lamp with dangling pendant on the left, white double electrical outlet near the floor, minimalist indoor bedroom setting. Shot on 85mm lens, shallow depth of field, ultra-detailed skin texture, realistic fabric knit, high resolution, cinematic soft lighting.
-```
-
-#### 🖼️ Generated Images
-
-##### Image 1
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787208872395_2ultci_HP-ssAYaYAANMfh.jpg" width="600" alt="Profile / Avatar - Asian Woman in Striped Sweater - Image 1">
-</div>
-
-##### Image 2
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787208872404_586g2b_HP-sr_qa4AAAk8c.jpg" width="600" alt="Profile / Avatar - Asian Woman in Striped Sweater - Image 2">
-</div>
-
-##### Image 3
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787208872400_v30ltz_HP-sr_wbAAAEkpL.jpg" width="600" alt="Profile / Avatar - Asian Woman in Striped Sweater - Image 3">
-</div>
-
-##### Image 4
-
-<div align="center">
-<img src="https://cms-assets.youmind.com/media/1787208873063_jeadnz_HP-sr_wbcAAZYaN.jpg" width="600" alt="Profile / Avatar - Asian Woman in Striped Sweater - Image 4">
-</div>
-
-#### 📌 Details
-
-- **Author:** [Feyber | AI Creator](https://x.com/woleswoosh)
-- **Source:** [Twitter Post](https://x.com/woleswoosh/status/2090166916795236606)
-- **Published:** August 19, 2026
-- **Languages:** en
-
-**[👉 Try it now →](https://youmind.com/en-US/nano-banana-pro-prompts?id=31993)**
-
----
-
-### No. 12: Profile / Avatar - Sadie Sink Grassy Field Portrait
-
-![Language-EN](https://img.shields.io/badge/Language-EN-blue)
-![Raycast](https://img.shields.io/badge/🚀-Raycast_Friendly-purple)
-
-#### 📖 Description
-
-A JSON-structured lifestyle photography prompt for a Sadie Sink-inspired portrait in a sunny field.
-
-#### 📝 Prompt
-
-```
-{
-  "image_prompt": {
-    "subject": {
-      "appearance": "{argument name="hair style" default="Slim young woman with straight, mid-length natural, vibrant coppery-red"}",
-      "reference_celeb": "Sadie Sink",
-      "expression": "Neutral, direct gaze at the camera",
-      "physical_details": "Toned midriff, prominent belly button piercing with a clear stone barbell, slight freckles",
-      "face_details": "Soft facial features, natural lip color, eyebrows lightly filled"
-    },
-    "attire": {
-      "garment_top": "{argument name="top" default="Long-sleeved, ribbed knit, very short cropped cerulean blue cardigan"}",
-      "styling_top": "Fully buttoned, creating a tight fit"
-    },
-    "pose": {
-      "stance": "Standing frontally with body slightly angled to the viewer's left",
-      "arms": "Both arms extended downwards at her sides, hands partially obscured"
-    },
-    "setting": {
-      "environment": "{argument name="setting" default="Sunny, outdoor field with dense, tall green and yellow-green grassy vegetation"}",
-      "background_details": [
-        "Field of grass",
-        "Partial view of a black padded element (seat/cushion) on the lower right"
-      ]
-    },
-    "composition": {
-      "framing": "Medium waist-up shot, framing the entire midriff",
-      "depth_of_field": "Shallow depth of field, sharp focus on subject, blurred background",
-      "lighting": "Natural daylight, bright and even",
-    },
-    "photography_style": {
-```
 
 <!-- opensource-radar:truncated -->

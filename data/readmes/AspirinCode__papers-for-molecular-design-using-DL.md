@@ -978,7 +978,9 @@ Santana, M.V.S., Silva-Jr, F.P.
 
 
 
-
+* **Generalizing molecular design via flexible search space control** [2026]  
+ Fujii, S., Murakami, Y., Yoshizawa, T. et al.  
+  [Commun Chem (2026)](https://doi.org/10.1038/s42004-026-02172-7) |  [code](https://github.com/molecule-generator-collection/ChemTSv3)  
 
 * **MolMiner: Toward Controllable, Three-Dimensional-Aware, Fragment-Based Molecular Design** [2026]  
  Raul Ortega-Ochoa, Tejs Vegge, Jes Frellsen.  
@@ -1206,10 +1208,6 @@ Hu, F., Jia, X., Liao, W. et al.
 
 * **Expanding Chemical Space: Developing a Compound Generative Pre-trained Transformer for De Novo Drug Design** [2025]   
   Dai Z, Zhang J, Zhong S, Fu J, Deng Y, Zhang D, et al.   
-  [bioRxiv. (2025)](https://doi.org/10.1101/2025.01.24.634665) |  [code](https://github.com/Charliefff/CompoundGPT)  
-
-* **A Zero-Shot Single-point Molecule Optimization Model: Mimicking Medicinal Chemists’ Expertise** [2025]   
-  Dai Z, Zhang J, Zhong S, Fu J, Deng Y, Zhang D, et al.   
-  [chemrxiv-2025-m82r5 (2025)](https://doi.org/10.26434/chemrxiv-2025-m82r5) |  [code](https://github.com/DonaldDai/new_paper_code)
+  [bioRxiv. (2025)](https://doi.org/10.1101/2025.01.24.634665) |  [code](https://github.com/Charliefff/CompoundGPT)
 
 <!-- opensource-radar:truncated -->

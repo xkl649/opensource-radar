@@ -73,7 +73,7 @@
 | <img width="48px" src=".github/assets/client-senpi.png" alt="Senpi" /> | [Senpi (OmO Native)](https://github.com/code-yeongyu/senpi) | `~/.senpi/agent/sessions/` (override via `SENPI_CODING_AGENT_DIR`) |
 | <img width="48px" src="https://github.com/getkimchi.png" alt="Kimchi" /> | [Kimchi Coding](https://kimchi.dev/) | `~/.config/kimchi/harness/sessions/` (override via `KIMCHI_CODING_AGENT_DIR`) |
 | <img width="48px" src=".github/assets/client-synthetic.png" alt="Reasonix" /> | [Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | `~/.reasonix/stats/*.jsonl` (override via `REASONIX_STATE_HOME` or `REASONIX_HOME`) |
-| <img width="48px" src=".github/assets/client-kimi.png" alt="Kimi" /> | [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) / [Kimi Code](https://github.com/MoonshotAI/kimi-code) | kimi-cli: `~/.kimi/sessions/` kimi-code: `~/.kimi-code/sessions/` (override via `KIMI_CODE_HOME`) |
+| <img width="48px" src=".github/assets/client-kimi.png" alt="Kimi" /> | [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) / [Kimi Code](https://github.com/MoonshotAI/kimi-code) | kimi-cli: `~/.kimi/sessions/` kimi-code: `~/.kimi-code/sessions/` (override via `KIMI_CODE_HOME`) kimi-work: desktop app-data root (auto-discovered) |
 | <img width="48px" src=".github/assets/client-qwen.png" alt="Qwen" /> | [Qwen CLI](https://github.com/QwenLM/qwen-cli) | `~/.qwen/projects/` |
 | <img width="48px" src=".github/assets/client-roocode.png" alt="Roo Code" /> | [Roo Code](https://github.com/RooCodeInc/Roo-Code) | `~/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/tasks/` (+ server: `~/.vscode-server/data/User/globalStorage/rooveterinaryinc.roo-cline/tasks/`) |
 | <img width="48px" src=".github/assets/client-kilocode.png" alt="Kilo" /> | [Kilo](https://github.com/Kilo-Org/kilocode) | `~/.config/Code/User/globalStorage/kilocode.kilo-code/tasks/` (+ server: `~/.vscode-server/data/User/globalStorage/kilocode.kilo-code/tasks/`) |
@@ -177,7 +177,7 @@ In the age of AI-assisted development, **tokens are the new energy**. They power
   - GitHub-style contribution graph with configurable color themes
   - Real-time filtering and sorting
   - Zero flicker rendering
-- **Multi-platform support** - Track usage across OpenCode, Claude Code, Codex CLI, Prime Agent, Copilot CLI, Cursor IDE, Gemini CLI, Amp, Codebuff, Droid, OpenClaw, Hermes Agent, Pi, Kimchi Coding, Reasonix, Kimi CLI, Qwen CLI, Roo Code, Kilo, Mux, Kilo CLI, Crush, Goose, Antigravity, Antigravity CLI, Zed, Kiro, Trae, Warp/Oz, Cline, Gajae-Code, Grok Build, Jcode, MiMo Code, Command Code, Junie, ZCode, OpenCodeReview, CodeBuddy, WorkBuddy, Devin CLI, Devin Desktop, Augment Code, Synthetic, Cherry Studio, and fx
+- **Multi-platform support** - Track usage across OpenCode, Claude Code, Codex CLI, Prime Agent, Copilot CLI, Cursor IDE, Gemini CLI, Amp, Codebuff, Droid, OpenClaw, Hermes Agent, Pi, Kimchi Coding, Reasonix, Kimi CLI, Kimi Work, Qwen CLI, Roo Code, Kilo, Mux, Kilo CLI, Crush, Goose, Antigravity, Antigravity CLI, Zed, Kiro, Trae, Warp/Oz, Cline, Gajae-Code, Grok Build, Jcode, MiMo Code, Command Code, Junie, ZCode, OpenCodeReview, CodeBuddy, WorkBuddy, Devin CLI, Devin Desktop, Augment Code, Synthetic, Cherry Studio, and fx
 - **Real-time pricing** - Fetches current pricing from LiteLLM with 1-hour disk cache; automatic OpenRouter fallback and Cursor model pricing for newly released models
 - **Detailed breakdowns** - Input, output, cache read/write, and reasoning token tracking
 - **Native Rust core** - All parsing and aggregation done in Rust for 10x faster processing
@@ -558,6 +558,21 @@ tokscale logout
 ```
 
 <img alt="CLI Submit" src="./.github/assets/cli-submit.png" />
+
+#### Unpriced usage is excluded from submission
+
+Before anything is submitted, every message must resolve to an authoritative price that covers every token bucket the message populated (input, output, cache read, cache write). Messages that cannot be priced are skipped and reported as `Warning: excluded N unpriced provider/model message(s)` — unknown models never submit invented or guessed spend, and all remaining priced usage still submits normally.
+
+The exclusion reasons:
+
+- `no authoritative model-to-price mapping` — the model ID is absent from LiteLLM, OpenRouter, models.dev, and your custom overrides.
+- `generic routing label has no authoritative model-to-price mapping` — the ID is a router label (`auto`, `gemini-default`, …) whose underlying model varies per request, so it is refused outright. An explicit entry for the label in `custom-pricing.json` is the supported way to assert a rate you know applies.
+- `pricing does not cover every populated token bucket` — a price row was found, but it is missing a rate (most often cache read or cache creation) that this usage actually populates.
+- `model price match does not establish the requested provider` — a price row was found only by matching the model part of the ID, or by trying a provider prefix, which does not prove your provider bills at that row's rate.
+- `model price match does not exactly name the requested model` — a fuzzy or provider-scoped match was found, but nothing proves the priced key names the model you actually used.
+- `model price lookup is ambiguous across non-equivalent candidates` — several candidate rows matched and they quote different prices.
+
+To include previously excluded usage, add an exact-match entry to `custom-pricing.json` (see [Custom Pricing Overrides](#custom-pricing-overrides)) — an explicit `0` declares a genuinely free model — then re-run `tokscale submit --dry-run` until no warnings remain. `tokscale pricing <model-id>` shows which entry matched. The file is keyed by the model ID alone — the `model` half of the `provider/model` pair shown in the warning.
 
 ### Autosubmit
 
@@ -971,33 +986,5 @@ Use `scanner.extraScanPaths` for persistent extra roots such as project-level `.
 Use `defaultClients` to pin a personal default — for example, set it to `["opencode", "claude"]` if those are the only clients you use, and `tokscale` (with no flags) will scope every report to them automatically. Pass `--client` on the command line to override for a single run.
 
 #### Enabling the Minutely tab
-
-The Minutely tab shows a per-minute breakdown of token usage and is most useful for diagnosing burst patterns, debugging a single session, or watching activity in near-real-time alongside `autoRefreshEnabled`. It is hidden by default because the per-minute aggregation runs over every parsed message during data loading, which adds RAM and CPU cost that most users do not need.
-
-To enable it, set `minutelyTabEnabled` to `true` in `~/.config/tokscale/settings.json`:
-
-```json
-{
-  "minutelyTabEnabled": true
-}
-```
-
-After restart, the Minutely tab appears between Hourly and Stats in the tab strip, and Tab / BackTab / Left / Right navigation cycles through it. Set the flag back to `false` to hide the tab and skip the aggregation again.
-
-#### Cache directory layout
-
-The regenerable CLI/TUI/pricing/Wrapped caches now live under `~/.config/tokscale/cache/` (or `${TOKSCALE_CONFIG_DIR}/cache/` when overridden). Integration sync artifacts remain in client-specific cache roots such as `~/.config/tokscale/antigravity-cache/` and `~/.config/tokscale/trae-cache/`:
-
-- `tui-data-cache.json` — TUI startup cache
-- `source-message-cache-v2/` + `source-message-cache.lock` — sharded source-message cache + lock file
-- `pricing-litellm.json` / `pricing-openrouter.json` — pricing caches
-- `opencode-migration.json` — OpenCode migration record
-- `fonts/` and `images/` — Wrapped asset caches
-
-It is safe to delete this directory. Tokscale will recreate and repopulate it on demand.
-
-One caveat, for Claude Code only. Claude Code rewrites a session transcript in place when you resume or compact it: the file keeps its name but loses assistant turns it had already written. `source-message-cache-v2/` remembers those turns for as long as the transcript file exists, so they keep counting toward your totals. That is the only place they still exist — the transcript itself no longer has them. Deleting the cache (or letting a Claude parser upgrade rebuild it) rebuilds from the compacted transcripts, so totals for heavily compacted sessions can come back lower. Deleting a transcript still drops its turns either way, which is what makes local disk the source of truth.
-
-### Environment Variables
 
 <!-- opensource-radar:truncated -->
